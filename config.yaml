@@ -1,0 +1,10 @@
+vault_path: "."
+anthropic_api_key_env: "ANTHROPIC_API_KEY"
+model: "claude-sonnet-4-20250514"
+max_tokens: 8192
+raw_dir: "raw"
+wiki_dir: "wiki"
+output_dir: "output"
+search_index_dir: "search_index"
+search_web_port: 8787
+log_level: "INFO"
