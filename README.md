@@ -1,5 +1,7 @@
 # LLM Knowledge Base
 
+> A compiler for knowledge: raw sources in, structured wiki out, LLM as the build system and query engine!
+
 A personal knowledge base system inspired by [Andrej Karpathy's workflow](https://x.com/karpathy/status/1911060539680358665) — raw documents are collected, compiled by an LLM into an interlinked wiki, and operated on via CLI tools for Q&A, search, and visualization. Everything is viewable in [Obsidian](https://obsidian.md/).
 
 ## How It Works
