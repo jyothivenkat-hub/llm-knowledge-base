@@ -45,6 +45,7 @@ function startCompile(full) {
     const btn = document.getElementById('compile-btn');
     const fullBtn = document.getElementById('compile-full-btn');
     const output = document.getElementById('compile-output');
+    if (IS_DEMO) { output.style.display = 'block'; output.innerHTML = demoAlert(); return; }
     if (btn) btn.disabled = true;
     if (fullBtn) fullBtn.disabled = true;
     output.style.display = 'block';
@@ -72,6 +73,7 @@ function startCompile(full) {
 function runIngest() {
     const btn = document.getElementById('ingest-btn');
     const result = document.getElementById('ingest-result');
+    if (IS_DEMO) { result.innerHTML = demoAlert(); return; }
     btn.disabled = true;
     btn.innerHTML = '<span class="spinner"></span> Scanning...';
 
@@ -111,6 +113,7 @@ function setupDropzone() {
 
 function uploadFiles(files) {
     const result = document.getElementById('upload-result');
+    if (IS_DEMO) { result.innerHTML = demoAlert(); return; }
     const formData = new FormData();
     for (const f of files) formData.append('files', f);
 
@@ -179,6 +182,7 @@ function liveSearch() {
 function runLint(checkName) {
     const btn = document.getElementById('lint-btn');
     const output = document.getElementById('lint-output');
+    if (IS_DEMO) { output.style.display = 'block'; output.innerHTML = demoAlert(); return; }
     btn.disabled = true;
     btn.innerHTML = '<span class="spinner"></span> Running...';
     output.innerHTML = '';
@@ -220,6 +224,7 @@ function renderArticle() {
 
     const btn = document.getElementById('render-btn');
     const result = document.getElementById('render-result');
+    if (IS_DEMO) { result.innerHTML = demoAlert(); return; }
     btn.disabled = true;
     btn.innerHTML = '<span class="spinner"></span> Rendering...';
 

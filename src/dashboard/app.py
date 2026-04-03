@@ -335,6 +335,12 @@ def create_app(config: Optional[Config] = None) -> Flask:
         results.sort(key=lambda x: x["score"], reverse=True)
         return jsonify({"results": results[:20]})
 
+    @app.route("/api/mode")
+    def api_mode():
+        """Returns whether the app is in demo mode (no API key)."""
+        has_key = bool(config.anthropic_api_key and config.anthropic_api_key != "your-api-key-here")
+        return jsonify({"demo": not has_key, "model": config.model})
+
     @app.route("/api/cached-search")
     def api_cached_search():
         """Serve pre-computed answers for demo mode (zero API cost)."""

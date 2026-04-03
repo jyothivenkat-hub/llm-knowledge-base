@@ -29,6 +29,13 @@
     <main class="main">
         {% block content %}{% endblock %}
     </main>
+    <script>
+    var IS_DEMO = false;
+    fetch('/api/mode').then(r=>r.json()).then(d=>{IS_DEMO=d.demo}).catch(()=>{IS_DEMO=true});
+    function demoAlert() {
+        return '<div class="flash" style="background:rgba(124,131,255,0.1);border:1px solid rgba(124,131,255,0.3);color:var(--accent);padding:16px;border-radius:var(--radius-sm);"><strong>Demo Mode</strong><br>This is a read-only demo with pre-built data. To run your own research, clone the repo and add your Anthropic API key.<br><br><a href="https://github.com/jyothivenkat-hub/llm-knowledge-base" style="color:var(--accent);text-decoration:underline;">Get started on GitHub</a></div>';
+    }
+    </script>
     <script src="/static/app.js"></script>
 </body>
 </html>
