@@ -1,22 +1,40 @@
 {% extends "base.html" %}
-{% block title %}Search{% endblock %}
+{% block title %}Search & Ask{% endblock %}
 {% block content %}
 <div class="page-header">
     <h2>Search & Ask</h2>
-    <p>Ask a question — finds relevant claims across your papers and synthesizes an answer</p>
+    <p>Ask a question — finds relevant claims across papers and synthesizes an answer</p>
 </div>
 
-<div class="qa-input-row" style="margin-bottom: 20px;">
-    <input type="text" id="search-input" class="input" placeholder="Ask anything about your research..." autofocus>
-    <button id="search-btn" class="btn btn-primary" onclick="smartSearch()">Search</button>
+<div class="qa-input-row" style="margin-bottom: 16px;">
+    <input type="text" id="search-input" class="input" placeholder="Ask anything about the research..." autofocus>
+    <button id="search-btn" class="btn btn-primary" onclick="smartSearch()">Ask</button>
+</div>
+
+<div id="suggested-questions" style="margin-bottom: 24px;">
+    <div style="font-size:12px;color:var(--text-muted);margin-bottom:8px;">Try these questions:</div>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;">
+        <button class="btn btn-secondary btn-sm" onclick="askSuggested(this)">How do transformer layers map to brain regions?</button>
+        <button class="btn btn-secondary btn-sm" onclick="askSuggested(this)">What is the biological basis for attention mechanisms?</button>
+        <button class="btn btn-secondary btn-sm" onclick="askSuggested(this)">Do LLMs and brains process language the same way?</button>
+        <button class="btn btn-secondary btn-sm" onclick="askSuggested(this)">How do astrocytes relate to transformer attention?</button>
+        <button class="btn btn-secondary btn-sm" onclick="askSuggested(this)">Which LLM layers best predict brain activity?</button>
+        <button class="btn btn-secondary btn-sm" onclick="askSuggested(this)">What contradictions exist in brain-LLM alignment research?</button>
+        <button class="btn btn-secondary btn-sm" onclick="askSuggested(this)">How does FlashAttention improve transformer training?</button>
+        <button class="btn btn-secondary btn-sm" onclick="askSuggested(this)">What are the open questions in brain-AI alignment research?</button>
+    </div>
 </div>
 
 <div id="search-answer" class="qa-answer" style="display:none;"></div>
 <div id="search-steps" class="qa-steps stream-output" style="display:none;"></div>
-
 <div id="search-results" style="margin-top: 16px;"></div>
 
 <script>
+function askSuggested(btn) {
+    document.getElementById('search-input').value = btn.textContent;
+    smartSearch();
+}
+
 function smartSearch() {
     const input = document.getElementById('search-input');
     const query = input.value.trim();
@@ -26,15 +44,49 @@ function smartSearch() {
     const answer = document.getElementById('search-answer');
     const steps = document.getElementById('search-steps');
     const results = document.getElementById('search-results');
+    const suggestions = document.getElementById('suggested-questions');
 
     btn.disabled = true;
     btn.innerHTML = '<span class="spinner"></span>';
     answer.style.display = 'none';
     answer.innerHTML = '';
     steps.style.display = 'block';
-    steps.innerHTML = '';
+    steps.innerHTML = '<div class="step">Searching...</div>';
     results.innerHTML = '';
+    suggestions.style.display = 'none';
 
+    // Try cached first (instant, free)
+    fetch('/api/cached-search?q=' + encodeURIComponent(query))
+        .then(r => r.json())
+        .then(data => {
+            if (data.answer) {
+                // Got a cached answer — render it instantly
+                btn.disabled = false;
+                btn.textContent = 'Ask';
+                steps.innerHTML = '<div class="done">Answered from cache' +
+                    (data.matched_question ? ' (matched: "' + data.matched_question + '")' : '') + '</div>';
+
+                answer.style.display = 'block';
+                // Render markdown-ish (basic)
+                answer.innerHTML = renderBasicMd(data.answer);
+
+                if (data.evidence) {
+                    showEvidence(data.evidence, results);
+                }
+                return;
+            }
+
+            // No cache hit — try live API (SSE stream)
+            steps.innerHTML = '<div class="step">No cached answer, trying live synthesis...</div>';
+            doLiveSearch(query, btn, answer, steps, results);
+        })
+        .catch(() => {
+            // Cache endpoint failed — try live
+            doLiveSearch(query, btn, answer, steps, results);
+        });
+}
+
+function doLiveSearch(query, btn, answer, steps, results) {
     const url = '/api/smart-search?q=' + encodeURIComponent(query);
     const source = new EventSource(url);
 
@@ -44,24 +96,14 @@ function smartSearch() {
         if (data.done) {
             source.close();
             btn.disabled = false;
-            btn.textContent = 'Search';
+            btn.textContent = 'Ask';
 
             if (data.answer_html) {
                 answer.style.display = 'block';
                 answer.innerHTML = data.answer_html;
             }
             if (data.evidence) {
-                results.innerHTML = '<h3 style="margin:16px 0 12px;font-size:14px;color:var(--text-muted);">Evidence Trail (' + data.evidence.length + ' claims)</h3>';
-                data.evidence.forEach(function(r) {
-                    const typeColor = {finding:'#4ade80', claim:'#7c83ff', method:'#fbbf24', concept:'#38bdf8', hypothesis:'#c084fc'}[r.type] || '#6a6a82';
-                    results.innerHTML += '<div class="search-result">' +
-                        '<span class="score">' + (r.score ? r.score.toFixed(1) : '') + '</span>' +
-                        '<span class="badge" style="background:' + typeColor + '22;color:' + typeColor + ';margin-right:6px;">' + (r.type || 'claim') + '</span>' +
-                        '<h3><a href="/wiki/' + r.path + '">' + r.title + '</a></h3>' +
-                        '<div class="path">' + (r.source_paper || r.path) + '</div>' +
-                        '<div class="snippet">' + r.snippet + '</div>' +
-                        '</div>';
-                });
+                showEvidence(data.evidence, results);
             }
             return;
         }
@@ -69,8 +111,8 @@ function smartSearch() {
         if (data.error) {
             source.close();
             btn.disabled = false;
-            btn.textContent = 'Search';
-            steps.innerHTML += '<div class="error">' + data.error + '</div>';
+            btn.textContent = 'Ask';
+            steps.innerHTML += '<div class="error">Error: ' + data.error + '</div>';
             return;
         }
 
@@ -84,11 +126,45 @@ function smartSearch() {
     source.onerror = function() {
         source.close();
         btn.disabled = false;
-        btn.textContent = 'Search';
+        btn.textContent = 'Ask';
+        if (!answer.innerHTML) {
+            steps.innerHTML += '<div class="error">Live synthesis unavailable. Try a suggested question for cached answers.</div>';
+            document.getElementById('suggested-questions').style.display = 'block';
+        }
     };
 }
 
-// Enter key triggers search
+function showEvidence(evidence, container) {
+    const typeColors = {finding:'#4ade80', claim:'#7c83ff', method:'#fbbf24', concept:'#38bdf8', hypothesis:'#c084fc', graph_node:'#7c83ff', wiki:'#6a6a82'};
+    let html = '<h3 style="margin:16px 0 12px;font-size:14px;color:var(--text-muted);">Evidence Trail (' + evidence.length + ' claims)</h3>';
+    evidence.forEach(function(r) {
+        const c = typeColors[r.type] || '#6a6a82';
+        html += '<div class="search-result">' +
+            (r.score ? '<span class="score">' + r.score.toFixed(1) + '</span>' : '') +
+            '<span class="badge" style="background:' + c + '22;color:' + c + ';margin-right:6px;">' + (r.type || 'claim') + '</span>' +
+            '<h3><a href="/wiki/' + r.path + '">' + r.title + '</a></h3>' +
+            (r.source_paper ? '<div class="path">' + r.source_paper + '</div>' : '') +
+            '<div class="snippet">' + r.snippet + '</div></div>';
+    });
+    container.innerHTML = html;
+}
+
+function renderBasicMd(text) {
+    // Very basic markdown to HTML
+    return text
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.+?)\*/g, '<em>$1</em>')
+        .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+        .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+        .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+        .replace(/^- (.+)$/gm, '<li>$1</li>')
+        .replace(/(<li>.*<\/li>)/gs, '<ul>$1</ul>')
+        .replace(/\n\n/g, '</p><p>')
+        .replace(/^/, '<p>').replace(/$/, '</p>')
+        .replace(/<p><h/g, '<h').replace(/<\/h(\d)><\/p>/g, '</h$1>')
+        .replace(/<p><ul>/g, '<ul>').replace(/<\/ul><\/p>/g, '</ul>');
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('search-input').addEventListener('keydown', function(e) {
         if (e.key === 'Enter') smartSearch();

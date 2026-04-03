@@ -261,6 +261,45 @@ def create_app(config: Optional[Config] = None) -> Flask:
         results.sort(key=lambda x: x["score"], reverse=True)
         return jsonify({"results": results[:20]})
 
+    @app.route("/api/cached-search")
+    def api_cached_search():
+        """Serve pre-computed answers for demo mode (zero API cost)."""
+        question = request.args.get("q", "").strip().lower()
+        if not question:
+            return jsonify({"error": "No question"})
+
+        # Load cached answers
+        cached_path = Path(__file__).parent / "static" / "cached_answers.json"
+        if not cached_path.exists():
+            return jsonify({"error": "No cached answers available"})
+
+        cached = json.loads(cached_path.read_text(encoding="utf-8"))
+
+        # Exact match
+        if question in cached:
+            entry = cached[question]
+            return jsonify({"answer": entry["answer"], "evidence": entry["evidence"], "cached": True})
+
+        # Fuzzy match — find best matching question
+        best_match = None
+        best_score = 0
+        query_words = set(question.split())
+        for key, entry in cached.items():
+            key_words = set(key.split())
+            overlap = len(query_words & key_words)
+            if overlap > best_score:
+                best_score = overlap
+                best_match = entry
+
+        if best_match and best_score >= 2:
+            return jsonify({"answer": best_match["answer"], "evidence": best_match["evidence"],
+                           "cached": True, "matched_question": best_match["question"]})
+
+        # List available questions
+        available = [v["question"] for v in cached.values()]
+        return jsonify({"error": "No cached answer for this question. Try one of the suggested questions.",
+                       "available_questions": available})
+
     @app.route("/api/smart-search")
     def api_smart_search():
         """Find relevant claims, gather graph context, synthesize answer via LLM."""
