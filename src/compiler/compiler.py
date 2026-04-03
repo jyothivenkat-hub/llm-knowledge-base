@@ -1,4 +1,4 @@
-"""Main wiki compilation orchestrator."""
+"""Main wiki compilation orchestrator — knowledge graph pipeline."""
 
 from __future__ import annotations
 
@@ -10,10 +10,9 @@ import yaml
 
 from ..config import Config
 from ..llm import LLM
-from ..utils import sha256_file
+from ..utils import sha256_file, read_markdown, ensure_dir
 from ..ingest.manifest import Manifest
-from .summarizer import summarize_sources
-from .categorizer import extract_and_categorize, generate_concept_articles
+from .graph_builder import build_graph
 from .linker import build_backlinks
 from .indexer import generate_indexes
 
@@ -25,15 +24,17 @@ def run_compile(
     full: bool = False,
     progress_callback: Optional[Callable[[str], None]] = None,
 ) -> Dict[str, int]:
-    """Run the wiki compilation pipeline.
+    """Run the knowledge graph compilation pipeline.
 
-    Args:
-        config: Project configuration.
-        full: If True, force full recompilation.
-        progress_callback: Optional callback for streaming progress updates.
+    Pipeline:
+    1. Extract text from raw sources (PDF/md)
+    2. Chunk into atomic claims → wiki/claims/*.md
+    3. Connect claims across papers
+    4. Cluster into themes
+    5. Enrich with insights
+    6. Build indexes for search
 
-    Returns:
-        Dict with counts: summarized, concepts, topics.
+    Returns dict with stats.
     """
     def progress(msg: str):
         logger.info(msg)
@@ -42,75 +43,103 @@ def run_compile(
 
     llm = LLM(config)
     manifest = Manifest(config.raw_path / "_manifest.yaml")
-    state = _load_compilation_state(config)
 
-    stats = {"summarized": 0, "concepts": 0, "topics": 0}
+    stats = {"sources": 0, "claims": 0, "edges": 0, "clusters": 0}
 
-    # Step 1: Identify sources to process
+    # Step 1: Identify sources
     if full:
         entries = manifest.all_entries()
-        progress(f"Full recompilation: {len(entries)} sources")
+        progress(f"Full compilation: {len(entries)} sources")
     else:
         entries = manifest.get_uncompiled() + manifest.get_modified()
-        progress(f"Incremental compilation: {len(entries)} new/modified sources")
+        progress(f"Incremental: {len(entries)} new/modified sources")
 
     if not entries and not full:
-        progress("Nothing to compile. Regenerating indexes...")
-        generate_indexes(config, llm)
+        progress("Nothing to compile.")
         return stats
 
-    # Step 2: Summarize sources
-    progress("Step 1/6: Summarizing sources...")
-    results = summarize_sources(config, llm, entries)
-    stats["summarized"] = len(results)
-    for entry, wiki_path in results:
-        progress(f"  Summarized: {entry.title}")
+    stats["sources"] = len(entries)
 
-    # Mark compiled in manifest
-    for entry, wiki_path in results:
+    # Step 2: Extract text from all raw sources
+    progress("Step 1/2: Extracting text from sources...")
+    source_texts = _extract_all_sources(config, entries, progress)
+    progress(f"  Extracted text from {len(source_texts)} sources")
+
+    # Mark compiled
+    for entry in entries:
         source_path = config.raw_path / entry.path
-        manifest.mark_compiled(entry.path, sha256_file(source_path))
+        if source_path.exists():
+            manifest.mark_compiled(entry.path, sha256_file(source_path))
     manifest.save()
 
-    # Step 3: Extract concepts and categorize
-    progress("Step 2/6: Extracting concepts...")
-    categorization = extract_and_categorize(config, llm)
-    topics = categorization.get("topics", {})
-    stats["topics"] = len(topics)
-    progress(f"  Found {len(topics)} topics")
+    # Step 3: Build knowledge graph (chunk → connect → cluster → enrich → save)
+    # This reads the extracted texts, chunks them, saves wiki/claims/*.md,
+    # finds connections, clusters, enriches, and saves graph.json
+    progress("Step 2/2: Building knowledge graph...")
+    graph_stats = build_graph(config, llm, source_texts, progress_callback=progress_callback)
+    stats["claims"] = graph_stats.get("claims", 0)
+    stats["edges"] = graph_stats.get("edges", 0)
+    stats["clusters"] = graph_stats.get("clusters", 0)
 
-    # Step 4: Generate concept articles
-    progress("Step 3/6: Generating concept articles...")
-    stats["concepts"] = generate_concept_articles(config, llm, categorization)
-    progress(f"  Generated {stats['concepts']} concept articles")
-
-    # Step 5: Build backlinks
-    progress("Step 4/6: Building backlinks...")
+    # Build legacy indexes + backlinks
+    progress("Building indexes...")
     build_backlinks(config)
+    generate_indexes(config, llm)
 
-    # Step 6: Generate indexes and summary
-    progress("Step 5/6: Generating indexes...")
-    generate_indexes(config, llm, categorization)
-
-    # Step 7: Save compilation state
-    progress("Step 6/6: Saving compilation state...")
+    # Save state
     _save_compilation_state(config, manifest)
 
     progress(f"Done! {llm.token_usage_summary()}")
     return stats
 
 
-def _load_compilation_state(config: Config) -> dict:
-    state_path = config.wiki_path / "_compilation_state.yaml"
-    if state_path.exists():
-        return yaml.safe_load(state_path.read_text(encoding="utf-8")) or {}
-    return {}
+def _extract_all_sources(
+    config: Config,
+    entries,
+    progress: Callable,
+) -> Dict[str, Dict]:
+    """Extract text from all raw sources. Returns {entry_path: {title, text, source_url}}."""
+    source_texts = {}
+
+    for entry in entries:
+        source_path = config.raw_path / entry.path
+
+        if not source_path.exists():
+            logger.warning("Source not found: %s", entry.path)
+            continue
+
+        text = ""
+        if source_path.suffix.lower() == ".pdf":
+            try:
+                import pymupdf
+                doc = pymupdf.open(str(source_path))
+                text = "\n".join(page.get_text() for page in doc)
+                doc.close()
+                progress(f"  Extracted PDF: {entry.title}")
+            except Exception as e:
+                logger.warning("Failed to read PDF %s: %s", entry.path, e)
+                continue
+        else:
+            text = read_markdown(source_path)
+            # Strip front matter
+            if text.startswith("---"):
+                end = text.find("---", 3)
+                if end != -1:
+                    text = text[end + 3:].strip()
+            progress(f"  Read: {entry.title}")
+
+        if text.strip():
+            source_texts[entry.path] = {
+                "title": entry.title,
+                "text": text,
+                "source_url": entry.source_url,
+            }
+
+    return source_texts
 
 
 def _save_compilation_state(config: Config, manifest: Manifest):
-    state = {
-        "sources": {},
-    }
+    state = {"sources": {}}
     for entry in manifest.all_entries():
         state["sources"][entry.path] = {
             "compiled_hash": entry.compiled_hash,

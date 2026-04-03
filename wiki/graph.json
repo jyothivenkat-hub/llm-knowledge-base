@@ -1,0 +1,3533 @@
+{
+  "nodes": [
+    {
+      "text": "Dominant sequence transduction models are based on complex recurrent or convolutional neural networks that include an encoder and a decoder.",
+      "type": "claim",
+      "tags": [
+        "sequence-transduction",
+        "recurrent-networks",
+        "convolutional-networks",
+        "encoder-decoder"
+      ],
+      "evidence": "Stated as background context about existing approaches in the field.",
+      "id": "attention-is-all-you-need-001",
+      "source_paper": "articles/sample-attention.md",
+      "source_title": "Attention Is All You Need",
+      "cluster": "transformer-architecture-attention"
+    },
+    {
+      "text": "The best performing sequence transduction models connect the encoder and decoder through an attention mechanism.",
+      "type": "claim",
+      "tags": [
+        "attention-mechanism",
+        "encoder-decoder",
+        "sequence-transduction",
+        "model-performance"
+      ],
+      "evidence": "Presented as established knowledge about state-of-the-art models.",
+      "id": "attention-is-all-you-need-002",
+      "source_paper": "articles/sample-attention.md",
+      "source_title": "Attention Is All You Need",
+      "cluster": "transformer-architecture-attention"
+    },
+    {
+      "text": "The Transformer is a new simple network architecture based solely on attention mechanisms.",
+      "type": "method",
+      "tags": [
+        "transformer",
+        "attention-mechanism",
+        "neural-architecture",
+        "sequence-modeling"
+      ],
+      "evidence": "Explicitly proposed as the main contribution of the paper.",
+      "id": "attention-is-all-you-need-003",
+      "source_paper": "articles/sample-attention.md",
+      "source_title": "Attention Is All You Need",
+      "cluster": "transformer-architecture-attention"
+    },
+    {
+      "text": "The Transformer architecture dispenses with recurrence and convolutions entirely.",
+      "type": "method",
+      "tags": [
+        "transformer",
+        "attention-mechanism",
+        "recurrent-networks",
+        "convolutional-networks"
+      ],
+      "evidence": "Stated as a key design choice that distinguishes the Transformer from existing models.",
+      "id": "attention-is-all-you-need-004",
+      "source_paper": "articles/sample-attention.md",
+      "source_title": "Attention Is All You Need",
+      "cluster": "transformer-architecture-attention"
+    },
+    {
+      "text": "Self-attention mechanism is a key concept in the Transformer architecture.",
+      "type": "concept",
+      "tags": [
+        "self-attention",
+        "attention-mechanism",
+        "transformer",
+        "neural-networks"
+      ],
+      "evidence": "Listed as one of the key concepts of the paper.",
+      "id": "attention-is-all-you-need-005",
+      "source_paper": "articles/sample-attention.md",
+      "source_title": "Attention Is All You Need",
+      "cluster": "transformer-architecture-attention"
+    },
+    {
+      "text": "Multi-head attention is a key concept in the Transformer architecture.",
+      "type": "concept",
+      "tags": [
+        "multi-head-attention",
+        "attention-mechanism",
+        "transformer",
+        "neural-networks"
+      ],
+      "evidence": "Listed as one of the key concepts of the paper.",
+      "id": "attention-is-all-you-need-006",
+      "source_paper": "articles/sample-attention.md",
+      "source_title": "Attention Is All You Need",
+      "cluster": "transformer-architecture-attention"
+    },
+    {
+      "text": "Positional encoding is a key concept in the Transformer architecture.",
+      "type": "concept",
+      "tags": [
+        "positional-encoding",
+        "transformer",
+        "sequence-modeling",
+        "neural-networks"
+      ],
+      "evidence": "Listed as one of the key concepts of the paper.",
+      "id": "attention-is-all-you-need-007",
+      "source_paper": "articles/sample-attention.md",
+      "source_title": "Attention Is All You Need",
+      "cluster": "transformer-architecture-attention"
+    },
+    {
+      "text": "The Transformer uses an encoder-decoder architecture.",
+      "type": "method",
+      "tags": [
+        "transformer",
+        "encoder-decoder",
+        "neural-architecture",
+        "sequence-modeling"
+      ],
+      "evidence": "Listed as one of the key concepts of the paper.",
+      "id": "attention-is-all-you-need-008",
+      "source_paper": "articles/sample-attention.md",
+      "source_title": "Attention Is All You Need",
+      "cluster": "transformer-architecture-attention"
+    },
+    {
+      "text": "The Transformer achieves 28.4 BLEU on the WMT 2014 English-to-German translation task.",
+      "type": "finding",
+      "tags": [
+        "transformer",
+        "machine-translation",
+        "bleu-score",
+        "performance-evaluation"
+      ],
+      "evidence": "Specific numerical result reported in the results section.",
+      "id": "attention-is-all-you-need-009",
+      "source_paper": "articles/sample-attention.md",
+      "source_title": "Attention Is All You Need",
+      "cluster": "performance-optimization-scaling"
+    },
+    {
+      "text": "The Transformer improves over existing best results by over 2 BLEU points on WMT 2014 English-to-German translation.",
+      "type": "finding",
+      "tags": [
+        "transformer",
+        "machine-translation",
+        "bleu-score",
+        "performance-improvement"
+      ],
+      "evidence": "Comparative performance improvement reported in the results section.",
+      "id": "attention-is-all-you-need-010",
+      "source_paper": "articles/sample-attention.md",
+      "source_title": "Attention Is All You Need",
+      "cluster": "performance-optimization-scaling"
+    },
+    {
+      "text": "Standard attention has O(N^2) memory complexity due to materializing the attention matrix.",
+      "type": "concept",
+      "tags": [
+        "attention-mechanism",
+        "memory-complexity",
+        "computational-complexity"
+      ],
+      "evidence": "Described as the fundamental limitation that FlashAttention addresses",
+      "id": "flashattention-fast-and-memory-efficient-001",
+      "source_paper": "articles/flash-attention.md",
+      "source_title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+      "cluster": "transformer-architecture-attention"
+    },
+    {
+      "text": "FlashAttention is an IO-aware exact attention algorithm that uses tiling to reduce memory reads/writes between GPU HBM and SRAM.",
+      "type": "method",
+      "tags": [
+        "attention-mechanism",
+        "memory-optimization",
+        "gpu-architecture",
+        "tiling"
+      ],
+      "evidence": "Core algorithmic description in the paper title and introduction",
+      "id": "flashattention-fast-and-memory-efficient-002",
+      "source_paper": "articles/flash-attention.md",
+      "source_title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+      "cluster": "transformer-architecture-attention"
+    },
+    {
+      "text": "FlashAttention computes attention without materializing the full N x N attention matrix.",
+      "type": "method",
+      "tags": [
+        "attention-mechanism",
+        "memory-efficiency",
+        "matrix-computation"
+      ],
+      "evidence": "Key methodological innovation described in the key ideas section",
+      "id": "flashattention-fast-and-memory-efficient-003",
+      "source_paper": "articles/flash-attention.md",
+      "source_title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+      "cluster": "transformer-architecture-attention"
+    },
+    {
+      "text": "Modern GPUs have a memory hierarchy with fast but small SRAM (~20MB on A100) and large but slow HBM (40-80GB on A100).",
+      "type": "concept",
+      "tags": [
+        "gpu-architecture",
+        "memory-hierarchy",
+        "hardware-constraints"
+      ],
+      "evidence": "Specific memory specifications provided for A100 GPU architecture",
+      "id": "flashattention-fast-and-memory-efficient-004",
+      "source_paper": "articles/flash-attention.md",
+      "source_title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+      "cluster": "transformer-architecture-attention"
+    },
+    {
+      "text": "FlashAttention uses tiling to break computation into blocks that fit in SRAM.",
+      "type": "method",
+      "tags": [
+        "tiling",
+        "memory-optimization",
+        "gpu-optimization",
+        "block-computation"
+      ],
+      "evidence": "Described as a key implementation strategy in the key ideas section",
+      "id": "flashattention-fast-and-memory-efficient-005",
+      "source_paper": "articles/flash-attention.md",
+      "source_title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+      "cluster": "transformer-architecture-attention"
+    },
+    {
+      "text": "FlashAttention recomputes attention during backward pass instead of storing it, trading compute for memory.",
+      "type": "method",
+      "tags": [
+        "gradient-computation",
+        "memory-efficiency",
+        "compute-memory-tradeoff"
+      ],
+      "evidence": "Explicitly mentioned as a design choice in the key ideas section",
+      "id": "flashattention-fast-and-memory-efficient-006",
+      "source_paper": "articles/flash-attention.md",
+      "source_title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+      "cluster": "transformer-architecture-attention"
+    },
+    {
+      "text": "FlashAttention loads blocks of Q, K, V from HBM to SRAM, computes attention output in SRAM, and writes only final output back to HBM.",
+      "type": "method",
+      "tags": [
+        "memory-optimization",
+        "gpu-architecture",
+        "attention-mechanism",
+        "io-efficiency"
+      ],
+      "evidence": "Detailed three-step process described in the IO-awareness section",
+      "id": "flashattention-fast-and-memory-efficient-007",
+      "source_paper": "articles/flash-attention.md",
+      "source_title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+      "cluster": "transformer-architecture-attention"
+    },
+    {
+      "text": "FlashAttention achieves 2-4x faster performance than PyTorch standard attention.",
+      "type": "finding",
+      "tags": [
+        "performance-improvement",
+        "attention-mechanism",
+        "benchmarking"
+      ],
+      "evidence": "Quantitative speedup results reported in the results section",
+      "id": "flashattention-fast-and-memory-efficient-008",
+      "source_paper": "articles/flash-attention.md",
+      "source_title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+      "cluster": "performance-optimization-scaling"
+    },
+    {
+      "text": "FlashAttention reduces memory complexity from O(N^2) to O(N).",
+      "type": "finding",
+      "tags": [
+        "memory-complexity",
+        "computational-complexity",
+        "attention-mechanism"
+      ],
+      "evidence": "Memory complexity improvement stated in the results section",
+      "id": "flashattention-fast-and-memory-efficient-009",
+      "source_paper": "articles/flash-attention.md",
+      "source_title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+      "cluster": "performance-optimization-scaling"
+    },
+    {
+      "text": "FlashAttention enables training with sequences up to 16K tokens in length.",
+      "type": "finding",
+      "tags": [
+        "sequence-length",
+        "training-efficiency",
+        "scalability"
+      ],
+      "evidence": "Specific sequence length capability reported in results",
+      "id": "flashattention-fast-and-memory-efficient-010",
+      "source_paper": "articles/flash-attention.md",
+      "source_title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+      "cluster": "performance-optimization-scaling"
+    },
+    {
+      "text": "FlashAttention is used in many production LLMs including GPT-4.",
+      "type": "finding",
+      "tags": [
+        "production-deployment",
+        "large-language-models",
+        "real-world-application"
+      ],
+      "evidence": "Adoption in major language models mentioned in results section",
+      "id": "flashattention-fast-and-memory-efficient-011",
+      "source_paper": "articles/flash-attention.md",
+      "source_title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+      "cluster": "performance-optimization-scaling"
+    },
+    {
+      "text": "FlashAttention-2 better parallelizes across the sequence length dimension compared to FlashAttention.",
+      "type": "method",
+      "tags": [
+        "parallelization",
+        "sequence-processing",
+        "optimization"
+      ],
+      "evidence": "Listed as an improvement in the FlashAttention-2 section",
+      "id": "flashattention-fast-and-memory-efficient-012",
+      "source_paper": "articles/flash-attention.md",
+      "source_title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+      "cluster": "performance-optimization-scaling"
+    },
+    {
+      "text": "FlashAttention-2 reduces non-matmul FLOPs compared to the original FlashAttention.",
+      "type": "method",
+      "tags": [
+        "computational-efficiency",
+        "floating-point-operations",
+        "optimization"
+      ],
+      "evidence": "Specified as a technical improvement in FlashAttention-2",
+      "id": "flashattention-fast-and-memory-efficient-013",
+      "source_paper": "articles/flash-attention.md",
+      "source_title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+      "cluster": "performance-optimization-scaling"
+    },
+    {
+      "text": "FlashAttention-2 achieves up to 2x speedup over the original FlashAttention.",
+      "type": "finding",
+      "tags": [
+        "performance-improvement",
+        "algorithmic-optimization",
+        "speedup"
+      ],
+      "evidence": "Quantitative improvement reported for FlashAttention-2",
+      "id": "flashattention-fast-and-memory-efficient-014",
+      "source_paper": "articles/flash-attention.md",
+      "source_title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+      "cluster": "performance-optimization-scaling"
+    },
+    {
+      "text": "FlashAttention-2 reaches 50-73% of theoretical peak FLOPS on A100 GPUs.",
+      "type": "finding",
+      "tags": [
+        "hardware-utilization",
+        "computational-efficiency",
+        "gpu-performance"
+      ],
+      "evidence": "Specific efficiency metrics provided for FlashAttention-2 on A100 hardware",
+      "id": "flashattention-fast-and-memory-efficient-015",
+      "source_paper": "articles/flash-attention.md",
+      "source_title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+      "cluster": "performance-optimization-scaling"
+    },
+    {
+      "text": "Standard attention performs many HBM reads/writes which creates a performance bottleneck.",
+      "type": "concept",
+      "tags": [
+        "memory-bottleneck",
+        "attention-mechanism",
+        "io-efficiency"
+      ],
+      "evidence": "Identified as the core problem that motivates the FlashAttention approach",
+      "id": "flashattention-fast-and-memory-efficient-016",
+      "source_paper": "articles/flash-attention.md",
+      "source_title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+      "cluster": "transformer-architecture-attention"
+    },
+    {
+      "text": "IO-awareness is a key principle for optimizing attention computation on modern GPU architectures.",
+      "type": "concept",
+      "tags": [
+        "io-optimization",
+        "gpu-architecture",
+        "algorithmic-design"
+      ],
+      "evidence": "Central theme emphasized throughout the paper's methodology",
+      "id": "flashattention-fast-and-memory-efficient-017",
+      "source_paper": "articles/flash-attention.md",
+      "source_title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+      "cluster": "transformer-architecture-attention"
+    },
+    {
+      "text": "Language model loss scales as a power law with model parameters, dataset size, and compute budget.",
+      "type": "finding",
+      "tags": [
+        "scaling-laws",
+        "power-law",
+        "language-models",
+        "performance"
+      ],
+      "evidence": "Empirical analysis by Kaplan et al. (2020) established these power law relationships across different scales.",
+      "id": "scaling-laws-for-neural-language-models-001",
+      "source_paper": "articles/scaling-laws.md",
+      "source_title": "Scaling Laws for Neural Language Models",
+      "cluster": "performance-optimization-scaling"
+    },
+    {
+      "text": "Model loss scales with number of parameters following L(N) ~ N^(-0.076).",
+      "type": "finding",
+      "tags": [
+        "scaling-laws",
+        "model-size",
+        "parameters",
+        "power-law"
+      ],
+      "evidence": "Specific power law exponent derived from empirical measurements across different model sizes.",
+      "id": "scaling-laws-for-neural-language-models-002",
+      "source_paper": "articles/scaling-laws.md",
+      "source_title": "Scaling Laws for Neural Language Models",
+      "cluster": "performance-optimization-scaling"
+    },
+    {
+      "text": "Model loss scales with dataset size following L(D) ~ D^(-0.095).",
+      "type": "finding",
+      "tags": [
+        "scaling-laws",
+        "dataset-size",
+        "data-efficiency",
+        "power-law"
+      ],
+      "evidence": "Empirical scaling relationship established through experiments with varying dataset sizes.",
+      "id": "scaling-laws-for-neural-language-models-003",
+      "source_paper": "articles/scaling-laws.md",
+      "source_title": "Scaling Laws for Neural Language Models",
+      "cluster": "performance-optimization-scaling"
+    },
+    {
+      "text": "Model loss scales with compute budget following L(C) ~ C^(-0.050).",
+      "type": "finding",
+      "tags": [
+        "scaling-laws",
+        "compute-budget",
+        "efficiency",
+        "power-law"
+      ],
+      "evidence": "Power law relationship derived from analysis of performance versus computational resources.",
+      "id": "scaling-laws-for-neural-language-models-004",
+      "source_paper": "articles/scaling-laws.md",
+      "source_title": "Scaling Laws for Neural Language Models",
+      "cluster": "performance-optimization-scaling"
+    },
+    {
+      "text": "Given a fixed compute budget, there exists an optimal model size and number of training tokens.",
+      "type": "finding",
+      "tags": [
+        "compute-allocation",
+        "optimization",
+        "training-efficiency",
+        "resource-management"
+      ],
+      "evidence": "Analysis showed optimal trade-offs between model size and training data given computational constraints.",
+      "id": "scaling-laws-for-neural-language-models-005",
+      "source_paper": "articles/scaling-laws.md",
+      "source_title": "Scaling Laws for Neural Language Models",
+      "cluster": "performance-optimization-scaling"
+    },
+    {
+      "text": "Larger models are more sample-efficient and achieve better loss per token seen.",
+      "type": "finding",
+      "tags": [
+        "sample-efficiency",
+        "model-size",
+        "data-efficiency",
+        "scaling"
+      ],
+      "evidence": "Empirical observation that larger models require fewer tokens to achieve equivalent performance levels.",
+      "id": "scaling-laws-for-neural-language-models-006",
+      "source_paper": "articles/scaling-laws.md",
+      "source_title": "Scaling Laws for Neural Language Models",
+      "cluster": "performance-optimization-scaling"
+    },
+    {
+      "text": "It is better to train a larger model on less data than a smaller model on more data.",
+      "type": "finding",
+      "tags": [
+        "model-size",
+        "training-strategy",
+        "data-efficiency",
+        "optimization"
+      ],
+      "evidence": "Original finding from scaling law analysis, though later revised by Chinchilla paper.",
+      "id": "scaling-laws-for-neural-language-models-007",
+      "source_paper": "articles/scaling-laws.md",
+      "source_title": "Scaling Laws for Neural Language Models",
+      "cluster": "performance-optimization-scaling"
+    },
+    {
+      "text": "Language model performance depends strongly on model size rather than specific architectural details.",
+      "type": "finding",
+      "tags": [
+        "architecture",
+        "model-size",
+        "performance",
+        "design-principles"
+      ],
+      "evidence": "Experiments showed that scale matters more than architectural variations within Transformers.",
+      "id": "scaling-laws-for-neural-language-models-008",
+      "source_paper": "articles/scaling-laws.md",
+      "source_title": "Scaling Laws for Neural Language Models",
+      "cluster": "performance-optimization-scaling"
+    },
+    {
+      "text": "Increasing attention heads or feed-forward dimensions while keeping total parameters fixed has little effect on performance.",
+      "type": "finding",
+      "tags": [
+        "architecture",
+        "attention-heads",
+        "parameters",
+        "transformer"
+      ],
+      "evidence": "Controlled experiments varying architectural components while maintaining parameter count.",
+      "id": "scaling-laws-for-neural-language-models-009",
+      "source_paper": "articles/scaling-laws.md",
+      "source_title": "Scaling Laws for Neural Language Models",
+      "cluster": "performance-optimization-scaling"
+    },
+    {
+      "text": "The Transformer architecture itself is not the performance bottleneck, scale is the limiting factor.",
+      "type": "finding",
+      "tags": [
+        "transformer",
+        "architecture",
+        "scaling",
+        "bottleneck"
+      ],
+      "evidence": "Analysis showed that architectural improvements matter less than simply scaling up existing designs.",
+      "id": "scaling-laws-for-neural-language-models-010",
+      "source_paper": "articles/scaling-laws.md",
+      "source_title": "Scaling Laws for Neural Language Models",
+      "cluster": "performance-optimization-scaling"
+    },
+    {
+      "text": "Scaling laws enable predictable planning of compute budgets for language model training.",
+      "type": "claim",
+      "tags": [
+        "scaling-laws",
+        "compute-planning",
+        "predictability",
+        "resource-allocation"
+      ],
+      "evidence": "Power law relationships provide mathematical framework for predicting performance at different scales.",
+      "id": "scaling-laws-for-neural-language-models-011",
+      "source_paper": "articles/scaling-laws.md",
+      "source_title": "Scaling Laws for Neural Language Models",
+      "cluster": "performance-optimization-scaling"
+    },
+    {
+      "text": "Small model experiments can predict large model performance using scaling laws.",
+      "type": "claim",
+      "tags": [
+        "scaling-laws",
+        "prediction",
+        "experimentation",
+        "extrapolation"
+      ],
+      "evidence": "Power law relationships allow extrapolation from small-scale experiments to larger scales.",
+      "id": "scaling-laws-for-neural-language-models-012",
+      "source_paper": "articles/scaling-laws.md",
+      "source_title": "Scaling Laws for Neural Language Models",
+      "cluster": "performance-optimization-scaling"
+    },
+    {
+      "text": "Architecture search is less important than scale for improving language model performance.",
+      "type": "claim",
+      "tags": [
+        "architecture-search",
+        "scaling",
+        "optimization",
+        "research-priorities"
+      ],
+      "evidence": "Findings showed that scaling existing architectures yields better returns than architectural innovations.",
+      "id": "scaling-laws-for-neural-language-models-013",
+      "source_paper": "articles/scaling-laws.md",
+      "source_title": "Scaling Laws for Neural Language Models",
+      "cluster": "performance-optimization-scaling"
+    },
+    {
+      "text": "The Chinchilla paper revised the original scaling laws to show models should be trained on roughly 20x more tokens than parameters.",
+      "type": "finding",
+      "tags": [
+        "chinchilla",
+        "scaling-laws",
+        "training-tokens",
+        "data-efficiency"
+      ],
+      "evidence": "Hoffmann et al. (2022) provided updated analysis showing different optimal compute allocation.",
+      "id": "scaling-laws-for-neural-language-models-014",
+      "source_paper": "articles/scaling-laws.md",
+      "source_title": "Scaling Laws for Neural Language Models",
+      "cluster": "performance-optimization-scaling"
+    },
+    {
+      "text": "Many existing language models were significantly undertrained according to revised scaling laws.",
+      "type": "finding",
+      "tags": [
+        "undertraining",
+        "scaling-laws",
+        "model-efficiency",
+        "chinchilla"
+      ],
+      "evidence": "Chinchilla analysis revealed that previous models used suboptimal ratios of parameters to training data.",
+      "id": "scaling-laws-for-neural-language-models-015",
+      "source_paper": "articles/scaling-laws.md",
+      "source_title": "Scaling Laws for Neural Language Models",
+      "cluster": "performance-optimization-scaling"
+    },
+    {
+      "text": "Revised scaling laws led to training smaller but better-trained models like Chinchilla and LLaMA.",
+      "type": "finding",
+      "tags": [
+        "model-design",
+        "training-efficiency",
+        "chinchilla",
+        "llama"
+      ],
+      "evidence": "Practical application of revised scaling laws resulted in new generation of more efficiently trained models.",
+      "id": "scaling-laws-for-neural-language-models-016",
+      "source_paper": "articles/scaling-laws.md",
+      "source_title": "Scaling Laws for Neural Language Models",
+      "cluster": "performance-optimization-scaling"
+    },
+    {
+      "text": "The loss-compute frontier defines the Pareto-optimal allocation of computational resources.",
+      "type": "concept",
+      "tags": [
+        "pareto-optimality",
+        "compute-allocation",
+        "efficiency",
+        "optimization"
+      ],
+      "evidence": "Mathematical framework established for understanding optimal trade-offs in resource allocation.",
+      "id": "scaling-laws-for-neural-language-models-017",
+      "source_paper": "articles/scaling-laws.md",
+      "source_title": "Scaling Laws for Neural Language Models",
+      "cluster": "performance-optimization-scaling"
+    },
+    {
+      "text": "Scaling laws describe empirical relationships between model performance and key training variables.",
+      "type": "concept",
+      "tags": [
+        "scaling-laws",
+        "empirical-analysis",
+        "performance-modeling",
+        "machine-learning"
+      ],
+      "evidence": "Core concept defined through systematic analysis of performance across different scales and conditions.",
+      "id": "scaling-laws-for-neural-language-models-018",
+      "source_paper": "articles/scaling-laws.md",
+      "source_title": "Scaling Laws for Neural Language Models",
+      "cluster": "performance-optimization-scaling"
+    },
+    {
+      "text": "Middle layers of LLMs show higher brain-model correlation than final layers across language-selective brain regions.",
+      "type": "finding",
+      "tags": [
+        "layer-analysis",
+        "brain-alignment",
+        "neural-correlation",
+        "llm-architecture"
+      ],
+      "evidence": "Comparison of layer-wise embeddings from 14 LLMs against fMRI data showed intermediate layers had strongest correlations.",
+      "id": "do-large-language-models-think-like-the--001",
+      "source_paper": "articles/llm-brain-fmri-alignment.md",
+      "source_title": "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI",
+      "cluster": "brain-llm-alignment-correlation"
+    },
+    {
+      "text": "Language-selective brain regions like the inferior frontal gyrus (IFG) and posterior temporal cortex show strongest alignment with LLM intermediate layers.",
+      "type": "finding",
+      "tags": [
+        "brain-regions",
+        "language-processing",
+        "neural-correlation",
+        "fmri"
+      ],
+      "evidence": "fMRI analysis identified these specific regions as having highest correlation with middle LLM layers.",
+      "id": "do-large-language-models-think-like-the--002",
+      "source_paper": "articles/llm-brain-fmri-alignment.md",
+      "source_title": "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI",
+      "cluster": "brain-llm-alignment-correlation"
+    },
+    {
+      "text": "Enhanced model performance correlates with representational structures that increasingly resemble brain-like hierarchies.",
+      "type": "finding",
+      "tags": [
+        "model-performance",
+        "brain-alignment",
+        "hierarchical-processing",
+        "representation-learning"
+      ],
+      "evidence": "Analysis across 14 LLMs of varying performance levels showed this correlation pattern.",
+      "id": "do-large-language-models-think-like-the--003",
+      "source_paper": "articles/llm-brain-fmri-alignment.md",
+      "source_title": "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI",
+      "cluster": "brain-llm-alignment-correlation"
+    },
+    {
+      "text": "The strongest correspondence between models and brain activity occurs at higher levels of semantic abstraction.",
+      "type": "finding",
+      "tags": [
+        "semantic-processing",
+        "abstraction",
+        "brain-alignment",
+        "neural-correlation"
+      ],
+      "evidence": "Functional and anatomical correspondence analysis showed stronger alignment at higher semantic levels.",
+      "id": "do-large-language-models-think-like-the--004",
+      "source_paper": "articles/llm-brain-fmri-alignment.md",
+      "source_title": "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI",
+      "cluster": "brain-llm-alignment-correlation"
+    },
+    {
+      "text": "Instruction-tuned models consistently outperformed their base versions in both sentence comprehension and neural alignment.",
+      "type": "finding",
+      "tags": [
+        "instruction-tuning",
+        "model-alignment",
+        "sentence-comprehension",
+        "neural-correlation"
+      ],
+      "evidence": "Statistical comparison between instruction-tuned and base models showed significant improvements.",
+      "id": "do-large-language-models-think-like-the--005",
+      "source_paper": "articles/llm-brain-fmri-alignment.md",
+      "source_title": "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI",
+      "cluster": "brain-llm-alignment-correlation"
+    },
+    {
+      "text": "LLM processing engages both conserved left-hemispheric language systems and right-hemispheric networks supporting higher-order cognitive demands.",
+      "type": "finding",
+      "tags": [
+        "hemispheric-processing",
+        "language-networks",
+        "cognitive-processing",
+        "brain-lateralization"
+      ],
+      "evidence": "fMRI analysis revealed bilateral brain activation patterns during LLM-brain alignment tasks.",
+      "id": "do-large-language-models-think-like-the--006",
+      "source_paper": "articles/llm-brain-fmri-alignment.md",
+      "source_title": "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI",
+      "cluster": "brain-llm-alignment-correlation"
+    },
+    {
+      "text": "Researchers compared embeddings from 14 publicly available language models against fMRI data from participants listening to narrative stories.",
+      "type": "method",
+      "tags": [
+        "experimental-design",
+        "fmri",
+        "model-comparison",
+        "narrative-processing"
+      ],
+      "evidence": "Methodology section describes the comparative analysis approach using multiple LLMs and brain imaging data.",
+      "id": "do-large-language-models-think-like-the--007",
+      "source_paper": "articles/llm-brain-fmri-alignment.md",
+      "source_title": "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI",
+      "cluster": "experimental-methods-neuroscience"
+    },
+    {
+      "text": "Sentence-level neural prediction models were constructed to identify correlations between model layers and brain region activations.",
+      "type": "method",
+      "tags": [
+        "neural-prediction",
+        "sentence-processing",
+        "correlation-analysis",
+        "brain-modeling"
+      ],
+      "evidence": "Methodology describes construction of prediction models for brain-model alignment analysis.",
+      "id": "do-large-language-models-think-like-the--008",
+      "source_paper": "articles/llm-brain-fmri-alignment.md",
+      "source_title": "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI",
+      "cluster": "experimental-methods-neuroscience"
+    },
+    {
+      "text": "Participants were exposed to naturalistic narrative during fMRI scanning to capture dynamic neural responses during sentence comprehension.",
+      "type": "method",
+      "tags": [
+        "naturalistic-stimuli",
+        "fmri",
+        "narrative-processing",
+        "ecological-validity"
+      ],
+      "evidence": "Methodology section specifies use of naturalistic narrative exposure during brain imaging.",
+      "id": "do-large-language-models-think-like-the--009",
+      "source_paper": "articles/llm-brain-fmri-alignment.md",
+      "source_title": "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI",
+      "cluster": "experimental-methods-neuroscience"
+    },
+    {
+      "text": "Layer-wise representations in LLMs can be systematically compared to dynamic neural responses during human language processing.",
+      "type": "concept",
+      "tags": [
+        "layer-analysis",
+        "neural-dynamics",
+        "representation-comparison",
+        "computational-neuroscience"
+      ],
+      "evidence": "The core methodological framework described for comparing LLM layers to brain activity.",
+      "id": "do-large-language-models-think-like-the--010",
+      "source_paper": "articles/llm-brain-fmri-alignment.md",
+      "source_title": "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI",
+      "cluster": "experimental-methods-neuroscience"
+    },
+    {
+      "text": "Brain-model correlation measures the degree to which LLM internal representations align with human neural activity patterns.",
+      "type": "concept",
+      "tags": [
+        "brain-alignment",
+        "correlation-metrics",
+        "neural-similarity",
+        "computational-modeling"
+      ],
+      "evidence": "The paper's central measurement approach for quantifying LLM-brain correspondence.",
+      "id": "do-large-language-models-think-like-the--011",
+      "source_paper": "articles/llm-brain-fmri-alignment.md",
+      "source_title": "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI",
+      "cluster": "brain-llm-alignment-correlation"
+    },
+    {
+      "text": "Intermediate layers of LLMs carry rich linguistic information that most closely mirrors human sentence-level processing.",
+      "type": "claim",
+      "tags": [
+        "intermediate-layers",
+        "linguistic-information",
+        "sentence-processing",
+        "representation-richness"
+      ],
+      "evidence": "Analysis of layer-wise correlations revealed intermediate layers had optimal linguistic representation density.",
+      "id": "do-large-language-models-think-like-the--012",
+      "source_paper": "articles/llm-brain-fmri-alignment.md",
+      "source_title": "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI",
+      "cluster": "brain-llm-alignment-correlation"
+    },
+    {
+      "text": "Final output layers of LLMs may over-optimize for task performance at the expense of brain-like representations.",
+      "type": "hypothesis",
+      "tags": [
+        "output-layers",
+        "task-optimization",
+        "brain-alignment",
+        "representation-trade-offs"
+      ],
+      "evidence": "Inference drawn from finding that intermediate rather than final layers show strongest brain correlation.",
+      "id": "do-large-language-models-think-like-the--013",
+      "source_paper": "articles/llm-brain-fmri-alignment.md",
+      "source_title": "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI",
+      "cluster": "brain-llm-alignment-correlation"
+    },
+    {
+      "text": "LLMs function as viable computational models for understanding human language processing mechanisms.",
+      "type": "claim",
+      "tags": [
+        "computational-modeling",
+        "language-processing",
+        "cognitive-modeling",
+        "llm-applications"
+      ],
+      "evidence": "Overall conclusion drawn from successful alignment between LLM representations and brain activity patterns.",
+      "id": "do-large-language-models-think-like-the--014",
+      "source_paper": "articles/llm-brain-fmri-alignment.md",
+      "source_title": "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI",
+      "cluster": "brain-llm-alignment-correlation"
+    },
+    {
+      "text": "As LLMs improve at language tasks, their internal representations naturally evolve toward brain-like processing patterns.",
+      "type": "finding",
+      "tags": [
+        "model-evolution",
+        "brain-convergence",
+        "performance-alignment",
+        "representation-development"
+      ],
+      "evidence": "Correlation analysis between model performance and brain-like hierarchy resemblance across different LLMs.",
+      "id": "do-large-language-models-think-like-the--015",
+      "source_paper": "articles/llm-brain-fmri-alignment.md",
+      "source_title": "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI",
+      "cluster": "brain-llm-alignment-correlation"
+    },
+    {
+      "text": "Neural activity in the human brain aligns linearly with internal contextual embeddings of speech and language within large language models during natural conversations.",
+      "type": "finding",
+      "tags": [
+        "brain-alignment",
+        "neural-activity",
+        "language-processing",
+        "embeddings"
+      ],
+      "evidence": "Key discovery from intracranial electrode recordings during natural conversations",
+      "id": "google-brain-llm-language-processing-001",
+      "source_paper": "papers/google-brain-llm-language-processing.pdf",
+      "source_title": "Google Brain Llm Language Processing",
+      "cluster": "brain-llm-alignment-correlation"
+    },
+    {
+      "text": "Intracranial electrode recordings were used to measure neural activity during natural conversations.",
+      "type": "method",
+      "tags": [
+        "neural-recording",
+        "intracranial-electrodes",
+        "brain-measurement"
+      ],
+      "evidence": "Described as the experimental approach in the abstract",
+      "id": "google-brain-llm-language-processing-002",
+      "source_paper": "papers/google-brain-llm-language-processing.pdf",
+      "source_title": "Google Brain Llm Language Processing",
+      "cluster": "temporal-brain-language-processing"
+    },
+    {
+      "text": "Speech embeddings were extracted from the Whisper encoder for analysis.",
+      "type": "method",
+      "tags": [
+        "whisper-model",
+        "speech-embeddings",
+        "feature-extraction"
+      ],
+      "evidence": "Mentioned as part of the methodology in the abstract",
+      "id": "google-brain-llm-language-processing-003",
+      "source_paper": "papers/google-brain-llm-language-processing.pdf",
+      "source_title": "Google Brain Llm Language Processing",
+      "cluster": "temporal-brain-language-processing"
+    },
+    {
+      "text": "Language embeddings were extracted from the Whisper decoder for analysis.",
+      "type": "method",
+      "tags": [
+        "whisper-model",
+        "language-embeddings",
+        "feature-extraction"
+      ],
+      "evidence": "Mentioned as part of the methodology in the abstract",
+      "id": "google-brain-llm-language-processing-004",
+      "source_paper": "papers/google-brain-llm-language-processing.pdf",
+      "source_title": "Google Brain Llm Language Processing",
+      "cluster": "temporal-brain-language-processing"
+    },
+    {
+      "text": "During listening, speech embeddings predict activity in the superior temporal gyrus first.",
+      "type": "finding",
+      "tags": [
+        "speech-processing",
+        "temporal-sequence",
+        "superior-temporal-gyrus",
+        "listening"
+      ],
+      "evidence": "Described in the speech processing sequence during listening",
+      "id": "google-brain-llm-language-processing-005",
+      "source_paper": "papers/google-brain-llm-language-processing.pdf",
+      "source_title": "Google Brain Llm Language Processing",
+      "cluster": "temporal-brain-language-processing"
+    },
+    {
+      "text": "During listening, language embeddings activate Broca's area after the superior temporal gyrus.",
+      "type": "finding",
+      "tags": [
+        "speech-processing",
+        "temporal-sequence",
+        "brocas-area",
+        "listening"
+      ],
+      "evidence": "Described in the speech processing sequence during listening",
+      "id": "google-brain-llm-language-processing-006",
+      "source_paper": "papers/google-brain-llm-language-processing.pdf",
+      "source_title": "Google Brain Llm Language Processing",
+      "cluster": "temporal-brain-language-processing"
+    },
+    {
+      "text": "During speaking, language areas activate approximately 500ms before articulation.",
+      "type": "finding",
+      "tags": [
+        "speech-production",
+        "temporal-sequence",
+        "language-areas",
+        "timing"
+      ],
+      "evidence": "Specified timing in the speech processing sequence during speaking",
+      "id": "google-brain-llm-language-processing-007",
+      "source_paper": "papers/google-brain-llm-language-processing.pdf",
+      "source_title": "Google Brain Llm Language Processing",
+      "cluster": "temporal-brain-language-processing"
+    },
+    {
+      "text": "During speaking, motor cortex engagement follows language area activation.",
+      "type": "finding",
+      "tags": [
+        "speech-production",
+        "temporal-sequence",
+        "motor-cortex"
+      ],
+      "evidence": "Described in the speech processing sequence during speaking",
+      "id": "google-brain-llm-language-processing-008",
+      "source_paper": "papers/google-brain-llm-language-processing.pdf",
+      "source_title": "Google Brain Llm Language Processing",
+      "cluster": "temporal-brain-language-processing"
+    },
+    {
+      "text": "The speech processing sequence reverses between listening and speaking conditions.",
+      "type": "finding",
+      "tags": [
+        "speech-processing",
+        "temporal-sequence",
+        "listening-speaking"
+      ],
+      "evidence": "Explicitly stated that the sequence reverses between listening and speaking",
+      "id": "google-brain-llm-language-processing-009",
+      "source_paper": "papers/google-brain-llm-language-processing.pdf",
+      "source_title": "Google Brain Llm Language Processing",
+      "cluster": "temporal-brain-language-processing"
+    },
+    {
+      "text": "Human brains and large language models share next-word prediction mechanisms.",
+      "type": "finding",
+      "tags": [
+        "computational-principles",
+        "next-word-prediction",
+        "brain-llm-similarity"
+      ],
+      "evidence": "Listed as one of the shared computational principles",
+      "id": "google-brain-llm-language-processing-010",
+      "source_paper": "papers/google-brain-llm-language-processing.pdf",
+      "source_title": "Google Brain Llm Language Processing",
+      "cluster": "brain-llm-alignment-correlation"
+    },
+    {
+      "text": "Human brains and large language models both exhibit prediction error signals in the form of surprise responses.",
+      "type": "finding",
+      "tags": [
+        "computational-principles",
+        "prediction-error",
+        "surprise-response",
+        "brain-llm-similarity"
+      ],
+      "evidence": "Listed as one of the shared computational principles",
+      "id": "google-brain-llm-language-processing-011",
+      "source_paper": "papers/google-brain-llm-language-processing.pdf",
+      "source_title": "Google Brain Llm Language Processing",
+      "cluster": "brain-llm-alignment-correlation"
+    },
+    {
+      "text": "Human brains and large language models both use embedding-based contextual representation.",
+      "type": "finding",
+      "tags": [
+        "computational-principles",
+        "contextual-representation",
+        "embeddings",
+        "brain-llm-similarity"
+      ],
+      "evidence": "Listed as one of the shared computational principles",
+      "id": "google-brain-llm-language-processing-012",
+      "source_paper": "papers/google-brain-llm-language-processing.pdf",
+      "source_title": "Google Brain Llm Language Processing",
+      "cluster": "brain-llm-alignment-correlation"
+    },
+    {
+      "text": "Higher-order brain regions prioritize semantic information while still capturing acoustic features.",
+      "type": "finding",
+      "tags": [
+        "soft-hierarchy",
+        "semantic-processing",
+        "acoustic-features",
+        "brain-regions"
+      ],
+      "evidence": "Described as part of the soft hierarchy findings",
+      "id": "google-brain-llm-language-processing-013",
+      "source_paper": "papers/google-brain-llm-language-processing.pdf",
+      "source_title": "Google Brain Llm Language Processing",
+      "cluster": "temporal-brain-language-processing"
+    },
+    {
+      "text": "Lower-order brain areas primarily process sound but also decode meaning.",
+      "type": "finding",
+      "tags": [
+        "soft-hierarchy",
+        "sound-processing",
+        "meaning-decoding",
+        "brain-regions"
+      ],
+      "evidence": "Described as part of the soft hierarchy findings",
+      "id": "google-brain-llm-language-processing-014",
+      "source_paper": "papers/google-brain-llm-language-processing.pdf",
+      "source_title": "Google Brain Llm Language Processing",
+      "cluster": "temporal-brain-language-processing"
+    },
+    {
+      "text": "Brain language processing follows a soft hierarchy rather than strict feedforward models.",
+      "type": "finding",
+      "tags": [
+        "soft-hierarchy",
+        "brain-architecture",
+        "feedforward-models"
+      ],
+      "evidence": "Explicitly contrasted with strict feedforward models in the soft hierarchy section",
+      "id": "google-brain-llm-language-processing-015",
+      "source_paper": "papers/google-brain-llm-language-processing.pdf",
+      "source_title": "Google Brain Llm Language Processing",
+      "cluster": "temporal-brain-language-processing"
+    },
+    {
+      "text": "The human brain processes language serially and temporally.",
+      "type": "finding",
+      "tags": [
+        "brain-processing",
+        "serial-processing",
+        "temporal-processing"
+      ],
+      "evidence": "Listed as a key difference between brain and transformer processing",
+      "id": "google-brain-llm-language-processing-016",
+      "source_paper": "papers/google-brain-llm-language-processing.pdf",
+      "source_title": "Google Brain Llm Language Processing",
+      "cluster": "temporal-brain-language-processing"
+    },
+    {
+      "text": "Transformers handle thousands of words simultaneously.",
+      "type": "finding",
+      "tags": [
+        "transformer-architecture",
+        "parallel-processing",
+        "simultaneous-processing"
+      ],
+      "evidence": "Listed as a key difference between brain and transformer processing",
+      "id": "google-brain-llm-language-processing-017",
+      "source_paper": "papers/google-brain-llm-language-processing.pdf",
+      "source_title": "Google Brain Llm Language Processing",
+      "cluster": "temporal-brain-language-processing"
+    },
+    {
+      "text": "Despite architectural differences between brains and transformers, representational alignment between them is striking.",
+      "type": "finding",
+      "tags": [
+        "representational-alignment",
+        "architectural-differences",
+        "brain-transformer-comparison"
+      ],
+      "evidence": "Concluding statement about the striking alignment despite processing differences",
+      "id": "google-brain-llm-language-processing-018",
+      "source_paper": "papers/google-brain-llm-language-processing.pdf",
+      "source_title": "Google Brain Llm Language Processing",
+      "cluster": "brain-llm-alignment-correlation"
+    },
+    {
+      "text": "Natural conversations can be used as a paradigm for studying language processing in both brains and AI systems.",
+      "type": "concept",
+      "tags": [
+        "natural-conversations",
+        "language-processing",
+        "experimental-paradigm"
+      ],
+      "evidence": "The entire study is based on recordings during natural conversations",
+      "id": "google-brain-llm-language-processing-019",
+      "source_paper": "papers/google-brain-llm-language-processing.pdf",
+      "source_title": "Google Brain Llm Language Processing",
+      "cluster": "temporal-brain-language-processing"
+    },
+    {
+      "text": "Linear alignment exists between neural activity and LLM internal representations.",
+      "type": "concept",
+      "tags": [
+        "linear-alignment",
+        "neural-activity",
+        "llm-representations"
+      ],
+      "evidence": "The abstract specifically mentions linear alignment between neural activity and LLM embeddings",
+      "id": "google-brain-llm-language-processing-020",
+      "source_paper": "papers/google-brain-llm-language-processing.pdf",
+      "source_title": "Google Brain Llm Language Processing",
+      "cluster": "brain-llm-alignment-correlation"
+    },
+    {
+      "text": "Intermediate layers of LLMs show higher brain-model correlation than final layers across language-selective brain regions.",
+      "type": "finding",
+      "tags": [
+        "llm-layers",
+        "brain-alignment",
+        "neural-correlation",
+        "language-processing"
+      ],
+      "evidence": "Demonstrated through sentence-level neural prediction models comparing layer-wise embeddings with fMRI data",
+      "id": "llm-brain-fmri-alignment-001",
+      "source_paper": "papers/llm-brain-fmri-alignment.pdf",
+      "source_title": "Llm Brain Fmri Alignment",
+      "cluster": "brain-llm-alignment-correlation"
+    },
+    {
+      "text": "Language-selective brain regions like the inferior frontal gyrus (IFG) and posterior temporal cortex show significant correlation with LLM representations.",
+      "type": "finding",
+      "tags": [
+        "brain-regions",
+        "language-processing",
+        "neural-correlation",
+        "fmri"
+      ],
+      "evidence": "Identified through correlation analysis between LLM embeddings and brain region activations",
+      "id": "llm-brain-fmri-alignment-002",
+      "source_paper": "papers/llm-brain-fmri-alignment.pdf",
+      "source_title": "Llm Brain Fmri Alignment",
+      "cluster": "brain-llm-alignment-correlation"
+    },
+    {
+      "text": "Enhanced model performance correlates with representational structures that increasingly resemble brain-like hierarchies.",
+      "type": "finding",
+      "tags": [
+        "model-performance",
+        "brain-alignment",
+        "hierarchical-processing",
+        "neural-similarity"
+      ],
+      "evidence": "Observed correlation between model capabilities and brain-like representational patterns",
+      "id": "llm-brain-fmri-alignment-003",
+      "source_paper": "papers/llm-brain-fmri-alignment.pdf",
+      "source_title": "Llm Brain Fmri Alignment",
+      "cluster": "brain-llm-alignment-correlation"
+    },
+    {
+      "text": "The strongest correspondence between models and brain activity occurs at higher levels of semantic abstraction.",
+      "type": "finding",
+      "tags": [
+        "semantic-processing",
+        "abstraction",
+        "brain-alignment",
+        "neural-correlation"
+      ],
+      "evidence": "Found through analysis of layer-wise representations and their correlation with brain responses",
+      "id": "llm-brain-fmri-alignment-004",
+      "source_paper": "papers/llm-brain-fmri-alignment.pdf",
+      "source_title": "Llm Brain Fmri Alignment",
+      "cluster": "brain-llm-alignment-correlation"
+    },
+    {
+      "text": "Instruction-tuned models consistently outperformed base versions in both sentence comprehension and neural alignment.",
+      "type": "finding",
+      "tags": [
+        "instruction-tuning",
+        "model-performance",
+        "brain-alignment",
+        "fine-tuning"
+      ],
+      "evidence": "Comparative analysis showed superior performance of instruction-tuned versus base models",
+      "id": "llm-brain-fmri-alignment-005",
+      "source_paper": "papers/llm-brain-fmri-alignment.pdf",
+      "source_title": "Llm Brain Fmri Alignment",
+      "cluster": "brain-llm-alignment-correlation"
+    },
+    {
+      "text": "LLM processing engages both left-hemispheric language systems and right-hemispheric networks supporting higher-order cognitive demands.",
+      "type": "finding",
+      "tags": [
+        "brain-hemispheres",
+        "language-systems",
+        "cognitive-processing",
+        "neural-networks"
+      ],
+      "evidence": "Observed through fMRI analysis of brain activation patterns during LLM-brain alignment studies",
+      "id": "llm-brain-fmri-alignment-006",
+      "source_paper": "papers/llm-brain-fmri-alignment.pdf",
+      "source_title": "Llm Brain Fmri Alignment",
+      "cluster": "brain-llm-alignment-correlation"
+    },
+    {
+      "text": "Fourteen publicly available LLMs were compared across various sizes and architectures for brain alignment analysis.",
+      "type": "method",
+      "tags": [
+        "model-comparison",
+        "llm-architectures",
+        "experimental-design",
+        "brain-alignment"
+      ],
+      "evidence": "Methodology section describes comparative analysis of 14 different LLMs",
+      "id": "llm-brain-fmri-alignment-007",
+      "source_paper": "papers/llm-brain-fmri-alignment.pdf",
+      "source_title": "Llm Brain Fmri Alignment",
+      "cluster": "experimental-methods-neuroscience"
+    },
+    {
+      "text": "fMRI data was collected from participants exposed to a naturalistic narrative story for brain-model comparison.",
+      "type": "method",
+      "tags": [
+        "fmri",
+        "naturalistic-stimuli",
+        "narrative-processing",
+        "experimental-design"
+      ],
+      "evidence": "Described in methodology as the approach for collecting neural data",
+      "id": "llm-brain-fmri-alignment-008",
+      "source_paper": "papers/llm-brain-fmri-alignment.pdf",
+      "source_title": "Llm Brain Fmri Alignment",
+      "cluster": "experimental-methods-neuroscience"
+    },
+    {
+      "text": "Sentence-level neural prediction models were constructed to identify correlations between model layers and brain regions.",
+      "type": "method",
+      "tags": [
+        "neural-prediction",
+        "sentence-level",
+        "brain-regions",
+        "correlation-analysis"
+      ],
+      "evidence": "Methodology describes construction of these models for identifying brain-model correlations",
+      "id": "llm-brain-fmri-alignment-009",
+      "source_paper": "papers/llm-brain-fmri-alignment.pdf",
+      "source_title": "Llm Brain Fmri Alignment",
+      "cluster": "experimental-methods-neuroscience"
+    },
+    {
+      "text": "Layer-wise embeddings from LLMs were extracted and compared with dynamic neural responses during sentence comprehension.",
+      "type": "method",
+      "tags": [
+        "layer-wise-analysis",
+        "embeddings",
+        "neural-responses",
+        "sentence-comprehension"
+      ],
+      "evidence": "Core methodological approach described for comparing LLM representations with brain activity",
+      "id": "llm-brain-fmri-alignment-010",
+      "source_paper": "papers/llm-brain-fmri-alignment.pdf",
+      "source_title": "Llm Brain Fmri Alignment",
+      "cluster": "experimental-methods-neuroscience"
+    },
+    {
+      "text": "LLMs function as viable computational models for understanding human language processing.",
+      "type": "claim",
+      "tags": [
+        "computational-modeling",
+        "language-processing",
+        "llm-applications",
+        "cognitive-science"
+      ],
+      "evidence": "Stated as a key implication based on the brain-alignment findings",
+      "id": "llm-brain-fmri-alignment-011",
+      "source_paper": "papers/llm-brain-fmri-alignment.pdf",
+      "source_title": "Llm Brain Fmri Alignment",
+      "cluster": "brain-llm-alignment-correlation"
+    },
+    {
+      "text": "Final output layers may over-optimize for task performance at the expense of brain-like representations.",
+      "type": "hypothesis",
+      "tags": [
+        "layer-optimization",
+        "task-performance",
+        "brain-similarity",
+        "model-design"
+      ],
+      "evidence": "Proposed explanation for why intermediate layers show better brain alignment than final layers",
+      "id": "llm-brain-fmri-alignment-012",
+      "source_paper": "papers/llm-brain-fmri-alignment.pdf",
+      "source_title": "Llm Brain Fmri Alignment",
+      "cluster": "brain-llm-alignment-correlation"
+    },
+    {
+      "text": "Autoregressive LLMs and the human brain share fundamental computational principles including pre-onset prediction, post-onset surprise, and embedding-based contextual representation.",
+      "type": "claim",
+      "tags": [
+        "computational-principles",
+        "autoregressive-models",
+        "prediction",
+        "contextual-representation"
+      ],
+      "evidence": "Listed as evidence for shared computational mechanisms between LLMs and human brains",
+      "id": "llm-brain-fmri-alignment-013",
+      "source_paper": "papers/llm-brain-fmri-alignment.pdf",
+      "source_title": "Llm Brain Fmri Alignment",
+      "cluster": "brain-llm-alignment-correlation"
+    },
+    {
+      "text": "Brain-model correlation analysis can identify which LLM layers most significantly correlate with specific brain region activations.",
+      "type": "concept",
+      "tags": [
+        "correlation-analysis",
+        "brain-regions",
+        "llm-layers",
+        "neural-alignment"
+      ],
+      "evidence": "Methodological concept used throughout the study to measure brain-model correspondence",
+      "id": "llm-brain-fmri-alignment-014",
+      "source_paper": "papers/llm-brain-fmri-alignment.pdf",
+      "source_title": "Llm Brain Fmri Alignment",
+      "cluster": "brain-llm-alignment-correlation"
+    },
+    {
+      "text": "Hierarchical embeddings represent the layer-wise internal representations extracted from different depths of LLM architectures.",
+      "type": "concept",
+      "tags": [
+        "hierarchical-embeddings",
+        "layer-wise-analysis",
+        "internal-representations",
+        "llm-architectures"
+      ],
+      "evidence": "Core concept used in the methodology for analyzing LLM representations at different layers",
+      "id": "llm-brain-fmri-alignment-015",
+      "source_paper": "papers/llm-brain-fmri-alignment.pdf",
+      "source_title": "Llm Brain Fmri Alignment",
+      "cluster": "brain-llm-alignment-correlation"
+    },
+    {
+      "text": "Attribution methods can be applied to quantify how preceding words influence next-word predictions in large language models.",
+      "type": "method",
+      "tags": [
+        "attribution-methods",
+        "explainable-ai",
+        "language-modeling",
+        "interpretability"
+      ],
+      "evidence": "The paper describes applying attribution methods to quantify word influence on predictions.",
+      "id": "llm-explanations-brain-representations-001",
+      "source_paper": "papers/llm-explanations-brain-representations.pdf",
+      "source_title": "Llm Explanations Brain Representations",
+      "cluster": "experimental-methods-neuroscience"
+    },
+    {
+      "text": "LLM attribution explanations can successfully predict neural activity in brain language processing regions.",
+      "type": "finding",
+      "tags": [
+        "neural-prediction",
+        "brain-activity",
+        "language-processing",
+        "fmri"
+      ],
+      "evidence": "Key finding states that attribution explanations successfully predicted neural activity across language processing regions.",
+      "id": "llm-explanations-brain-representations-002",
+      "source_paper": "papers/llm-explanations-brain-representations.pdf",
+      "source_title": "Llm Explanations Brain Representations",
+      "cluster": "experimental-methods-neuroscience"
+    },
+    {
+      "text": "Early LLM layers align with initial stages of brain language processing including phonological and basic syntactic processing.",
+      "type": "finding",
+      "tags": [
+        "layer-alignment",
+        "brain-correspondence",
+        "phonological-processing",
+        "syntax"
+      ],
+      "evidence": "Hierarchical layer alignment section describes early layer explanations corresponding to initial language processing stages.",
+      "id": "llm-explanations-brain-representations-003",
+      "source_paper": "papers/llm-explanations-brain-representations.pdf",
+      "source_title": "Llm Explanations Brain Representations",
+      "cluster": "layer-wise-representation-analysis"
+    },
+    {
+      "text": "Deeper LLM layers correspond to more advanced cognitive stages in brain language processing.",
+      "type": "finding",
+      "tags": [
+        "layer-alignment",
+        "cognitive-processing",
+        "semantic-integration",
+        "discourse-comprehension"
+      ],
+      "evidence": "Key findings indicate deeper layers corresponded to more advanced cognitive stages.",
+      "id": "llm-explanations-brain-representations-004",
+      "source_paper": "papers/llm-explanations-brain-representations.pdf",
+      "source_title": "Llm Explanations Brain Representations",
+      "cluster": "layer-wise-representation-analysis"
+    },
+    {
+      "text": "Later LLM layer explanations align with advanced processing stages including semantic integration and discourse-level comprehension.",
+      "type": "finding",
+      "tags": [
+        "semantic-processing",
+        "discourse-comprehension",
+        "layer-alignment",
+        "brain-correspondence"
+      ],
+      "evidence": "Hierarchical layer alignment section specifies later layers align with semantic integration and discourse comprehension.",
+      "id": "llm-explanations-brain-representations-005",
+      "source_paper": "papers/llm-explanations-brain-representations.pdf",
+      "source_title": "Llm Explanations Brain Representations",
+      "cluster": "layer-wise-representation-analysis"
+    },
+    {
+      "text": "LLM layers with greater influence on next-word prediction demonstrate stronger alignment with brain activity.",
+      "type": "finding",
+      "tags": [
+        "prediction-influence",
+        "brain-alignment",
+        "language-modeling",
+        "neural-correlation"
+      ],
+      "evidence": "Key findings explicitly state this relationship between prediction influence and brain alignment.",
+      "id": "llm-explanations-brain-representations-006",
+      "source_paper": "papers/llm-explanations-brain-representations.pdf",
+      "source_title": "Llm Explanations Brain Representations",
+      "cluster": "other"
+    },
+    {
+      "text": "The hierarchical alignment between LLM layers and brain processing mirrors the brain's own hierarchical processing pipeline.",
+      "type": "finding",
+      "tags": [
+        "hierarchical-processing",
+        "brain-architecture",
+        "neural-hierarchy",
+        "cognitive-stages"
+      ],
+      "evidence": "Hierarchical layer alignment section states this mirrors the brain's own hierarchical processing pipeline.",
+      "id": "llm-explanations-brain-representations-007",
+      "source_paper": "papers/llm-explanations-brain-representations.pdf",
+      "source_title": "Llm Explanations Brain Representations",
+      "cluster": "other"
+    },
+    {
+      "text": "Explainable AI techniques can bridge LLM interpretability with neuroscience research.",
+      "type": "claim",
+      "tags": [
+        "explainable-ai",
+        "interpretability",
+        "neuroscience",
+        "interdisciplinary"
+      ],
+      "evidence": "Abstract states the investigation of whether explainable AI techniques can bridge these fields.",
+      "id": "llm-explanations-brain-representations-008",
+      "source_paper": "papers/llm-explanations-brain-representations.pdf",
+      "source_title": "Llm Explanations Brain Representations",
+      "cluster": "other"
+    },
+    {
+      "text": "LLM explanations reflect principles underlying human brain language processing.",
+      "type": "finding",
+      "tags": [
+        "brain-principles",
+        "language-processing",
+        "human-cognition",
+        "computational-linguistics"
+      ],
+      "evidence": "Key findings state this bridges computational linguistics and neuroscience by showing LLM explanations reflect brain principles.",
+      "id": "llm-explanations-brain-representations-009",
+      "source_paper": "papers/llm-explanations-brain-representations.pdf",
+      "source_title": "Llm Explanations Brain Representations",
+      "cluster": "other"
+    },
+    {
+      "text": "Explainability methods can be used to assess the biological plausibility of AI explanation methods.",
+      "type": "claim",
+      "tags": [
+        "biological-plausibility",
+        "explainability-assessment",
+        "ai-validation",
+        "neuroscience-validation"
+      ],
+      "evidence": "Novel contribution section demonstrates this capability of explainability methods.",
+      "id": "llm-explanations-brain-representations-010",
+      "source_paper": "papers/llm-explanations-brain-representations.pdf",
+      "source_title": "Llm Explanations Brain Representations",
+      "cluster": "other"
+    },
+    {
+      "text": "Neuroscience data can be used to validate which XAI techniques best capture human-like processing.",
+      "type": "hypothesis",
+      "tags": [
+        "xai-validation",
+        "human-like-processing",
+        "neuroscience-data",
+        "technique-evaluation"
+      ],
+      "evidence": "Novel contribution section describes this as an opened pathway for future research.",
+      "id": "llm-explanations-brain-representations-011",
+      "source_paper": "papers/llm-explanations-brain-representations.pdf",
+      "source_title": "Llm Explanations Brain Representations",
+      "cluster": "other"
+    },
+    {
+      "text": "fMRI data from people listening to narratives can be predicted using LLM attribution explanations.",
+      "type": "method",
+      "tags": [
+        "fmri-prediction",
+        "narrative-processing",
+        "attribution-explanations",
+        "neural-decoding"
+      ],
+      "evidence": "Abstract describes using attribution explanations to predict brain activity from fMRI data during narrative listening.",
+      "id": "llm-explanations-brain-representations-012",
+      "source_paper": "papers/llm-explanations-brain-representations.pdf",
+      "source_title": "Llm Explanations Brain Representations",
+      "cluster": "other"
+    },
+    {
+      "text": "Attribution explanations provide a computational approach to understanding neural language representation.",
+      "type": "concept",
+      "tags": [
+        "computational-neuroscience",
+        "neural-representation",
+        "attribution-methods",
+        "language-understanding"
+      ],
+      "evidence": "The overall methodology demonstrates using computational explanations to understand neural processes.",
+      "id": "llm-explanations-brain-representations-013",
+      "source_paper": "papers/llm-explanations-brain-representations.pdf",
+      "source_title": "Llm Explanations Brain Representations",
+      "cluster": "other"
+    },
+    {
+      "text": "The transformer architecture provides a natural computational analogy for understanding cortical column organization.",
+      "type": "hypothesis",
+      "tags": [
+        "transformer-architecture",
+        "cortical-columns",
+        "computational-analogy",
+        "neuroscience"
+      ],
+      "evidence": "This is the core thesis proposed by the authors as stated in the abstract and core thesis section.",
+      "id": "neuroscience-of-transformers-001",
+      "source_paper": "papers/neuroscience-of-transformers.pdf",
+      "source_title": "Neuroscience Of Transformers",
+      "cluster": "other"
+    },
+    {
+      "text": "The laminar structure of the cortical column can be viewed as instantiating a transformer-like computational motif.",
+      "type": "hypothesis",
+      "tags": [
+        "laminar-structure",
+        "cortical-columns",
+        "transformer-architecture",
+        "computational-motif"
+      ],
+      "evidence": "Listed as part of the core thesis in the paper.",
+      "id": "neuroscience-of-transformers-002",
+      "source_paper": "papers/neuroscience-of-transformers.pdf",
+      "source_title": "Neuroscience Of Transformers",
+      "cluster": "other"
+    },
+    {
+      "text": "Comparing brains and architectures at the level of computational organization can yield genuine insight into both disciplines.",
+      "type": "claim",
+      "tags": [
+        "computational-organization",
+        "neuroscience",
+        "machine-learning",
+        "interdisciplinary"
+      ],
+      "evidence": "Stated as part of the core thesis and framework for the research.",
+      "id": "neuroscience-of-transformers-003",
+      "source_paper": "papers/neuroscience-of-transformers.pdf",
+      "source_title": "Neuroscience Of Transformers",
+      "cluster": "other"
+    },
+    {
+      "text": "Attention mechanisms map to contextual selection and content routing in cortical circuits.",
+      "type": "hypothesis",
+      "tags": [
+        "attention-mechanism",
+        "contextual-selection",
+        "cortical-circuits",
+        "content-routing"
+      ],
+      "evidence": "Presented as part of the transformer-to-cortex mapping framework.",
+      "id": "neuroscience-of-transformers-004",
+      "source_paper": "papers/neuroscience-of-transformers.pdf",
+      "source_title": "Neuroscience Of Transformers",
+      "cluster": "other"
+    },
+    {
+      "text": "Feed-forward layers correspond to dendritic integration processes.",
+      "type": "hypothesis",
+      "tags": [
+        "feed-forward-layers",
+        "dendritic-integration",
+        "neural-computation",
+        "cortical-processing"
+      ],
+      "evidence": "Listed in the transformer-to-cortex mapping section.",
+      "id": "neuroscience-of-transformers-005",
+      "source_paper": "papers/neuroscience-of-transformers.pdf",
+      "source_title": "Neuroscience Of Transformers",
+      "cluster": "other"
+    },
+    {
+      "text": "Layer normalization parallels oscillatory coordination patterns.",
+      "type": "hypothesis",
+      "tags": [
+        "layer-normalization",
+        "oscillatory-coordination",
+        "neural-oscillations",
+        "cortical-dynamics"
+      ],
+      "evidence": "Included in the mapping between transformer operations and cortical features.",
+      "id": "neuroscience-of-transformers-006",
+      "source_paper": "papers/neuroscience-of-transformers.pdf",
+      "source_title": "Neuroscience Of Transformers",
+      "cluster": "other"
+    },
+    {
+      "text": "Residual connections map to effective connectivity within cortical circuits.",
+      "type": "hypothesis",
+      "tags": [
+        "residual-connections",
+        "effective-connectivity",
+        "cortical-circuits",
+        "neural-networks"
+      ],
+      "evidence": "Part of the proposed transformer-to-cortex mapping framework.",
+      "id": "neuroscience-of-transformers-007",
+      "source_paper": "papers/neuroscience-of-transformers.pdf",
+      "source_title": "Neuroscience Of Transformers",
+      "cluster": "other"
+    },
+    {
+      "text": "A fundamental challenge exists in reconciling the transformer's requirement for discrete causal sequences with the cortex's continuous recurrent dynamics.",
+      "type": "finding",
+      "tags": [
+        "temporal-discretization",
+        "causal-sequences",
+        "recurrent-dynamics",
+        "computational-challenge"
+      ],
+      "evidence": "Identified as a fundamental challenge in the temporal discretization section.",
+      "id": "neuroscience-of-transformers-008",
+      "source_paper": "papers/neuroscience-of-transformers.pdf",
+      "source_title": "Neuroscience Of Transformers",
+      "cluster": "other"
+    },
+    {
+      "text": "The brain may resolve temporal discretization through hierarchical temporal scaffolding using rhythmic synchronization.",
+      "type": "hypothesis",
+      "tags": [
+        "hierarchical-temporal-scaffolding",
+        "rhythmic-synchronization",
+        "temporal-discretization",
+        "neural-oscillations"
+      ],
+      "evidence": "Proposed as a potential solution to the temporal discretization challenge.",
+      "id": "neuroscience-of-transformers-009",
+      "source_paper": "papers/neuroscience-of-transformers.pdf",
+      "source_title": "Neuroscience Of Transformers",
+      "cluster": "other"
+    },
+    {
+      "text": "Cortical circuits use rhythmic synchronization to discretize information into functionally atomic units.",
+      "type": "hypothesis",
+      "tags": [
+        "rhythmic-synchronization",
+        "information-discretization",
+        "cortical-circuits",
+        "functional-units"
+      ],
+      "evidence": "Described as part of the hierarchical temporal scaffolding mechanism.",
+      "id": "neuroscience-of-transformers-010",
+      "source_paper": "papers/neuroscience-of-transformers.pdf",
+      "source_title": "Neuroscience Of Transformers",
+      "cluster": "other"
+    },
+    {
+      "text": "The framework generates predictions about laminar specialization patterns in cortical columns.",
+      "type": "claim",
+      "tags": [
+        "laminar-specialization",
+        "cortical-columns",
+        "predictions",
+        "cortical-organization"
+      ],
+      "evidence": "Listed as one of the predictions generated by the proposed framework.",
+      "id": "neuroscience-of-transformers-011",
+      "source_paper": "papers/neuroscience-of-transformers.pdf",
+      "source_title": "Neuroscience Of Transformers",
+      "cluster": "other"
+    },
+    {
+      "text": "The framework generates predictions about contextual modulation mechanisms.",
+      "type": "claim",
+      "tags": [
+        "contextual-modulation",
+        "predictions",
+        "cortical-mechanisms",
+        "neural-computation"
+      ],
+      "evidence": "Included in the list of predictions generated by the research framework.",
+      "id": "neuroscience-of-transformers-012",
+      "source_paper": "papers/neuroscience-of-transformers.pdf",
+      "source_title": "Neuroscience Of Transformers",
+      "cluster": "other"
+    },
+    {
+      "text": "The framework generates predictions about dendritic integration processes.",
+      "type": "claim",
+      "tags": [
+        "dendritic-integration",
+        "predictions",
+        "neural-computation",
+        "synaptic-processing"
+      ],
+      "evidence": "Listed among the predictions generated by the proposed analogy framework.",
+      "id": "neuroscience-of-transformers-013",
+      "source_paper": "papers/neuroscience-of-transformers.pdf",
+      "source_title": "Neuroscience Of Transformers",
+      "cluster": "other"
+    },
+    {
+      "text": "The framework generates predictions about oscillatory coordination patterns.",
+      "type": "claim",
+      "tags": [
+        "oscillatory-coordination",
+        "predictions",
+        "neural-oscillations",
+        "cortical-dynamics"
+      ],
+      "evidence": "Mentioned as one of the predictions arising from the transformer-cortex analogy.",
+      "id": "neuroscience-of-transformers-014",
+      "source_paper": "papers/neuroscience-of-transformers.pdf",
+      "source_title": "Neuroscience Of Transformers",
+      "cluster": "other"
+    },
+    {
+      "text": "The authors do not claim that transformers are literally implemented in the brain.",
+      "type": "claim",
+      "tags": [
+        "computational-analogy",
+        "biological-implementation",
+        "research-framework",
+        "methodology"
+      ],
+      "evidence": "Explicitly stated in the abstract as a clarification of their approach.",
+      "id": "neuroscience-of-transformers-015",
+      "source_paper": "papers/neuroscience-of-transformers.pdf",
+      "source_title": "Neuroscience Of Transformers",
+      "cluster": "other"
+    },
+    {
+      "text": "LLMs' layer hierarchy aligns with the temporal dynamics of language comprehension in the brain",
+      "type": "finding",
+      "tags": [
+        "temporal-dynamics",
+        "layer-hierarchy",
+        "brain-alignment",
+        "language-processing"
+      ],
+      "evidence": "Core finding demonstrated through temporal-to-depth correspondence analysis",
+      "id": "temporal-language-llm-hierarchy-001",
+      "source_paper": "papers/temporal-language-llm-hierarchy.pdf",
+      "source_title": "Temporal Language Llm Hierarchy",
+      "cluster": "other"
+    },
+    {
+      "text": "Deeper LLM layers correspond to later brain activity during language processing",
+      "type": "finding",
+      "tags": [
+        "layer-depth",
+        "temporal-mapping",
+        "brain-activity",
+        "neural-correspondence"
+      ],
+      "evidence": "Established through temporal-to-depth mapping analysis",
+      "id": "temporal-language-llm-hierarchy-002",
+      "source_paper": "papers/temporal-language-llm-hierarchy.pdf",
+      "source_title": "Temporal Language Llm Hierarchy",
+      "cluster": "other"
+    },
+    {
+      "text": "The temporal-to-depth mapping is particularly strong in Broca's area and other language-related regions",
+      "type": "finding",
+      "tags": [
+        "brocas-area",
+        "language-regions",
+        "temporal-mapping",
+        "brain-localization"
+      ],
+      "evidence": "Specific brain regions showed strongest correspondence patterns",
+      "id": "temporal-language-llm-hierarchy-003",
+      "source_paper": "papers/temporal-language-llm-hierarchy.pdf",
+      "source_title": "Temporal Language Llm Hierarchy",
+      "cluster": "other"
+    },
+    {
+      "text": "Early LLM layers (1-4) correspond to early neural responses occurring at 50-150ms",
+      "type": "finding",
+      "tags": [
+        "early-layers",
+        "neural-timing",
+        "temporal-mapping",
+        "layer-correspondence"
+      ],
+      "evidence": "Temporal mapping analysis shows specific layer-to-timing correspondence",
+      "id": "temporal-language-llm-hierarchy-004",
+      "source_paper": "papers/temporal-language-llm-hierarchy.pdf",
+      "source_title": "Temporal Language Llm Hierarchy",
+      "cluster": "other"
+    },
+    {
+      "text": "Early neural responses at 50-150ms involve phonological and basic acoustic processing",
+      "type": "finding",
+      "tags": [
+        "phonological-processing",
+        "acoustic-processing",
+        "early-responses",
+        "language-processing"
+      ],
+      "evidence": "Characterized through temporal mapping of neural responses",
+      "id": "temporal-language-llm-hierarchy-005",
+      "source_paper": "papers/temporal-language-llm-hierarchy.pdf",
+      "source_title": "Temporal Language Llm Hierarchy",
+      "cluster": "other"
+    },
+    {
+      "text": "Middle LLM layers (5-8) correspond to mid-latency neural responses at 150-350ms",
+      "type": "finding",
+      "tags": [
+        "middle-layers",
+        "neural-timing",
+        "temporal-mapping",
+        "syntactic-processing"
+      ],
+      "evidence": "Temporal mapping analysis demonstrates layer-specific timing correspondence",
+      "id": "temporal-language-llm-hierarchy-006",
+      "source_paper": "papers/temporal-language-llm-hierarchy.pdf",
+      "source_title": "Temporal Language Llm Hierarchy",
+      "cluster": "other"
+    },
+    {
+      "text": "Mid-latency neural responses at 150-350ms involve syntactic parsing and morphological analysis",
+      "type": "finding",
+      "tags": [
+        "syntactic-parsing",
+        "morphological-analysis",
+        "mid-latency",
+        "language-processing"
+      ],
+      "evidence": "Identified through temporal characterization of neural processing stages",
+      "id": "temporal-language-llm-hierarchy-007",
+      "source_paper": "papers/temporal-language-llm-hierarchy.pdf",
+      "source_title": "Temporal Language Llm Hierarchy",
+      "cluster": "other"
+    },
+    {
+      "text": "Deep LLM layers (9-12+) correspond to late neural responses occurring at 350-600ms",
+      "type": "finding",
+      "tags": [
+        "deep-layers",
+        "late-responses",
+        "temporal-mapping",
+        "semantic-processing"
+      ],
+      "evidence": "Temporal mapping shows correspondence between deepest layers and latest responses",
+      "id": "temporal-language-llm-hierarchy-008",
+      "source_paper": "papers/temporal-language-llm-hierarchy.pdf",
+      "source_title": "Temporal Language Llm Hierarchy",
+      "cluster": "other"
+    },
+    {
+      "text": "Late neural responses at 350-600ms involve semantic integration and discourse-level processing",
+      "type": "finding",
+      "tags": [
+        "semantic-integration",
+        "discourse-processing",
+        "late-responses",
+        "high-level-processing"
+      ],
+      "evidence": "Characterized through analysis of late-stage neural processing",
+      "id": "temporal-language-llm-hierarchy-009",
+      "source_paper": "papers/temporal-language-llm-hierarchy.pdf",
+      "source_title": "Temporal Language Llm Hierarchy",
+      "cluster": "other"
+    },
+    {
+      "text": "GPT-2 models predicted a large portion of language-related brain regions for proficient L2 users",
+      "type": "finding",
+      "tags": [
+        "gpt-2",
+        "language-proficiency",
+        "l2-users",
+        "brain-prediction"
+      ],
+      "evidence": "Proficiency effects analysis showed strong prediction for proficient users",
+      "id": "temporal-language-llm-hierarchy-010",
+      "source_paper": "papers/temporal-language-llm-hierarchy.pdf",
+      "source_title": "Temporal Language Llm Hierarchy",
+      "cluster": "other"
+    },
+    {
+      "text": "GPT-2 models predicted smaller brain regions for independent and basic L2 users compared to proficient users",
+      "type": "finding",
+      "tags": [
+        "language-proficiency",
+        "l2-users",
+        "brain-prediction",
+        "proficiency-effects"
+      ],
+      "evidence": "Comparison across proficiency levels showed reduced prediction coverage",
+      "id": "temporal-language-llm-hierarchy-011",
+      "source_paper": "papers/temporal-language-llm-hierarchy.pdf",
+      "source_title": "Temporal Language Llm Hierarchy",
+      "cluster": "other"
+    },
+    {
+      "text": "Brain-LLM alignment is modulated by language proficiency level",
+      "type": "finding",
+      "tags": [
+        "language-proficiency",
+        "brain-alignment",
+        "proficiency-effects",
+        "individual-differences"
+      ],
+      "evidence": "Differential prediction patterns across proficiency levels suggest modulation effect",
+      "id": "temporal-language-llm-hierarchy-012",
+      "source_paper": "papers/temporal-language-llm-hierarchy.pdf",
+      "source_title": "Temporal Language Llm Hierarchy",
+      "cluster": "other"
+    },
+    {
+      "text": "There exists a temporal-to-depth correspondence between biological and artificial language processing systems",
+      "type": "concept",
+      "tags": [
+        "temporal-depth-correspondence",
+        "biological-artificial",
+        "language-processing",
+        "neural-alignment"
+      ],
+      "evidence": "Core concept established through demonstration of layer-timing alignment",
+      "id": "temporal-language-llm-hierarchy-013",
+      "source_paper": "papers/temporal-language-llm-hierarchy.pdf",
+      "source_title": "Temporal Language Llm Hierarchy",
+      "cluster": "other"
+    },
+    {
+      "text": "Language comprehension in the brain follows temporal dynamics that can be mapped to computational layers",
+      "type": "concept",
+      "tags": [
+        "temporal-dynamics",
+        "language-comprehension",
+        "computational-mapping",
+        "brain-processing"
+      ],
+      "evidence": "Conceptual framework demonstrated through temporal-to-depth mapping",
+      "id": "temporal-language-llm-hierarchy-014",
+      "source_paper": "papers/temporal-language-llm-hierarchy.pdf",
+      "source_title": "Temporal Language Llm Hierarchy",
+      "cluster": "other"
+    },
+    {
+      "text": "LLM layer hierarchy reflects the hierarchical temporal structure of natural language processing in the brain",
+      "type": "hypothesis",
+      "tags": [
+        "hierarchical-processing",
+        "temporal-structure",
+        "layer-hierarchy",
+        "natural-language"
+      ],
+      "evidence": "Underlying hypothesis supported by demonstrated temporal-depth correspondence",
+      "id": "temporal-language-llm-hierarchy-015",
+      "source_paper": "papers/temporal-language-llm-hierarchy.pdf",
+      "source_title": "Temporal Language Llm Hierarchy",
+      "cluster": "other"
+    },
+    {
+      "text": "Neuron-astrocyte networks can naturally implement the core computation performed by the Transformer block in AI.",
+      "type": "claim",
+      "tags": [
+        "transformer-architecture",
+        "biological-computation",
+        "neuron-astrocyte",
+        "attention-mechanism"
+      ],
+      "evidence": "This is the core thesis demonstrated throughout the paper",
+      "id": "transformers-neurons-astrocytes-001",
+      "source_paper": "papers/transformers-neurons-astrocytes.pdf",
+      "source_title": "Transformers Neurons Astrocytes",
+      "cluster": "other"
+    },
+    {
+      "text": "Astrocytes play a key role in modulating synaptic transmission in a way analogous to attention mechanisms.",
+      "type": "finding",
+      "tags": [
+        "astrocytes",
+        "synaptic-modulation",
+        "attention-mechanism",
+        "biological-computation"
+      ],
+      "evidence": "Demonstrated through analysis of astrocytic function in neural circuits",
+      "id": "transformers-neurons-astrocytes-002",
+      "source_paper": "papers/transformers-neurons-astrocytes.pdf",
+      "source_title": "Transformers Neurons Astrocytes",
+      "cluster": "other"
+    },
+    {
+      "text": "Biological neural circuits provide a substrate for transformer-like computations in the brain.",
+      "type": "claim",
+      "tags": [
+        "biological-computation",
+        "transformer-architecture",
+        "neural-circuits",
+        "brain-computation"
+      ],
+      "evidence": "Supported by the demonstrated neuron-astrocyte implementation of transformer operations",
+      "id": "transformers-neurons-astrocytes-003",
+      "source_paper": "papers/transformers-neurons-astrocytes.pdf",
+      "source_title": "Transformers Neurons Astrocytes",
+      "cluster": "other"
+    },
+    {
+      "text": "Astrocytes integrate signals from thousands of synapses, similar to how attention aggregates information across sequence positions.",
+      "type": "finding",
+      "tags": [
+        "astrocytes",
+        "signal-integration",
+        "attention-mechanism",
+        "synaptic-processing"
+      ],
+      "evidence": "Observed through analysis of astrocytic connectivity and signal processing patterns",
+      "id": "transformers-neurons-astrocytes-004",
+      "source_paper": "papers/transformers-neurons-astrocytes.pdf",
+      "source_title": "Transformers Neurons Astrocytes",
+      "cluster": "other"
+    },
+    {
+      "text": "Astrocytic calcium signaling operates on slower timescales, providing a form of contextual modulation.",
+      "type": "finding",
+      "tags": [
+        "calcium-signaling",
+        "astrocytes",
+        "temporal-dynamics",
+        "contextual-modulation"
+      ],
+      "evidence": "Documented through examination of astrocytic calcium dynamics and their functional role",
+      "id": "transformers-neurons-astrocytes-005",
+      "source_paper": "papers/transformers-neurons-astrocytes.pdf",
+      "source_title": "Transformers Neurons Astrocytes",
+      "cluster": "other"
+    },
+    {
+      "text": "Tripartite synapses implement a biological form of query-key-value attention.",
+      "type": "finding",
+      "tags": [
+        "tripartite-synapses",
+        "query-key-value",
+        "attention-mechanism",
+        "biological-computation"
+      ],
+      "evidence": "Demonstrated by mapping the functional roles of pre-synaptic neuron, post-synaptic neuron, and astrocyte to attention components",
+      "id": "transformers-neurons-astrocytes-006",
+      "source_paper": "papers/transformers-neurons-astrocytes.pdf",
+      "source_title": "Transformers Neurons Astrocytes",
+      "cluster": "other"
+    },
+    {
+      "text": "Tripartite synapses consist of a pre-synaptic neuron, post-synaptic neuron, and astrocyte.",
+      "type": "concept",
+      "tags": [
+        "tripartite-synapses",
+        "neural-circuits",
+        "astrocytes",
+        "synaptic-structure"
+      ],
+      "evidence": "Defined as the basic structural unit for biological attention implementation",
+      "id": "transformers-neurons-astrocytes-007",
+      "source_paper": "papers/transformers-neurons-astrocytes.pdf",
+      "source_title": "Transformers Neurons Astrocytes",
+      "cluster": "other"
+    },
+    {
+      "text": "Neuron-astrocyte interactions provide a concrete biological mechanism for attention-like computations.",
+      "type": "claim",
+      "tags": [
+        "neuron-astrocyte",
+        "attention-mechanism",
+        "biological-computation",
+        "neural-mechanisms"
+      ],
+      "evidence": "Established through the detailed mapping of biological processes to attention operations",
+      "id": "transformers-neurons-astrocytes-008",
+      "source_paper": "papers/transformers-neurons-astrocytes.pdf",
+      "source_title": "Transformers Neurons Astrocytes",
+      "cluster": "other"
+    },
+    {
+      "text": "Transformer architectures may have accidentally discovered a computation that biology evolved independently.",
+      "type": "hypothesis",
+      "tags": [
+        "transformer-architecture",
+        "evolutionary-computation",
+        "convergent-evolution",
+        "biological-computation"
+      ],
+      "evidence": "Proposed based on the similarity between transformer attention and neuron-astrocyte computations",
+      "id": "transformers-neurons-astrocytes-009",
+      "source_paper": "papers/transformers-neurons-astrocytes.pdf",
+      "source_title": "Transformers Neurons Astrocytes",
+      "cluster": "other"
+    },
+    {
+      "text": "Neuron-astrocyte interactions open new directions for neuromorphic computing.",
+      "type": "hypothesis",
+      "tags": [
+        "neuromorphic-computing",
+        "neuron-astrocyte",
+        "bio-inspired-computing",
+        "hardware-design"
+      ],
+      "evidence": "Suggested as a future research direction based on the biological implementation of attention",
+      "id": "transformers-neurons-astrocytes-010",
+      "source_paper": "papers/transformers-neurons-astrocytes.pdf",
+      "source_title": "Transformers Neurons Astrocytes",
+      "cluster": "other"
+    },
+    {
+      "text": "Attention mechanisms aggregate information across sequence positions in transformer architectures.",
+      "type": "concept",
+      "tags": [
+        "attention-mechanism",
+        "transformer-architecture",
+        "sequence-processing",
+        "information-aggregation"
+      ],
+      "evidence": "Described as the fundamental operation that astrocytes parallel in biological systems",
+      "id": "transformers-neurons-astrocytes-011",
+      "source_paper": "papers/transformers-neurons-astrocytes.pdf",
+      "source_title": "Transformers Neurons Astrocytes",
+      "cluster": "other"
+    },
+    {
+      "text": "The paper was published in PNAS (Proceedings of the National Academy of Sciences) in 2023.",
+      "type": "finding",
+      "tags": [
+        "publication-venue",
+        "research-validation",
+        "peer-review",
+        "scientific-publication"
+      ],
+      "evidence": "Documented in the paper metadata and citation information",
+      "id": "transformers-neurons-astrocytes-012",
+      "source_paper": "papers/transformers-neurons-astrocytes.pdf",
+      "source_title": "Transformers Neurons Astrocytes",
+      "cluster": "other"
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "attention-is-all-you-need-003",
+      "target_id": "do-large-language-models-think-like-the--001",
+      "relationship": "provides-mechanism-for",
+      "strength": 0.85,
+      "explanation": "The Transformer architecture's attention-based layers provide the structural foundation for understanding why middle layers of LLMs show higher brain correlation than final layers.",
+      "id": "edge-0001"
+    },
+    {
+      "source_id": "attention-is-all-you-need-005",
+      "target_id": "do-large-language-models-think-like-the--004",
+      "relationship": "provides-mechanism-for",
+      "strength": 0.8,
+      "explanation": "Self-attention mechanisms in Transformers enable the semantic abstraction processing that shows strongest correspondence with brain activity.",
+      "id": "edge-0002"
+    },
+    {
+      "source_id": "attention-is-all-you-need-006",
+      "target_id": "do-large-language-models-think-like-the--002",
+      "relationship": "provides-mechanism-for",
+      "strength": 0.75,
+      "explanation": "Multi-head attention allows Transformers to process multiple aspects of language simultaneously, which may explain alignment with specialized brain regions like IFG and posterior temporal cortex.",
+      "id": "edge-0003"
+    },
+    {
+      "source_id": "do-large-language-models-think-like-the--003",
+      "target_id": "attention-is-all-you-need-010",
+      "relationship": "extends",
+      "strength": 0.7,
+      "explanation": "The finding that enhanced model performance correlates with brain-like hierarchies extends the Transformer's performance improvements by suggesting biological plausibility as a factor.",
+      "id": "edge-0004"
+    },
+    {
+      "source_id": "attention-is-all-you-need-008",
+      "target_id": "do-large-language-models-think-like-the--001",
+      "relationship": "provides-mechanism-for",
+      "strength": 0.75,
+      "explanation": "The Transformer's encoder-decoder architecture creates the layered structure that enables middle layers to show higher brain correlation than final layers.",
+      "id": "edge-0005"
+    },
+    {
+      "source_id": "do-large-language-models-think-like-the--005",
+      "target_id": "attention-is-all-you-need-010",
+      "relationship": "supports",
+      "strength": 0.65,
+      "explanation": "Instruction-tuned models showing better neural alignment supports the Transformer's performance improvements by suggesting that better models align more closely with biological processing.",
+      "id": "edge-0006"
+    },
+    {
+      "source_id": "attention-is-all-you-need-007",
+      "target_id": "do-large-language-models-think-like-the--008",
+      "relationship": "related-to",
+      "strength": 0.6,
+      "explanation": "Positional encoding in Transformers relates to sentence-level neural prediction models as both deal with sequential structure in language processing.",
+      "id": "edge-0007"
+    },
+    {
+      "source_id": "do-large-language-models-think-like-the--006",
+      "target_id": "attention-is-all-you-need-006",
+      "relationship": "supports",
+      "strength": 0.7,
+      "explanation": "LLM engagement of both hemispheric language systems supports the multi-head attention mechanism's ability to process multiple cognitive aspects simultaneously.",
+      "id": "edge-0008"
+    },
+    {
+      "source_id": "attention-is-all-you-need-002",
+      "target_id": "do-large-language-models-think-like-the--003",
+      "relationship": "extends",
+      "strength": 0.8,
+      "explanation": "The brain alignment research extends the finding that attention mechanisms improve model performance by showing this improvement correlates with brain-like hierarchical processing.",
+      "id": "edge-0009"
+    },
+    {
+      "source_id": "do-large-language-models-think-like-the--007",
+      "target_id": "attention-is-all-you-need-009",
+      "relationship": "extends",
+      "strength": 0.6,
+      "explanation": "Comparing LLM embeddings against brain data extends Transformer evaluation beyond traditional metrics like BLEU scores to include biological plausibility measures.",
+      "id": "edge-0010"
+    },
+    {
+      "source_id": "attention-is-all-you-need-001",
+      "target_id": "do-large-language-models-think-like-the--001",
+      "relationship": "related-to",
+      "strength": 0.5,
+      "explanation": "The complex encoder-decoder architectures mentioned relate to the layered LLM architectures studied for brain alignment, though the brain research focuses specifically on attention-based models.",
+      "id": "edge-0011"
+    },
+    {
+      "source_id": "attention-is-all-you-need-004",
+      "target_id": "do-large-language-models-think-like-the--003",
+      "relationship": "supports",
+      "strength": 0.65,
+      "explanation": "The Transformer's elimination of recurrence and convolutions supports the finding that enhanced performance correlates with brain-like hierarchies, suggesting attention-only architectures are more biologically plausible.",
+      "id": "edge-0012"
+    },
+    {
+      "source_id": "flashattention-fast-and-memory-efficient-010",
+      "target_id": "do-large-language-models-think-like-the--009",
+      "relationship": "provides-mechanism-for",
+      "strength": 0.7,
+      "explanation": "FlashAttention's ability to handle longer sequences (16K tokens) enables more naturalistic narrative processing during fMRI studies by allowing models to process complete stories.",
+      "id": "edge-0013"
+    },
+    {
+      "source_id": "flashattention-fast-and-memory-efficient-011",
+      "target_id": "do-large-language-models-think-like-the--014",
+      "relationship": "supports",
+      "strength": 0.8,
+      "explanation": "FlashAttention's use in production LLMs like GPT-4 validates that these models can serve as viable computational models for understanding human language processing.",
+      "id": "edge-0014"
+    },
+    {
+      "source_id": "flashattention-fast-and-memory-efficient-008",
+      "target_id": "do-large-language-models-think-like-the--015",
+      "relationship": "provides-mechanism-for",
+      "strength": 0.6,
+      "explanation": "FlashAttention's performance improvements enable more efficient training of larger LLMs, facilitating their evolution toward brain-like processing patterns.",
+      "id": "edge-0015"
+    },
+    {
+      "source_id": "flashattention-fast-and-memory-efficient-009",
+      "target_id": "do-large-language-models-think-like-the--010",
+      "relationship": "provides-mechanism-for",
+      "strength": 0.5,
+      "explanation": "FlashAttention's reduced memory complexity enables systematic comparison of layer-wise representations by making it computationally feasible to analyze larger models.",
+      "id": "edge-0016"
+    },
+    {
+      "source_id": "do-large-language-models-think-like-the--012",
+      "target_id": "do-large-language-models-think-like-the--013",
+      "relationship": "supports",
+      "strength": 0.9,
+      "explanation": "The finding that intermediate layers carry rich linguistic information directly supports the hypothesis that final layers over-optimize for tasks at the expense of brain-like representations.",
+      "id": "edge-0017"
+    },
+    {
+      "source_id": "do-large-language-models-think-like-the--015",
+      "target_id": "do-large-language-models-think-like-the--014",
+      "relationship": "supports",
+      "strength": 0.8,
+      "explanation": "The natural evolution of LLMs toward brain-like patterns as they improve provides strong evidence that they function as viable computational models for human language processing.",
+      "id": "edge-0018"
+    },
+    {
+      "source_id": "do-large-language-models-think-like-the--011",
+      "target_id": "do-large-language-models-think-like-the--010",
+      "relationship": "provides-mechanism-for",
+      "strength": 0.9,
+      "explanation": "Brain-model correlation measures provide the quantitative mechanism for systematically comparing layer-wise LLM representations to dynamic neural responses.",
+      "id": "edge-0019"
+    },
+    {
+      "source_id": "do-large-language-models-think-like-the--009",
+      "target_id": "do-large-language-models-think-like-the--011",
+      "relationship": "provides-mechanism-for",
+      "strength": 0.8,
+      "explanation": "Naturalistic narrative fMRI scanning provides the neural data necessary for computing brain-model correlation measures between LLMs and human brain activity.",
+      "id": "edge-0020"
+    },
+    {
+      "source_id": "do-large-language-models-think-like-the--012",
+      "target_id": "do-large-language-models-think-like-the--011",
+      "relationship": "extends",
+      "strength": 0.7,
+      "explanation": "The specific finding about intermediate layers carrying rich linguistic information extends the general concept of brain-model correlation by identifying which layers show strongest alignment.",
+      "id": "edge-0021"
+    },
+    {
+      "source_id": "flashattention-fast-and-memory-efficient-002",
+      "target_id": "flashattention-fast-and-memory-efficient-009",
+      "relationship": "causes",
+      "strength": 0.9,
+      "explanation": "FlashAttention's IO-aware tiling algorithm directly causes the reduction in memory complexity from O(N^2) to O(N).",
+      "id": "edge-0022"
+    },
+    {
+      "source_id": "flashattention-fast-and-memory-efficient-003",
+      "target_id": "flashattention-fast-and-memory-efficient-001",
+      "relationship": "provides-mechanism-for",
+      "strength": 0.9,
+      "explanation": "Computing attention without materializing the full matrix directly addresses the O(N^2) memory complexity problem of standard attention.",
+      "id": "edge-0023"
+    },
+    {
+      "source_id": "flashattention-fast-and-memory-efficient-005",
+      "target_id": "flashattention-fast-and-memory-efficient-004",
+      "relationship": "uses-method",
+      "strength": 0.8,
+      "explanation": "FlashAttention's tiling approach specifically exploits the GPU memory hierarchy by fitting computations into the fast but small SRAM.",
+      "id": "edge-0024"
+    },
+    {
+      "source_id": "flashattention-fast-and-memory-efficient-007",
+      "target_id": "flashattention-fast-and-memory-efficient-005",
+      "relationship": "extends",
+      "strength": 0.8,
+      "explanation": "The detailed description of loading Q, K, V blocks extends the general concept of tiling by specifying the exact memory movement pattern.",
+      "id": "edge-0025"
+    },
+    {
+      "source_id": "flashattention-fast-and-memory-efficient-006",
+      "target_id": "flashattention-fast-and-memory-efficient-009",
+      "relationship": "provides-mechanism-for",
+      "strength": 0.7,
+      "explanation": "Recomputing attention during backward pass instead of storing it contributes to the overall memory complexity reduction from O(N^2) to O(N).",
+      "id": "edge-0026"
+    },
+    {
+      "source_id": "flashattention-fast-and-memory-efficient-009",
+      "target_id": "flashattention-fast-and-memory-efficient-010",
+      "relationship": "causes",
+      "strength": 0.8,
+      "explanation": "The reduction in memory complexity from O(N^2) to O(N) directly enables training with much longer sequences up to 16K tokens.",
+      "id": "edge-0027"
+    },
+    {
+      "source_id": "do-large-language-models-think-like-the--013",
+      "target_id": "do-large-language-models-think-like-the--015",
+      "relationship": "related-to",
+      "strength": 0.6,
+      "explanation": "The hypothesis about final layers over-optimizing for tasks relates to the broader question of how model evolution affects brain-like representation development.",
+      "id": "edge-0028"
+    },
+    {
+      "source_id": "flashattention-fast-and-memory-efficient-010",
+      "target_id": "do-large-language-models-think-like-the--012",
+      "relationship": "provides-mechanism-for",
+      "strength": 0.5,
+      "explanation": "Longer sequence capabilities enabled by FlashAttention allow better analysis of how intermediate layers process sentence-level linguistic information in extended contexts.",
+      "id": "edge-0029"
+    },
+    {
+      "source_id": "flashattention-fast-and-memory-efficient-016",
+      "target_id": "google-brain-llm-language-processing-001",
+      "relationship": "provides-mechanism-for",
+      "strength": 0.6,
+      "explanation": "Memory bottlenecks in attention computation could limit the efficiency of processing contextual embeddings that align with brain activity during language processing.",
+      "id": "edge-0030"
+    },
+    {
+      "source_id": "flashattention-fast-and-memory-efficient-017",
+      "target_id": "google-brain-llm-language-processing-001",
+      "relationship": "supports",
+      "strength": 0.5,
+      "explanation": "IO-aware optimization principles for attention computation enable more efficient processing of the contextual embeddings that show brain alignment.",
+      "id": "edge-0031"
+    },
+    {
+      "source_id": "flashattention-fast-and-memory-efficient-014",
+      "target_id": "google-brain-llm-language-processing-010",
+      "relationship": "supports",
+      "strength": 0.4,
+      "explanation": "Faster attention computation through FlashAttention-2 enables more efficient next-word prediction mechanisms that mirror human brain processing.",
+      "id": "edge-0032"
+    },
+    {
+      "source_id": "flashattention-fast-and-memory-efficient-015",
+      "target_id": "google-brain-llm-language-processing-012",
+      "relationship": "supports",
+      "strength": 0.4,
+      "explanation": "High computational efficiency in attention mechanisms enables better embedding-based contextual representations that parallel human brain processing.",
+      "id": "edge-0033"
+    },
+    {
+      "source_id": "google-brain-llm-language-processing-003",
+      "target_id": "google-brain-llm-language-processing-005",
+      "relationship": "provides-mechanism-for",
+      "strength": 0.8,
+      "explanation": "Speech embeddings extracted from the Whisper encoder are the computational basis for predicting superior temporal gyrus activity during listening.",
+      "id": "edge-0034"
+    },
+    {
+      "source_id": "google-brain-llm-language-processing-004",
+      "target_id": "google-brain-llm-language-processing-006",
+      "relationship": "provides-mechanism-for",
+      "strength": 0.8,
+      "explanation": "Language embeddings from the Whisper decoder provide the computational substrate for predicting Broca's area activation during listening.",
+      "id": "edge-0035"
+    },
+    {
+      "source_id": "google-brain-llm-language-processing-005",
+      "target_id": "google-brain-llm-language-processing-006",
+      "relationship": "causes",
+      "strength": 0.7,
+      "explanation": "Superior temporal gyrus activation during speech processing temporally precedes and likely triggers subsequent Broca's area activation.",
+      "id": "edge-0036"
+    },
+    {
+      "source_id": "google-brain-llm-language-processing-007",
+      "target_id": "google-brain-llm-language-processing-008",
+      "relationship": "causes",
+      "strength": 0.8,
+      "explanation": "Language area activation 500ms before articulation temporally precedes and drives subsequent motor cortex engagement during speaking.",
+      "id": "edge-0037"
+    },
+    {
+      "source_id": "google-brain-llm-language-processing-009",
+      "target_id": "google-brain-llm-language-processing-005",
+      "relationship": "extends",
+      "strength": 0.6,
+      "explanation": "The reversal of speech processing sequences between listening and speaking provides broader context for the specific superior temporal gyrus activation pattern during listening.",
+      "id": "edge-0038"
+    },
+    {
+      "source_id": "google-brain-llm-language-processing-009",
+      "target_id": "google-brain-llm-language-processing-007",
+      "relationship": "extends",
+      "strength": 0.6,
+      "explanation": "The reversal of speech processing sequences explains why language areas activate before articulation during speaking, contrasting with the listening sequence.",
+      "id": "edge-0039"
+    },
+    {
+      "source_id": "google-brain-llm-language-processing-010",
+      "target_id": "google-brain-llm-language-processing-011",
+      "relationship": "supports",
+      "strength": 0.7,
+      "explanation": "Shared next-word prediction mechanisms between brains and LLMs provide the computational foundation for similar prediction error and surprise response patterns.",
+      "id": "edge-0040"
+    },
+    {
+      "source_id": "google-brain-llm-language-processing-010",
+      "target_id": "google-brain-llm-language-processing-012",
+      "relationship": "supports",
+      "strength": 0.7,
+      "explanation": "Shared next-word prediction mechanisms rely on and support the use of embedding-based contextual representations in both brains and LLMs.",
+      "id": "edge-0041"
+    },
+    {
+      "source_id": "google-brain-llm-language-processing-012",
+      "target_id": "google-brain-llm-language-processing-001",
+      "relationship": "provides-mechanism-for",
+      "strength": 0.9,
+      "explanation": "Embedding-based contextual representations in both systems directly enable the linear alignment observed between neural activity and LLM internal representations.",
+      "id": "edge-0042"
+    },
+    {
+      "source_id": "flashattention-fast-and-memory-efficient-012",
+      "target_id": "flashattention-fast-and-memory-efficient-014",
+      "relationship": "causes",
+      "strength": 0.8,
+      "explanation": "Better parallelization across sequence length dimension directly contributes to the 2x speedup achieved by FlashAttention-2.",
+      "id": "edge-0043"
+    },
+    {
+      "source_id": "flashattention-fast-and-memory-efficient-013",
+      "target_id": "flashattention-fast-and-memory-efficient-014",
+      "relationship": "causes",
+      "strength": 0.8,
+      "explanation": "Reducing non-matmul FLOPs directly contributes to the 2x speedup performance improvement in FlashAttention-2.",
+      "id": "edge-0044"
+    },
+    {
+      "source_id": "flashattention-fast-and-memory-efficient-016",
+      "target_id": "flashattention-fast-and-memory-efficient-017",
+      "relationship": "causes",
+      "strength": 0.9,
+      "explanation": "The performance bottleneck from HBM reads/writes in standard attention directly motivates the need for IO-aware optimization principles.",
+      "id": "edge-0045"
+    },
+    {
+      "source_id": "flashattention-fast-and-memory-efficient-017",
+      "target_id": "flashattention-fast-and-memory-efficient-012",
+      "relationship": "provides-mechanism-for",
+      "strength": 0.7,
+      "explanation": "IO-awareness principles guide the design choices that enable better parallelization across sequence length dimensions.",
+      "id": "edge-0046"
+    },
+    {
+      "source_id": "flashattention-fast-and-memory-efficient-017",
+      "target_id": "flashattention-fast-and-memory-efficient-013",
+      "relationship": "provides-mechanism-for",
+      "strength": 0.7,
+      "explanation": "IO-awareness optimization principles inform the strategies used to reduce non-matmul FLOPs in FlashAttention-2.",
+      "id": "edge-0047"
+    },
+    {
+      "source_id": "google-brain-llm-language-processing-020",
+      "target_id": "llm-brain-fmri-alignment-001",
+      "relationship": "extends",
+      "strength": 0.85,
+      "explanation": "The finding that intermediate LLM layers show higher brain correlation provides specific evidence for the general concept of linear alignment between neural activity and LLM representations.",
+      "id": "edge-0048"
+    },
+    {
+      "source_id": "google-brain-llm-language-processing-018",
+      "target_id": "llm-brain-fmri-alignment-003",
+      "relationship": "supports",
+      "strength": 0.8,
+      "explanation": "The striking representational alignment despite architectural differences is supported by evidence that better models develop increasingly brain-like hierarchical structures.",
+      "id": "edge-0049"
+    },
+    {
+      "source_id": "google-brain-llm-language-processing-013",
+      "target_id": "llm-brain-fmri-alignment-004",
+      "relationship": "supports",
+      "strength": 0.9,
+      "explanation": "Both findings converge on the principle that higher-order processing prioritizes semantic information, with the strongest brain-model correspondence occurring at semantic abstraction levels.",
+      "id": "edge-0050"
+    },
+    {
+      "source_id": "google-brain-llm-language-processing-015",
+      "target_id": "llm-brain-fmri-alignment-003",
+      "relationship": "provides-mechanism-for",
+      "strength": 0.75,
+      "explanation": "The soft hierarchy model of brain language processing explains why enhanced LLM performance correlates with brain-like hierarchical representational structures.",
+      "id": "edge-0051"
+    },
+    {
+      "source_id": "google-brain-llm-language-processing-016",
+      "target_id": "google-brain-llm-language-processing-017",
+      "relationship": "contradicts",
+      "strength": 0.85,
+      "explanation": "Human brains process language serially and temporally while transformers handle thousands of words simultaneously, representing fundamentally different processing approaches.",
+      "id": "edge-0052"
+    },
+    {
+      "source_id": "google-brain-llm-language-processing-019",
+      "target_id": "llm-brain-fmri-alignment-008",
+      "relationship": "uses-method",
+      "strength": 0.8,
+      "explanation": "The concept of using natural conversations as an experimental paradigm is implemented through fMRI data collection with naturalistic narrative stories.",
+      "id": "edge-0053"
+    },
+    {
+      "source_id": "google-brain-llm-language-processing-013",
+      "target_id": "google-brain-llm-language-processing-014",
+      "relationship": "extends",
+      "strength": 0.75,
+      "explanation": "The finding about higher-order regions prioritizing semantics while capturing acoustics extends the observation that lower-order areas process sound but also decode meaning.",
+      "id": "edge-0054"
+    },
+    {
+      "source_id": "google-brain-llm-language-processing-015",
+      "target_id": "google-brain-llm-language-processing-013",
+      "relationship": "provides-mechanism-for",
+      "strength": 0.7,
+      "explanation": "The soft hierarchy model explains how higher-order brain regions can prioritize semantic information while still maintaining acoustic feature processing.",
+      "id": "edge-0055"
+    },
+    {
+      "source_id": "llm-brain-fmri-alignment-002",
+      "target_id": "llm-brain-fmri-alignment-006",
+      "relationship": "extends",
+      "strength": 0.65,
+      "explanation": "The identification of specific language-selective regions like IFG is extended by the broader finding of engagement across both hemispheric language systems.",
+      "id": "edge-0056"
+    },
+    {
+      "source_id": "llm-brain-fmri-alignment-005",
+      "target_id": "llm-brain-fmri-alignment-003",
+      "relationship": "supports",
+      "strength": 0.7,
+      "explanation": "Instruction-tuned models outperforming base versions in neural alignment supports the principle that enhanced performance correlates with brain-like representational structures.",
+      "id": "edge-0057"
+    },
+    {
+      "source_id": "google-brain-llm-language-processing-020",
+      "target_id": "llm-brain-fmri-alignment-004",
+      "relationship": "extends",
+      "strength": 0.75,
+      "explanation": "The general concept of linear alignment between neural activity and LLM representations is refined by the specific finding that strongest correspondence occurs at semantic abstraction levels.",
+      "id": "edge-0058"
+    },
+    {
+      "source_id": "llm-brain-fmri-alignment-009",
+      "target_id": "llm-brain-fmri-alignment-010",
+      "relationship": "uses-method",
+      "strength": 0.8,
+      "explanation": "Sentence-level neural prediction models are constructed using the method of extracting layer-wise embeddings and comparing them with dynamic neural responses.",
+      "id": "edge-0059"
+    },
+    {
+      "source_id": "google-brain-llm-language-processing-018",
+      "target_id": "llm-brain-fmri-alignment-001",
+      "relationship": "supports",
+      "strength": 0.65,
+      "explanation": "The striking representational alignment despite architectural differences is evidenced by the specific finding that intermediate LLM layers correlate better with brain regions than final layers.",
+      "id": "edge-0060"
+    },
+    {
+      "source_id": "llm-brain-fmri-alignment-007",
+      "target_id": "llm-brain-fmri-alignment-005",
+      "relationship": "provides-mechanism-for",
+      "strength": 0.6,
+      "explanation": "Comparing fourteen LLMs across various architectures provides the methodological framework that enables the discovery that instruction-tuned models outperform base versions.",
+      "id": "edge-0061"
+    },
+    {
+      "source_id": "google-brain-llm-language-processing-016",
+      "target_id": "llm-brain-fmri-alignment-010",
+      "relationship": "related-to",
+      "strength": 0.55,
+      "explanation": "The serial and temporal nature of brain language processing relates to the methodology of comparing dynamic neural responses during sentence comprehension.",
+      "id": "edge-0062"
+    },
+    {
+      "source_id": "google-brain-llm-language-processing-014",
+      "target_id": "llm-brain-fmri-alignment-002",
+      "relationship": "related-to",
+      "strength": 0.5,
+      "explanation": "Lower-order brain areas processing sound but decoding meaning relates to the identification of specific language-selective brain regions showing LLM correlation.",
+      "id": "edge-0063"
+    },
+    {
+      "source_id": "llm-brain-fmri-alignment-008",
+      "target_id": "llm-brain-fmri-alignment-009",
+      "relationship": "causes",
+      "strength": 0.7,
+      "explanation": "Collecting fMRI data from participants exposed to naturalistic narratives enables the construction of sentence-level neural prediction models.",
+      "id": "edge-0064"
+    },
+    {
+      "source_id": "google-brain-llm-language-processing-015",
+      "target_id": "llm-brain-fmri-alignment-006",
+      "relationship": "supports",
+      "strength": 0.6,
+      "explanation": "The soft hierarchy model of brain language processing supports the finding that LLM processing engages distributed networks across both hemispheres rather than strict localized systems.",
+      "id": "edge-0065"
+    },
+    {
+      "source_id": "llm-explanations-brain-representations-002",
+      "target_id": "llm-brain-fmri-alignment-011",
+      "relationship": "supports",
+      "strength": 0.9,
+      "explanation": "The finding that LLM attribution explanations can predict neural activity provides strong evidence that LLMs function as viable computational models for human language processing.",
+      "id": "edge-0066"
+    },
+    {
+      "source_id": "llm-explanations-brain-representations-009",
+      "target_id": "llm-brain-fmri-alignment-013",
+      "relationship": "supports",
+      "strength": 0.85,
+      "explanation": "The finding that LLM explanations reflect brain language processing principles supports the claim that LLMs and brains share fundamental computational principles.",
+      "id": "edge-0067"
+    },
+    {
+      "source_id": "llm-explanations-brain-representations-007",
+      "target_id": "llm-brain-fmri-alignment-015",
+      "relationship": "supports",
+      "strength": 0.8,
+      "explanation": "The hierarchical alignment between LLM layers and brain processing provides evidence for the concept of hierarchical embeddings representing layer-wise internal representations.",
+      "id": "edge-0068"
+    },
+    {
+      "source_id": "llm-explanations-brain-representations-003",
+      "target_id": "llm-brain-fmri-alignment-014",
+      "relationship": "extends",
+      "strength": 0.75,
+      "explanation": "The specific finding about early LLM layers aligning with initial brain processing stages extends the general concept of brain-model correlation analysis.",
+      "id": "edge-0069"
+    },
+    {
+      "source_id": "llm-explanations-brain-representations-004",
+      "target_id": "llm-brain-fmri-alignment-014",
+      "relationship": "extends",
+      "strength": 0.75,
+      "explanation": "The finding that deeper LLM layers correspond to advanced cognitive stages extends the concept of identifying which layers correlate with specific brain regions.",
+      "id": "edge-0070"
+    },
+    {
+      "source_id": "llm-explanations-brain-representations-001",
+      "target_id": "llm-brain-fmri-alignment-013",
+      "relationship": "provides-mechanism-for",
+      "strength": 0.7,
+      "explanation": "Attribution methods that quantify word influence on predictions provide a mechanism for understanding the pre-onset prediction and contextual representation principles shared by LLMs and brains.",
+      "id": "edge-0071"
+    },
+    {
+      "source_id": "llm-explanations-brain-representations-006",
+      "target_id": "llm-brain-fmri-alignment-012",
+      "relationship": "related-to",
+      "strength": 0.65,
+      "explanation": "The finding that layers with greater prediction influence show stronger brain alignment relates to the hypothesis that final layers may over-optimize for task performance at the expense of brain-like representations.",
+      "id": "edge-0072"
+    },
+    {
+      "source_id": "llm-explanations-brain-representations-012",
+      "target_id": "llm-brain-fmri-alignment-014",
+      "relationship": "uses-method",
+      "strength": 0.8,
+      "explanation": "Using fMRI data prediction through LLM attribution explanations is a specific implementation of brain-model correlation analysis.",
+      "id": "edge-0073"
+    },
+    {
+      "source_id": "llm-explanations-brain-representations-013",
+      "target_id": "llm-brain-fmri-alignment-011",
+      "relationship": "provides-mechanism-for",
+      "strength": 0.75,
+      "explanation": "Attribution explanations as a computational approach to neural language representation provide a mechanism for how LLMs can function as viable models of human language processing.",
+      "id": "edge-0074"
+    },
+    {
+      "source_id": "llm-explanations-brain-representations-008",
+      "target_id": "llm-brain-fmri-alignment-011",
+      "relationship": "supports",
+      "strength": 0.7,
+      "explanation": "The claim that explainable AI can bridge LLM interpretability with neuroscience supports the broader claim that LLMs are viable computational models for language processing.",
+      "id": "edge-0075"
+    },
+    {
+      "source_id": "llm-explanations-brain-representations-010",
+      "target_id": "llm-brain-fmri-alignment-014",
+      "relationship": "extends",
+      "strength": 0.6,
+      "explanation": "Using explainability methods to assess biological plausibility extends the concept of brain-model correlation analysis by adding validation criteria.",
+      "id": "edge-0076"
+    },
+    {
+      "source_id": "llm-explanations-brain-representations-011",
+      "target_id": "llm-brain-fmri-alignment-014",
+      "relationship": "extends",
+      "strength": 0.65,
+      "explanation": "The hypothesis that neuroscience data can validate XAI techniques extends brain-model correlation analysis by proposing bidirectional validation.",
+      "id": "edge-0077"
+    },
+    {
+      "source_id": "llm-explanations-brain-representations-005",
+      "target_id": "llm-brain-fmri-alignment-015",
+      "relationship": "supports",
+      "strength": 0.7,
+      "explanation": "The finding that later LLM layers align with advanced processing stages supports the concept of hierarchical embeddings representing different depths of LLM architectures.",
+      "id": "edge-0078"
+    },
+    {
+      "source_id": "llm-brain-fmri-alignment-012",
+      "target_id": "llm-explanations-brain-representations-006",
+      "relationship": "contradicts",
+      "strength": 0.6,
+      "explanation": "The hypothesis that final layers over-optimize for task performance contradicts the finding that layers with greater prediction influence show stronger brain alignment.",
+      "id": "edge-0079"
+    },
+    {
+      "source_id": "neuroscience-of-transformers-001",
+      "target_id": "neuroscience-of-transformers-002",
+      "relationship": "supports",
+      "strength": 0.9,
+      "explanation": "Both claims establish the foundational analogy between transformer architecture and cortical column organization from complementary perspectives.",
+      "id": "edge-0080"
+    },
+    {
+      "source_id": "neuroscience-of-transformers-002",
+      "target_id": "neuroscience-of-transformers-011",
+      "relationship": "causes",
+      "strength": 0.8,
+      "explanation": "The transformer-cortical column analogy directly enables predictions about how cortical layers should be functionally specialized.",
+      "id": "edge-0081"
+    },
+    {
+      "source_id": "neuroscience-of-transformers-004",
+      "target_id": "neuroscience-of-transformers-012",
+      "relationship": "causes",
+      "strength": 0.85,
+      "explanation": "The attention-contextual selection mapping directly generates testable predictions about cortical contextual modulation mechanisms.",
+      "id": "edge-0082"
+    },
+    {
+      "source_id": "neuroscience-of-transformers-005",
+      "target_id": "neuroscience-of-transformers-013",
+      "relationship": "causes",
+      "strength": 0.9,
+      "explanation": "The feed-forward to dendritic integration mapping directly leads to specific predictions about dendritic computation.",
+      "id": "edge-0083"
+    },
+    {
+      "source_id": "neuroscience-of-transformers-006",
+      "target_id": "neuroscience-of-transformers-014",
+      "relationship": "causes",
+      "strength": 0.9,
+      "explanation": "The layer normalization to oscillatory coordination hypothesis directly generates predictions about neural oscillation patterns.",
+      "id": "edge-0084"
+    },
+    {
+      "source_id": "neuroscience-of-transformers-008",
+      "target_id": "neuroscience-of-transformers-009",
+      "relationship": "causes",
+      "strength": 0.85,
+      "explanation": "The temporal discretization challenge directly motivates the proposed solution of hierarchical temporal scaffolding.",
+      "id": "edge-0085"
+    },
+    {
+      "source_id": "neuroscience-of-transformers-009",
+      "target_id": "neuroscience-of-transformers-010",
+      "relationship": "provides-mechanism-for",
+      "strength": 0.8,
+      "explanation": "Hierarchical temporal scaffolding explains how rhythmic synchronization achieves information discretization in cortical circuits.",
+      "id": "edge-0086"
+    },
+    {
+      "source_id": "neuroscience-of-transformers-006",
+      "target_id": "neuroscience-of-transformers-009",
+      "relationship": "supports",
+      "strength": 0.7,
+      "explanation": "Layer normalization mapping to oscillatory patterns supports the idea that rhythmic synchronization provides temporal scaffolding.",
+      "id": "edge-0087"
+    },
+    {
+      "source_id": "neuroscience-of-transformers-006",
+      "target_id": "neuroscience-of-transformers-010",
+      "relationship": "supports",
+      "strength": 0.75,
+      "explanation": "The oscillatory coordination hypothesis directly supports the mechanism of rhythmic information discretization.",
+      "id": "edge-0088"
+    },
+    {
+      "source_id": "neuroscience-of-transformers-004",
+      "target_id": "neuroscience-of-transformers-007",
+      "relationship": "related-to",
+      "strength": 0.6,
+      "explanation": "Both attention mechanisms and residual connections involve information routing and connectivity within cortical circuits.",
+      "id": "edge-0089"
+    },
+    {
+      "source_id": "neuroscience-of-transformers-003",
+      "target_id": "neuroscience-of-transformers-015",
+      "relationship": "supports",
+      "strength": 0.7,
+      "explanation": "The computational organization approach supports using analogies for insight without claiming literal biological implementation.",
+      "id": "edge-0090"
+    },
+    {
+      "source_id": "scaling-laws-for-neural-language-models-001",
+      "target_id": "neuroscience-of-transformers-003",
+      "relationship": "related-to",
+      "strength": 0.4,
+      "explanation": "Both findings demonstrate systematic computational principles that could inform cross-disciplinary understanding of information processing.",
+      "id": "edge-0091"
+    },
+    {
+      "source_id": "scaling-laws-for-neural-language-models-002",
+      "target_id": "neuroscience-of-transformers-008",
+      "relationship": "related-to",
+      "strength": 0.35,
+      "explanation": "Parameter scaling laws reveal computational constraints in transformers that may relate to the temporal discretization challenges in brain-AI analogies.",
+      "id": "edge-0092"
+    },
+    {
+      "source_id": "neuroscience-of-transformers-001",
+      "target_id": "scaling-laws-for-neural-language-models-001",
+      "relationship": "related-to",
+      "strength": 0.4,
+      "explanation": "The transformer-brain analogy framework could potentially inform understanding of why scaling laws emerge in neural language models.",
+      "id": "edge-0093"
+    },
+    {
+      "source_id": "scaling-laws-for-neural-language-models-008",
+      "target_id": "temporal-language-llm-hierarchy-001",
+      "relationship": "supports",
+      "strength": 0.7,
+      "explanation": "The finding that performance depends on model size rather than architecture supports the brain alignment discovery, suggesting that scale enables the hierarchical processing that mirrors brain dynamics.",
+      "id": "edge-0094"
+    },
+    {
+      "source_id": "scaling-laws-for-neural-language-models-010",
+      "target_id": "temporal-language-llm-hierarchy-002",
+      "relationship": "provides-mechanism-for",
+      "strength": 0.65,
+      "explanation": "The finding that scale, not architecture, is the limiting factor provides a mechanism for why deeper layers correspond to later brain activity - it's the depth/scale that enables temporal processing alignment.",
+      "id": "edge-0095"
+    },
+    {
+      "source_id": "temporal-language-llm-hierarchy-001",
+      "target_id": "scaling-laws-for-neural-language-models-013",
+      "relationship": "supports",
+      "strength": 0.6,
+      "explanation": "The brain alignment of LLM hierarchies supports the claim that architecture search is less important than scale, since the temporal dynamics emerge from depth/scale rather than specific architectural choices.",
+      "id": "edge-0096"
+    },
+    {
+      "source_id": "scaling-laws-for-neural-language-models-004",
+      "target_id": "scaling-laws-for-neural-language-models-005",
+      "relationship": "causes",
+      "strength": 0.85,
+      "explanation": "The power-law relationship between loss and compute budget directly leads to the existence of optimal model size and training token allocations.",
+      "id": "edge-0097"
+    },
+    {
+      "source_id": "scaling-laws-for-neural-language-models-005",
+      "target_id": "scaling-laws-for-neural-language-models-017",
+      "relationship": "is-part-of",
+      "strength": 0.9,
+      "explanation": "The optimal allocation of model size and training tokens is a specific instance of the broader loss-compute frontier concept.",
+      "id": "edge-0098"
+    },
+    {
+      "source_id": "scaling-laws-for-neural-language-models-006",
+      "target_id": "scaling-laws-for-neural-language-models-007",
+      "relationship": "causes",
+      "strength": 0.8,
+      "explanation": "The sample efficiency of larger models directly leads to the strategy of training larger models on less data being superior.",
+      "id": "edge-0099"
+    },
+    {
+      "source_id": "scaling-laws-for-neural-language-models-007",
+      "target_id": "scaling-laws-for-neural-language-models-014",
+      "relationship": "contradicts",
+      "strength": 0.7,
+      "explanation": "The original finding favored larger models with less data, but Chinchilla's revision showed models should be trained on roughly 20x more tokens than parameters.",
+      "id": "edge-0100"
+    },
+    {
+      "source_id": "scaling-laws-for-neural-language-models-014",
+      "target_id": "scaling-laws-for-neural-language-models-015",
+      "relationship": "causes",
+      "strength": 0.9,
+      "explanation": "The revised scaling laws showing the need for 20x more tokens directly led to the discovery that many existing models were undertrained.",
+      "id": "edge-0101"
+    },
+    {
+      "source_id": "scaling-laws-for-neural-language-models-015",
+      "target_id": "scaling-laws-for-neural-language-models-016",
+      "relationship": "causes",
+      "strength": 0.85,
+      "explanation": "The discovery that models were undertrained directly led to the development of smaller but better-trained models like Chinchilla and LLaMA.",
+      "id": "edge-0102"
+    },
+    {
+      "source_id": "scaling-laws-for-neural-language-models-008",
+      "target_id": "scaling-laws-for-neural-language-models-009",
+      "relationship": "supports",
+      "strength": 0.8,
+      "explanation": "The finding that performance depends on model size rather than architecture is supported by the observation that changing attention heads or feed-forward dimensions has little effect.",
+      "id": "edge-0103"
+    },
+    {
+      "source_id": "scaling-laws-for-neural-language-models-009",
+      "target_id": "scaling-laws-for-neural-language-models-010",
+      "relationship": "supports",
+      "strength": 0.85,
+      "explanation": "The finding that architectural changes within fixed parameters have little effect supports the conclusion that Transformer architecture itself is not the bottleneck.",
+      "id": "edge-0104"
+    },
+    {
+      "source_id": "scaling-laws-for-neural-language-models-008",
+      "target_id": "scaling-laws-for-neural-language-models-013",
+      "relationship": "causes",
+      "strength": 0.8,
+      "explanation": "The finding that performance depends on model size rather than architecture directly leads to the conclusion that architecture search is less important than scale.",
+      "id": "edge-0105"
+    },
+    {
+      "source_id": "scaling-laws-for-neural-language-models-004",
+      "target_id": "scaling-laws-for-neural-language-models-011",
+      "relationship": "causes",
+      "strength": 0.9,
+      "explanation": "The predictable power-law relationship between loss and compute budget directly enables predictable planning of compute budgets.",
+      "id": "edge-0106"
+    },
+    {
+      "source_id": "scaling-laws-for-neural-language-models-018",
+      "target_id": "scaling-laws-for-neural-language-models-012",
+      "relationship": "causes",
+      "strength": 0.8,
+      "explanation": "The empirical relationships described by scaling laws enable the prediction of large model performance from small model experiments.",
+      "id": "edge-0107"
+    },
+    {
+      "source_id": "scaling-laws-for-neural-language-models-011",
+      "target_id": "scaling-laws-for-neural-language-models-017",
+      "relationship": "uses-method",
+      "strength": 0.75,
+      "explanation": "Predictable compute budget planning uses the loss-compute frontier methodology to determine Pareto-optimal resource allocation.",
+      "id": "edge-0108"
+    },
+    {
+      "source_id": "scaling-laws-for-neural-language-models-012",
+      "target_id": "scaling-laws-for-neural-language-models-014",
+      "relationship": "extends",
+      "strength": 0.7,
+      "explanation": "The Chinchilla paper's revision extends the original scaling law predictions by providing more accurate extrapolation from small to large models.",
+      "id": "edge-0109"
+    },
+    {
+      "source_id": "transformers-neurons-astrocytes-005",
+      "target_id": "temporal-language-llm-hierarchy-013",
+      "relationship": "provides-mechanism-for",
+      "strength": 0.85,
+      "explanation": "Astrocytic calcium signaling operating on slower timescales provides a biological mechanism for the temporal-to-depth correspondence between biological and artificial language processing systems.",
+      "id": "edge-0110"
+    },
+    {
+      "source_id": "transformers-neurons-astrocytes-001",
+      "target_id": "temporal-language-llm-hierarchy-015",
+      "relationship": "supports",
+      "strength": 0.8,
+      "explanation": "The finding that neuron-astrocyte networks can implement Transformer computations supports the hypothesis that LLM layer hierarchy reflects hierarchical temporal structure in brain language processing.",
+      "id": "edge-0111"
+    },
+    {
+      "source_id": "transformers-neurons-astrocytes-003",
+      "target_id": "temporal-language-llm-hierarchy-014",
+      "relationship": "provides-mechanism-for",
+      "strength": 0.75,
+      "explanation": "Biological neural circuits providing substrate for transformer-like computations explains how language comprehension temporal dynamics can be mapped to computational layers.",
+      "id": "edge-0112"
+    },
+    {
+      "source_id": "transformers-neurons-astrocytes-004",
+      "target_id": "temporal-language-llm-hierarchy-009",
+      "relationship": "related-to",
+      "strength": 0.65,
+      "explanation": "Astrocytes integrating signals from thousands of synapses parallels the semantic integration and discourse-level processing occurring in late neural responses.",
+      "id": "edge-0113"
+    },
+    {
+      "source_id": "transformers-neurons-astrocytes-002",
+      "target_id": "temporal-language-llm-hierarchy-006",
+      "relationship": "related-to",
+      "strength": 0.6,
+      "explanation": "Astrocytic modulation of synaptic transmission analogous to attention mechanisms relates to the mid-latency neural responses that correspond to middle LLM layers.",
+      "id": "edge-0114"
+    },
+    {
+      "source_id": "temporal-language-llm-hierarchy-004",
+      "target_id": "temporal-language-llm-hierarchy-005",
+      "relationship": "is-part-of",
+      "strength": 0.9,
+      "explanation": "Early LLM layers corresponding to 50-150ms neural responses are part of the same temporal window involving phonological and acoustic processing.",
+      "id": "edge-0115"
+    },
+    {
+      "source_id": "temporal-language-llm-hierarchy-006",
+      "target_id": "temporal-language-llm-hierarchy-007",
+      "relationship": "is-part-of",
+      "strength": 0.9,
+      "explanation": "Middle LLM layers corresponding to 150-350ms responses are part of the same temporal window involving syntactic parsing and morphological analysis.",
+      "id": "edge-0116"
+    },
+    {
+      "source_id": "temporal-language-llm-hierarchy-008",
+      "target_id": "temporal-language-llm-hierarchy-009",
+      "relationship": "is-part-of",
+      "strength": 0.9,
+      "explanation": "Deep LLM layers corresponding to 350-600ms responses are part of the same temporal window involving semantic integration and discourse processing.",
+      "id": "edge-0117"
+    },
+    {
+      "source_id": "temporal-language-llm-hierarchy-005",
+      "target_id": "temporal-language-llm-hierarchy-007",
+      "relationship": "causes",
+      "strength": 0.75,
+      "explanation": "Early phonological and acoustic processing at 50-150ms enables subsequent syntactic parsing and morphological analysis at 150-350ms.",
+      "id": "edge-0118"
+    },
+    {
+      "source_id": "temporal-language-llm-hierarchy-007",
+      "target_id": "temporal-language-llm-hierarchy-009",
+      "relationship": "causes",
+      "strength": 0.75,
+      "explanation": "Mid-latency syntactic parsing and morphological analysis enables later semantic integration and discourse-level processing.",
+      "id": "edge-0119"
+    },
+    {
+      "source_id": "temporal-language-llm-hierarchy-010",
+      "target_id": "temporal-language-llm-hierarchy-011",
+      "relationship": "contradicts",
+      "strength": 0.8,
+      "explanation": "GPT-2 predicting large brain regions for proficient L2 users contrasts with smaller predicted regions for independent and basic L2 users.",
+      "id": "edge-0120"
+    },
+    {
+      "source_id": "temporal-language-llm-hierarchy-011",
+      "target_id": "temporal-language-llm-hierarchy-012",
+      "relationship": "supports",
+      "strength": 0.85,
+      "explanation": "Smaller brain regions predicted for basic L2 users compared to proficient users provides evidence that brain-LLM alignment is modulated by language proficiency.",
+      "id": "edge-0121"
+    },
+    {
+      "source_id": "temporal-language-llm-hierarchy-010",
+      "target_id": "temporal-language-llm-hierarchy-012",
+      "relationship": "supports",
+      "strength": 0.85,
+      "explanation": "Large brain regions predicted for proficient L2 users provides evidence that brain-LLM alignment is modulated by language proficiency level.",
+      "id": "edge-0122"
+    },
+    {
+      "source_id": "temporal-language-llm-hierarchy-013",
+      "target_id": "temporal-language-llm-hierarchy-015",
+      "relationship": "supports",
+      "strength": 0.8,
+      "explanation": "The concept of temporal-to-depth correspondence between biological and artificial systems supports the hypothesis that LLM hierarchy reflects brain's temporal structure.",
+      "id": "edge-0123"
+    },
+    {
+      "source_id": "temporal-language-llm-hierarchy-014",
+      "target_id": "temporal-language-llm-hierarchy-015",
+      "relationship": "supports",
+      "strength": 0.75,
+      "explanation": "Language comprehension following temporal dynamics mappable to computational layers supports the hypothesis about LLM hierarchy reflecting brain's temporal structure.",
+      "id": "edge-0124"
+    },
+    {
+      "source_id": "transformers-neurons-astrocytes-006",
+      "target_id": "temporal-language-llm-hierarchy-013",
+      "relationship": "provides-mechanism-for",
+      "strength": 0.7,
+      "explanation": "Tripartite synapses implementing biological query-key-value attention provides a specific mechanism for temporal-to-depth correspondence between biological and artificial systems.",
+      "id": "edge-0125"
+    },
+    {
+      "source_id": "transformers-neurons-astrocytes-005",
+      "target_id": "temporal-language-llm-hierarchy-004",
+      "relationship": "related-to",
+      "strength": 0.55,
+      "explanation": "Astrocytic calcium signaling on slower timescales relates to the early neural responses at 50-150ms, representing different temporal scales in brain processing.",
+      "id": "edge-0126"
+    },
+    {
+      "source_id": "transformers-neurons-astrocytes-004",
+      "target_id": "temporal-language-llm-hierarchy-008",
+      "relationship": "related-to",
+      "strength": 0.6,
+      "explanation": "Astrocytes integrating signals from thousands of synapses parallels the complex processing occurring in deep LLM layers corresponding to late neural responses.",
+      "id": "edge-0127"
+    },
+    {
+      "source_id": "transformers-neurons-astrocytes-007",
+      "target_id": "transformers-neurons-astrocytes-008",
+      "relationship": "provides-mechanism-for",
+      "strength": 0.85,
+      "explanation": "Tripartite synapses provide the structural foundation that enables neuron-astrocyte interactions to perform attention-like computations.",
+      "id": "edge-0128"
+    },
+    {
+      "source_id": "transformers-neurons-astrocytes-008",
+      "target_id": "transformers-neurons-astrocytes-009",
+      "relationship": "supports",
+      "strength": 0.9,
+      "explanation": "The discovery that neuron-astrocyte interactions can perform attention-like computations supports the hypothesis that transformers accidentally discovered a biologically evolved computation.",
+      "id": "edge-0129"
+    },
+    {
+      "source_id": "transformers-neurons-astrocytes-008",
+      "target_id": "transformers-neurons-astrocytes-011",
+      "relationship": "provides-mechanism-for",
+      "strength": 0.8,
+      "explanation": "Neuron-astrocyte interactions provide a biological mechanism that could explain how attention mechanisms aggregate information across sequence positions.",
+      "id": "edge-0130"
+    },
+    {
+      "source_id": "transformers-neurons-astrocytes-008",
+      "target_id": "transformers-neurons-astrocytes-010",
+      "relationship": "causes",
+      "strength": 0.75,
+      "explanation": "The discovery that neuron-astrocyte interactions can perform attention-like computations leads to new possibilities for neuromorphic computing applications.",
+      "id": "edge-0131"
+    },
+    {
+      "source_id": "transformers-neurons-astrocytes-009",
+      "target_id": "transformers-neurons-astrocytes-010",
+      "relationship": "extends",
+      "strength": 0.7,
+      "explanation": "The hypothesis about convergent evolution between transformers and biology extends into practical applications for neuromorphic computing design.",
+      "id": "edge-0132"
+    },
+    {
+      "source_id": "transformers-neurons-astrocytes-009",
+      "target_id": "transformers-neurons-astrocytes-011",
+      "relationship": "related-to",
+      "strength": 0.65,
+      "explanation": "The convergent evolution hypothesis directly relates to how attention mechanisms in transformers aggregate information, suggesting biological precedent.",
+      "id": "edge-0133"
+    },
+    {
+      "source_id": "transformers-neurons-astrocytes-007",
+      "target_id": "transformers-neurons-astrocytes-010",
+      "relationship": "related-to",
+      "strength": 0.6,
+      "explanation": "Tripartite synaptic structures could inform the design of neuromorphic computing systems that incorporate neuron-astrocyte interactions.",
+      "id": "edge-0134"
+    },
+    {
+      "source_id": "transformers-neurons-astrocytes-010",
+      "target_id": "transformers-neurons-astrocytes-011",
+      "relationship": "related-to",
+      "strength": 0.55,
+      "explanation": "Neuromorphic computing applications could potentially implement attention-like mechanisms based on neuron-astrocyte interactions.",
+      "id": "edge-0135"
+    },
+    {
+      "source_id": "transformers-neurons-astrocytes-007",
+      "target_id": "transformers-neurons-astrocytes-011",
+      "relationship": "related-to",
+      "strength": 0.5,
+      "explanation": "Tripartite synaptic structures may provide insights into how biological systems perform information aggregation similar to transformer attention.",
+      "id": "edge-0136"
+    }
+  ],
+  "clusters": [
+    {
+      "id": "transformer-architecture-attention",
+      "label": "Transformer Architecture & Attention Mechanisms",
+      "description": "This cluster encompasses the foundational concepts of transformer architectures, including attention mechanisms, self-attention, multi-head attention, and positional encoding. It covers both the original transformer design principles and optimizations like FlashAttention that improve memory efficiency and computational performance while maintaining the core attention-based approach to sequence modeling.",
+      "node_ids": [
+        "attention-is-all-you-need-001",
+        "attention-is-all-you-need-002",
+        "attention-is-all-you-need-003",
+        "attention-is-all-you-need-004",
+        "attention-is-all-you-need-005",
+        "attention-is-all-you-need-006",
+        "attention-is-all-you-need-007",
+        "attention-is-all-you-need-008",
+        "flashattention-fast-and-memory-efficient-001",
+        "flashattention-fast-and-memory-efficient-002",
+        "flashattention-fast-and-memory-efficient-003",
+        "flashattention-fast-and-memory-efficient-004",
+        "flashattention-fast-and-memory-efficient-005",
+        "flashattention-fast-and-memory-efficient-006",
+        "flashattention-fast-and-memory-efficient-007",
+        "flashattention-fast-and-memory-efficient-016",
+        "flashattention-fast-and-memory-efficient-017"
+      ],
+      "color": "#7c83ff"
+    },
+    {
+      "id": "performance-optimization-scaling",
+      "label": "Performance Optimization & Scaling Laws",
+      "description": "This cluster focuses on the empirical relationships between model performance and key variables like model size, dataset size, and computational resources. It includes scaling laws that govern language model performance, optimization strategies for compute allocation, and practical improvements in training efficiency and model deployment at scale.",
+      "node_ids": [
+        "attention-is-all-you-need-009",
+        "attention-is-all-you-need-010",
+        "flashattention-fast-and-memory-efficient-008",
+        "flashattention-fast-and-memory-efficient-009",
+        "flashattention-fast-and-memory-efficient-010",
+        "flashattention-fast-and-memory-efficient-011",
+        "flashattention-fast-and-memory-efficient-012",
+        "flashattention-fast-and-memory-efficient-013",
+        "flashattention-fast-and-memory-efficient-014",
+        "flashattention-fast-and-memory-efficient-015",
+        "scaling-laws-for-neural-language-models-001",
+        "scaling-laws-for-neural-language-models-002",
+        "scaling-laws-for-neural-language-models-003",
+        "scaling-laws-for-neural-language-models-004",
+        "scaling-laws-for-neural-language-models-005",
+        "scaling-laws-for-neural-language-models-006",
+        "scaling-laws-for-neural-language-models-007",
+        "scaling-laws-for-neural-language-models-008",
+        "scaling-laws-for-neural-language-models-009",
+        "scaling-laws-for-neural-language-models-010",
+        "scaling-laws-for-neural-language-models-011",
+        "scaling-laws-for-neural-language-models-012",
+        "scaling-laws-for-neural-language-models-013",
+        "scaling-laws-for-neural-language-models-014",
+        "scaling-laws-for-neural-language-models-015",
+        "scaling-laws-for-neural-language-models-016",
+        "scaling-laws-for-neural-language-models-017",
+        "scaling-laws-for-neural-language-models-018"
+      ],
+      "color": "#4ade80"
+    },
+    {
+      "id": "brain-llm-alignment-correlation",
+      "label": "Brain-LLM Alignment & Neural Correlation",
+      "description": "This cluster investigates the correspondence between large language model representations and human brain activity during language processing. It encompasses studies using fMRI and other neuroimaging techniques to understand how different layers of LLMs align with specific brain regions, the temporal dynamics of language processing, and the shared computational principles between artificial and biological language systems.",
+      "node_ids": [
+        "do-large-language-models-think-like-the--001",
+        "do-large-language-models-think-like-the--002",
+        "do-large-language-models-think-like-the--003",
+        "do-large-language-models-think-like-the--004",
+        "do-large-language-models-think-like-the--005",
+        "do-large-language-models-think-like-the--006",
+        "do-large-language-models-think-like-the--011",
+        "do-large-language-models-think-like-the--012",
+        "do-large-language-models-think-like-the--013",
+        "do-large-language-models-think-like-the--014",
+        "do-large-language-models-think-like-the--015",
+        "google-brain-llm-language-processing-001",
+        "google-brain-llm-language-processing-010",
+        "google-brain-llm-language-processing-011",
+        "google-brain-llm-language-processing-012",
+        "google-brain-llm-language-processing-018",
+        "google-brain-llm-language-processing-020",
+        "llm-brain-fmri-alignment-001",
+        "llm-brain-fmri-alignment-002",
+        "llm-brain-fmri-alignment-003",
+        "llm-brain-fmri-alignment-004",
+        "llm-brain-fmri-alignment-005",
+        "llm-brain-fmri-alignment-006",
+        "llm-brain-fmri-alignment-011",
+        "llm-brain-fmri-alignment-012",
+        "llm-brain-fmri-alignment-013",
+        "llm-brain-fmri-alignment-014",
+        "llm-brain-fmri-alignment-015"
+      ],
+      "color": "#fbbf24"
+    },
+    {
+      "id": "temporal-brain-language-processing",
+      "label": "Temporal Dynamics of Brain Language Processing",
+      "description": "This cluster focuses on the temporal aspects of language processing in the human brain, including the sequential activation of different brain regions during listening and speaking, the timing of neural responses, and how brain processing differs from the parallel processing in transformers. It emphasizes the dynamic, time-dependent nature of biological language comprehension and production.",
+      "node_ids": [
+        "google-brain-llm-language-processing-002",
+        "google-brain-llm-language-processing-003",
+        "google-brain-llm-language-processing-004",
+        "google-brain-llm-language-processing-005",
+        "google-brain-llm-language-processing-006",
+        "google-brain-llm-language-processing-007",
+        "google-brain-llm-language-processing-008",
+        "google-brain-llm-language-processing-009",
+        "google-brain-llm-language-processing-013",
+        "google-brain-llm-language-processing-014",
+        "google-brain-llm-language-processing-015",
+        "google-brain-llm-language-processing-016",
+        "google-brain-llm-language-processing-017",
+        "google-brain-llm-language-processing-019"
+      ],
+      "color": "#f87171"
+    },
+    {
+      "id": "experimental-methods-neuroscience",
+      "label": "Experimental Methods in Computational Neuroscience",
+      "description": "This cluster encompasses the methodological approaches used to study the relationship between artificial intelligence systems and biological neural networks. It includes neuroimaging techniques like fMRI, experimental paradigms using naturalistic stimuli, correlation analysis methods, and approaches for comparing layer-wise representations in neural networks with brain activity patterns.",
+      "node_ids": [
+        "do-large-language-models-think-like-the--007",
+        "do-large-language-models-think-like-the--008",
+        "do-large-language-models-think-like-the--009",
+        "do-large-language-models-think-like-the--010",
+        "llm-brain-fmri-alignment-007",
+        "llm-brain-fmri-alignment-008",
+        "llm-brain-fmri-alignment-009",
+        "llm-brain-fmri-alignment-010",
+        "llm-explanations-brain-representations-001",
+        "llm-explanations-brain-representations-002"
+      ],
+      "color": "#38bdf8"
+    },
+    {
+      "id": "layer-wise-representation-analysis",
+      "label": "Layer-wise Representation Analysis & Model Interpretability",
+      "description": "This cluster focuses on understanding how different layers of large language models process and represent linguistic information, from early phonological and syntactic processing to higher-level semantic and discourse comprehension. It includes attribution methods, explainability techniques, and analysis of how model representations evolve through the network hierarchy to align with different stages of human language processing.",
+      "node_ids": [
+        "llm-explanations-brain-representations-003",
+        "llm-explanations-brain-representations-004",
+        "llm-explanations-brain-representations-005"
+      ],
+      "color": "#c084fc"
+    },
+    {
+      "id": "other",
+      "label": "Other",
+      "description": "Uncategorized claims",
+      "node_ids": [
+        "llm-explanations-brain-representations-006",
+        "llm-explanations-brain-representations-007",
+        "llm-explanations-brain-representations-008",
+        "llm-explanations-brain-representations-009",
+        "llm-explanations-brain-representations-010",
+        "llm-explanations-brain-representations-011",
+        "llm-explanations-brain-representations-012",
+        "llm-explanations-brain-representations-013",
+        "neuroscience-of-transformers-001",
+        "neuroscience-of-transformers-002",
+        "neuroscience-of-transformers-003",
+        "neuroscience-of-transformers-004",
+        "neuroscience-of-transformers-005",
+        "neuroscience-of-transformers-006",
+        "neuroscience-of-transformers-007",
+        "neuroscience-of-transformers-008",
+        "neuroscience-of-transformers-009",
+        "neuroscience-of-transformers-010",
+        "neuroscience-of-transformers-011",
+        "neuroscience-of-transformers-012",
+        "neuroscience-of-transformers-013",
+        "neuroscience-of-transformers-014",
+        "neuroscience-of-transformers-015",
+        "temporal-language-llm-hierarchy-001",
+        "temporal-language-llm-hierarchy-002",
+        "temporal-language-llm-hierarchy-003",
+        "temporal-language-llm-hierarchy-004",
+        "temporal-language-llm-hierarchy-005",
+        "temporal-language-llm-hierarchy-006",
+        "temporal-language-llm-hierarchy-007",
+        "temporal-language-llm-hierarchy-008",
+        "temporal-language-llm-hierarchy-009",
+        "temporal-language-llm-hierarchy-010",
+        "temporal-language-llm-hierarchy-011",
+        "temporal-language-llm-hierarchy-012",
+        "temporal-language-llm-hierarchy-013",
+        "temporal-language-llm-hierarchy-014",
+        "temporal-language-llm-hierarchy-015",
+        "transformers-neurons-astrocytes-001",
+        "transformers-neurons-astrocytes-002",
+        "transformers-neurons-astrocytes-003",
+        "transformers-neurons-astrocytes-004",
+        "transformers-neurons-astrocytes-005",
+        "transformers-neurons-astrocytes-006",
+        "transformers-neurons-astrocytes-007",
+        "transformers-neurons-astrocytes-008",
+        "transformers-neurons-astrocytes-009",
+        "transformers-neurons-astrocytes-010",
+        "transformers-neurons-astrocytes-011",
+        "transformers-neurons-astrocytes-012"
+      ],
+      "color": "#6a6a82"
+    }
+  ],
+  "metadata": {
+    "total_nodes": 150,
+    "total_edges": 136,
+    "total_clusters": 7,
+    "papers_processed": 10,
+    "built_at": "2026-04-02T18:29:52.188386"
+  }
+}

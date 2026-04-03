@@ -35,7 +35,19 @@ def summarize_sources(
             logger.warning("Source file not found: %s", entry.path)
             continue
 
-        content = read_markdown(source_path)
+        # Read content — handle PDFs and markdown differently
+        if source_path.suffix.lower() == ".pdf":
+            try:
+                import pymupdf
+                doc = pymupdf.open(str(source_path))
+                content = "\n".join(page.get_text() for page in doc)
+                doc.close()
+            except Exception as e:
+                logger.warning("Failed to read PDF %s: %s", entry.path, e)
+                continue
+        else:
+            content = read_markdown(source_path)
+
         if not content.strip():
             logger.warning("Empty source file: %s", entry.path)
             continue

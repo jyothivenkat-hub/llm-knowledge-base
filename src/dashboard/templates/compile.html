@@ -3,7 +3,7 @@
 {% block content %}
 <div class="page-header">
     <h2>Compile Wiki</h2>
-    <p>Summarize sources, extract concepts, build indexes</p>
+    <p>Summarize sources, build knowledge graph, find connections</p>
 </div>
 
 <div class="btn-group">
@@ -26,5 +26,23 @@
         <div class="card-label">Wiki Articles</div>
         <div class="card-value">{{ wiki_count }}</div>
     </div>
+    <div class="card">
+        <div class="card-label">Graph Claims</div>
+        <div class="card-value accent">{{ graph_claims }}</div>
+    </div>
+    <div class="card">
+        <div class="card-label">Connections</div>
+        <div class="card-value">{{ graph_edges }}</div>
+    </div>
+    <div class="card">
+        <div class="card-label">Clusters</div>
+        <div class="card-value">{{ graph_clusters }}</div>
+    </div>
 </div>
+
+{% if graph_claims > 0 %}
+<div style="margin-top: 12px;">
+    <a href="/graph" class="btn btn-secondary">View Knowledge Graph</a>
+</div>
+{% endif %}
 {% endblock %}

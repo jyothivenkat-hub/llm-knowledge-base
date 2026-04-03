@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block title %}Knowledge Graph{% endblock %}
+{% block content %}
+<style>
+.graph-layout { display: flex; gap: 0; height: calc(100vh - 80px); margin: -32px -40px; }
+.graph-sidebar { width: 240px; background: var(--bg-secondary); border-right: 1px solid var(--border); padding: 16px; overflow-y: auto; flex-shrink: 0; }
+.graph-main { flex: 1; display: flex; flex-direction: column; position: relative; }
+.graph-toolbar { display: flex; gap: 8px; padding: 12px 16px; background: var(--bg-secondary); border-bottom: 1px solid var(--border); align-items: center; }
+.graph-toolbar input { flex: 1; }
+.graph-toolbar select { width: 140px; }
+.graph-svg-wrap { flex: 1; position: relative; overflow: hidden; }
+.graph-svg-wrap svg { width: 100%; height: 100%; }
+.graph-detail { position: absolute; right: 0; top: 0; width: 320px; height: 100%; background: var(--bg-card); border-left: 1px solid var(--border); padding: 20px; overflow-y: auto; display: none; z-index: 10; }
+.graph-detail.open { display: block; }
+.graph-detail h3 { font-size: 15px; margin-bottom: 8px; }
+.graph-detail .claim-text { font-size: 14px; line-height: 1.6; margin-bottom: 12px; padding: 10px; background: var(--bg-primary); border-radius: var(--radius-sm); }
+.graph-detail .meta { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+.graph-detail .edge-item { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+.graph-detail .close-btn { position: absolute; top: 12px; right: 12px; cursor: pointer; color: var(--text-muted); font-size: 18px; }
+.graph-insights { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 16px; max-height: 200px; overflow-y: auto; }
+.graph-insights summary { cursor: pointer; font-weight: 600; font-size: 14px; color: var(--accent); }
+.graph-insights .insight-item { padding: 6px 0; font-size: 13px; border-bottom: 1px solid var(--border); }
+.cluster-item { display: flex; align-items: center; gap: 8px; padding: 6px 0; cursor: pointer; font-size: 13px; }
+.cluster-item:hover { color: var(--accent); }
+.cluster-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.cluster-count { color: var(--text-muted); font-size: 11px; }
+.sidebar-section { margin-bottom: 16px; }
+.sidebar-section h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 8px; }
+.stat-row { display: flex; justify-content: space-between; font-size: 13px; padding: 4px 0; }
+.stat-val { color: var(--accent); font-weight: 600; }
+.no-graph { text-align: center; padding: 60px 20px; color: var(--text-muted); }
+.no-graph h3 { color: var(--text-primary); margin-bottom: 8px; }
+</style>
+
+{% if has_graph %}
+<div class="graph-layout">
+    <div class="graph-sidebar">
+        <div class="sidebar-section">
+            <h4>Stats</h4>
+            <div class="stat-row"><span>Claims</span><span class="stat-val" id="stat-nodes">0</span></div>
+            <div class="stat-row"><span>Connections</span><span class="stat-val" id="stat-edges">0</span></div>
+            <div class="stat-row"><span>Clusters</span><span class="stat-val" id="stat-clusters">0</span></div>
+            <div class="stat-row"><span>Papers</span><span class="stat-val" id="stat-papers">0</span></div>
+        </div>
+        <div class="sidebar-section">
+            <h4>Clusters</h4>
+            <div id="cluster-list"></div>
+        </div>
+        <div class="sidebar-section">
+            <h4>Edge Types</h4>
+            <div id="edge-type-filters"></div>
+        </div>
+    </div>
+    <div class="graph-main">
+        <div class="graph-toolbar">
+            <input type="text" id="graph-search" class="input" placeholder="Search claims..." style="height:34px; font-size:13px;">
+            <select id="color-by" class="select" style="height:34px; font-size:13px;">
+                <option value="cluster">Color by cluster</option>
+                <option value="paper">Color by paper</option>
+                <option value="type">Color by type</option>
+            </select>
+        </div>
+        <div class="graph-svg-wrap" id="graph-container"></div>
+        <div class="graph-detail" id="node-detail">
+            <span class="close-btn" onclick="closeDetail()">&times;</span>
+            <div id="detail-content"></div>
+        </div>
+        <div class="graph-insights">
+            <details open>
+                <summary>Insights</summary>
+                <div id="insights-content"></div>
+            </details>
+        </div>
+    </div>
+</div>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="/static/graph.js"></script>
+{% else %}
+<div class="page-header"><h2>Knowledge Graph</h2></div>
+<div class="no-graph">
+    <h3>No graph yet</h3>
+    <p>Run <a href="/compile">Compile</a> to build the knowledge graph from your sources.</p>
+</div>
+{% endif %}
+{% endblock %}

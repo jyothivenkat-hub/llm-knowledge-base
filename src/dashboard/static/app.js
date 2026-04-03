@@ -54,10 +54,16 @@ function startCompile(full) {
         if (btn) btn.disabled = false;
         if (fullBtn) fullBtn.disabled = false;
         if (data.stats) {
+            const s = data.stats;
             const line = document.createElement('div');
             line.className = 'done';
-            line.textContent = `Summarized: ${data.stats.summarized}, Concepts: ${data.stats.concepts}, Topics: ${data.stats.topics}`;
+            line.textContent = `Summarized: ${s.summarized}, Claims: ${s.claims || 0}, Connections: ${s.edges || 0}, Clusters: ${s.clusters || 0}`;
             output.appendChild(line);
+            if (s.claims > 0) {
+                const link = document.createElement('div');
+                link.innerHTML = '<br><a href="/graph" class="btn btn-primary btn-sm">View Knowledge Graph</a>';
+                output.appendChild(link);
+            }
         }
     });
 }

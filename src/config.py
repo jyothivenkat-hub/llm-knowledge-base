@@ -48,6 +48,14 @@ class Config:
     def prompts_path(self) -> Path:
         return self.templates_path / "prompts"
 
+    @property
+    def graph_path(self) -> Path:
+        return self.wiki_path / "graph.json"
+
+    @property
+    def graph_insights_path(self) -> Path:
+        return self.wiki_path / "graph_insights.json"
+
 
 def load_config(config_path: Optional[Union[str, Path]] = None) -> Config:
     """Load config from YAML file. Searches up from cwd if no path given."""
@@ -55,7 +63,7 @@ def load_config(config_path: Optional[Union[str, Path]] = None) -> Config:
         config_path = _find_config()
     config_path = Path(config_path).resolve()
 
-    load_dotenv(config_path.parent / ".env")
+    load_dotenv(config_path.parent / ".env", override=True)
 
     with open(config_path) as f:
         data = yaml.safe_load(f) or {}

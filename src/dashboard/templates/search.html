@@ -2,13 +2,97 @@
 {% block title %}Search{% endblock %}
 {% block content %}
 <div class="page-header">
-    <h2>Search Wiki</h2>
-    <p>Full-text BM25 search across all wiki articles</p>
+    <h2>Search & Ask</h2>
+    <p>Ask a question — finds relevant claims across your papers and synthesizes an answer</p>
 </div>
 
-<div style="margin-bottom: 20px;">
-    <input type="text" id="search-input" class="input" placeholder="Search..." autofocus>
+<div class="qa-input-row" style="margin-bottom: 20px;">
+    <input type="text" id="search-input" class="input" placeholder="Ask anything about your research..." autofocus>
+    <button id="search-btn" class="btn btn-primary" onclick="smartSearch()">Search</button>
 </div>
 
-<div id="search-results"></div>
+<div id="search-answer" class="qa-answer" style="display:none;"></div>
+<div id="search-steps" class="qa-steps stream-output" style="display:none;"></div>
+
+<div id="search-results" style="margin-top: 16px;"></div>
+
+<script>
+function smartSearch() {
+    const input = document.getElementById('search-input');
+    const query = input.value.trim();
+    if (!query) return;
+
+    const btn = document.getElementById('search-btn');
+    const answer = document.getElementById('search-answer');
+    const steps = document.getElementById('search-steps');
+    const results = document.getElementById('search-results');
+
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span>';
+    answer.style.display = 'none';
+    answer.innerHTML = '';
+    steps.style.display = 'block';
+    steps.innerHTML = '';
+    results.innerHTML = '';
+
+    const url = '/api/smart-search?q=' + encodeURIComponent(query);
+    const source = new EventSource(url);
+
+    source.onmessage = function(e) {
+        const data = JSON.parse(e.data);
+
+        if (data.done) {
+            source.close();
+            btn.disabled = false;
+            btn.textContent = 'Search';
+
+            if (data.answer_html) {
+                answer.style.display = 'block';
+                answer.innerHTML = data.answer_html;
+            }
+            if (data.evidence) {
+                results.innerHTML = '<h3 style="margin:16px 0 12px;font-size:14px;color:var(--text-muted);">Evidence Trail (' + data.evidence.length + ' claims)</h3>';
+                data.evidence.forEach(function(r) {
+                    const typeColor = {finding:'#4ade80', claim:'#7c83ff', method:'#fbbf24', concept:'#38bdf8', hypothesis:'#c084fc'}[r.type] || '#6a6a82';
+                    results.innerHTML += '<div class="search-result">' +
+                        '<span class="score">' + (r.score ? r.score.toFixed(1) : '') + '</span>' +
+                        '<span class="badge" style="background:' + typeColor + '22;color:' + typeColor + ';margin-right:6px;">' + (r.type || 'claim') + '</span>' +
+                        '<h3><a href="/wiki/' + r.path + '">' + r.title + '</a></h3>' +
+                        '<div class="path">' + (r.source_paper || r.path) + '</div>' +
+                        '<div class="snippet">' + r.snippet + '</div>' +
+                        '</div>';
+                });
+            }
+            return;
+        }
+
+        if (data.error) {
+            source.close();
+            btn.disabled = false;
+            btn.textContent = 'Search';
+            steps.innerHTML += '<div class="error">' + data.error + '</div>';
+            return;
+        }
+
+        const line = document.createElement('div');
+        line.className = 'step';
+        line.textContent = data.message;
+        steps.appendChild(line);
+        steps.scrollTop = steps.scrollHeight;
+    };
+
+    source.onerror = function() {
+        source.close();
+        btn.disabled = false;
+        btn.textContent = 'Search';
+    };
+}
+
+// Enter key triggers search
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('search-input').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') smartSearch();
+    });
+});
+</script>
 {% endblock %}

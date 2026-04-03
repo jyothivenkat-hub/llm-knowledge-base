@@ -97,8 +97,18 @@ def create_app(config: Optional[Config] = None) -> Flask:
         uncompiled = len(manifest.get_uncompiled())
         stale = len(manifest.get_modified())
         wiki_count = len(list(config.wiki_path.rglob("*.md"))) if config.wiki_path.exists() else 0
+        # Graph stats
+        graph_claims = graph_edges = graph_clusters = 0
+        if config.graph_path.exists():
+            graph = json.loads(config.graph_path.read_text(encoding="utf-8"))
+            meta = graph.get("metadata", {})
+            graph_claims = meta.get("total_nodes", 0)
+            graph_edges = meta.get("total_edges", 0)
+            graph_clusters = meta.get("total_clusters", 0)
         return render_template("compile.html", active="compile",
-                               uncompiled=uncompiled, stale=stale, wiki_count=wiki_count)
+                               uncompiled=uncompiled, stale=stale, wiki_count=wiki_count,
+                               graph_claims=graph_claims, graph_edges=graph_edges,
+                               graph_clusters=graph_clusters)
 
     @app.route("/qa")
     def qa_page():
@@ -175,6 +185,11 @@ def create_app(config: Optional[Config] = None) -> Flask:
                 return Response("", status=302, headers={"Location": f"/wiki/{rel}"})
         return f"Article not found: {name}", 404
 
+    @app.route("/graph")
+    def graph_page():
+        has_graph = config.graph_path.exists()
+        return render_template("graph.html", active="graph", has_graph=has_graph)
+
     @app.route("/render")
     def render_page():
         wiki_files = []
@@ -198,6 +213,176 @@ def create_app(config: Optional[Config] = None) -> Flask:
         engine = SearchEngine(config)
         results = engine.search(query)
         return jsonify({"query": query, "results": results})
+
+    @app.route("/api/graph")
+    def api_graph():
+        if config.graph_path.exists():
+            return jsonify(json.loads(config.graph_path.read_text(encoding="utf-8")))
+        return jsonify({"nodes": [], "edges": [], "clusters": [], "metadata": {}})
+
+    @app.route("/api/graph/insights")
+    def api_graph_insights():
+        if config.graph_insights_path.exists():
+            return jsonify(json.loads(config.graph_insights_path.read_text(encoding="utf-8")))
+        return jsonify({})
+
+    @app.route("/api/graph/node/<node_id>")
+    def api_graph_node(node_id):
+        if not config.graph_path.exists():
+            return jsonify({"error": "No graph"}), 404
+        graph = json.loads(config.graph_path.read_text(encoding="utf-8"))
+        node = next((n for n in graph["nodes"] if n["id"] == node_id), None)
+        if not node:
+            return jsonify({"error": "Node not found"}), 404
+        edges = [e for e in graph["edges"] if e["source_id"] == node_id or e["target_id"] == node_id]
+        neighbor_ids = set()
+        for e in edges:
+            neighbor_ids.add(e["source_id"])
+            neighbor_ids.add(e["target_id"])
+        neighbors = [n for n in graph["nodes"] if n["id"] in neighbor_ids]
+        return jsonify({"node": node, "edges": edges, "neighbors": neighbors})
+
+    @app.route("/api/graph/search")
+    def api_graph_search():
+        query = request.args.get("q", "").strip().lower()
+        if not query or not config.graph_path.exists():
+            return jsonify({"results": []})
+        graph = json.loads(config.graph_path.read_text(encoding="utf-8"))
+        results = []
+        for n in graph["nodes"]:
+            score = 0
+            if query in n["text"].lower():
+                score += 2
+            for tag in n.get("tags", []):
+                if query in tag.lower():
+                    score += 1
+            if score > 0:
+                results.append({**n, "score": score})
+        results.sort(key=lambda x: x["score"], reverse=True)
+        return jsonify({"results": results[:20]})
+
+    @app.route("/api/smart-search")
+    def api_smart_search():
+        """Find relevant claims, gather graph context, synthesize answer via LLM."""
+        question = request.args.get("q", "").strip()
+        if not question:
+            return jsonify({"error": "No question"})
+
+        def generate():
+            queue = Queue()
+
+            def run():
+                try:
+                    from ..search.engine import SearchEngine
+                    from ..llm import LLM
+
+                    queue.put({"message": f"Searching for: {question}"})
+
+                    # Step 1: BM25 search for relevant claims
+                    engine = SearchEngine(config)
+                    results = engine.search(question, top_k=20)
+                    queue.put({"message": f"Found {len(results)} relevant claims"})
+
+                    if not results:
+                        queue.put({"done": True, "answer_html": "<p>No matching claims found. Try different keywords.</p>", "evidence": []})
+                        return
+
+                    # Step 2: Load graph for connections
+                    graph_nodes = {}
+                    graph_edges = []
+                    insights_list = []
+
+                    if config.graph_path.exists():
+                        graph = json.loads(config.graph_path.read_text(encoding="utf-8"))
+                        graph_nodes = {n["id"]: n for n in graph.get("nodes", [])}
+                        graph_edges = graph.get("edges", [])
+
+                    if config.graph_insights_path.exists():
+                        insights_data = json.loads(config.graph_insights_path.read_text(encoding="utf-8"))
+                        for c in insights_data.get("contradictions", []):
+                            insights_list.append(f"Contradiction: {c.get('description', '')}")
+                        for s in insights_data.get("synthesis", []):
+                            insights_list.append(f"Synthesis: {s.get('insight', '')}")
+
+                    # Step 3: Gather claim details + their connections
+                    claim_ids = set()
+                    claims_for_prompt = []
+                    for r in results:
+                        nid = r.get("node_id", "")
+                        if nid and nid in graph_nodes:
+                            node = graph_nodes[nid]
+                            claims_for_prompt.append(node)
+                            claim_ids.add(nid)
+                        else:
+                            # Wiki result — still useful
+                            claims_for_prompt.append({
+                                "id": r.get("path", ""),
+                                "text": r.get("title", ""),
+                                "type": r.get("type", "wiki"),
+                                "source_paper": r.get("source_paper", r.get("path", "")),
+                                "evidence": r.get("snippet", ""),
+                            })
+
+                    # Find connections between found claims
+                    relevant_edges = [
+                        e for e in graph_edges
+                        if e.get("source_id") in claim_ids or e.get("target_id") in claim_ids
+                    ]
+                    queue.put({"message": f"Found {len(relevant_edges)} connections between claims"})
+
+                    # Step 4: Synthesize with LLM
+                    queue.put({"message": "Synthesizing answer with Opus..."})
+                    llm_instance = LLM(config)
+
+                    answer_md = llm_instance.call(
+                        prompt="",
+                        template="synthesize_search.md",
+                        template_vars={
+                            "question": question,
+                            "claims": claims_for_prompt[:15],
+                            "connections": relevant_edges[:20],
+                            "insights": insights_list[:10],
+                        },
+                        max_tokens=4096,
+                    )
+
+                    answer_html = render_md(answer_md)
+
+                    # Build evidence trail
+                    evidence = []
+                    for r in results[:15]:
+                        evidence.append({
+                            "path": r.get("path", ""),
+                            "title": r.get("title", ""),
+                            "snippet": r.get("snippet", ""),
+                            "score": r.get("score", 0),
+                            "type": r.get("claim_type", r.get("type", "")),
+                            "source_paper": r.get("source_paper", ""),
+                        })
+
+                    queue.put({
+                        "done": True,
+                        "answer_html": answer_html,
+                        "evidence": evidence,
+                    })
+
+                except Exception as e:
+                    queue.put({"error": str(e), "done": True})
+
+            thread = Thread(target=run, daemon=True)
+            thread.start()
+
+            while True:
+                try:
+                    item = queue.get(timeout=120)
+                    yield f"data: {json.dumps(item)}\n\n"
+                    if item.get("done") or item.get("error"):
+                        break
+                except Empty:
+                    yield f"data: {json.dumps({'message': 'Still synthesizing...'})}\n\n"
+
+        return Response(generate(), mimetype="text/event-stream",
+                        headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
 
     @app.route("/api/ingest", methods=["POST"])
     def api_ingest():

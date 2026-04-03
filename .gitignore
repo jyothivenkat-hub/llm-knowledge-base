@@ -8,3 +8,4 @@ build/
 search_index/
 *.egg
 .venv/
+.vercel

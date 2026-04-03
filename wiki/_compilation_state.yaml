@@ -1,0 +1,31 @@
+sources:
+  articles/sample-attention.md:
+    compiled_hash: cb77e7ac2b25b1b06e95afb839eb76fe9e6247a1e101c372f2ceee06ee5c6ccf
+    compiled: true
+  articles/flash-attention.md:
+    compiled_hash: 4b7865a7ae427037ba5454ee139e2fcdbc03781e6d46428373eebb40d9e860a0
+    compiled: true
+  articles/scaling-laws.md:
+    compiled_hash: 0e342882ae03f3de238de64d2de19ff4efe1481bca474e926d1efdd3c31752b2
+    compiled: true
+  articles/llm-brain-fmri-alignment.md:
+    compiled_hash: 5b47527400709c3b6bc7036a230ce4922851e28c0760b1c7cc522e3e100f73a0
+    compiled: true
+  papers/google-brain-llm-language-processing.pdf:
+    compiled_hash: 6a468bacf2a05aa9c06298284ff81f44383de2ee9ae9f8c335bd4da5d3f10aa8
+    compiled: true
+  papers/llm-brain-fmri-alignment.pdf:
+    compiled_hash: f4d7e48a81575835f7a50787016486466de68e7ae562883c7b65b1a0ba21d89e
+    compiled: true
+  papers/llm-explanations-brain-representations.pdf:
+    compiled_hash: 4eb5214557ab315afd0e29807abe20016d51d0e7c5d035774876adb8f6518f51
+    compiled: true
+  papers/neuroscience-of-transformers.pdf:
+    compiled_hash: 048547b1ff8f5225f50e6719a23e2282a5483b7f260f05f7df5f74ef4e192370
+    compiled: true
+  papers/temporal-language-llm-hierarchy.pdf:
+    compiled_hash: 2ad9e379454a08c9efb7683fd0110d9153912da70c0625b8ebffd97819235d80
+    compiled: true
+  papers/transformers-neurons-astrocytes.pdf:
+    compiled_hash: e670b95124670e4a4ad7c9267b6f48c2a61a966a88379695917fac962d09f38a
+    compiled: true
