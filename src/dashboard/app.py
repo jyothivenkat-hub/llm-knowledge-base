@@ -69,19 +69,17 @@ def create_app(config: Optional[Config] = None) -> Flask:
     @app.route("/")
     def home():
         stats = get_stats()
-        # Recent Q&A answers
-        answers_dir = config.output_path / "answers"
-        recent = []
-        if answers_dir.exists():
-            for f in sorted(answers_dir.glob("*.md"), reverse=True)[:5]:
-                title = f.stem
-                # Extract question from first line
-                first_line = f.read_text(encoding="utf-8").split("\n")[0]
-                if first_line.startswith("# Q: "):
-                    title = first_line[5:]
-                recent.append({"title": title, "date": f.stem[:10], "path": str(f.relative_to(config.vault_path))})
-        return render_template("dashboard.html", active="home", stats=stats,
-                               vault_path=str(config.vault_path), recent_answers=recent)
+        # Add graph stats
+        stats["claims"] = 0
+        stats["edges"] = 0
+        stats["clusters"] = 0
+        if config.graph_path.exists():
+            graph = json.loads(config.graph_path.read_text(encoding="utf-8"))
+            meta = graph.get("metadata", {})
+            stats["claims"] = meta.get("total_nodes", 0)
+            stats["edges"] = meta.get("total_edges", 0)
+            stats["clusters"] = meta.get("total_clusters", 0)
+        return render_template("dashboard.html", active="home", stats=stats)
 
     @app.route("/ingest")
     def ingest_page():

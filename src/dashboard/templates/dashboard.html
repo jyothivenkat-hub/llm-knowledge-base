@@ -2,67 +2,146 @@
 {% block title %}Dashboard{% endblock %}
 {% block content %}
 <div class="page-header">
-    <h2>Dashboard</h2>
-    <p>{{ vault_path }}</p>
+    <h2>LLM Knowledge Base</h2>
+    <p>Turn research papers into a connected knowledge graph</p>
 </div>
 
-<div class="cards">
+<!-- Steps -->
+<div class="steps">
+    <a href="/ingest" class="step-card {% if stats.raw_sources > 0 %}step-done{% endif %}">
+        <div class="step-number">1</div>
+        <div class="step-body">
+            <h3>Upload Sources</h3>
+            <p>Drop PDFs, articles, or markdown files — or point at a folder</p>
+            {% if stats.raw_sources > 0 %}
+            <span class="badge badge-success">{{ stats.raw_sources }} sources</span>
+            {% else %}
+            <span class="badge badge-info">Start here</span>
+            {% endif %}
+        </div>
+    </a>
+
+    <a href="/compile" class="step-card {% if stats.claims > 0 %}step-done{% endif %}">
+        <div class="step-number">2</div>
+        <div class="step-body">
+            <h3>Compile</h3>
+            <p>LLM chunks papers into atomic claims, finds connections, clusters themes</p>
+            {% if stats.claims > 0 %}
+            <span class="badge badge-success">{{ stats.claims }} claims, {{ stats.edges }} connections</span>
+            {% elif stats.raw_sources > 0 %}
+            <span class="badge badge-warning">Ready to compile</span>
+            {% else %}
+            <span class="badge badge-info">Upload first</span>
+            {% endif %}
+        </div>
+    </a>
+
+    <a href="/graph" class="step-card {% if stats.claims > 0 %}step-done{% endif %}">
+        <div class="step-number">3</div>
+        <div class="step-body">
+            <h3>Explore Wiki & Graph</h3>
+            <p>Browse claims, see how ideas connect across papers, discover insights</p>
+            {% if stats.claims > 0 %}
+            <span class="badge badge-success">{{ stats.clusters }} clusters</span>
+            {% else %}
+            <span class="badge badge-info">Compile first</span>
+            {% endif %}
+        </div>
+    </a>
+
+    <a href="/search" class="step-card {% if stats.claims > 0 %}step-done{% endif %}">
+        <div class="step-number">4</div>
+        <div class="step-body">
+            <h3>Search & Ask</h3>
+            <p>Ask questions — LLM synthesizes answers from your knowledge graph</p>
+            {% if stats.claims > 0 %}
+            <span class="badge badge-success">Ready</span>
+            {% else %}
+            <span class="badge badge-info">Compile first</span>
+            {% endif %}
+        </div>
+    </a>
+</div>
+
+<!-- Stats -->
+{% if stats.claims > 0 %}
+<div class="cards" style="margin-top: 32px;">
     <div class="card">
-        <div class="card-label">Raw Sources</div>
+        <div class="card-label">Sources</div>
         <div class="card-value">{{ stats.raw_sources }}</div>
     </div>
     <div class="card">
-        <div class="card-label">Wiki Articles</div>
-        <div class="card-value accent">{{ stats.wiki_articles }}</div>
+        <div class="card-label">Claims</div>
+        <div class="card-value accent">{{ stats.claims }}</div>
     </div>
     <div class="card">
-        <div class="card-label">Concepts</div>
-        <div class="card-value">{{ stats.concepts }}</div>
+        <div class="card-label">Connections</div>
+        <div class="card-value">{{ stats.edges }}</div>
     </div>
     <div class="card">
-        <div class="card-label">Topics</div>
-        <div class="card-value">{{ stats.topics }}</div>
-    </div>
-    <div class="card">
-        <div class="card-label">Wiki Words</div>
-        <div class="card-value">{{ "{:,}".format(stats.wiki_words) }}</div>
+        <div class="card-label">Clusters</div>
+        <div class="card-value">{{ stats.clusters }}</div>
     </div>
     <div class="card">
         <div class="card-label">Model</div>
         <div class="card-value" style="font-size: 14px; margin-top: 8px;">{{ stats.model }}</div>
     </div>
-    <div class="card">
-        <div class="card-label">API Key</div>
-        <div class="card-value">
-            {% if stats.api_key %}<span class="badge badge-success">Set</span>{% else %}<span class="badge badge-error">Missing</span>{% endif %}
-        </div>
-    </div>
-</div>
-
-<div class="page-header"><h2>Quick Actions</h2></div>
-<div class="quick-actions">
-    <a href="/ingest" class="quick-action"><span class="icon">&#8615;</span> Ingest Sources</a>
-    <a href="/compile" class="quick-action"><span class="icon">&#9881;</span> Compile Wiki</a>
-    <a href="/qa" class="quick-action"><span class="icon">&#10067;</span> Ask a Question</a>
-    <a href="/search" class="quick-action"><span class="icon">&#128269;</span> Search Wiki</a>
-    <a href="/wiki/" class="quick-action"><span class="icon">&#128214;</span> Browse Wiki</a>
-    <a href="/lint" class="quick-action"><span class="icon">&#9989;</span> Health Check</a>
-</div>
-
-{% if recent_answers %}
-<div class="page-header"><h2>Recent Q&A</h2></div>
-<div class="table-wrap">
-    <table>
-        <thead><tr><th>Question</th><th>Date</th></tr></thead>
-        <tbody>
-            {% for a in recent_answers %}
-            <tr>
-                <td><a href="/wiki/{{ a.path }}">{{ a.title }}</a></td>
-                <td>{{ a.date }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
 </div>
 {% endif %}
+
+<style>
+.steps {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+.step-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.15s;
+    text-decoration: none;
+    color: var(--text-primary);
+}
+.step-card:hover {
+    border-color: var(--accent);
+    background: var(--accent-glow);
+    text-decoration: none;
+}
+.step-card.step-done {
+    border-left: 3px solid var(--success);
+}
+.step-number {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+.step-done .step-number {
+    background: var(--success);
+}
+.step-body h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+.step-body p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+</style>
 {% endblock %}
