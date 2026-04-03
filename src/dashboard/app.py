@@ -137,6 +137,51 @@ def create_app(config: Optional[Config] = None) -> Flask:
             for i, p in enumerate(parts):
                 breadcrumb.append({"name": p, "path": "/".join(parts[:i+1])})
 
+        # Library landing page (wiki root)
+        if not path or path == "":
+            papers = []
+            graph_nodes = []
+            if config.graph_path.exists():
+                graph = json.loads(config.graph_path.read_text(encoding="utf-8"))
+                graph_nodes = graph.get("nodes", [])
+
+            # Build paper list from manifest
+            from ..ingest.manifest import Manifest
+            manifest = Manifest(config.raw_path / "_manifest.yaml")
+            for entry in manifest.all_entries():
+                claim_count = sum(1 for n in graph_nodes if entry.path in n.get("source_paper", ""))
+                source_type = "PDF" if entry.path.endswith(".pdf") else "Article"
+                # Find the wiki source summary if it exists
+                slug_name = entry.path.split("/")[-1].rsplit(".", 1)[0]
+                wiki_source = None
+                for f in (wiki_path / "sources").glob("*.md"):
+                    if slug_name.lower() in f.stem.lower():
+                        wiki_source = str(f.relative_to(wiki_path))
+                        break
+                papers.append({
+                    "title": entry.title,
+                    "path": wiki_source or f"sources/{slug_name}.md",
+                    "claim_count": claim_count,
+                    "source_type": source_type,
+                })
+
+            # Claims summary
+            type_counts = {}
+            for n in graph_nodes:
+                t = n.get("type", "claim")
+                type_counts[t] = type_counts.get(t, 0) + 1
+
+            claims_summary = {
+                "total": len(graph_nodes),
+                "findings": type_counts.get("finding", 0),
+                "methods": type_counts.get("method", 0),
+            }
+
+            return render_template("wiki.html", active="wiki", is_dir=True,
+                                   is_library_root=True, papers=papers,
+                                   claims_summary=claims_summary)
+
+        # Regular directory browse
         if target.is_dir():
             items = []
             for item in sorted(target.iterdir()):
@@ -146,7 +191,6 @@ def create_app(config: Optional[Config] = None) -> Flask:
                 brief = ""
                 if item.is_file() and item.suffix == ".md":
                     content = read_markdown(item)
-                    # Extract first non-heading line
                     for line in strip_frontmatter(content).splitlines():
                         line = line.strip()
                         if line and not line.startswith("#") and not line.startswith("---"):
@@ -154,22 +198,45 @@ def create_app(config: Optional[Config] = None) -> Flask:
                             break
                 items.append({"name": item.name, "path": rel, "is_dir": item.is_dir(), "brief": brief})
             return render_template("wiki.html", active="wiki", is_dir=True,
+                                   is_library_root=False, dir_name=Path(path).name.title(),
                                    items=items, breadcrumb=breadcrumb)
 
+        # Single article view
         if target.exists() and target.suffix == ".md":
             content = read_markdown(target)
             html = render_md(strip_frontmatter(content))
+
+            # Extract title
+            article_title = target.stem.replace("-", " ").title()
+            for line in content.splitlines():
+                if line.startswith("# "):
+                    article_title = line[2:].strip()
+                    break
+
+            # Find claims from this paper
+            article_claims = []
+            article_source = ""
+            if config.graph_path.exists():
+                graph = json.loads(config.graph_path.read_text(encoding="utf-8"))
+                # Match claims by source paper or by filename
+                for n in graph.get("nodes", []):
+                    sp = n.get("source_paper", "")
+                    if target.stem.lower() in sp.lower() or sp.lower() in str(target).lower():
+                        article_claims.append(n)
 
             # Load backlinks
             backlinks = []
             bl_path = wiki_path / "_backlinks.yaml"
             if bl_path.exists():
                 bl_data = yaml.safe_load(bl_path.read_text(encoding="utf-8")) or {}
-                stem = target.stem.lower()
-                backlinks = bl_data.get(stem, [])
+                backlinks = bl_data.get(target.stem.lower(), [])
 
             return render_template("wiki.html", active="wiki", is_dir=False,
-                                   content=html, breadcrumb=breadcrumb, backlinks=backlinks)
+                                   is_article=True, article_title=article_title,
+                                   article_source=article_source,
+                                   article_claims=article_claims,
+                                   content=html, breadcrumb=breadcrumb,
+                                   backlinks=backlinks)
 
         return "Not found", 404
 
