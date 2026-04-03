@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Render{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h2>Render Output</h2>
+    <p>Generate slides or charts from wiki articles</p>
+</div>
+
+<div style="display: flex; gap: 12px; margin-bottom: 20px; align-items: end;">
+    <div class="form-group" style="flex: 1; margin-bottom: 0;">
+        <label>Wiki Article</label>
+        <select id="render-file" class="select">
+            <option value="">Select an article...</option>
+            {% for f in wiki_files %}
+            <option value="{{ f }}">{{ f }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group" style="width: 160px; margin-bottom: 0;">
+        <label>Format</label>
+        <select id="render-format" class="select">
+            <option value="slides">Marp Slides</option>
+            <option value="chart">Chart (PNG)</option>
+        </select>
+    </div>
+    <button id="render-btn" class="btn btn-primary" onclick="renderArticle()">Render</button>
+</div>
+
+<div id="render-result"></div>
+{% endblock %}

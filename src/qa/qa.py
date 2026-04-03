@@ -6,7 +6,7 @@ import json
 import logging
 from datetime import datetime
 from pathlib import Path
-from typing import Optional
+from typing import Callable, Optional
 
 from ..config import Config
 from ..llm import LLM
@@ -18,7 +18,12 @@ logger = logging.getLogger(__name__)
 MAX_ITERATIONS = 5
 
 
-def run_qa(config: Config, question: str, save: bool = False) -> str:
+def run_qa(
+    config: Config,
+    question: str,
+    save: bool = False,
+    progress_callback: Optional[Callable[[str], None]] = None,
+) -> str:
     """Run the Q&A research loop.
 
     The LLM navigates the wiki through index files and search,
@@ -26,6 +31,11 @@ def run_qa(config: Config, question: str, save: bool = False) -> str:
 
     Returns the answer as markdown text.
     """
+    def progress(msg: str):
+        logger.info(msg)
+        if progress_callback:
+            progress_callback(msg)
+
     llm = LLM(config)
     engine = SearchEngine(config)
 
@@ -51,9 +61,11 @@ def run_qa(config: Config, question: str, save: bool = False) -> str:
 
     context = "\n\n".join(context_parts)
 
+    progress("Loading wiki indexes...")
+
     # Agentic research loop
     for iteration in range(1, MAX_ITERATIONS + 1):
-        logger.info("Q&A iteration %d/%d", iteration, MAX_ITERATIONS)
+        progress(f"Research iteration {iteration}/{MAX_ITERATIONS}...")
 
         response = llm.call(
             prompt="",
@@ -73,31 +85,33 @@ def run_qa(config: Config, question: str, save: bool = False) -> str:
             answer = action.get("content", response)
             if save:
                 _save_answer(config, question, answer)
-            logger.info("Answer found. %s", llm.token_usage_summary())
+            progress(f"Answer found. {llm.token_usage_summary()}")
             return answer
 
         elif action["action"] == "read":
             files = action.get("files", [])
             for fpath in files:
+                progress(f"Reading: {fpath}")
                 full_path = config.wiki_path / fpath
                 content = read_markdown(full_path)
                 if content:
                     context += f"\n\n## Content of {fpath}\n{content}"
-                    logger.debug("Read: %s (%d chars)", fpath, len(content))
                 else:
-                    logger.debug("File not found or empty: %s", fpath)
+                    progress(f"  Not found: {fpath}")
 
         elif action["action"] == "search":
             query = action.get("query", "")
+            progress(f"Searching: {query}")
             results = engine.search(query, top_k=5)
             if results:
                 search_context = f"\n\n## Search results for '{query}':\n"
                 for r in results:
                     search_context += f"- **{r['title']}** ({r['path']}): {r['snippet']}\n"
                 context += search_context
-                logger.debug("Search '%s': %d results", query, len(results))
+                progress(f"  Found {len(results)} results")
             else:
                 context += f"\n\nNo search results for '{query}'."
+                progress(f"  No results")
 
     # Shouldn't reach here, but just in case
     return "Could not find a satisfactory answer within the iteration limit."

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Search{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h2>Search Wiki</h2>
+    <p>Full-text BM25 search across all wiki articles</p>
+</div>
+
+<div style="margin-bottom: 20px;">
+    <input type="text" id="search-input" class="input" placeholder="Search..." autofocus>
+</div>
+
+<div id="search-results"></div>
+{% endblock %}

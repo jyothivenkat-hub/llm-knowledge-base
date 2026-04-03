@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}KB{% endblock %} - Knowledge Base</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-brand">
+            <h1>Knowledge Base</h1>
+            <span>LLM-powered wiki</span>
+        </div>
+        <ul class="nav-items">
+            <li><a href="/" class="{% if active == 'home' %}active{% endif %}"><span class="icon">&#9776;</span> Dashboard</a></li>
+            <li><a href="/ingest" class="{% if active == 'ingest' %}active{% endif %}"><span class="icon">&#8615;</span> Ingest</a></li>
+            <li><a href="/compile" class="{% if active == 'compile' %}active{% endif %}"><span class="icon">&#9881;</span> Compile</a></li>
+            <li><a href="/qa" class="{% if active == 'qa' %}active{% endif %}"><span class="icon">&#10067;</span> Q&A</a></li>
+            <li><a href="/search" class="{% if active == 'search' %}active{% endif %}"><span class="icon">&#128269;</span> Search</a></li>
+            <li><a href="/wiki/" class="{% if active == 'wiki' %}active{% endif %}"><span class="icon">&#128214;</span> Wiki</a></li>
+            <li><a href="/render" class="{% if active == 'render' %}active{% endif %}"><span class="icon">&#127912;</span> Render</a></li>
+            <li><a href="/lint" class="{% if active == 'lint' %}active{% endif %}"><span class="icon">&#9989;</span> Lint</a></li>
+        </ul>
+    </nav>
+    <main class="main">
+        {% block content %}{% endblock %}
+    </main>
+    <script src="/static/app.js"></script>
+</body>
+</html>

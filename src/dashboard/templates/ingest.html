@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Ingest{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h2>Ingest Sources</h2>
+    <p>Upload files or scan raw/ for new documents</p>
+</div>
+
+<div id="dropzone" class="dropzone">
+    <p style="font-size: 18px; margin-bottom: 8px;">Drop files here or click to upload</p>
+    <p>.md, .pdf, .txt files will be added to raw/articles/</p>
+    <input type="file" id="file-input" multiple accept=".md,.pdf,.txt" style="display:none">
+</div>
+<div id="upload-result"></div>
+
+<div class="btn-group">
+    <button id="ingest-btn" class="btn btn-primary" onclick="runIngest()">Scan raw/</button>
+</div>
+<div id="ingest-result"></div>
+
+{% if entries %}
+<div class="page-header"><h2>Source Manifest</h2></div>
+<div class="table-wrap">
+    <table>
+        <thead><tr><th>File</th><th>Title</th><th>Status</th><th>Ingested</th></tr></thead>
+        <tbody>
+            {% for e in entries %}
+            <tr>
+                <td style="font-family: var(--font-mono); font-size: 13px;">{{ e.path }}</td>
+                <td>{{ e.title }}</td>
+                <td>
+                    {% if e.compiled %}
+                        {% if e.sha256 != e.compiled_hash %}
+                            <span class="badge badge-warning">Stale</span>
+                        {% else %}
+                            <span class="badge badge-success">Compiled</span>
+                        {% endif %}
+                    {% else %}
+                        <span class="badge badge-info">New</span>
+                    {% endif %}
+                </td>
+                <td>{{ e.date_ingested }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+{% endblock %}

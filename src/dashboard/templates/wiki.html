@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Wiki{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h2>Wiki Browser</h2>
+</div>
+
+{% if breadcrumb %}
+<div class="wiki-breadcrumb">
+    <a href="/wiki/">wiki</a>
+    {% for b in breadcrumb %}
+     / <a href="/wiki/{{ b.path }}">{{ b.name }}</a>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% if is_dir %}
+    <ul class="wiki-file-list">
+        {% for item in items %}
+        <li>
+            {% if item.is_dir %}
+                <span class="folder">&#128193;</span> <a href="/wiki/{{ item.path }}/">{{ item.name }}</a>
+            {% else %}
+                &#128196; <a href="/wiki/{{ item.path }}">{{ item.name }}</a>
+                {% if item.brief %}<span style="color: var(--text-muted); font-size: 13px;"> &mdash; {{ item.brief }}</span>{% endif %}
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    {% if backlinks %}
+    <div style="margin-bottom: 16px;">
+        <span style="color: var(--text-muted); font-size: 13px;">Backlinks:</span>
+        {% for bl in backlinks %}
+        <a href="/wiki/{{ bl }}" class="badge badge-info" style="margin-left: 4px;">{{ bl }}</a>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <div class="wiki-content">{{ content | safe }}</div>
+{% endif %}
+{% endblock %}

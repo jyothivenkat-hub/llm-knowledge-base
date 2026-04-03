@@ -1,0 +1,343 @@
+"""Flask web dashboard for the knowledge base."""
+
+from __future__ import annotations
+
+import json
+import logging
+import os
+import re
+import shutil
+from datetime import datetime
+from pathlib import Path
+from queue import Queue, Empty
+from threading import Thread
+from typing import Optional
+
+import markdown
+import yaml
+from flask import Flask, Response, render_template, request, jsonify, send_from_directory
+
+from ..config import Config, load_config
+from ..utils import read_markdown, strip_frontmatter
+
+logger = logging.getLogger(__name__)
+
+
+def create_app(config: Optional[Config] = None) -> Flask:
+    if config is None:
+        config = load_config()
+
+    app = Flask(
+        __name__,
+        template_folder=str(Path(__file__).parent / "templates"),
+        static_folder=str(Path(__file__).parent / "static"),
+    )
+    app.config["KB_CONFIG"] = config
+
+    md = markdown.Markdown(extensions=["tables", "fenced_code", "toc"])
+
+    def render_md(text: str) -> str:
+        """Render markdown to HTML, converting [[wikilinks]] to dashboard links."""
+        # Convert [[wikilinks]] to HTML links
+        text = re.sub(
+            r"\[\[([^\]|]+?)(?:\|([^\]]+?))?\]\]",
+            lambda m: f'<a href="/wiki/find/{m.group(1)}">{m.group(2) or m.group(1)}</a>',
+            text,
+        )
+        md.reset()
+        return md.convert(text)
+
+    def get_stats() -> dict:
+        cfg = config
+        raw_files = [f for f in cfg.raw_path.rglob("*") if f.is_file() and not f.name.startswith("_") and "images" not in f.parts]
+        wiki_files = [f for f in cfg.wiki_path.rglob("*.md") if not f.name.startswith("_")]
+        concepts = list((cfg.wiki_path / "concepts").rglob("*.md")) if (cfg.wiki_path / "concepts").exists() else []
+        topics = [d for d in (cfg.wiki_path / "topics").iterdir() if d.is_dir()] if (cfg.wiki_path / "topics").exists() else []
+        total_words = sum(len(f.read_text(encoding="utf-8").split()) for f in wiki_files)
+        return {
+            "raw_sources": len(raw_files),
+            "wiki_articles": len(wiki_files),
+            "concepts": len(concepts),
+            "topics": len(topics),
+            "wiki_words": total_words,
+            "model": cfg.model,
+            "api_key": bool(cfg.anthropic_api_key),
+        }
+
+    # ─── Pages ───────────────────────────────────────────────
+
+    @app.route("/")
+    def home():
+        stats = get_stats()
+        # Recent Q&A answers
+        answers_dir = config.output_path / "answers"
+        recent = []
+        if answers_dir.exists():
+            for f in sorted(answers_dir.glob("*.md"), reverse=True)[:5]:
+                title = f.stem
+                # Extract question from first line
+                first_line = f.read_text(encoding="utf-8").split("\n")[0]
+                if first_line.startswith("# Q: "):
+                    title = first_line[5:]
+                recent.append({"title": title, "date": f.stem[:10], "path": str(f.relative_to(config.vault_path))})
+        return render_template("dashboard.html", active="home", stats=stats,
+                               vault_path=str(config.vault_path), recent_answers=recent)
+
+    @app.route("/ingest")
+    def ingest_page():
+        from ..ingest.manifest import Manifest
+        manifest = Manifest(config.raw_path / "_manifest.yaml")
+        entries = manifest.all_entries()
+        return render_template("ingest.html", active="ingest", entries=entries)
+
+    @app.route("/compile")
+    def compile_page():
+        from ..ingest.manifest import Manifest
+        manifest = Manifest(config.raw_path / "_manifest.yaml")
+        uncompiled = len(manifest.get_uncompiled())
+        stale = len(manifest.get_modified())
+        wiki_count = len(list(config.wiki_path.rglob("*.md"))) if config.wiki_path.exists() else 0
+        return render_template("compile.html", active="compile",
+                               uncompiled=uncompiled, stale=stale, wiki_count=wiki_count)
+
+    @app.route("/qa")
+    def qa_page():
+        answers_dir = config.output_path / "answers"
+        history = []
+        if answers_dir.exists():
+            for f in sorted(answers_dir.glob("*.md"), reverse=True)[:10]:
+                first_line = f.read_text(encoding="utf-8").split("\n")[0]
+                title = first_line[5:] if first_line.startswith("# Q: ") else f.stem
+                history.append({"title": title, "date": f.stem[:10],
+                                "path": str(f.relative_to(config.vault_path))})
+        return render_template("qa.html", active="qa", history=history)
+
+    @app.route("/search")
+    def search_page():
+        return render_template("search.html", active="search")
+
+    @app.route("/wiki/", defaults={"path": ""})
+    @app.route("/wiki/<path:path>")
+    def wiki_page(path):
+        wiki_path = config.wiki_path
+        target = wiki_path / path if path else wiki_path
+
+        # Build breadcrumb
+        breadcrumb = []
+        if path:
+            parts = Path(path).parts
+            for i, p in enumerate(parts):
+                breadcrumb.append({"name": p, "path": "/".join(parts[:i+1])})
+
+        if target.is_dir():
+            items = []
+            for item in sorted(target.iterdir()):
+                if item.name.startswith("."):
+                    continue
+                rel = str(item.relative_to(wiki_path))
+                brief = ""
+                if item.is_file() and item.suffix == ".md":
+                    content = read_markdown(item)
+                    # Extract first non-heading line
+                    for line in strip_frontmatter(content).splitlines():
+                        line = line.strip()
+                        if line and not line.startswith("#") and not line.startswith("---"):
+                            brief = line[:120]
+                            break
+                items.append({"name": item.name, "path": rel, "is_dir": item.is_dir(), "brief": brief})
+            return render_template("wiki.html", active="wiki", is_dir=True,
+                                   items=items, breadcrumb=breadcrumb)
+
+        if target.exists() and target.suffix == ".md":
+            content = read_markdown(target)
+            html = render_md(strip_frontmatter(content))
+
+            # Load backlinks
+            backlinks = []
+            bl_path = wiki_path / "_backlinks.yaml"
+            if bl_path.exists():
+                bl_data = yaml.safe_load(bl_path.read_text(encoding="utf-8")) or {}
+                stem = target.stem.lower()
+                backlinks = bl_data.get(stem, [])
+
+            return render_template("wiki.html", active="wiki", is_dir=False,
+                                   content=html, breadcrumb=breadcrumb, backlinks=backlinks)
+
+        return "Not found", 404
+
+    @app.route("/wiki/find/<name>")
+    def wiki_find(name):
+        """Resolve a wikilink name to the actual file path."""
+        slug = name.lower().strip()
+        for md_file in config.wiki_path.rglob("*.md"):
+            if md_file.stem.lower() == slug:
+                rel = str(md_file.relative_to(config.wiki_path))
+                return Response("", status=302, headers={"Location": f"/wiki/{rel}"})
+        return f"Article not found: {name}", 404
+
+    @app.route("/render")
+    def render_page():
+        wiki_files = []
+        for f in sorted(config.wiki_path.rglob("*.md")):
+            if not f.name.startswith("_"):
+                wiki_files.append(str(f.relative_to(config.wiki_path)))
+        return render_template("render.html", active="render", wiki_files=wiki_files)
+
+    @app.route("/lint")
+    def lint_page():
+        return render_template("lint.html", active="lint")
+
+    # ─── API Endpoints ───────────────────────────────────────
+
+    @app.route("/api/search")
+    def api_search():
+        from ..search.engine import SearchEngine
+        query = request.args.get("q", "").strip()
+        if not query:
+            return jsonify({"results": []})
+        engine = SearchEngine(config)
+        results = engine.search(query)
+        return jsonify({"query": query, "results": results})
+
+    @app.route("/api/ingest", methods=["POST"])
+    def api_ingest():
+        from ..ingest.ingest import run_ingest
+        stats = run_ingest(config)
+        return jsonify(stats)
+
+    @app.route("/api/upload", methods=["POST"])
+    def api_upload():
+        files = request.files.getlist("files")
+        articles_dir = config.raw_path / "articles"
+        articles_dir.mkdir(parents=True, exist_ok=True)
+        count = 0
+        for f in files:
+            if f.filename:
+                dest = articles_dir / f.filename
+                f.save(str(dest))
+                count += 1
+        return jsonify({"count": count})
+
+    @app.route("/api/compile/stream")
+    def api_compile_stream():
+        full = request.args.get("full") == "1"
+
+        def generate():
+            queue = Queue()
+            result = {}
+
+            def progress(msg):
+                queue.put({"message": msg})
+
+            def run():
+                try:
+                    from ..compiler.compiler import run_compile
+                    stats = run_compile(config, full=full, progress_callback=progress)
+                    queue.put({"done": True, "message": "Compilation complete!", "stats": stats})
+                except Exception as e:
+                    queue.put({"error": str(e), "done": True})
+
+            thread = Thread(target=run, daemon=True)
+            thread.start()
+
+            while True:
+                try:
+                    item = queue.get(timeout=60)
+                    yield f"data: {json.dumps(item)}\n\n"
+                    if item.get("done") or item.get("error"):
+                        break
+                except Empty:
+                    yield f"data: {json.dumps({'message': 'Still working...'})}\n\n"
+
+        return Response(generate(), mimetype="text/event-stream",
+                        headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
+
+    @app.route("/api/qa/stream")
+    def api_qa_stream():
+        question = request.args.get("q", "").strip()
+        if not question:
+            return jsonify({"error": "No question provided"})
+
+        def generate():
+            queue = Queue()
+
+            def progress(msg):
+                queue.put({"message": msg})
+
+            def run():
+                try:
+                    from ..qa.qa import run_qa
+                    answer = run_qa(config, question, save=True, progress_callback=progress)
+                    answer_html = render_md(answer)
+                    queue.put({"done": True, "message": "Answer ready!", "answer": answer_html})
+                except Exception as e:
+                    queue.put({"error": str(e), "done": True})
+
+            thread = Thread(target=run, daemon=True)
+            thread.start()
+
+            while True:
+                try:
+                    item = queue.get(timeout=120)
+                    yield f"data: {json.dumps(item)}\n\n"
+                    if item.get("done") or item.get("error"):
+                        break
+                except Empty:
+                    yield f"data: {json.dumps({'message': 'Researching...'})}\n\n"
+
+        return Response(generate(), mimetype="text/event-stream",
+                        headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
+
+    @app.route("/api/lint")
+    def api_lint():
+        check_name = request.args.get("check")
+
+        def generate():
+            queue = Queue()
+
+            def run():
+                try:
+                    from ..lint.health import run_lint
+                    report = run_lint(config, check_name=check_name)
+                    report_html = render_md(report)
+                    queue.put({"done": True, "report_html": report_html})
+                except Exception as e:
+                    queue.put({"error": str(e), "done": True})
+
+            yield f"data: {json.dumps({'message': 'Running health checks...'})}\n\n"
+            thread = Thread(target=run, daemon=True)
+            thread.start()
+
+            while True:
+                try:
+                    item = queue.get(timeout=120)
+                    yield f"data: {json.dumps(item)}\n\n"
+                    if item.get("done") or item.get("error"):
+                        break
+                except Empty:
+                    yield f"data: {json.dumps({'message': 'Still analyzing...'})}\n\n"
+
+        return Response(generate(), mimetype="text/event-stream",
+                        headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
+
+    @app.route("/api/render", methods=["POST"])
+    def api_render():
+        data = request.get_json()
+        file_path = data.get("file", "")
+        fmt = data.get("format", "slides")
+
+        try:
+            if fmt == "slides":
+                from ..render.slides import render_slides
+                output = render_slides(config, Path(file_path))
+                preview_content = read_markdown(output)
+                return jsonify({"output": str(output.relative_to(config.vault_path)),
+                                "preview": render_md(preview_content)})
+            elif fmt == "chart":
+                from ..render.charts import render_chart
+                output = render_chart(config, Path(file_path))
+                return jsonify({"output": str(output.relative_to(config.vault_path))})
+        except Exception as e:
+            return jsonify({"error": str(e)})
+
+    return app

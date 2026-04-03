@@ -182,6 +182,19 @@ def lint(ctx, check_name):
     console.print(report)
 
 
+@cli.command()
+@click.option("--port", default=8888, help="Port for the dashboard")
+@click.pass_context
+def dashboard(ctx, port):
+    """Launch the web dashboard."""
+    from .dashboard.app import create_app
+
+    cfg = ctx.obj["config"]
+    app = create_app(cfg)
+    console.print(f"[green]Dashboard at http://localhost:{port}[/green]")
+    app.run(host="0.0.0.0", port=port, debug=False, threaded=True)
+
+
 @cli.command(name="file")
 @click.argument("output_path")
 @click.pass_context

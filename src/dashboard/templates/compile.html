@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Compile{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h2>Compile Wiki</h2>
+    <p>Summarize sources, extract concepts, build indexes</p>
+</div>
+
+<div class="btn-group">
+    <button id="compile-btn" class="btn btn-primary" onclick="startCompile(false)">Compile (incremental)</button>
+    <button id="compile-full-btn" class="btn btn-secondary" onclick="startCompile(true)">Full Recompile</button>
+</div>
+
+<div id="compile-output" class="stream-output" style="display:none;"></div>
+
+<div class="cards" style="margin-top: 20px;">
+    <div class="card">
+        <div class="card-label">Uncompiled Sources</div>
+        <div class="card-value{% if uncompiled > 0 %} accent{% endif %}">{{ uncompiled }}</div>
+    </div>
+    <div class="card">
+        <div class="card-label">Stale Sources</div>
+        <div class="card-value{% if stale > 0 %} accent{% endif %}">{{ stale }}</div>
+    </div>
+    <div class="card">
+        <div class="card-label">Wiki Articles</div>
+        <div class="card-value">{{ wiki_count }}</div>
+    </div>
+</div>
+{% endblock %}

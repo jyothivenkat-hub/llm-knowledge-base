@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Lint{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h2>Health Checks</h2>
+    <p>Run LLM-powered checks on wiki integrity</p>
+</div>
+
+<div class="btn-group">
+    <button id="lint-btn" class="btn btn-primary" onclick="runLint()">Run All Checks</button>
+    <button class="btn btn-secondary btn-sm" onclick="runLint('orphans')">Orphans</button>
+    <button class="btn btn-secondary btn-sm" onclick="runLint('broken-links')">Broken Links</button>
+    <button class="btn btn-secondary btn-sm" onclick="runLint('stale')">Stale</button>
+    <button class="btn btn-secondary btn-sm" onclick="runLint('missing-concepts')">Missing Concepts</button>
+</div>
+
+<div id="lint-output" class="lint-report" style="display:none;"></div>
+{% endblock %}

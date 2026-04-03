@@ -17,6 +17,7 @@ dependencies = [
     "matplotlib>=3.8",
     "pymupdf>=1.24",
     "python-frontmatter>=1.1",
+    "markdown>=3.5",
 ]
 
 [project.scripts]

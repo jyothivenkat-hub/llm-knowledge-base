@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h2>Dashboard</h2>
+    <p>{{ vault_path }}</p>
+</div>
+
+<div class="cards">
+    <div class="card">
+        <div class="card-label">Raw Sources</div>
+        <div class="card-value">{{ stats.raw_sources }}</div>
+    </div>
+    <div class="card">
+        <div class="card-label">Wiki Articles</div>
+        <div class="card-value accent">{{ stats.wiki_articles }}</div>
+    </div>
+    <div class="card">
+        <div class="card-label">Concepts</div>
+        <div class="card-value">{{ stats.concepts }}</div>
+    </div>
+    <div class="card">
+        <div class="card-label">Topics</div>
+        <div class="card-value">{{ stats.topics }}</div>
+    </div>
+    <div class="card">
+        <div class="card-label">Wiki Words</div>
+        <div class="card-value">{{ "{:,}".format(stats.wiki_words) }}</div>
+    </div>
+    <div class="card">
+        <div class="card-label">Model</div>
+        <div class="card-value" style="font-size: 14px; margin-top: 8px;">{{ stats.model }}</div>
+    </div>
+    <div class="card">
+        <div class="card-label">API Key</div>
+        <div class="card-value">
+            {% if stats.api_key %}<span class="badge badge-success">Set</span>{% else %}<span class="badge badge-error">Missing</span>{% endif %}
+        </div>
+    </div>
+</div>
+
+<div class="page-header"><h2>Quick Actions</h2></div>
+<div class="quick-actions">
+    <a href="/ingest" class="quick-action"><span class="icon">&#8615;</span> Ingest Sources</a>
+    <a href="/compile" class="quick-action"><span class="icon">&#9881;</span> Compile Wiki</a>
+    <a href="/qa" class="quick-action"><span class="icon">&#10067;</span> Ask a Question</a>
+    <a href="/search" class="quick-action"><span class="icon">&#128269;</span> Search Wiki</a>
+    <a href="/wiki/" class="quick-action"><span class="icon">&#128214;</span> Browse Wiki</a>
+    <a href="/lint" class="quick-action"><span class="icon">&#9989;</span> Health Check</a>
+</div>
+
+{% if recent_answers %}
+<div class="page-header"><h2>Recent Q&A</h2></div>
+<div class="table-wrap">
+    <table>
+        <thead><tr><th>Question</th><th>Date</th></tr></thead>
+        <tbody>
+            {% for a in recent_answers %}
+            <tr>
+                <td><a href="/wiki/{{ a.path }}">{{ a.title }}</a></td>
+                <td>{{ a.date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+{% endblock %}

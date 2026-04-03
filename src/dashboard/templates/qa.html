@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Q&A{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h2>Ask the Wiki</h2>
+    <p>Research questions against your knowledge base</p>
+</div>
+
+<div class="qa-container">
+    <div class="qa-input-row">
+        <input type="text" id="qa-input" class="input" placeholder="Ask a question..." autofocus>
+        <button id="qa-btn" class="btn btn-primary" onclick="askQuestion()">Ask</button>
+    </div>
+
+    <div id="qa-steps" class="qa-steps stream-output" style="display:none;"></div>
+    <div id="qa-answer" class="qa-answer" style="display:none;"></div>
+</div>
+
+{% if history %}
+<div class="page-header" style="margin-top: 32px;"><h2>Previous Questions</h2></div>
+<div class="table-wrap">
+    <table>
+        <thead><tr><th>Question</th><th>Date</th><th></th></tr></thead>
+        <tbody>
+            {% for h in history %}
+            <tr>
+                <td>{{ h.title }}</td>
+                <td>{{ h.date }}</td>
+                <td><a href="/wiki/{{ h.path }}" class="btn btn-sm btn-secondary">View</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+{% endblock %}
