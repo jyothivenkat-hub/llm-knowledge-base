@@ -4,17 +4,16 @@ type: "finding"
 source: "papers/temporal-language-llm-hierarchy.pdf"
 source_title: "Temporal Language Llm Hierarchy"
 cluster: "other"
-tags: ["phonological-processing", "acoustic-processing", "early-responses", "language-processing"]
+tags: ["phonological-processing", "acoustic-processing", "early-stage"]
 ---
 
 # Early neural responses at 50-150ms involve phonological and basic acoustic processing
 
 **Type:** finding
 **Source:** Temporal Language Llm Hierarchy
-**Evidence:** Characterized through temporal mapping of neural responses
+**Evidence:** Characterized as the function of early LLM layers in temporal mapping
 
 ## Tags
 - [[phonological-processing]]
 - [[acoustic-processing]]
-- [[early-responses]]
-- [[language-processing]]
+- [[early-stage]]

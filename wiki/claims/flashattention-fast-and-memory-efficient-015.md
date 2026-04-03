@@ -1,19 +1,19 @@
 ---
 id: "flashattention-fast-and-memory-efficient-015"
-type: "finding"
+type: "concept"
 source: "articles/flash-attention.md"
 source_title: "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness"
-cluster: "performance-optimization-scaling"
-tags: ["hardware-utilization", "computational-efficiency", "gpu-performance"]
+cluster: "attention-optimization"
+tags: ["attention-mechanism", "parallelization", "algorithm-improvement"]
 ---
 
-# FlashAttention-2 reaches 50-73% of theoretical peak FLOPS on A100 GPUs.
+# FlashAttention-2 is an improved version that better parallelizes across the sequence length dimension
 
-**Type:** finding
+**Type:** concept
 **Source:** FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness
-**Evidence:** Specific efficiency metrics provided for FlashAttention-2 on A100 hardware
+**Evidence:** Described in FlashAttention-2 section
 
 ## Tags
-- [[hardware-utilization]]
-- [[computational-efficiency]]
-- [[gpu-performance]]
+- [[attention-mechanism]]
+- [[parallelization]]
+- [[algorithm-improvement]]

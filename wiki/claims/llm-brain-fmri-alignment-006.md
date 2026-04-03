@@ -3,18 +3,17 @@ id: "llm-brain-fmri-alignment-006"
 type: "finding"
 source: "papers/llm-brain-fmri-alignment.pdf"
 source_title: "Llm Brain Fmri Alignment"
-cluster: "brain-llm-alignment-correlation"
-tags: ["brain-hemispheres", "language-systems", "cognitive-processing", "neural-networks"]
+cluster: "llm-brain-alignment"
+tags: ["instruction-tuning", "model-variants", "neural-alignment"]
 ---
 
-# LLM processing engages both left-hemispheric language systems and right-hemispheric networks supporting higher-order cognitive demands.
+# Instruction-tuned LLM variants consistently outperformed base model versions in both sentence comprehension and neural alignment
 
 **Type:** finding
 **Source:** Llm Brain Fmri Alignment
-**Evidence:** Observed through fMRI analysis of brain activation patterns during LLM-brain alignment studies
+**Evidence:** Comparative finding across instruction-tuned and base models
 
 ## Tags
-- [[brain-hemispheres]]
-- [[language-systems]]
-- [[cognitive-processing]]
-- [[neural-networks]]
+- [[instruction-tuning]]
+- [[model-variants]]
+- [[neural-alignment]]

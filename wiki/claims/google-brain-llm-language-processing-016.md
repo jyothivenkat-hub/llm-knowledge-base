@@ -1,19 +1,19 @@
 ---
 id: "google-brain-llm-language-processing-016"
-type: "finding"
+type: "method"
 source: "papers/google-brain-llm-language-processing.pdf"
 source_title: "Google Brain Llm Language Processing"
-cluster: "temporal-brain-language-processing"
-tags: ["brain-processing", "serial-processing", "temporal-processing"]
+cluster: "brain-language-processing"
+tags: ["whisper-model", "speech-embeddings", "feature-extraction"]
 ---
 
-# The human brain processes language serially and temporally.
+# Speech embeddings were extracted from the Whisper encoder for analysis
 
-**Type:** finding
+**Type:** method
 **Source:** Google Brain Llm Language Processing
-**Evidence:** Listed as a key difference between brain and transformer processing
+**Evidence:** Specified in abstract as data extraction method
 
 ## Tags
-- [[brain-processing]]
-- [[serial-processing]]
-- [[temporal-processing]]
+- [[whisper-model]]
+- [[speech-embeddings]]
+- [[feature-extraction]]

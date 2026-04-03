@@ -1,20 +1,19 @@
 ---
 id: "scaling-laws-for-neural-language-models-011"
-type: "claim"
+type: "finding"
 source: "articles/scaling-laws.md"
 source_title: "Scaling Laws for Neural Language Models"
-cluster: "performance-optimization-scaling"
-tags: ["scaling-laws", "compute-planning", "predictability", "resource-allocation"]
+cluster: "scaling-laws"
+tags: ["scaling-laws", "training-efficiency", "chinchilla"]
 ---
 
-# Scaling laws enable predictable planning of compute budgets for language model training.
+# Many existing language models were significantly undertrained relative to optimal compute allocation
 
-**Type:** claim
+**Type:** finding
 **Source:** Scaling Laws for Neural Language Models
-**Evidence:** Power law relationships provide mathematical framework for predicting performance at different scales.
+**Evidence:** Stated as finding from Chinchilla paper revision
 
 ## Tags
 - [[scaling-laws]]
-- [[compute-planning]]
-- [[predictability]]
-- [[resource-allocation]]
+- [[training-efficiency]]
+- [[chinchilla]]

@@ -1,20 +1,19 @@
 ---
 id: "transformers-neurons-astrocytes-006"
-type: "finding"
+type: "concept"
 source: "papers/transformers-neurons-astrocytes.pdf"
 source_title: "Transformers Neurons Astrocytes"
 cluster: "other"
-tags: ["tripartite-synapses", "query-key-value", "attention-mechanism", "biological-computation"]
+tags: ["tripartite-synapse", "synaptic-structure", "astrocytes"]
 ---
 
-# Tripartite synapses implement a biological form of query-key-value attention.
+# Tripartite synapses consist of pre-synaptic neuron, post-synaptic neuron, and astrocyte
 
-**Type:** finding
+**Type:** concept
 **Source:** Transformers Neurons Astrocytes
-**Evidence:** Demonstrated by mapping the functional roles of pre-synaptic neuron, post-synaptic neuron, and astrocyte to attention components
+**Evidence:** Defined in biological attention mechanism section
 
 ## Tags
-- [[tripartite-synapses]]
-- [[query-key-value]]
-- [[attention-mechanism]]
-- [[biological-computation]]
+- [[tripartite-synapse]]
+- [[synaptic-structure]]
+- [[astrocytes]]

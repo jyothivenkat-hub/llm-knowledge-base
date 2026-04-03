@@ -1,19 +1,19 @@
 ---
 id: "google-brain-llm-language-processing-004"
-type: "method"
+type: "finding"
 source: "papers/google-brain-llm-language-processing.pdf"
 source_title: "Google Brain Llm Language Processing"
-cluster: "temporal-brain-language-processing"
-tags: ["whisper-model", "language-embeddings", "feature-extraction"]
+cluster: "brain-language-processing"
+tags: ["speech-production", "motor-cortex", "temporal-dynamics"]
 ---
 
-# Language embeddings were extracted from the Whisper decoder for analysis.
+# During speaking, language areas activate approximately 500 milliseconds before articulation
 
-**Type:** method
+**Type:** finding
 **Source:** Google Brain Llm Language Processing
-**Evidence:** Mentioned as part of the methodology in the abstract
+**Evidence:** Explicitly stated in speech processing sequence during speaking phase
 
 ## Tags
-- [[whisper-model]]
-- [[language-embeddings]]
-- [[feature-extraction]]
+- [[speech-production]]
+- [[motor-cortex]]
+- [[temporal-dynamics]]

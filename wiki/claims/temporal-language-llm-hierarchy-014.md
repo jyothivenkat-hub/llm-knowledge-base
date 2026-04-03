@@ -1,20 +1,19 @@
 ---
 id: "temporal-language-llm-hierarchy-014"
-type: "concept"
+type: "hypothesis"
 source: "papers/temporal-language-llm-hierarchy.pdf"
 source_title: "Temporal Language Llm Hierarchy"
 cluster: "other"
-tags: ["temporal-dynamics", "language-comprehension", "computational-mapping", "brain-processing"]
+tags: ["llm-neuroscience", "layer-hierarchy", "temporal-dynamics"]
 ---
 
-# Language comprehension in the brain follows temporal dynamics that can be mapped to computational layers
+# LLM layers function as hierarchical processors that mirror the sequential temporal stages of brain language processing
 
-**Type:** concept
+**Type:** hypothesis
 **Source:** Temporal Language Llm Hierarchy
-**Evidence:** Conceptual framework demonstrated through temporal-to-depth mapping
+**Evidence:** Implied by the systematic correspondence between layer depth and neural response latency
 
 ## Tags
+- [[llm-neuroscience]]
+- [[layer-hierarchy]]
 - [[temporal-dynamics]]
-- [[language-comprehension]]
-- [[computational-mapping]]
-- [[brain-processing]]

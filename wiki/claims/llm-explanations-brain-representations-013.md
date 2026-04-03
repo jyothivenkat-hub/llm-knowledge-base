@@ -1,20 +1,19 @@
 ---
 id: "llm-explanations-brain-representations-013"
-type: "concept"
+type: "method"
 source: "papers/llm-explanations-brain-representations.pdf"
 source_title: "Llm Explanations Brain Representations"
 cluster: "other"
-tags: ["computational-neuroscience", "neural-representation", "attribution-methods", "language-understanding"]
+tags: ["fmri", "neuroscience-methods", "narrative-comprehension"]
 ---
 
-# Attribution explanations provide a computational approach to understanding neural language representation.
+# fMRI data from people listening to narratives was used to measure brain activity during language processing
 
-**Type:** concept
+**Type:** method
 **Source:** Llm Explanations Brain Representations
-**Evidence:** The overall methodology demonstrates using computational explanations to understand neural processes.
+**Evidence:** Described in abstract as data source for predicting brain activity
 
 ## Tags
-- [[computational-neuroscience]]
-- [[neural-representation]]
-- [[attribution-methods]]
-- [[language-understanding]]
+- [[fmri]]
+- [[neuroscience-methods]]
+- [[narrative-comprehension]]

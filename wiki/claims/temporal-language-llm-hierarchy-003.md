@@ -4,17 +4,16 @@ type: "finding"
 source: "papers/temporal-language-llm-hierarchy.pdf"
 source_title: "Temporal Language Llm Hierarchy"
 cluster: "other"
-tags: ["brocas-area", "language-regions", "temporal-mapping", "brain-localization"]
+tags: ["broca-area", "language-regions", "neural-alignment"]
 ---
 
-# The temporal-to-depth mapping is particularly strong in Broca's area and other language-related regions
+# Temporal-to-depth mapping between LLM layers and brain activity is particularly strong in Broca's area
 
 **Type:** finding
 **Source:** Temporal Language Llm Hierarchy
-**Evidence:** Specific brain regions showed strongest correspondence patterns
+**Evidence:** Specifically noted as a language-related region showing strong alignment
 
 ## Tags
-- [[brocas-area]]
+- [[broca-area]]
 - [[language-regions]]
-- [[temporal-mapping]]
-- [[brain-localization]]
+- [[neural-alignment]]

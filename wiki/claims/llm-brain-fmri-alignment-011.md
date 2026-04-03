@@ -1,20 +1,19 @@
 ---
 id: "llm-brain-fmri-alignment-011"
-type: "claim"
+type: "method"
 source: "papers/llm-brain-fmri-alignment.pdf"
 source_title: "Llm Brain Fmri Alignment"
-cluster: "brain-llm-alignment-correlation"
-tags: ["computational-modeling", "language-processing", "llm-applications", "cognitive-science"]
+cluster: "llm-brain-alignment"
+tags: ["model-comparison", "llm-diversity", "experimental-scope"]
 ---
 
-# LLMs function as viable computational models for understanding human language processing.
+# Fourteen publicly available LLMs across various sizes and architectures were compared in this study
 
-**Type:** claim
+**Type:** method
 **Source:** Llm Brain Fmri Alignment
-**Evidence:** Stated as a key implication based on the brain-alignment findings
+**Evidence:** Stated in methodology section
 
 ## Tags
-- [[computational-modeling]]
-- [[language-processing]]
-- [[llm-applications]]
-- [[cognitive-science]]
+- [[model-comparison]]
+- [[llm-diversity]]
+- [[experimental-scope]]

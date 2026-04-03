@@ -1,20 +1,19 @@
 ---
 id: "do-large-language-models-think-like-the--009"
-type: "method"
+type: "finding"
 source: "articles/llm-brain-fmri-alignment.md"
 source_title: "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI"
-cluster: "experimental-methods-neuroscience"
-tags: ["naturalistic-stimuli", "fmri", "narrative-processing", "ecological-validity"]
+cluster: "llm-brain-alignment"
+tags: ["instruction-tuning", "model-performance", "language-understanding"]
 ---
 
-# Participants were exposed to naturalistic narrative during fMRI scanning to capture dynamic neural responses during sentence comprehension.
+# Instruction-tuned LLMs outperform base model versions in sentence comprehension tasks
 
-**Type:** method
+**Type:** finding
 **Source:** Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI
-**Evidence:** Methodology section specifies use of naturalistic narrative exposure during brain imaging.
+**Evidence:** Comparative analysis of instruction-tuned versus base models
 
 ## Tags
-- [[naturalistic-stimuli]]
-- [[fmri]]
-- [[narrative-processing]]
-- [[ecological-validity]]
+- [[instruction-tuning]]
+- [[model-performance]]
+- [[language-understanding]]

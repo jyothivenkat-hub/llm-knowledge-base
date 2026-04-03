@@ -1,19 +1,19 @@
 ---
 id: "flashattention-fast-and-memory-efficient-004"
-type: "concept"
+type: "method"
 source: "articles/flash-attention.md"
 source_title: "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness"
-cluster: "transformer-architecture-attention"
-tags: ["gpu-architecture", "memory-hierarchy", "hardware-constraints"]
+cluster: "attention-optimization"
+tags: ["tiling", "gpu-optimization", "memory-hierarchy"]
 ---
 
-# Modern GPUs have a memory hierarchy with fast but small SRAM (~20MB on A100) and large but slow HBM (40-80GB on A100).
+# FlashAttention uses tiling to break attention computation into blocks that fit in SRAM
 
-**Type:** concept
+**Type:** method
 **Source:** FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness
-**Evidence:** Specific memory specifications provided for A100 GPU architecture
+**Evidence:** Explained in Key Ideas and IO-Awareness sections
 
 ## Tags
-- [[gpu-architecture]]
+- [[tiling]]
+- [[gpu-optimization]]
 - [[memory-hierarchy]]
-- [[hardware-constraints]]

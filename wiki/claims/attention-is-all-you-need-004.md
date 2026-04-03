@@ -1,20 +1,19 @@
 ---
 id: "attention-is-all-you-need-004"
-type: "method"
+type: "concept"
 source: "articles/sample-attention.md"
 source_title: "Attention Is All You Need"
-cluster: "transformer-architecture-attention"
-tags: ["transformer", "attention-mechanism", "recurrent-networks", "convolutional-networks"]
+cluster: "transformer-architecture"
+tags: ["transformer", "attention-mechanism", "self-attention"]
 ---
 
-# The Transformer architecture dispenses with recurrence and convolutions entirely.
+# Self-attention is a key mechanism in the Transformer architecture
 
-**Type:** method
+**Type:** concept
 **Source:** Attention Is All You Need
-**Evidence:** Stated as a key design choice that distinguishes the Transformer from existing models.
+**Evidence:** Listed as a key concept of the paper
 
 ## Tags
 - [[transformer]]
 - [[attention-mechanism]]
-- [[recurrent-networks]]
-- [[convolutional-networks]]
+- [[self-attention]]

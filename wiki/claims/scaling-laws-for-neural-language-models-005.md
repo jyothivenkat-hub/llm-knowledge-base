@@ -3,18 +3,17 @@ id: "scaling-laws-for-neural-language-models-005"
 type: "finding"
 source: "articles/scaling-laws.md"
 source_title: "Scaling Laws for Neural Language Models"
-cluster: "performance-optimization-scaling"
-tags: ["compute-allocation", "optimization", "training-efficiency", "resource-management"]
+cluster: "scaling-laws"
+tags: ["scaling-laws", "sample-efficiency", "model-size"]
 ---
 
-# Given a fixed compute budget, there exists an optimal model size and number of training tokens.
+# Larger language models are more sample-efficient than smaller models, achieving better loss per token seen
 
 **Type:** finding
 **Source:** Scaling Laws for Neural Language Models
-**Evidence:** Analysis showed optimal trade-offs between model size and training data given computational constraints.
+**Evidence:** Stated as finding in optimal allocation section
 
 ## Tags
-- [[compute-allocation]]
-- [[optimization]]
-- [[training-efficiency]]
-- [[resource-management]]
+- [[scaling-laws]]
+- [[sample-efficiency]]
+- [[model-size]]

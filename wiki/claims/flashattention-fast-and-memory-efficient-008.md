@@ -3,17 +3,17 @@ id: "flashattention-fast-and-memory-efficient-008"
 type: "finding"
 source: "articles/flash-attention.md"
 source_title: "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness"
-cluster: "performance-optimization-scaling"
-tags: ["performance-improvement", "attention-mechanism", "benchmarking"]
+cluster: "attention-optimization"
+tags: ["gpu-architecture", "hardware-specs", "memory-hierarchy"]
 ---
 
-# FlashAttention achieves 2-4x faster performance than PyTorch standard attention.
+# A100 GPUs have 40-80GB of HBM
 
 **Type:** finding
 **Source:** FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness
-**Evidence:** Quantitative speedup results reported in the results section
+**Evidence:** Specified in IO-Awareness section
 
 ## Tags
-- [[performance-improvement]]
-- [[attention-mechanism]]
-- [[benchmarking]]
+- [[gpu-architecture]]
+- [[hardware-specs]]
+- [[memory-hierarchy]]

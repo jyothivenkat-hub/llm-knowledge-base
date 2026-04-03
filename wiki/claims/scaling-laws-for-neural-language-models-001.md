@@ -3,18 +3,17 @@ id: "scaling-laws-for-neural-language-models-001"
 type: "finding"
 source: "articles/scaling-laws.md"
 source_title: "Scaling Laws for Neural Language Models"
-cluster: "performance-optimization-scaling"
-tags: ["scaling-laws", "power-law", "language-models", "performance"]
+cluster: "scaling-laws"
+tags: ["scaling-laws", "model-size", "loss-curves"]
 ---
 
-# Language model loss scales as a power law with model parameters, dataset size, and compute budget.
+# Language model loss scales as a power law with model parameters N according to L(N) ~ N^(-0.076)
 
 **Type:** finding
 **Source:** Scaling Laws for Neural Language Models
-**Evidence:** Empirical analysis by Kaplan et al. (2020) established these power law relationships across different scales.
+**Evidence:** Empirical scaling law established by Kaplan et al. (2020) as key finding
 
 ## Tags
 - [[scaling-laws]]
-- [[power-law]]
-- [[language-models]]
-- [[performance]]
+- [[model-size]]
+- [[loss-curves]]

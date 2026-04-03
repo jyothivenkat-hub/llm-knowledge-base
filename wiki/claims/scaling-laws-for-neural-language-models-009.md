@@ -1,20 +1,19 @@
 ---
 id: "scaling-laws-for-neural-language-models-009"
-type: "finding"
+type: "claim"
 source: "articles/scaling-laws.md"
 source_title: "Scaling Laws for Neural Language Models"
-cluster: "performance-optimization-scaling"
-tags: ["architecture", "attention-heads", "parameters", "transformer"]
+cluster: "scaling-laws"
+tags: ["scaling-laws", "architecture", "transformer"]
 ---
 
-# Increasing attention heads or feed-forward dimensions while keeping total parameters fixed has little effect on performance.
+# The Transformer architecture itself is not the bottleneck for language model performance; scale is the primary factor
 
-**Type:** finding
+**Type:** claim
 **Source:** Scaling Laws for Neural Language Models
-**Evidence:** Controlled experiments varying architectural components while maintaining parameter count.
+**Evidence:** Stated as conclusion in impact on transformer architecture section
 
 ## Tags
+- [[scaling-laws]]
 - [[architecture]]
-- [[attention-heads]]
-- [[parameters]]
 - [[transformer]]

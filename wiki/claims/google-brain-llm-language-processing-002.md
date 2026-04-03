@@ -1,19 +1,19 @@
 ---
 id: "google-brain-llm-language-processing-002"
-type: "method"
+type: "finding"
 source: "papers/google-brain-llm-language-processing.pdf"
 source_title: "Google Brain Llm Language Processing"
-cluster: "temporal-brain-language-processing"
-tags: ["neural-recording", "intracranial-electrodes", "brain-measurement"]
+cluster: "brain-language-processing"
+tags: ["speech-processing", "brain-regions", "auditory-cortex"]
 ---
 
-# Intracranial electrode recordings were used to measure neural activity during natural conversations.
+# Speech embeddings from the Whisper encoder predict activity in the superior temporal gyrus during listening
 
-**Type:** method
+**Type:** finding
 **Source:** Google Brain Llm Language Processing
-**Evidence:** Described as the experimental approach in the abstract
+**Evidence:** Described in speech processing sequence during listening phase
 
 ## Tags
-- [[neural-recording]]
-- [[intracranial-electrodes]]
-- [[brain-measurement]]
+- [[speech-processing]]
+- [[brain-regions]]
+- [[auditory-cortex]]

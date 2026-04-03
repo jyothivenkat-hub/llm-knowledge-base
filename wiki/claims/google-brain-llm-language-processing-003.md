@@ -1,19 +1,19 @@
 ---
 id: "google-brain-llm-language-processing-003"
-type: "method"
+type: "finding"
 source: "papers/google-brain-llm-language-processing.pdf"
 source_title: "Google Brain Llm Language Processing"
-cluster: "temporal-brain-language-processing"
-tags: ["whisper-model", "speech-embeddings", "feature-extraction"]
+cluster: "brain-language-processing"
+tags: ["language-processing", "broca-area", "sequential-processing"]
 ---
 
-# Speech embeddings were extracted from the Whisper encoder for analysis.
+# Language embeddings from the Whisper decoder activate Broca's area following superior temporal gyrus activity during listening
 
-**Type:** method
+**Type:** finding
 **Source:** Google Brain Llm Language Processing
-**Evidence:** Mentioned as part of the methodology in the abstract
+**Evidence:** Specified in speech processing sequence during listening phase
 
 ## Tags
-- [[whisper-model]]
-- [[speech-embeddings]]
-- [[feature-extraction]]
+- [[language-processing]]
+- [[broca-area]]
+- [[sequential-processing]]

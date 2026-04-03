@@ -3,18 +3,17 @@ id: "scaling-laws-for-neural-language-models-007"
 type: "finding"
 source: "articles/scaling-laws.md"
 source_title: "Scaling Laws for Neural Language Models"
-cluster: "performance-optimization-scaling"
-tags: ["model-size", "training-strategy", "data-efficiency", "optimization"]
+cluster: "scaling-laws"
+tags: ["scaling-laws", "architecture", "model-size"]
 ---
 
-# It is better to train a larger model on less data than a smaller model on more data.
+# Language model performance depends strongly on model size (width and depth) rather than specific architectural details
 
 **Type:** finding
 **Source:** Scaling Laws for Neural Language Models
-**Evidence:** Original finding from scaling law analysis, though later revised by Chinchilla paper.
+**Evidence:** Stated in impact on transformer architecture section
 
 ## Tags
+- [[scaling-laws]]
+- [[architecture]]
 - [[model-size]]
-- [[training-strategy]]
-- [[data-efficiency]]
-- [[optimization]]

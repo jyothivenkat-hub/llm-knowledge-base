@@ -3,18 +3,17 @@ id: "llm-brain-fmri-alignment-005"
 type: "finding"
 source: "papers/llm-brain-fmri-alignment.pdf"
 source_title: "Llm Brain Fmri Alignment"
-cluster: "brain-llm-alignment-correlation"
-tags: ["instruction-tuning", "model-performance", "brain-alignment", "fine-tuning"]
+cluster: "llm-brain-alignment"
+tags: ["semantic-processing", "abstraction-levels", "brain-alignment"]
 ---
 
-# Instruction-tuned models consistently outperformed base versions in both sentence comprehension and neural alignment.
+# The strongest correspondence between LLM models and brain activity occurs at higher levels of semantic abstraction
 
 **Type:** finding
 **Source:** Llm Brain Fmri Alignment
-**Evidence:** Comparative analysis showed superior performance of instruction-tuned versus base models
+**Evidence:** Key finding on semantic abstraction and neural correspondence
 
 ## Tags
-- [[instruction-tuning]]
-- [[model-performance]]
+- [[semantic-processing]]
+- [[abstraction-levels]]
 - [[brain-alignment]]
-- [[fine-tuning]]

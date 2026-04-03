@@ -4,17 +4,16 @@ type: "finding"
 source: "papers/transformers-neurons-astrocytes.pdf"
 source_title: "Transformers Neurons Astrocytes"
 cluster: "other"
-tags: ["calcium-signaling", "astrocytes", "temporal-dynamics", "contextual-modulation"]
+tags: ["astrocytes", "calcium-signaling", "context-modulation"]
 ---
 
-# Astrocytic calcium signaling operates on slower timescales, providing a form of contextual modulation.
+# Astrocytic calcium signaling provides a form of contextual modulation for neural computation
 
 **Type:** finding
 **Source:** Transformers Neurons Astrocytes
-**Evidence:** Documented through examination of astrocytic calcium dynamics and their functional role
+**Evidence:** Identified as mechanism for contextual modulation in biological attention
 
 ## Tags
-- [[calcium-signaling]]
 - [[astrocytes]]
-- [[temporal-dynamics]]
-- [[contextual-modulation]]
+- [[calcium-signaling]]
+- [[context-modulation]]

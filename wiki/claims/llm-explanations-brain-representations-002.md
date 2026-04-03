@@ -3,18 +3,17 @@ id: "llm-explanations-brain-representations-002"
 type: "finding"
 source: "papers/llm-explanations-brain-representations.pdf"
 source_title: "Llm Explanations Brain Representations"
-cluster: "experimental-methods-neuroscience"
-tags: ["neural-prediction", "brain-activity", "language-processing", "fmri"]
+cluster: "other"
+tags: ["brain-alignment", "fmri", "neural-prediction"]
 ---
 
-# LLM attribution explanations can successfully predict neural activity in brain language processing regions.
+# LLM attribution explanations successfully predicted neural activity across language processing regions in the brain
 
 **Type:** finding
 **Source:** Llm Explanations Brain Representations
-**Evidence:** Key finding states that attribution explanations successfully predicted neural activity across language processing regions.
+**Evidence:** Listed as first key finding with direct evidence from fMRI data analysis
 
 ## Tags
-- [[neural-prediction]]
-- [[brain-activity]]
-- [[language-processing]]
+- [[brain-alignment]]
 - [[fmri]]
+- [[neural-prediction]]

@@ -4,17 +4,16 @@ type: "finding"
 source: "papers/temporal-language-llm-hierarchy.pdf"
 source_title: "Temporal Language Llm Hierarchy"
 cluster: "other"
-tags: ["layer-depth", "temporal-mapping", "brain-activity", "neural-correspondence"]
+tags: ["llm-neuroscience", "temporal-mapping", "neural-dynamics"]
 ---
 
-# Deeper LLM layers correspond to later brain activity during language processing
+# Deeper LLM layers correspond to later brain activity during language comprehension
 
 **Type:** finding
 **Source:** Temporal Language Llm Hierarchy
-**Evidence:** Established through temporal-to-depth mapping analysis
+**Evidence:** Established temporal-to-depth correspondence between biological and artificial processing
 
 ## Tags
-- [[layer-depth]]
+- [[llm-neuroscience]]
 - [[temporal-mapping]]
-- [[brain-activity]]
-- [[neural-correspondence]]
+- [[neural-dynamics]]

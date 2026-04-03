@@ -4,17 +4,16 @@ type: "finding"
 source: "papers/llm-explanations-brain-representations.pdf"
 source_title: "Llm Explanations Brain Representations"
 cluster: "other"
-tags: ["hierarchical-processing", "brain-architecture", "neural-hierarchy", "cognitive-stages"]
+tags: ["layer-hierarchy", "semantic-processing", "discourse-comprehension"]
 ---
 
-# The hierarchical alignment between LLM layers and brain processing mirrors the brain's own hierarchical processing pipeline.
+# Later layer explanations in LLMs align with semantic integration and discourse-level comprehension in the brain
 
 **Type:** finding
 **Source:** Llm Explanations Brain Representations
-**Evidence:** Hierarchical layer alignment section states this mirrors the brain's own hierarchical processing pipeline.
+**Evidence:** Detailed in hierarchical layer alignment section
 
 ## Tags
-- [[hierarchical-processing]]
-- [[brain-architecture]]
-- [[neural-hierarchy]]
-- [[cognitive-stages]]
+- [[layer-hierarchy]]
+- [[semantic-processing]]
+- [[discourse-comprehension]]

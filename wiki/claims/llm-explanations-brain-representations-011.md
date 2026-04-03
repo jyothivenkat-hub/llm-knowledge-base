@@ -1,20 +1,19 @@
 ---
 id: "llm-explanations-brain-representations-011"
-type: "hypothesis"
+type: "claim"
 source: "papers/llm-explanations-brain-representations.pdf"
 source_title: "Llm Explanations Brain Representations"
 cluster: "other"
-tags: ["xai-validation", "human-like-processing", "neuroscience-data", "technique-evaluation"]
+tags: ["brain-alignment", "llm-interpretability", "language-processing"]
 ---
 
-# Neuroscience data can be used to validate which XAI techniques best capture human-like processing.
+# LLM explanations reflect principles underlying human brain language processing
 
-**Type:** hypothesis
+**Type:** claim
 **Source:** Llm Explanations Brain Representations
-**Evidence:** Novel contribution section describes this as an opened pathway for future research.
+**Evidence:** Stated as key finding bridging computational linguistics and neuroscience
 
 ## Tags
-- [[xai-validation]]
-- [[human-like-processing]]
-- [[neuroscience-data]]
-- [[technique-evaluation]]
+- [[brain-alignment]]
+- [[llm-interpretability]]
+- [[language-processing]]

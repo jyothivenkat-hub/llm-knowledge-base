@@ -4,17 +4,16 @@ type: "finding"
 source: "papers/transformers-neurons-astrocytes.pdf"
 source_title: "Transformers Neurons Astrocytes"
 cluster: "other"
-tags: ["astrocytes", "synaptic-modulation", "attention-mechanism", "biological-computation"]
+tags: ["astrocytes", "attention-mechanism", "synaptic-modulation"]
 ---
 
-# Astrocytes play a key role in modulating synaptic transmission in a way analogous to attention mechanisms.
+# Astrocytes modulate synaptic transmission in a way analogous to attention mechanisms
 
 **Type:** finding
 **Source:** Transformers Neurons Astrocytes
-**Evidence:** Demonstrated through analysis of astrocytic function in neural circuits
+**Evidence:** Described as key role of astrocytes in implementing attention-like operations
 
 ## Tags
 - [[astrocytes]]
-- [[synaptic-modulation]]
 - [[attention-mechanism]]
-- [[biological-computation]]
+- [[synaptic-modulation]]

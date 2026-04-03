@@ -1,20 +1,19 @@
 ---
 id: "llm-brain-fmri-alignment-015"
-type: "concept"
+type: "hypothesis"
 source: "papers/llm-brain-fmri-alignment.pdf"
 source_title: "Llm Brain Fmri Alignment"
-cluster: "brain-llm-alignment-correlation"
-tags: ["hierarchical-embeddings", "layer-wise-analysis", "internal-representations", "llm-architectures"]
+cluster: "other"
+tags: ["computational-principles", "contextual-representation", "brain-llm-similarity"]
 ---
 
-# Hierarchical embeddings represent the layer-wise internal representations extracted from different depths of LLM architectures.
+# Autoregressive LLMs and the human brain share fundamental computational principles including embedding-based contextual representation
 
-**Type:** concept
+**Type:** hypothesis
 **Source:** Llm Brain Fmri Alignment
-**Evidence:** Core concept used in the methodology for analyzing LLM representations at different layers
+**Evidence:** Stated as evidence for shared principles between LLMs and brain
 
 ## Tags
-- [[hierarchical-embeddings]]
-- [[layer-wise-analysis]]
-- [[internal-representations]]
-- [[llm-architectures]]
+- [[computational-principles]]
+- [[contextual-representation]]
+- [[brain-llm-similarity]]

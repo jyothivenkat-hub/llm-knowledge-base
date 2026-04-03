@@ -1,20 +1,19 @@
 ---
 id: "scaling-laws-for-neural-language-models-018"
-type: "concept"
+type: "hypothesis"
 source: "articles/scaling-laws.md"
 source_title: "Scaling Laws for Neural Language Models"
-cluster: "performance-optimization-scaling"
-tags: ["scaling-laws", "empirical-analysis", "performance-modeling", "machine-learning"]
+cluster: "scaling-laws"
+tags: ["scaling-laws", "generalization", "empirical-validation"]
 ---
 
-# Scaling laws describe empirical relationships between model performance and key training variables.
+# Power law scaling relationships hold across multiple dimensions of language model training simultaneously
 
-**Type:** concept
+**Type:** hypothesis
 **Source:** Scaling Laws for Neural Language Models
-**Evidence:** Core concept defined through systematic analysis of performance across different scales and conditions.
+**Evidence:** Demonstrated through consistent power law exponents across model size, dataset size, and compute
 
 ## Tags
 - [[scaling-laws]]
-- [[empirical-analysis]]
-- [[performance-modeling]]
-- [[machine-learning]]
+- [[generalization]]
+- [[empirical-validation]]

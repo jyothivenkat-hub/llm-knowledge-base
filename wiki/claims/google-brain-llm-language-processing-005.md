@@ -3,18 +3,17 @@ id: "google-brain-llm-language-processing-005"
 type: "finding"
 source: "papers/google-brain-llm-language-processing.pdf"
 source_title: "Google Brain Llm Language Processing"
-cluster: "temporal-brain-language-processing"
-tags: ["speech-processing", "temporal-sequence", "superior-temporal-gyrus", "listening"]
+cluster: "brain-language-processing"
+tags: ["motor-cortex", "speech-production", "sequential-processing"]
 ---
 
-# During listening, speech embeddings predict activity in the superior temporal gyrus first.
+# Motor cortex engagement follows language area activation during speech production
 
 **Type:** finding
 **Source:** Google Brain Llm Language Processing
-**Evidence:** Described in the speech processing sequence during listening
+**Evidence:** Described in speech processing sequence during speaking phase
 
 ## Tags
-- [[speech-processing]]
-- [[temporal-sequence]]
-- [[superior-temporal-gyrus]]
-- [[listening]]
+- [[motor-cortex]]
+- [[speech-production]]
+- [[sequential-processing]]

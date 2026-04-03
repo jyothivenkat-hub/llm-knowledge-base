@@ -1,20 +1,19 @@
 ---
 id: "attention-is-all-you-need-005"
-type: "concept"
+type: "method"
 source: "articles/sample-attention.md"
 source_title: "Attention Is All You Need"
-cluster: "transformer-architecture-attention"
-tags: ["self-attention", "attention-mechanism", "transformer", "neural-networks"]
+cluster: "transformer-architecture"
+tags: ["transformer", "attention-mechanism", "multi-head-attention"]
 ---
 
-# Self-attention mechanism is a key concept in the Transformer architecture.
+# Multi-head attention is a component of the Transformer architecture
 
-**Type:** concept
+**Type:** method
 **Source:** Attention Is All You Need
-**Evidence:** Listed as one of the key concepts of the paper.
+**Evidence:** Listed as a key concept of the paper
 
 ## Tags
-- [[self-attention]]
-- [[attention-mechanism]]
 - [[transformer]]
-- [[neural-networks]]
+- [[attention-mechanism]]
+- [[multi-head-attention]]

@@ -4,17 +4,16 @@ type: "concept"
 source: "papers/temporal-language-llm-hierarchy.pdf"
 source_title: "Temporal Language Llm Hierarchy"
 cluster: "other"
-tags: ["temporal-depth-correspondence", "biological-artificial", "language-processing", "neural-alignment"]
+tags: ["temporal-mapping", "architecture-neuroscience", "correspondence"]
 ---
 
-# There exists a temporal-to-depth correspondence between biological and artificial language processing systems
+# Temporal-to-depth correspondence is a mapping principle between LLM architecture and neural processing timelines
 
 **Type:** concept
 **Source:** Temporal Language Llm Hierarchy
-**Evidence:** Core concept established through demonstration of layer-timing alignment
+**Evidence:** Introduced as core concept establishing relationship between artificial and biological systems
 
 ## Tags
-- [[temporal-depth-correspondence]]
-- [[biological-artificial]]
-- [[language-processing]]
-- [[neural-alignment]]
+- [[temporal-mapping]]
+- [[architecture-neuroscience]]
+- [[correspondence]]

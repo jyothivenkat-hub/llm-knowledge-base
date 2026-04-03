@@ -3,18 +3,17 @@ id: "llm-explanations-brain-representations-004"
 type: "finding"
 source: "papers/llm-explanations-brain-representations.pdf"
 source_title: "Llm Explanations Brain Representations"
-cluster: "layer-wise-representation-analysis"
-tags: ["layer-alignment", "cognitive-processing", "semantic-integration", "discourse-comprehension"]
+cluster: "other"
+tags: ["layer-hierarchy", "brain-alignment", "cognitive-processing"]
 ---
 
-# Deeper LLM layers correspond to more advanced cognitive stages in brain language processing.
+# Deeper layers of large language models correspond to more advanced cognitive stages in the brain
 
 **Type:** finding
 **Source:** Llm Explanations Brain Representations
-**Evidence:** Key findings indicate deeper layers corresponded to more advanced cognitive stages.
+**Evidence:** Stated in key findings and hierarchical layer alignment section
 
 ## Tags
-- [[layer-alignment]]
+- [[layer-hierarchy]]
+- [[brain-alignment]]
 - [[cognitive-processing]]
-- [[semantic-integration]]
-- [[discourse-comprehension]]

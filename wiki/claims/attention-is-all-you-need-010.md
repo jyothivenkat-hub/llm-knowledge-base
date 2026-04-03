@@ -1,20 +1,19 @@
 ---
 id: "attention-is-all-you-need-010"
-type: "finding"
+type: "hypothesis"
 source: "articles/sample-attention.md"
 source_title: "Attention Is All You Need"
-cluster: "performance-optimization-scaling"
-tags: ["transformer", "machine-translation", "bleu-score", "performance-improvement"]
+cluster: "transformer-architecture"
+tags: ["attention-mechanism", "sequence-transduction", "architecture-design"]
 ---
 
-# The Transformer improves over existing best results by over 2 BLEU points on WMT 2014 English-to-German translation.
+# Convolutions can be dispensed with in sequence transduction models by using attention mechanisms
 
-**Type:** finding
+**Type:** hypothesis
 **Source:** Attention Is All You Need
-**Evidence:** Comparative performance improvement reported in the results section.
+**Evidence:** Proposed as a novel approach in the abstract
 
 ## Tags
-- [[transformer]]
-- [[machine-translation]]
-- [[bleu-score]]
-- [[performance-improvement]]
+- [[attention-mechanism]]
+- [[sequence-transduction]]
+- [[architecture-design]]

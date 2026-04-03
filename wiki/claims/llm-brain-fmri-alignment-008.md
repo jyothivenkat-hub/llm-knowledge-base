@@ -3,18 +3,17 @@ id: "llm-brain-fmri-alignment-008"
 type: "method"
 source: "papers/llm-brain-fmri-alignment.pdf"
 source_title: "Llm Brain Fmri Alignment"
-cluster: "experimental-methods-neuroscience"
-tags: ["fmri", "naturalistic-stimuli", "narrative-processing", "experimental-design"]
+cluster: "llm-brain-alignment"
+tags: ["methodology", "llm-embeddings", "fmri-analysis"]
 ---
 
-# fMRI data was collected from participants exposed to a naturalistic narrative story for brain-model comparison.
+# Layer-wise embeddings from LLMs can be compared with fMRI data to assess neural alignment
 
 **Type:** method
 **Source:** Llm Brain Fmri Alignment
-**Evidence:** Described in methodology as the approach for collecting neural data
+**Evidence:** Core methodological approach described in abstract and methodology section
 
 ## Tags
-- [[fmri]]
-- [[naturalistic-stimuli]]
-- [[narrative-processing]]
-- [[experimental-design]]
+- [[methodology]]
+- [[llm-embeddings]]
+- [[fmri-analysis]]

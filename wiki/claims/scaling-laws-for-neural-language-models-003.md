@@ -3,18 +3,17 @@ id: "scaling-laws-for-neural-language-models-003"
 type: "finding"
 source: "articles/scaling-laws.md"
 source_title: "Scaling Laws for Neural Language Models"
-cluster: "performance-optimization-scaling"
-tags: ["scaling-laws", "dataset-size", "data-efficiency", "power-law"]
+cluster: "scaling-laws"
+tags: ["scaling-laws", "compute-efficiency", "loss-curves"]
 ---
 
-# Model loss scales with dataset size following L(D) ~ D^(-0.095).
+# Language model loss scales as a power law with compute budget C according to L(C) ~ C^(-0.050)
 
 **Type:** finding
 **Source:** Scaling Laws for Neural Language Models
-**Evidence:** Empirical scaling relationship established through experiments with varying dataset sizes.
+**Evidence:** Empirical scaling law established by Kaplan et al. (2020) as key finding
 
 ## Tags
 - [[scaling-laws]]
-- [[dataset-size]]
-- [[data-efficiency]]
-- [[power-law]]
+- [[compute-efficiency]]
+- [[loss-curves]]

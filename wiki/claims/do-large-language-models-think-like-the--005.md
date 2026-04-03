@@ -1,20 +1,19 @@
 ---
 id: "do-large-language-models-think-like-the--005"
-type: "finding"
+type: "claim"
 source: "articles/llm-brain-fmri-alignment.md"
 source_title: "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI"
-cluster: "brain-llm-alignment-correlation"
-tags: ["instruction-tuning", "model-alignment", "sentence-comprehension", "neural-correlation"]
+cluster: "llm-brain-alignment"
+tags: ["linguistic-information", "sentence-processing", "neural-alignment"]
 ---
 
-# Instruction-tuned models consistently outperformed their base versions in both sentence comprehension and neural alignment.
+# Intermediate LLM representations carry rich linguistic information that mirrors human sentence-level processing
 
-**Type:** finding
+**Type:** claim
 **Source:** Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI
-**Evidence:** Statistical comparison between instruction-tuned and base models showed significant improvements.
+**Evidence:** Explanation for why intermediate layers match brain activity better than final layers
 
 ## Tags
-- [[instruction-tuning]]
-- [[model-alignment]]
-- [[sentence-comprehension]]
-- [[neural-correlation]]
+- [[linguistic-information]]
+- [[sentence-processing]]
+- [[neural-alignment]]

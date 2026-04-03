@@ -1,19 +1,19 @@
 ---
 id: "flashattention-fast-and-memory-efficient-017"
-type: "concept"
+type: "finding"
 source: "articles/flash-attention.md"
 source_title: "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness"
-cluster: "transformer-architecture-attention"
-tags: ["io-optimization", "gpu-architecture", "algorithmic-design"]
+cluster: "attention-optimization"
+tags: ["performance", "speedup", "algorithm-improvement"]
 ---
 
-# IO-awareness is a key principle for optimizing attention computation on modern GPU architectures.
+# FlashAttention-2 achieves up to 2x speedup over FlashAttention
 
-**Type:** concept
+**Type:** finding
 **Source:** FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness
-**Evidence:** Central theme emphasized throughout the paper's methodology
+**Evidence:** Specified in FlashAttention-2 results
 
 ## Tags
-- [[io-optimization]]
-- [[gpu-architecture]]
-- [[algorithmic-design]]
+- [[performance]]
+- [[speedup]]
+- [[algorithm-improvement]]

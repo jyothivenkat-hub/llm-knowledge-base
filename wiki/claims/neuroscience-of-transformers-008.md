@@ -1,20 +1,19 @@
 ---
 id: "neuroscience-of-transformers-008"
-type: "finding"
+type: "hypothesis"
 source: "papers/neuroscience-of-transformers.pdf"
 source_title: "Neuroscience Of Transformers"
 cluster: "other"
-tags: ["temporal-discretization", "causal-sequences", "recurrent-dynamics", "computational-challenge"]
+tags: ["temporal-scaffolding", "rhythmic-synchronization", "information-discretization"]
 ---
 
-# A fundamental challenge exists in reconciling the transformer's requirement for discrete causal sequences with the cortex's continuous recurrent dynamics.
+# The brain may resolve temporal discretization through hierarchical temporal scaffolding using rhythmic synchronization
 
-**Type:** finding
+**Type:** hypothesis
 **Source:** Neuroscience Of Transformers
-**Evidence:** Identified as a fundamental challenge in the temporal discretization section.
+**Evidence:** Proposed as a solution to the temporal discretization challenge
 
 ## Tags
-- [[temporal-discretization]]
-- [[causal-sequences]]
-- [[recurrent-dynamics]]
-- [[computational-challenge]]
+- [[temporal-scaffolding]]
+- [[rhythmic-synchronization]]
+- [[information-discretization]]

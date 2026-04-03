@@ -4,17 +4,16 @@ type: "finding"
 source: "papers/temporal-language-llm-hierarchy.pdf"
 source_title: "Temporal Language Llm Hierarchy"
 cluster: "other"
-tags: ["early-layers", "neural-timing", "temporal-mapping", "layer-correspondence"]
+tags: ["temporal-mapping", "early-processing", "layer-hierarchy"]
 ---
 
-# Early LLM layers (1-4) correspond to early neural responses occurring at 50-150ms
+# Early LLM layers (1-4) correspond to early neural responses occurring at 50-150ms latency
 
 **Type:** finding
 **Source:** Temporal Language Llm Hierarchy
-**Evidence:** Temporal mapping analysis shows specific layer-to-timing correspondence
+**Evidence:** Temporal mapping section specifies latency ranges for layer groups
 
 ## Tags
-- [[early-layers]]
-- [[neural-timing]]
 - [[temporal-mapping]]
-- [[layer-correspondence]]
+- [[early-processing]]
+- [[layer-hierarchy]]

@@ -3,17 +3,17 @@ id: "google-brain-llm-language-processing-009"
 type: "finding"
 source: "papers/google-brain-llm-language-processing.pdf"
 source_title: "Google Brain Llm Language Processing"
-cluster: "temporal-brain-language-processing"
-tags: ["speech-processing", "temporal-sequence", "listening-speaking"]
+cluster: "brain-language-processing"
+tags: ["semantic-processing", "acoustic-features", "brain-hierarchy"]
 ---
 
-# The speech processing sequence reverses between listening and speaking conditions.
+# Higher-order brain regions prioritize semantic information while still capturing acoustic features
 
 **Type:** finding
 **Source:** Google Brain Llm Language Processing
-**Evidence:** Explicitly stated that the sequence reverses between listening and speaking
+**Evidence:** Described in soft hierarchy section
 
 ## Tags
-- [[speech-processing]]
-- [[temporal-sequence]]
-- [[listening-speaking]]
+- [[semantic-processing]]
+- [[acoustic-features]]
+- [[brain-hierarchy]]

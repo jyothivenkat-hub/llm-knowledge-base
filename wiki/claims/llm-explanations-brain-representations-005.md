@@ -3,18 +3,17 @@ id: "llm-explanations-brain-representations-005"
 type: "finding"
 source: "papers/llm-explanations-brain-representations.pdf"
 source_title: "Llm Explanations Brain Representations"
-cluster: "layer-wise-representation-analysis"
-tags: ["semantic-processing", "discourse-comprehension", "layer-alignment", "brain-correspondence"]
+cluster: "other"
+tags: ["attribution-methods", "brain-alignment", "prediction-influence"]
 ---
 
-# Later LLM layer explanations align with advanced processing stages including semantic integration and discourse-level comprehension.
+# LLM layers with greater influence on next-word prediction demonstrate stronger alignment with brain activity
 
 **Type:** finding
 **Source:** Llm Explanations Brain Representations
-**Evidence:** Hierarchical layer alignment section specifies later layers align with semantic integration and discourse comprehension.
+**Evidence:** Listed as key finding relating prediction influence to neural alignment
 
 ## Tags
-- [[semantic-processing]]
-- [[discourse-comprehension]]
-- [[layer-alignment]]
-- [[brain-correspondence]]
+- [[attribution-methods]]
+- [[brain-alignment]]
+- [[prediction-influence]]

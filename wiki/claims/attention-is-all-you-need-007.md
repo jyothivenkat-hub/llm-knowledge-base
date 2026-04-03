@@ -1,20 +1,19 @@
 ---
 id: "attention-is-all-you-need-007"
-type: "concept"
+type: "finding"
 source: "articles/sample-attention.md"
 source_title: "Attention Is All You Need"
-cluster: "transformer-architecture-attention"
-tags: ["positional-encoding", "transformer", "sequence-modeling", "neural-networks"]
+cluster: "transformer-performance"
+tags: ["transformer", "machine-translation", "benchmark-results"]
 ---
 
-# Positional encoding is a key concept in the Transformer architecture.
+# The Transformer achieves 28.4 BLEU on the WMT 2014 English-to-German translation task
 
-**Type:** concept
+**Type:** finding
 **Source:** Attention Is All You Need
-**Evidence:** Listed as one of the key concepts of the paper.
+**Evidence:** Explicitly stated numerical result in the Results section
 
 ## Tags
-- [[positional-encoding]]
 - [[transformer]]
-- [[sequence-modeling]]
-- [[neural-networks]]
+- [[machine-translation]]
+- [[benchmark-results]]

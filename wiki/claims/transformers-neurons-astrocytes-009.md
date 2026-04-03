@@ -1,20 +1,19 @@
 ---
 id: "transformers-neurons-astrocytes-009"
-type: "hypothesis"
+type: "claim"
 source: "papers/transformers-neurons-astrocytes.pdf"
 source_title: "Transformers Neurons Astrocytes"
 cluster: "other"
-tags: ["transformer-architecture", "evolutionary-computation", "convergent-evolution", "biological-computation"]
+tags: ["neuron-astrocyte-networks", "transformers", "biological-substrate"]
 ---
 
-# Transformer architectures may have accidentally discovered a computation that biology evolved independently.
+# Neuron-astrocyte interactions provide a biological substrate for transformer-like computations in the brain
 
-**Type:** hypothesis
+**Type:** claim
 **Source:** Transformers Neurons Astrocytes
-**Evidence:** Proposed based on the similarity between transformer attention and neuron-astrocyte computations
+**Evidence:** Core thesis identifying biological basis for transformer computations
 
 ## Tags
-- [[transformer-architecture]]
-- [[evolutionary-computation]]
-- [[convergent-evolution]]
-- [[biological-computation]]
+- [[neuron-astrocyte-networks]]
+- [[transformers]]
+- [[biological-substrate]]

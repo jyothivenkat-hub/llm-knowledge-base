@@ -4,17 +4,16 @@ type: "finding"
 source: "papers/temporal-language-llm-hierarchy.pdf"
 source_title: "Temporal Language Llm Hierarchy"
 cluster: "other"
-tags: ["temporal-dynamics", "layer-hierarchy", "brain-alignment", "language-processing"]
+tags: ["llm-neuroscience", "layer-hierarchy", "language-processing"]
 ---
 
-# LLMs' layer hierarchy aligns with the temporal dynamics of language comprehension in the brain
+# LLM layer hierarchy aligns with temporal dynamics of language comprehension in the brain
 
 **Type:** finding
 **Source:** Temporal Language Llm Hierarchy
-**Evidence:** Core finding demonstrated through temporal-to-depth correspondence analysis
+**Evidence:** Core finding demonstrating correspondence between artificial and biological language processing
 
 ## Tags
-- [[temporal-dynamics]]
+- [[llm-neuroscience]]
 - [[layer-hierarchy]]
-- [[brain-alignment]]
 - [[language-processing]]

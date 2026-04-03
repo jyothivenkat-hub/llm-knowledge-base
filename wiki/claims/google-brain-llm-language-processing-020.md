@@ -1,19 +1,19 @@
 ---
 id: "google-brain-llm-language-processing-020"
-type: "concept"
+type: "method"
 source: "papers/google-brain-llm-language-processing.pdf"
 source_title: "Google Brain Llm Language Processing"
-cluster: "brain-llm-alignment-correlation"
-tags: ["linear-alignment", "neural-activity", "llm-representations"]
+cluster: "brain-language-processing"
+tags: ["experimental-design", "naturalistic-stimuli", "ecological-validity"]
 ---
 
-# Linear alignment exists between neural activity and LLM internal representations.
+# Natural conversations were used as stimuli for measuring brain activity
 
-**Type:** concept
+**Type:** method
 **Source:** Google Brain Llm Language Processing
-**Evidence:** The abstract specifically mentions linear alignment between neural activity and LLM embeddings
+**Evidence:** Stated in abstract and key discovery section
 
 ## Tags
-- [[linear-alignment]]
-- [[neural-activity]]
-- [[llm-representations]]
+- [[experimental-design]]
+- [[naturalistic-stimuli]]
+- [[ecological-validity]]

@@ -1,20 +1,19 @@
 ---
 id: "llm-brain-fmri-alignment-007"
-type: "method"
+type: "finding"
 source: "papers/llm-brain-fmri-alignment.pdf"
 source_title: "Llm Brain Fmri Alignment"
-cluster: "experimental-methods-neuroscience"
-tags: ["model-comparison", "llm-architectures", "experimental-design", "brain-alignment"]
+cluster: "llm-brain-alignment"
+tags: ["hemispheric-lateralization", "cognitive-processing", "language-networks"]
 ---
 
-# Fourteen publicly available LLMs were compared across various sizes and architectures for brain alignment analysis.
+# LLM processing engages both left-hemispheric language systems and right-hemispheric networks supporting higher-order cognitive demands
 
-**Type:** method
+**Type:** finding
 **Source:** Llm Brain Fmri Alignment
-**Evidence:** Methodology section describes comparative analysis of 14 different LLMs
+**Evidence:** Key finding on bilateral brain engagement during LLM-like processing
 
 ## Tags
-- [[model-comparison]]
-- [[llm-architectures]]
-- [[experimental-design]]
-- [[brain-alignment]]
+- [[hemispheric-lateralization]]
+- [[cognitive-processing]]
+- [[language-networks]]

@@ -1,19 +1,19 @@
 ---
 id: "google-brain-llm-language-processing-017"
-type: "finding"
+type: "method"
 source: "papers/google-brain-llm-language-processing.pdf"
 source_title: "Google Brain Llm Language Processing"
-cluster: "temporal-brain-language-processing"
-tags: ["transformer-architecture", "parallel-processing", "simultaneous-processing"]
+cluster: "brain-language-processing"
+tags: ["whisper-model", "language-embeddings", "feature-extraction"]
 ---
 
-# Transformers handle thousands of words simultaneously.
+# Language embeddings were extracted from the Whisper decoder for analysis
 
-**Type:** finding
+**Type:** method
 **Source:** Google Brain Llm Language Processing
-**Evidence:** Listed as a key difference between brain and transformer processing
+**Evidence:** Specified in abstract as data extraction method
 
 ## Tags
-- [[transformer-architecture]]
-- [[parallel-processing]]
-- [[simultaneous-processing]]
+- [[whisper-model]]
+- [[language-embeddings]]
+- [[feature-extraction]]

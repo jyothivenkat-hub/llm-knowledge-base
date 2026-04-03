@@ -1,20 +1,19 @@
 ---
 id: "llm-explanations-brain-representations-009"
-type: "finding"
+type: "claim"
 source: "papers/llm-explanations-brain-representations.pdf"
 source_title: "Llm Explanations Brain Representations"
 cluster: "other"
-tags: ["brain-principles", "language-processing", "human-cognition", "computational-linguistics"]
+tags: ["explainable-ai", "biological-plausibility", "validation"]
 ---
 
-# LLM explanations reflect principles underlying human brain language processing.
+# Explainability methods can assess the biological plausibility of AI explanation techniques
 
-**Type:** finding
+**Type:** claim
 **Source:** Llm Explanations Brain Representations
-**Evidence:** Key findings state this bridges computational linguistics and neuroscience by showing LLM explanations reflect brain principles.
+**Evidence:** Presented as novel contribution of the research
 
 ## Tags
-- [[brain-principles]]
-- [[language-processing]]
-- [[human-cognition]]
-- [[computational-linguistics]]
+- [[explainable-ai]]
+- [[biological-plausibility]]
+- [[validation]]

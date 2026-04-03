@@ -1,20 +1,19 @@
 ---
 id: "neuroscience-of-transformers-014"
-type: "claim"
+type: "hypothesis"
 source: "papers/neuroscience-of-transformers.pdf"
 source_title: "Neuroscience Of Transformers"
 cluster: "other"
-tags: ["oscillatory-coordination", "predictions", "neural-oscillations", "cortical-dynamics"]
+tags: ["dendritic-integration", "feed-forward-networks", "prediction"]
 ---
 
-# The framework generates predictions about oscillatory coordination patterns.
+# Dendritic integration processes in cortex can be predicted from transformer feed-forward layer organization
 
-**Type:** claim
+**Type:** hypothesis
 **Source:** Neuroscience Of Transformers
-**Evidence:** Mentioned as one of the predictions arising from the transformer-cortex analogy.
+**Evidence:** Listed as a prediction generated from the theoretical framework
 
 ## Tags
-- [[oscillatory-coordination]]
-- [[predictions]]
-- [[neural-oscillations]]
-- [[cortical-dynamics]]
+- [[dendritic-integration]]
+- [[feed-forward-networks]]
+- [[prediction]]

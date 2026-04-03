@@ -1,20 +1,19 @@
 ---
 id: "scaling-laws-for-neural-language-models-016"
-type: "finding"
+type: "concept"
 source: "articles/scaling-laws.md"
 source_title: "Scaling Laws for Neural Language Models"
-cluster: "performance-optimization-scaling"
-tags: ["model-design", "training-efficiency", "chinchilla", "llama"]
+cluster: "scaling-laws"
+tags: ["scaling-laws", "compute-allocation", "optimization"]
 ---
 
-# Revised scaling laws led to training smaller but better-trained models like Chinchilla and LLaMA.
+# The loss-compute frontier defines the Pareto-optimal allocation of resources for language model training
 
-**Type:** finding
+**Type:** concept
 **Source:** Scaling Laws for Neural Language Models
-**Evidence:** Practical application of revised scaling laws resulted in new generation of more efficiently trained models.
+**Evidence:** Presented as key concept in implications for practice section
 
 ## Tags
-- [[model-design]]
-- [[training-efficiency]]
-- [[chinchilla]]
-- [[llama]]
+- [[scaling-laws]]
+- [[compute-allocation]]
+- [[optimization]]

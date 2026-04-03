@@ -1,20 +1,19 @@
 ---
 id: "transformers-neurons-astrocytes-008"
-type: "claim"
+type: "hypothesis"
 source: "papers/transformers-neurons-astrocytes.pdf"
 source_title: "Transformers Neurons Astrocytes"
 cluster: "other"
-tags: ["neuron-astrocyte", "attention-mechanism", "biological-computation", "neural-mechanisms"]
+tags: ["transformers", "evolution", "convergent-evolution"]
 ---
 
-# Neuron-astrocyte interactions provide a concrete biological mechanism for attention-like computations.
+# Transformer architectures may have accidentally discovered computations that biology evolved independently
 
-**Type:** claim
+**Type:** hypothesis
 **Source:** Transformers Neurons Astrocytes
-**Evidence:** Established through the detailed mapping of biological processes to attention operations
+**Evidence:** Stated as implication suggesting independent discovery of similar computations
 
 ## Tags
-- [[neuron-astrocyte]]
-- [[attention-mechanism]]
-- [[biological-computation]]
-- [[neural-mechanisms]]
+- [[transformers]]
+- [[evolution]]
+- [[convergent-evolution]]

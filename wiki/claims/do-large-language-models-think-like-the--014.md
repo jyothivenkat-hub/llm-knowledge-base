@@ -1,20 +1,19 @@
 ---
 id: "do-large-language-models-think-like-the--014"
-type: "claim"
+type: "method"
 source: "articles/llm-brain-fmri-alignment.md"
 source_title: "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI"
-cluster: "brain-llm-alignment-correlation"
-tags: ["computational-modeling", "language-processing", "cognitive-modeling", "llm-applications"]
+cluster: "llm-brain-alignment"
+tags: ["prediction-modeling", "neural-analysis", "sentence-level-processing"]
 ---
 
-# LLMs function as viable computational models for understanding human language processing mechanisms.
+# Sentence-level neural prediction models were constructed to identify layer-brain correlations
 
-**Type:** claim
+**Type:** method
 **Source:** Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI
-**Evidence:** Overall conclusion drawn from successful alignment between LLM representations and brain activity patterns.
+**Evidence:** Methodological approach to analyzing brain-model alignment
 
 ## Tags
-- [[computational-modeling]]
-- [[language-processing]]
-- [[cognitive-modeling]]
-- [[llm-applications]]
+- [[prediction-modeling]]
+- [[neural-analysis]]
+- [[sentence-level-processing]]

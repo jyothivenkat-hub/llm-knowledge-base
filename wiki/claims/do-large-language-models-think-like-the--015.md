@@ -1,20 +1,19 @@
 ---
 id: "do-large-language-models-think-like-the--015"
-type: "finding"
+type: "method"
 source: "articles/llm-brain-fmri-alignment.md"
 source_title: "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI"
-cluster: "brain-llm-alignment-correlation"
-tags: ["model-evolution", "brain-convergence", "performance-alignment", "representation-development"]
+cluster: "llm-brain-alignment"
+tags: ["correlation-analysis", "layer-analysis", "brain-mapping"]
 ---
 
-# As LLMs improve at language tasks, their internal representations naturally evolve toward brain-like processing patterns.
+# Model layers were identified by their correlation with brain region activations
 
-**Type:** finding
+**Type:** method
 **Source:** Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI
-**Evidence:** Correlation analysis between model performance and brain-like hierarchy resemblance across different LLMs.
+**Evidence:** Core analytical method for determining layer-brain correspondence
 
 ## Tags
-- [[model-evolution]]
-- [[brain-convergence]]
-- [[performance-alignment]]
-- [[representation-development]]
+- [[correlation-analysis]]
+- [[layer-analysis]]
+- [[brain-mapping]]

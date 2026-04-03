@@ -4,17 +4,16 @@ type: "finding"
 source: "papers/llm-explanations-brain-representations.pdf"
 source_title: "Llm Explanations Brain Representations"
 cluster: "other"
-tags: ["prediction-influence", "brain-alignment", "language-modeling", "neural-correlation"]
+tags: ["layer-hierarchy", "syntactic-processing", "phonological-processing"]
 ---
 
-# LLM layers with greater influence on next-word prediction demonstrate stronger alignment with brain activity.
+# Early layer explanations in LLMs correspond to phonological and basic syntactic processing in the brain
 
 **Type:** finding
 **Source:** Llm Explanations Brain Representations
-**Evidence:** Key findings explicitly state this relationship between prediction influence and brain alignment.
+**Evidence:** Detailed in hierarchical layer alignment section
 
 ## Tags
-- [[prediction-influence]]
-- [[brain-alignment]]
-- [[language-modeling]]
-- [[neural-correlation]]
+- [[layer-hierarchy]]
+- [[syntactic-processing]]
+- [[phonological-processing]]

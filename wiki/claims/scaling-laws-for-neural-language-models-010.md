@@ -3,18 +3,17 @@ id: "scaling-laws-for-neural-language-models-010"
 type: "finding"
 source: "articles/scaling-laws.md"
 source_title: "Scaling Laws for Neural Language Models"
-cluster: "performance-optimization-scaling"
-tags: ["transformer", "architecture", "scaling", "bottleneck"]
+cluster: "scaling-laws"
+tags: ["scaling-laws", "compute-allocation", "chinchilla"]
 ---
 
-# The Transformer architecture itself is not the performance bottleneck, scale is the limiting factor.
+# Chinchilla scaling laws show that models should be trained on roughly 20x more tokens than parameters
 
 **Type:** finding
 **Source:** Scaling Laws for Neural Language Models
-**Evidence:** Analysis showed that architectural improvements matter less than simply scaling up existing designs.
+**Evidence:** Presented as revision to original scaling laws by Hoffmann et al. (2022)
 
 ## Tags
-- [[transformer]]
-- [[architecture]]
-- [[scaling]]
-- [[bottleneck]]
+- [[scaling-laws]]
+- [[compute-allocation]]
+- [[chinchilla]]

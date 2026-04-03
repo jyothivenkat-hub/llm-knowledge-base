@@ -1,20 +1,19 @@
 ---
 id: "attention-is-all-you-need-008"
-type: "method"
+type: "finding"
 source: "articles/sample-attention.md"
 source_title: "Attention Is All You Need"
-cluster: "transformer-architecture-attention"
-tags: ["transformer", "encoder-decoder", "neural-architecture", "sequence-modeling"]
+cluster: "transformer-performance"
+tags: ["transformer", "machine-translation", "performance-improvement"]
 ---
 
-# The Transformer uses an encoder-decoder architecture.
+# The Transformer improves over existing best results by over 2 BLEU on WMT 2014 English-to-German translation
 
-**Type:** method
+**Type:** finding
 **Source:** Attention Is All You Need
-**Evidence:** Listed as one of the key concepts of the paper.
+**Evidence:** Stated in the Results section comparing to previous state-of-the-art
 
 ## Tags
 - [[transformer]]
-- [[encoder-decoder]]
-- [[neural-architecture]]
-- [[sequence-modeling]]
+- [[machine-translation]]
+- [[performance-improvement]]

@@ -1,20 +1,19 @@
 ---
 id: "neuroscience-of-transformers-015"
-type: "claim"
+type: "hypothesis"
 source: "papers/neuroscience-of-transformers.pdf"
 source_title: "Neuroscience Of Transformers"
 cluster: "other"
-tags: ["computational-analogy", "biological-implementation", "research-framework", "methodology"]
+tags: ["oscillatory-patterns", "layer-normalization", "prediction"]
 ---
 
-# The authors do not claim that transformers are literally implemented in the brain.
+# Oscillatory coordination patterns in cortex can be predicted from transformer layer normalization mechanisms
 
-**Type:** claim
+**Type:** hypothesis
 **Source:** Neuroscience Of Transformers
-**Evidence:** Explicitly stated in the abstract as a clarification of their approach.
+**Evidence:** Listed as a prediction generated from the theoretical framework
 
 ## Tags
-- [[computational-analogy]]
-- [[biological-implementation]]
-- [[research-framework]]
-- [[methodology]]
+- [[oscillatory-patterns]]
+- [[layer-normalization]]
+- [[prediction]]

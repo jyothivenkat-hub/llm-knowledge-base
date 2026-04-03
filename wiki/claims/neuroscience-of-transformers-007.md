@@ -1,20 +1,19 @@
 ---
 id: "neuroscience-of-transformers-007"
-type: "hypothesis"
+type: "claim"
 source: "papers/neuroscience-of-transformers.pdf"
 source_title: "Neuroscience Of Transformers"
 cluster: "other"
-tags: ["residual-connections", "effective-connectivity", "cortical-circuits", "neural-networks"]
+tags: ["temporal-discretization", "recurrent-dynamics", "transformer-cortex-gap"]
 ---
 
-# Residual connections map to effective connectivity within cortical circuits.
+# A fundamental challenge exists in reconciling the transformer's discrete causal sequences with the cortex's continuous recurrent dynamics
 
-**Type:** hypothesis
+**Type:** claim
 **Source:** Neuroscience Of Transformers
-**Evidence:** Part of the proposed transformer-to-cortex mapping framework.
+**Evidence:** Identified as a core temporal discretization challenge
 
 ## Tags
-- [[residual-connections]]
-- [[effective-connectivity]]
-- [[cortical-circuits]]
-- [[neural-networks]]
+- [[temporal-discretization]]
+- [[recurrent-dynamics]]
+- [[transformer-cortex-gap]]

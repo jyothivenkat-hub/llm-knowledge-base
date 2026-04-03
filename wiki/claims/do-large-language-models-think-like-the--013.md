@@ -1,20 +1,19 @@
 ---
 id: "do-large-language-models-think-like-the--013"
-type: "hypothesis"
+type: "method"
 source: "articles/llm-brain-fmri-alignment.md"
 source_title: "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI"
-cluster: "brain-llm-alignment-correlation"
-tags: ["output-layers", "task-optimization", "brain-alignment", "representation-trade-offs"]
+cluster: "llm-brain-alignment"
+tags: ["fmri-methodology", "naturalistic-stimuli", "neural-recording"]
 ---
 
-# Final output layers of LLMs may over-optimize for task performance at the expense of brain-like representations.
+# fMRI data was collected from participants listening to a naturalistic narrative story
 
-**Type:** hypothesis
+**Type:** method
 **Source:** Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI
-**Evidence:** Inference drawn from finding that intermediate rather than final layers show strongest brain correlation.
+**Evidence:** Description of experimental stimulus and neural data collection
 
 ## Tags
-- [[output-layers]]
-- [[task-optimization]]
-- [[brain-alignment]]
-- [[representation-trade-offs]]
+- [[fmri-methodology]]
+- [[naturalistic-stimuli]]
+- [[neural-recording]]

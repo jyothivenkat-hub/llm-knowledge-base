@@ -1,19 +1,19 @@
 ---
 id: "google-brain-llm-language-processing-015"
-type: "finding"
+type: "method"
 source: "papers/google-brain-llm-language-processing.pdf"
 source_title: "Google Brain Llm Language Processing"
-cluster: "temporal-brain-language-processing"
-tags: ["soft-hierarchy", "brain-architecture", "feedforward-models"]
+cluster: "brain-language-processing"
+tags: ["intracranial-recording", "neural-measurement", "methodology"]
 ---
 
-# Brain language processing follows a soft hierarchy rather than strict feedforward models.
+# Intracranial electrode recordings were used to measure neural activity during natural conversations
 
-**Type:** finding
+**Type:** method
 **Source:** Google Brain Llm Language Processing
-**Evidence:** Explicitly contrasted with strict feedforward models in the soft hierarchy section
+**Evidence:** Described in abstract as experimental method
 
 ## Tags
-- [[soft-hierarchy]]
-- [[brain-architecture]]
-- [[feedforward-models]]
+- [[intracranial-recording]]
+- [[neural-measurement]]
+- [[methodology]]

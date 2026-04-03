@@ -1,20 +1,19 @@
 ---
 id: "do-large-language-models-think-like-the--012"
-type: "claim"
+type: "method"
 source: "articles/llm-brain-fmri-alignment.md"
 source_title: "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI"
-cluster: "brain-llm-alignment-correlation"
-tags: ["intermediate-layers", "linguistic-information", "sentence-processing", "representation-richness"]
+cluster: "llm-brain-alignment"
+tags: ["experimental-design", "model-diversity", "comparative-analysis"]
 ---
 
-# Intermediate layers of LLMs carry rich linguistic information that most closely mirrors human sentence-level processing.
+# The study compared 14 publicly available language models of various sizes and architectures
 
-**Type:** claim
+**Type:** method
 **Source:** Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI
-**Evidence:** Analysis of layer-wise correlations revealed intermediate layers had optimal linguistic representation density.
+**Evidence:** Methodological detail on model selection and scope
 
 ## Tags
-- [[intermediate-layers]]
-- [[linguistic-information]]
-- [[sentence-processing]]
-- [[representation-richness]]
+- [[experimental-design]]
+- [[model-diversity]]
+- [[comparative-analysis]]

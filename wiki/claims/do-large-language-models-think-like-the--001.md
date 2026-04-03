@@ -1,20 +1,19 @@
 ---
 id: "do-large-language-models-think-like-the--001"
-type: "finding"
+type: "claim"
 source: "articles/llm-brain-fmri-alignment.md"
 source_title: "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI"
-cluster: "brain-llm-alignment-correlation"
-tags: ["layer-analysis", "brain-alignment", "neural-correlation", "llm-architecture"]
+cluster: "llm-brain-alignment"
+tags: ["llm-brain-alignment", "neural-representations", "language-processing"]
 ---
 
-# Middle layers of LLMs show higher brain-model correlation than final layers across language-selective brain regions.
+# Layer-wise representations in large language models align with dynamic neural responses during human sentence comprehension
 
-**Type:** finding
+**Type:** claim
 **Source:** Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI
-**Evidence:** Comparison of layer-wise embeddings from 14 LLMs against fMRI data showed intermediate layers had strongest correlations.
+**Evidence:** Core research question comparing LLM embeddings against fMRI data from narrative comprehension
 
 ## Tags
-- [[layer-analysis]]
-- [[brain-alignment]]
-- [[neural-correlation]]
-- [[llm-architecture]]
+- [[llm-brain-alignment]]
+- [[neural-representations]]
+- [[language-processing]]

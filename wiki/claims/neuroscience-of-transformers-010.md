@@ -1,20 +1,19 @@
 ---
 id: "neuroscience-of-transformers-010"
-type: "hypothesis"
+type: "claim"
 source: "papers/neuroscience-of-transformers.pdf"
 source_title: "Neuroscience Of Transformers"
 cluster: "other"
-tags: ["rhythmic-synchronization", "information-discretization", "cortical-circuits", "functional-units"]
+tags: ["computational-analogy", "neuroscience", "machine-learning"]
 ---
 
-# Cortical circuits use rhythmic synchronization to discretize information into functionally atomic units.
+# Comparing brains and architectures at the level of computational organization yields genuine insight into both disciplines
 
-**Type:** hypothesis
+**Type:** claim
 **Source:** Neuroscience Of Transformers
-**Evidence:** Described as part of the hierarchical temporal scaffolding mechanism.
+**Evidence:** Stated as core thesis for the comparative approach
 
 ## Tags
-- [[rhythmic-synchronization]]
-- [[information-discretization]]
-- [[cortical-circuits]]
-- [[functional-units]]
+- [[computational-analogy]]
+- [[neuroscience]]
+- [[machine-learning]]

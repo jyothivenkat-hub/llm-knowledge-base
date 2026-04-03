@@ -1,20 +1,19 @@
 ---
 id: "transformers-neurons-astrocytes-003"
-type: "claim"
+type: "finding"
 source: "papers/transformers-neurons-astrocytes.pdf"
 source_title: "Transformers Neurons Astrocytes"
 cluster: "other"
-tags: ["biological-computation", "transformer-architecture", "neural-circuits", "brain-computation"]
+tags: ["astrocytes", "attention-mechanism", "signal-integration"]
 ---
 
-# Biological neural circuits provide a substrate for transformer-like computations in the brain.
+# Astrocytes integrate signals from thousands of synapses similar to how attention aggregates information across sequence positions
 
-**Type:** claim
+**Type:** finding
 **Source:** Transformers Neurons Astrocytes
-**Evidence:** Supported by the demonstrated neuron-astrocyte implementation of transformer operations
+**Evidence:** Biological attention mechanism section comparing astrocytic integration to attention aggregation
 
 ## Tags
-- [[biological-computation]]
-- [[transformer-architecture]]
-- [[neural-circuits]]
-- [[brain-computation]]
+- [[astrocytes]]
+- [[attention-mechanism]]
+- [[signal-integration]]

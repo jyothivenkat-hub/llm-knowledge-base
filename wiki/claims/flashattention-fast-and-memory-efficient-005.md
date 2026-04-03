@@ -3,18 +3,17 @@ id: "flashattention-fast-and-memory-efficient-005"
 type: "method"
 source: "articles/flash-attention.md"
 source_title: "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness"
-cluster: "transformer-architecture-attention"
-tags: ["tiling", "memory-optimization", "gpu-optimization", "block-computation"]
+cluster: "attention-optimization"
+tags: ["memory-efficiency", "gradient-computation", "algorithm-design"]
 ---
 
-# FlashAttention uses tiling to break computation into blocks that fit in SRAM.
+# FlashAttention trades compute for memory by recomputing attention during backward pass instead of storing it
 
 **Type:** method
 **Source:** FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness
-**Evidence:** Described as a key implementation strategy in the key ideas section
+**Evidence:** Described in Key Ideas section as memory optimization strategy
 
 ## Tags
-- [[tiling]]
-- [[memory-optimization]]
-- [[gpu-optimization]]
-- [[block-computation]]
+- [[memory-efficiency]]
+- [[gradient-computation]]
+- [[algorithm-design]]

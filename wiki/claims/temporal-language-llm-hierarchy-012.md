@@ -4,17 +4,16 @@ type: "finding"
 source: "papers/temporal-language-llm-hierarchy.pdf"
 source_title: "Temporal Language Llm Hierarchy"
 cluster: "other"
-tags: ["language-proficiency", "brain-alignment", "proficiency-effects", "individual-differences"]
+tags: ["l2-proficiency", "llm-neuroscience", "alignment-modulation"]
 ---
 
-# Brain-LLM alignment is modulated by language proficiency level
+# Language proficiency modulates the alignment between LLM layers and brain activity
 
 **Type:** finding
 **Source:** Temporal Language Llm Hierarchy
-**Evidence:** Differential prediction patterns across proficiency levels suggest modulation effect
+**Evidence:** Proficiency effects section suggests alignment strength varies with language proficiency
 
 ## Tags
-- [[language-proficiency]]
-- [[brain-alignment]]
-- [[proficiency-effects]]
-- [[individual-differences]]
+- [[l2-proficiency]]
+- [[llm-neuroscience]]
+- [[alignment-modulation]]

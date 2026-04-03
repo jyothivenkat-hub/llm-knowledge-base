@@ -1,20 +1,19 @@
 ---
 id: "scaling-laws-for-neural-language-models-015"
-type: "finding"
+type: "claim"
 source: "articles/scaling-laws.md"
 source_title: "Scaling Laws for Neural Language Models"
-cluster: "performance-optimization-scaling"
-tags: ["undertraining", "scaling-laws", "model-efficiency", "chinchilla"]
+cluster: "scaling-laws"
+tags: ["scaling-laws", "architecture-search", "model-design"]
 ---
 
-# Many existing language models were significantly undertrained according to revised scaling laws.
+# Architecture search is less important than scale for improving language model performance
 
-**Type:** finding
+**Type:** claim
 **Source:** Scaling Laws for Neural Language Models
-**Evidence:** Chinchilla analysis revealed that previous models used suboptimal ratios of parameters to training data.
+**Evidence:** Stated in implications for practice section
 
 ## Tags
-- [[undertraining]]
 - [[scaling-laws]]
-- [[model-efficiency]]
-- [[chinchilla]]
+- [[architecture-search]]
+- [[model-design]]

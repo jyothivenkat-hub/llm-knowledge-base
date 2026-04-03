@@ -1,20 +1,19 @@
 ---
 id: "llm-explanations-brain-representations-008"
-type: "claim"
+type: "finding"
 source: "papers/llm-explanations-brain-representations.pdf"
 source_title: "Llm Explanations Brain Representations"
 cluster: "other"
-tags: ["explainable-ai", "interpretability", "neuroscience", "interdisciplinary"]
+tags: ["layer-hierarchy", "brain-alignment", "language-processing"]
 ---
 
-# Explainable AI techniques can bridge LLM interpretability with neuroscience research.
+# The hierarchical processing pipeline in LLMs mirrors the brain's own hierarchical language processing structure
 
-**Type:** claim
+**Type:** finding
 **Source:** Llm Explanations Brain Representations
-**Evidence:** Abstract states the investigation of whether explainable AI techniques can bridge these fields.
+**Evidence:** Stated in hierarchical layer alignment section as key observation
 
 ## Tags
-- [[explainable-ai]]
-- [[interpretability]]
-- [[neuroscience]]
-- [[interdisciplinary]]
+- [[layer-hierarchy]]
+- [[brain-alignment]]
+- [[language-processing]]

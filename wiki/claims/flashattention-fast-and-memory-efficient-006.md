@@ -1,19 +1,19 @@
 ---
 id: "flashattention-fast-and-memory-efficient-006"
-type: "method"
+type: "concept"
 source: "articles/flash-attention.md"
 source_title: "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness"
-cluster: "transformer-architecture-attention"
-tags: ["gradient-computation", "memory-efficiency", "compute-memory-tradeoff"]
+cluster: "attention-optimization"
+tags: ["gpu-architecture", "memory-hierarchy", "hardware"]
 ---
 
-# FlashAttention recomputes attention during backward pass instead of storing it, trading compute for memory.
+# Modern GPUs have a memory hierarchy with SRAM (fast, small) and HBM (large, slow)
 
-**Type:** method
+**Type:** concept
 **Source:** FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness
-**Evidence:** Explicitly mentioned as a design choice in the key ideas section
+**Evidence:** Explained in IO-Awareness section with A100 specifications
 
 ## Tags
-- [[gradient-computation]]
-- [[memory-efficiency]]
-- [[compute-memory-tradeoff]]
+- [[gpu-architecture]]
+- [[memory-hierarchy]]
+- [[hardware]]

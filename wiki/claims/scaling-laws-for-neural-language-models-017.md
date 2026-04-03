@@ -3,18 +3,17 @@ id: "scaling-laws-for-neural-language-models-017"
 type: "concept"
 source: "articles/scaling-laws.md"
 source_title: "Scaling Laws for Neural Language Models"
-cluster: "performance-optimization-scaling"
-tags: ["pareto-optimality", "compute-allocation", "efficiency", "optimization"]
+cluster: "scaling-laws"
+tags: ["scaling-laws", "power-laws", "empirical-relationships"]
 ---
 
-# The loss-compute frontier defines the Pareto-optimal allocation of computational resources.
+# Power law relationships describe how language model performance scales with model size, dataset size, and compute
 
 **Type:** concept
 **Source:** Scaling Laws for Neural Language Models
-**Evidence:** Mathematical framework established for understanding optimal trade-offs in resource allocation.
+**Evidence:** Introduced as central concept in key findings section
 
 ## Tags
-- [[pareto-optimality]]
-- [[compute-allocation]]
-- [[efficiency]]
-- [[optimization]]
+- [[scaling-laws]]
+- [[power-laws]]
+- [[empirical-relationships]]

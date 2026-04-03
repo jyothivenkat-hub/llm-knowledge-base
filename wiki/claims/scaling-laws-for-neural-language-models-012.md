@@ -1,20 +1,19 @@
 ---
 id: "scaling-laws-for-neural-language-models-012"
-type: "claim"
+type: "finding"
 source: "articles/scaling-laws.md"
 source_title: "Scaling Laws for Neural Language Models"
-cluster: "performance-optimization-scaling"
-tags: ["scaling-laws", "prediction", "experimentation", "extrapolation"]
+cluster: "scaling-laws"
+tags: ["scaling-laws", "model-development", "chinchilla"]
 ---
 
-# Small model experiments can predict large model performance using scaling laws.
+# Chinchilla scaling laws led to development of smaller but better-trained models like Chinchilla and LLaMA
 
-**Type:** claim
+**Type:** finding
 **Source:** Scaling Laws for Neural Language Models
-**Evidence:** Power law relationships allow extrapolation from small-scale experiments to larger scales.
+**Evidence:** Presented as practical impact of revised scaling laws
 
 ## Tags
 - [[scaling-laws]]
-- [[prediction]]
-- [[experimentation]]
-- [[extrapolation]]
+- [[model-development]]
+- [[chinchilla]]

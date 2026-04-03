@@ -1,20 +1,19 @@
 ---
 id: "scaling-laws-for-neural-language-models-014"
-type: "finding"
+type: "claim"
 source: "articles/scaling-laws.md"
 source_title: "Scaling Laws for Neural Language Models"
-cluster: "performance-optimization-scaling"
-tags: ["chinchilla", "scaling-laws", "training-tokens", "data-efficiency"]
+cluster: "scaling-laws"
+tags: ["scaling-laws", "prediction", "experimental-design"]
 ---
 
-# The Chinchilla paper revised the original scaling laws to show models should be trained on roughly 20x more tokens than parameters.
+# Small model experiments can predict the performance of large language models
 
-**Type:** finding
+**Type:** claim
 **Source:** Scaling Laws for Neural Language Models
-**Evidence:** Hoffmann et al. (2022) provided updated analysis showing different optimal compute allocation.
+**Evidence:** Stated in implications for practice section
 
 ## Tags
-- [[chinchilla]]
 - [[scaling-laws]]
-- [[training-tokens]]
-- [[data-efficiency]]
+- [[prediction]]
+- [[experimental-design]]

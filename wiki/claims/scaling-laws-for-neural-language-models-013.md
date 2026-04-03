@@ -3,18 +3,17 @@ id: "scaling-laws-for-neural-language-models-013"
 type: "claim"
 source: "articles/scaling-laws.md"
 source_title: "Scaling Laws for Neural Language Models"
-cluster: "performance-optimization-scaling"
-tags: ["architecture-search", "scaling", "optimization", "research-priorities"]
+cluster: "scaling-laws"
+tags: ["scaling-laws", "compute-planning", "practical-implications"]
 ---
 
-# Architecture search is less important than scale for improving language model performance.
+# Scaling laws enable predictable planning of compute budgets for language model training
 
 **Type:** claim
 **Source:** Scaling Laws for Neural Language Models
-**Evidence:** Findings showed that scaling existing architectures yields better returns than architectural innovations.
+**Evidence:** Stated in implications for practice section
 
 ## Tags
-- [[architecture-search]]
-- [[scaling]]
-- [[optimization]]
-- [[research-priorities]]
+- [[scaling-laws]]
+- [[compute-planning]]
+- [[practical-implications]]

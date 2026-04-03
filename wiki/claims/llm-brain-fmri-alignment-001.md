@@ -3,18 +3,17 @@ id: "llm-brain-fmri-alignment-001"
 type: "finding"
 source: "papers/llm-brain-fmri-alignment.pdf"
 source_title: "Llm Brain Fmri Alignment"
-cluster: "brain-llm-alignment-correlation"
-tags: ["llm-layers", "brain-alignment", "neural-correlation", "language-processing"]
+cluster: "llm-brain-alignment"
+tags: ["llm-brain-alignment", "layer-wise-analysis", "neural-correlation"]
 ---
 
-# Intermediate layers of LLMs show higher brain-model correlation than final layers across language-selective brain regions.
+# Intermediate layers of LLMs show higher brain-model correlation than final layers, particularly across language-selective brain regions
 
 **Type:** finding
 **Source:** Llm Brain Fmri Alignment
-**Evidence:** Demonstrated through sentence-level neural prediction models comparing layer-wise embeddings with fMRI data
+**Evidence:** Key finding comparing 14 LLMs with fMRI data across brain regions
 
 ## Tags
-- [[llm-layers]]
-- [[brain-alignment]]
+- [[llm-brain-alignment]]
+- [[layer-wise-analysis]]
 - [[neural-correlation]]
-- [[language-processing]]

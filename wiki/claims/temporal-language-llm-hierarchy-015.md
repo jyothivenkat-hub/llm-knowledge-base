@@ -4,17 +4,16 @@ type: "hypothesis"
 source: "papers/temporal-language-llm-hierarchy.pdf"
 source_title: "Temporal Language Llm Hierarchy"
 cluster: "other"
-tags: ["hierarchical-processing", "temporal-structure", "layer-hierarchy", "natural-language"]
+tags: ["l2-proficiency", "llm-neuroscience", "neural-representation"]
 ---
 
-# LLM layer hierarchy reflects the hierarchical temporal structure of natural language processing in the brain
+# Language proficiency affects how well LLM representations capture neural activity patterns in language-related brain regions
 
 **Type:** hypothesis
 **Source:** Temporal Language Llm Hierarchy
-**Evidence:** Underlying hypothesis supported by demonstrated temporal-depth correspondence
+**Evidence:** Suggested by differential prediction accuracy across proficiency levels in proficiency effects
 
 ## Tags
-- [[hierarchical-processing]]
-- [[temporal-structure]]
-- [[layer-hierarchy]]
-- [[natural-language]]
+- [[l2-proficiency]]
+- [[llm-neuroscience]]
+- [[neural-representation]]

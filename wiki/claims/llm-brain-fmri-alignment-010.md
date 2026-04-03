@@ -3,18 +3,17 @@ id: "llm-brain-fmri-alignment-010"
 type: "method"
 source: "papers/llm-brain-fmri-alignment.pdf"
 source_title: "Llm Brain Fmri Alignment"
-cluster: "experimental-methods-neuroscience"
-tags: ["layer-wise-analysis", "embeddings", "neural-responses", "sentence-comprehension"]
+cluster: "llm-brain-alignment"
+tags: ["fmri-data", "naturalistic-stimuli", "experimental-design"]
 ---
 
-# Layer-wise embeddings from LLMs were extracted and compared with dynamic neural responses during sentence comprehension.
+# fMRI data was collected from participants exposed to a naturalistic narrative story
 
 **Type:** method
 **Source:** Llm Brain Fmri Alignment
-**Evidence:** Core methodological approach described for comparing LLM representations with brain activity
+**Evidence:** Described in abstract and methodology section
 
 ## Tags
-- [[layer-wise-analysis]]
-- [[embeddings]]
-- [[neural-responses]]
-- [[sentence-comprehension]]
+- [[fmri-data]]
+- [[naturalistic-stimuli]]
+- [[experimental-design]]

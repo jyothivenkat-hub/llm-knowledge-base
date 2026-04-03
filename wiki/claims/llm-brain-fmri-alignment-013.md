@@ -1,20 +1,19 @@
 ---
 id: "llm-brain-fmri-alignment-013"
-type: "claim"
+type: "hypothesis"
 source: "papers/llm-brain-fmri-alignment.pdf"
 source_title: "Llm Brain Fmri Alignment"
-cluster: "brain-llm-alignment-correlation"
-tags: ["computational-principles", "autoregressive-models", "prediction", "contextual-representation"]
+cluster: "other"
+tags: ["computational-principles", "prediction", "brain-llm-similarity"]
 ---
 
-# Autoregressive LLMs and the human brain share fundamental computational principles including pre-onset prediction, post-onset surprise, and embedding-based contextual representation.
+# Autoregressive LLMs and the human brain share fundamental computational principles including pre-onset prediction
 
-**Type:** claim
+**Type:** hypothesis
 **Source:** Llm Brain Fmri Alignment
-**Evidence:** Listed as evidence for shared computational mechanisms between LLMs and human brains
+**Evidence:** Stated as evidence for shared principles between LLMs and brain
 
 ## Tags
 - [[computational-principles]]
-- [[autoregressive-models]]
 - [[prediction]]
-- [[contextual-representation]]
+- [[brain-llm-similarity]]

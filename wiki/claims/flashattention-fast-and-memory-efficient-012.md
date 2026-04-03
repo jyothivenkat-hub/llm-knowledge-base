@@ -1,19 +1,19 @@
 ---
 id: "flashattention-fast-and-memory-efficient-012"
-type: "method"
+type: "finding"
 source: "articles/flash-attention.md"
 source_title: "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness"
-cluster: "performance-optimization-scaling"
-tags: ["parallelization", "sequence-processing", "optimization"]
+cluster: "attention-optimization"
+tags: ["memory-complexity", "memory-efficiency", "algorithm-analysis"]
 ---
 
-# FlashAttention-2 better parallelizes across the sequence length dimension compared to FlashAttention.
+# FlashAttention reduces memory complexity from O(N^2) to O(N)
 
-**Type:** method
+**Type:** finding
 **Source:** FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness
-**Evidence:** Listed as an improvement in the FlashAttention-2 section
+**Evidence:** Stated in Results section
 
 ## Tags
-- [[parallelization]]
-- [[sequence-processing]]
-- [[optimization]]
+- [[memory-complexity]]
+- [[memory-efficiency]]
+- [[algorithm-analysis]]

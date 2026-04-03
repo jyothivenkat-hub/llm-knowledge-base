@@ -1,20 +1,19 @@
 ---
 id: "neuroscience-of-transformers-002"
-type: "hypothesis"
+type: "claim"
 source: "papers/neuroscience-of-transformers.pdf"
 source_title: "Neuroscience Of Transformers"
 cluster: "other"
-tags: ["laminar-structure", "cortical-columns", "transformer-architecture", "computational-motif"]
+tags: ["cortical-laminae", "transformer-architecture", "microcircuit-organization"]
 ---
 
-# The laminar structure of the cortical column can be viewed as instantiating a transformer-like computational motif.
+# The laminar structure of the cortical column instantiates a transformer-like computational motif
 
-**Type:** hypothesis
+**Type:** claim
 **Source:** Neuroscience Of Transformers
-**Evidence:** Listed as part of the core thesis in the paper.
+**Evidence:** Listed as first core thesis statement
 
 ## Tags
-- [[laminar-structure]]
-- [[cortical-columns]]
+- [[cortical-laminae]]
 - [[transformer-architecture]]
-- [[computational-motif]]
+- [[microcircuit-organization]]

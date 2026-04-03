@@ -1,20 +1,19 @@
 ---
 id: "attention-is-all-you-need-006"
-type: "concept"
+type: "method"
 source: "articles/sample-attention.md"
 source_title: "Attention Is All You Need"
-cluster: "transformer-architecture-attention"
-tags: ["multi-head-attention", "attention-mechanism", "transformer", "neural-networks"]
+cluster: "transformer-architecture"
+tags: ["transformer", "positional-encoding", "sequence-representation"]
 ---
 
-# Multi-head attention is a key concept in the Transformer architecture.
+# Positional encoding is used in the Transformer to represent sequence order
 
-**Type:** concept
+**Type:** method
 **Source:** Attention Is All You Need
-**Evidence:** Listed as one of the key concepts of the paper.
+**Evidence:** Listed as a key concept of the paper
 
 ## Tags
-- [[multi-head-attention]]
-- [[attention-mechanism]]
 - [[transformer]]
-- [[neural-networks]]
+- [[positional-encoding]]
+- [[sequence-representation]]

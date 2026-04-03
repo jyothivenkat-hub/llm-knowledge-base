@@ -3,18 +3,17 @@ id: "llm-brain-fmri-alignment-004"
 type: "finding"
 source: "papers/llm-brain-fmri-alignment.pdf"
 source_title: "Llm Brain Fmri Alignment"
-cluster: "brain-llm-alignment-correlation"
-tags: ["semantic-processing", "abstraction", "brain-alignment", "neural-correlation"]
+cluster: "llm-brain-alignment"
+tags: ["model-performance", "hierarchical-structure", "brain-similarity"]
 ---
 
-# The strongest correspondence between models and brain activity occurs at higher levels of semantic abstraction.
+# Enhanced LLM model performance correlates with representational structures that increasingly resemble brain-like hierarchies
 
 **Type:** finding
 **Source:** Llm Brain Fmri Alignment
-**Evidence:** Found through analysis of layer-wise representations and their correlation with brain responses
+**Evidence:** Key finding on relationship between model quality and brain-like organization
 
 ## Tags
-- [[semantic-processing]]
-- [[abstraction]]
-- [[brain-alignment]]
-- [[neural-correlation]]
+- [[model-performance]]
+- [[hierarchical-structure]]
+- [[brain-similarity]]

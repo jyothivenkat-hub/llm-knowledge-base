@@ -1,20 +1,19 @@
 ---
 id: "transformers-neurons-astrocytes-011"
-type: "concept"
+type: "claim"
 source: "papers/transformers-neurons-astrocytes.pdf"
 source_title: "Transformers Neurons Astrocytes"
 cluster: "other"
-tags: ["attention-mechanism", "transformer-architecture", "sequence-processing", "information-aggregation"]
+tags: ["neural-circuits", "attention-mechanism", "transformers"]
 ---
 
-# Attention mechanisms aggregate information across sequence positions in transformer architectures.
+# Biological neural circuits can perform attention-like operations central to transformer architectures
 
-**Type:** concept
+**Type:** claim
 **Source:** Transformers Neurons Astrocytes
-**Evidence:** Described as the fundamental operation that astrocytes parallel in biological systems
+**Evidence:** Stated in core thesis as capability of neuron-astrocyte networks
 
 ## Tags
+- [[neural-circuits]]
 - [[attention-mechanism]]
-- [[transformer-architecture]]
-- [[sequence-processing]]
-- [[information-aggregation]]
+- [[transformers]]

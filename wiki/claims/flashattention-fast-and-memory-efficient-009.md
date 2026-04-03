@@ -1,19 +1,19 @@
 ---
 id: "flashattention-fast-and-memory-efficient-009"
-type: "finding"
+type: "method"
 source: "articles/flash-attention.md"
 source_title: "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness"
-cluster: "performance-optimization-scaling"
-tags: ["memory-complexity", "computational-complexity", "attention-mechanism"]
+cluster: "attention-optimization"
+tags: ["io-awareness", "gpu-optimization", "memory-access-pattern"]
 ---
 
-# FlashAttention reduces memory complexity from O(N^2) to O(N).
+# FlashAttention minimizes HBM reads/writes by loading Q, K, V blocks to SRAM, computing attention in SRAM, and writing only final output back
 
-**Type:** finding
+**Type:** method
 **Source:** FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness
-**Evidence:** Memory complexity improvement stated in the results section
+**Evidence:** Detailed in IO-Awareness section as three-step process
 
 ## Tags
-- [[memory-complexity]]
-- [[computational-complexity]]
-- [[attention-mechanism]]
+- [[io-awareness]]
+- [[gpu-optimization]]
+- [[memory-access-pattern]]

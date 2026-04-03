@@ -4,17 +4,16 @@ type: "hypothesis"
 source: "papers/neuroscience-of-transformers.pdf"
 source_title: "Neuroscience Of Transformers"
 cluster: "other"
-tags: ["hierarchical-temporal-scaffolding", "rhythmic-synchronization", "temporal-discretization", "neural-oscillations"]
+tags: ["rhythmic-synchronization", "information-discretization", "cortical-dynamics"]
 ---
 
-# The brain may resolve temporal discretization through hierarchical temporal scaffolding using rhythmic synchronization.
+# Cortical circuits use rhythmic synchronization to discretize information into functionally atomic units
 
 **Type:** hypothesis
 **Source:** Neuroscience Of Transformers
-**Evidence:** Proposed as a potential solution to the temporal discretization challenge.
+**Evidence:** Proposed mechanism for temporal resolution in cortical computation
 
 ## Tags
-- [[hierarchical-temporal-scaffolding]]
 - [[rhythmic-synchronization]]
-- [[temporal-discretization]]
-- [[neural-oscillations]]
+- [[information-discretization]]
+- [[cortical-dynamics]]

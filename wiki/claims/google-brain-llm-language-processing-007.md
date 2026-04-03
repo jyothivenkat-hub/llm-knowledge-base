@@ -3,18 +3,17 @@ id: "google-brain-llm-language-processing-007"
 type: "finding"
 source: "papers/google-brain-llm-language-processing.pdf"
 source_title: "Google Brain Llm Language Processing"
-cluster: "temporal-brain-language-processing"
-tags: ["speech-production", "temporal-sequence", "language-areas", "timing"]
+cluster: "brain-language-processing"
+tags: ["prediction-error", "surprise-response", "shared-principles"]
 ---
 
-# During speaking, language areas activate approximately 500ms before articulation.
+# The brain and large language models both generate prediction error signals in response to unexpected language
 
 **Type:** finding
 **Source:** Google Brain Llm Language Processing
-**Evidence:** Specified timing in the speech processing sequence during speaking
+**Evidence:** Listed as shared computational principle between brain and LLMs
 
 ## Tags
-- [[speech-production]]
-- [[temporal-sequence]]
-- [[language-areas]]
-- [[timing]]
+- [[prediction-error]]
+- [[surprise-response]]
+- [[shared-principles]]

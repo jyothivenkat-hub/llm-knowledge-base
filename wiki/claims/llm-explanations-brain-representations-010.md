@@ -1,20 +1,19 @@
 ---
 id: "llm-explanations-brain-representations-010"
-type: "claim"
+type: "hypothesis"
 source: "papers/llm-explanations-brain-representations.pdf"
 source_title: "Llm Explanations Brain Representations"
 cluster: "other"
-tags: ["biological-plausibility", "explainability-assessment", "ai-validation", "neuroscience-validation"]
+tags: ["explainable-ai", "neuroscience-validation", "human-like-processing"]
 ---
 
-# Explainability methods can be used to assess the biological plausibility of AI explanation methods.
+# Neuroscience data can be used to validate which explainable AI techniques best capture human-like processing
 
-**Type:** claim
+**Type:** hypothesis
 **Source:** Llm Explanations Brain Representations
-**Evidence:** Novel contribution section demonstrates this capability of explainability methods.
+**Evidence:** Stated as novel contribution and pathway opened by the research
 
 ## Tags
-- [[biological-plausibility]]
-- [[explainability-assessment]]
-- [[ai-validation]]
+- [[explainable-ai]]
 - [[neuroscience-validation]]
+- [[human-like-processing]]

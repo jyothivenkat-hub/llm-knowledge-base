@@ -4,17 +4,16 @@ type: "claim"
 source: "papers/transformers-neurons-astrocytes.pdf"
 source_title: "Transformers Neurons Astrocytes"
 cluster: "other"
-tags: ["transformer-architecture", "biological-computation", "neuron-astrocyte", "attention-mechanism"]
+tags: ["transformers", "neuron-astrocyte-networks", "biological-computation"]
 ---
 
-# Neuron-astrocyte networks can naturally implement the core computation performed by the Transformer block in AI.
+# Neuron-astrocyte networks can naturally implement the core computation performed by Transformer blocks
 
 **Type:** claim
 **Source:** Transformers Neurons Astrocytes
-**Evidence:** This is the core thesis demonstrated throughout the paper
+**Evidence:** Core thesis of the paper demonstrating biological implementation of transformer architecture
 
 ## Tags
-- [[transformer-architecture]]
+- [[transformers]]
+- [[neuron-astrocyte-networks]]
 - [[biological-computation]]
-- [[neuron-astrocyte]]
-- [[attention-mechanism]]

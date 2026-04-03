@@ -3,18 +3,17 @@ id: "llm-brain-fmri-alignment-003"
 type: "finding"
 source: "papers/llm-brain-fmri-alignment.pdf"
 source_title: "Llm Brain Fmri Alignment"
-cluster: "brain-llm-alignment-correlation"
-tags: ["model-performance", "brain-alignment", "hierarchical-processing", "neural-similarity"]
+cluster: "llm-brain-alignment"
+tags: ["brain-regions", "language-processing", "neural-alignment"]
 ---
 
-# Enhanced model performance correlates with representational structures that increasingly resemble brain-like hierarchies.
+# The inferior frontal gyrus and posterior temporal cortex show strongest alignment with intermediate LLM layers
 
 **Type:** finding
 **Source:** Llm Brain Fmri Alignment
-**Evidence:** Observed correlation between model capabilities and brain-like representational patterns
+**Evidence:** Identified as language-selective regions with highest model correlation
 
 ## Tags
-- [[model-performance]]
-- [[brain-alignment]]
-- [[hierarchical-processing]]
-- [[neural-similarity]]
+- [[brain-regions]]
+- [[language-processing]]
+- [[neural-alignment]]

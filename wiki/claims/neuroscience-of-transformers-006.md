@@ -4,17 +4,16 @@ type: "hypothesis"
 source: "papers/neuroscience-of-transformers.pdf"
 source_title: "Neuroscience Of Transformers"
 cluster: "other"
-tags: ["layer-normalization", "oscillatory-coordination", "neural-oscillations", "cortical-dynamics"]
+tags: ["residual-connections", "effective-connectivity", "cortical-circuits"]
 ---
 
-# Layer normalization parallels oscillatory coordination patterns.
+# Residual connections in transformers map to effective connectivity within cortical circuits
 
 **Type:** hypothesis
 **Source:** Neuroscience Of Transformers
-**Evidence:** Included in the mapping between transformer operations and cortical features.
+**Evidence:** Specified in the transformer-to-cortex mapping section
 
 ## Tags
-- [[layer-normalization]]
-- [[oscillatory-coordination]]
-- [[neural-oscillations]]
-- [[cortical-dynamics]]
+- [[residual-connections]]
+- [[effective-connectivity]]
+- [[cortical-circuits]]

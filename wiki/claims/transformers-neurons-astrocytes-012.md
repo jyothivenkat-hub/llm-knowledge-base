@@ -4,17 +4,16 @@ type: "finding"
 source: "papers/transformers-neurons-astrocytes.pdf"
 source_title: "Transformers Neurons Astrocytes"
 cluster: "other"
-tags: ["publication-venue", "research-validation", "peer-review", "scientific-publication"]
+tags: ["neuron-astrocyte-networks", "attention-mechanism", "interaction"]
 ---
 
-# The paper was published in PNAS (Proceedings of the National Academy of Sciences) in 2023.
+# The interaction between neurons and astrocytes implements attention-like operations
 
 **Type:** finding
 **Source:** Transformers Neurons Astrocytes
-**Evidence:** Documented in the paper metadata and citation information
+**Evidence:** Described as core computation demonstrated in the paper
 
 ## Tags
-- [[publication-venue]]
-- [[research-validation]]
-- [[peer-review]]
-- [[scientific-publication]]
+- [[neuron-astrocyte-networks]]
+- [[attention-mechanism]]
+- [[interaction]]

@@ -3,18 +3,17 @@ id: "google-brain-llm-language-processing-006"
 type: "finding"
 source: "papers/google-brain-llm-language-processing.pdf"
 source_title: "Google Brain Llm Language Processing"
-cluster: "temporal-brain-language-processing"
-tags: ["speech-processing", "temporal-sequence", "brocas-area", "listening"]
+cluster: "brain-language-processing"
+tags: ["prediction-mechanisms", "shared-principles", "language-models"]
 ---
 
-# During listening, language embeddings activate Broca's area after the superior temporal gyrus.
+# The brain and large language models share next-word prediction mechanisms
 
 **Type:** finding
 **Source:** Google Brain Llm Language Processing
-**Evidence:** Described in the speech processing sequence during listening
+**Evidence:** Listed as shared computational principle between brain and LLMs
 
 ## Tags
-- [[speech-processing]]
-- [[temporal-sequence]]
-- [[brocas-area]]
-- [[listening]]
+- [[prediction-mechanisms]]
+- [[shared-principles]]
+- [[language-models]]

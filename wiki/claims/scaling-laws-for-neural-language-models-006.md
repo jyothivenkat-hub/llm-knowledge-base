@@ -3,18 +3,17 @@ id: "scaling-laws-for-neural-language-models-006"
 type: "finding"
 source: "articles/scaling-laws.md"
 source_title: "Scaling Laws for Neural Language Models"
-cluster: "performance-optimization-scaling"
-tags: ["sample-efficiency", "model-size", "data-efficiency", "scaling"]
+cluster: "scaling-laws"
+tags: ["scaling-laws", "data-efficiency", "model-size"]
 ---
 
-# Larger models are more sample-efficient and achieve better loss per token seen.
+# Training a larger model on less data yields better performance than training a smaller model on more data
 
 **Type:** finding
 **Source:** Scaling Laws for Neural Language Models
-**Evidence:** Empirical observation that larger models require fewer tokens to achieve equivalent performance levels.
+**Evidence:** Presented as key finding, though later revised by Chinchilla
 
 ## Tags
-- [[sample-efficiency]]
-- [[model-size]]
+- [[scaling-laws]]
 - [[data-efficiency]]
-- [[scaling]]
+- [[model-size]]

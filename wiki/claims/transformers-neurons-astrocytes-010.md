@@ -4,17 +4,16 @@ type: "hypothesis"
 source: "papers/transformers-neurons-astrocytes.pdf"
 source_title: "Transformers Neurons Astrocytes"
 cluster: "other"
-tags: ["neuromorphic-computing", "neuron-astrocyte", "bio-inspired-computing", "hardware-design"]
+tags: ["neuromorphic-computing", "neuron-astrocyte-networks", "bio-inspired"]
 ---
 
-# Neuron-astrocyte interactions open new directions for neuromorphic computing.
+# Neuromorphic computing can be inspired by neuron-astrocyte interactions
 
 **Type:** hypothesis
 **Source:** Transformers Neurons Astrocytes
-**Evidence:** Suggested as a future research direction based on the biological implementation of attention
+**Evidence:** Identified as new direction for neuromorphic computing in implications section
 
 ## Tags
 - [[neuromorphic-computing]]
-- [[neuron-astrocyte]]
-- [[bio-inspired-computing]]
-- [[hardware-design]]
+- [[neuron-astrocyte-networks]]
+- [[bio-inspired]]

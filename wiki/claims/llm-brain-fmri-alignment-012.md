@@ -1,20 +1,19 @@
 ---
 id: "llm-brain-fmri-alignment-012"
-type: "hypothesis"
+type: "claim"
 source: "papers/llm-brain-fmri-alignment.pdf"
 source_title: "Llm Brain Fmri Alignment"
-cluster: "brain-llm-alignment-correlation"
-tags: ["layer-optimization", "task-performance", "brain-similarity", "model-design"]
+cluster: "other"
+tags: ["computational-modeling", "language-processing", "brain-simulation"]
 ---
 
-# Final output layers may over-optimize for task performance at the expense of brain-like representations.
+# LLMs function as viable computational models for understanding human language processing
 
-**Type:** hypothesis
+**Type:** claim
 **Source:** Llm Brain Fmri Alignment
-**Evidence:** Proposed explanation for why intermediate layers show better brain alignment than final layers
+**Evidence:** Stated as primary implication of the research
 
 ## Tags
-- [[layer-optimization]]
-- [[task-performance]]
-- [[brain-similarity]]
-- [[model-design]]
+- [[computational-modeling]]
+- [[language-processing]]
+- [[brain-simulation]]

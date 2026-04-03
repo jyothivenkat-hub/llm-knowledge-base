@@ -4,17 +4,16 @@ type: "hypothesis"
 source: "papers/neuroscience-of-transformers.pdf"
 source_title: "Neuroscience Of Transformers"
 cluster: "other"
-tags: ["attention-mechanism", "contextual-selection", "cortical-circuits", "content-routing"]
+tags: ["feed-forward-networks", "dendritic-integration", "cortical-computation"]
 ---
 
-# Attention mechanisms map to contextual selection and content routing in cortical circuits.
+# Feed-forward layers in transformers correspond to dendritic integration processes in the cortex
 
 **Type:** hypothesis
 **Source:** Neuroscience Of Transformers
-**Evidence:** Presented as part of the transformer-to-cortex mapping framework.
+**Evidence:** Specified in the transformer-to-cortex mapping section
 
 ## Tags
-- [[attention-mechanism]]
-- [[contextual-selection]]
-- [[cortical-circuits]]
-- [[content-routing]]
+- [[feed-forward-networks]]
+- [[dendritic-integration]]
+- [[cortical-computation]]

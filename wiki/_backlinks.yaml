@@ -1,24 +1,45 @@
-abstraction:
-- claims/llm-brain-fmri-alignment-004.md
-- claims/do-large-language-models-think-like-the--004.md
+abstraction-levels:
+- claims/llm-brain-fmri-alignment-005.md
 acoustic-features:
-- claims/google-brain-llm-language-processing-013.md
+- claims/google-brain-llm-language-processing-009.md
 acoustic-processing:
 - claims/temporal-language-llm-hierarchy-005.md
-ai-validation:
-- claims/llm-explanations-brain-representations-010.md
-algorithmic-design:
-- claims/flashattention-fast-and-memory-efficient-017.md
-algorithmic-optimization:
+- claims/google-brain-llm-language-processing-010.md
+adoption:
 - claims/flashattention-fast-and-memory-efficient-014.md
-architectural-differences:
+algorithm-analysis:
+- claims/flashattention-fast-and-memory-efficient-012.md
+algorithm-design:
+- claims/flashattention-fast-and-memory-efficient-005.md
+- claims/flashattention-fast-and-memory-efficient-020.md
+- claims/flashattention-fast-and-memory-efficient-003.md
+- claims/flashattention-fast-and-memory-efficient-019.md
+algorithm-improvement:
+- claims/flashattention-fast-and-memory-efficient-015.md
+- claims/flashattention-fast-and-memory-efficient-017.md
+- claims/flashattention-fast-and-memory-efficient-016.md
+alignment-analysis:
 - claims/google-brain-llm-language-processing-018.md
+alignment-metrics:
+- claims/llm-brain-fmri-alignment-018.md
+alignment-modulation:
+- claims/temporal-language-llm-hierarchy-012.md
 architecture:
+- claims/scaling-laws-for-neural-language-models-007.md
 - claims/scaling-laws-for-neural-language-models-008.md
 - claims/scaling-laws-for-neural-language-models-009.md
-- claims/scaling-laws-for-neural-language-models-010.md
+- claims/attention-is-all-you-need-003.md
+architecture-design:
+- claims/attention-is-all-you-need-010.md
+- claims/attention-is-all-you-need-009.md
+architecture-evolution:
+- claims/do-large-language-models-think-like-the--006.md
+architecture-invariance:
+- claims/google-brain-llm-language-processing-014.md
+architecture-neuroscience:
+- claims/temporal-language-llm-hierarchy-013.md
 architecture-search:
-- claims/scaling-laws-for-neural-language-models-013.md
+- claims/scaling-laws-for-neural-language-models-015.md
 artificial-biological-correspondence:
 - sources/temporal-language-llm-hierarchy.md
 artificial-intelligence:
@@ -29,14 +50,13 @@ artificial-neural-networks:
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
 - sources/neuroscience-of-transformers.md
 astrocytes:
-- claims/transformers-neurons-astrocytes-007.md
+- claims/transformers-neurons-astrocytes-003.md
+- claims/transformers-neurons-astrocytes-006.md
 - claims/transformers-neurons-astrocytes-002.md
 - claims/transformers-neurons-astrocytes-005.md
 - claims/transformers-neurons-astrocytes-004.md
 astrocytic-calcium-signaling:
 - sources/transformers-neurons-astrocytes.md
-attention-heads:
-- claims/scaling-laws-for-neural-language-models-009.md
 attention-is-all-you-need:
 - sources/_index.md
 attention-mechanism:
@@ -45,99 +65,83 @@ attention-mechanism:
 - sources/attention-is-all-you-need.md
 - sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
 - claims/attention-is-all-you-need-005.md
-- claims/transformers-neurons-astrocytes-008.md
+- claims/neuroscience-of-transformers-013.md
+- claims/neuroscience-of-transformers-003.md
+- claims/attention-is-all-you-need-010.md
 - claims/attention-is-all-you-need-004.md
+- claims/flashattention-fast-and-memory-efficient-015.md
+- claims/transformers-neurons-astrocytes-003.md
 - claims/flashattention-fast-and-memory-efficient-001.md
-- claims/transformers-neurons-astrocytes-006.md
+- claims/transformers-neurons-astrocytes-007.md
+- claims/flashattention-fast-and-memory-efficient-011.md
+- claims/transformers-neurons-astrocytes-012.md
 - claims/transformers-neurons-astrocytes-002.md
 - claims/flashattention-fast-and-memory-efficient-003.md
-- claims/flashattention-fast-and-memory-efficient-007.md
+- claims/attention-is-all-you-need-009.md
 - claims/transformers-neurons-astrocytes-011.md
-- claims/transformers-neurons-astrocytes-001.md
-- claims/flashattention-fast-and-memory-efficient-016.md
 - claims/flashattention-fast-and-memory-efficient-002.md
-- claims/transformers-neurons-astrocytes-004.md
-- claims/flashattention-fast-and-memory-efficient-009.md
 - claims/attention-is-all-you-need-003.md
-- claims/neuroscience-of-transformers-004.md
-- claims/attention-is-all-you-need-006.md
-- claims/flashattention-fast-and-memory-efficient-008.md
 - claims/attention-is-all-you-need-002.md
 attention-mechanisms:
 - sources/transformers-neurons-astrocytes.md
 - sources/neuroscience-of-transformers.md
 attention-optimization:
 - sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
-attribution-explanations:
-- claims/llm-explanations-brain-representations-012.md
 attribution-methods:
 - sources/llm-explanations-brain-representations.md
-- claims/llm-explanations-brain-representations-013.md
+- claims/llm-explanations-brain-representations-012.md
+- claims/llm-explanations-brain-representations-014.md
 - claims/llm-explanations-brain-representations-001.md
-autoregressive-models:
-- claims/llm-brain-fmri-alignment-013.md
+- claims/llm-explanations-brain-representations-005.md
+auditory-cortex:
+- claims/google-brain-llm-language-processing-002.md
+auditory-pathway:
+- claims/google-brain-llm-language-processing-021.md
+benchmark-results:
+- claims/attention-is-all-you-need-007.md
 benchmarking:
-- claims/flashattention-fast-and-memory-efficient-008.md
-bio-inspired-computing:
+- claims/flashattention-fast-and-memory-efficient-011.md
+- claims/flashattention-fast-and-memory-efficient-010.md
+- claims/flashattention-fast-and-memory-efficient-018.md
+bio-inspired:
 - claims/transformers-neurons-astrocytes-010.md
-biological-artificial:
-- claims/temporal-language-llm-hierarchy-013.md
 biological-attention-mechanism:
 - sources/transformers-neurons-astrocytes.md
 biological-computation:
 - sources/transformers-neurons-astrocytes.md
-- claims/transformers-neurons-astrocytes-009.md
-- claims/transformers-neurons-astrocytes-008.md
-- claims/transformers-neurons-astrocytes-003.md
-- claims/transformers-neurons-astrocytes-006.md
-- claims/transformers-neurons-astrocytes-002.md
 - claims/transformers-neurons-astrocytes-001.md
-biological-implementation:
-- claims/neuroscience-of-transformers-015.md
 biological-plausibility:
 - sources/llm-explanations-brain-representations.md
-- claims/llm-explanations-brain-representations-010.md
+- claims/llm-explanations-brain-representations-009.md
+biological-substrate:
+- claims/transformers-neurons-astrocytes-009.md
 bleu-score:
 - sources/attention-is-all-you-need.md
-- claims/attention-is-all-you-need-010.md
-- claims/attention-is-all-you-need-009.md
-block-computation:
-- claims/flashattention-fast-and-memory-efficient-005.md
-bottleneck:
-- claims/scaling-laws-for-neural-language-models-010.md
-brain-activity:
-- claims/llm-explanations-brain-representations-002.md
-- claims/temporal-language-llm-hierarchy-002.md
 brain-alignment:
 - sources/llm-explanations-brain-representations.md
-- claims/do-large-language-models-think-like-the--013.md
-- claims/llm-brain-fmri-alignment-004.md
-- claims/do-large-language-models-think-like-the--003.md
-- claims/llm-explanations-brain-representations-006.md
-- claims/llm-brain-fmri-alignment-001.md
+- claims/llm-explanations-brain-representations-002.md
 - claims/llm-brain-fmri-alignment-005.md
-- claims/temporal-language-llm-hierarchy-001.md
-- claims/google-brain-llm-language-processing-001.md
-- claims/temporal-language-llm-hierarchy-012.md
-- claims/do-large-language-models-think-like-the--011.md
-- claims/do-large-language-models-think-like-the--001.md
-- claims/llm-brain-fmri-alignment-007.md
-- claims/llm-brain-fmri-alignment-003.md
-- claims/do-large-language-models-think-like-the--004.md
+- claims/llm-explanations-brain-representations-003.md
+- claims/llm-explanations-brain-representations-008.md
+- claims/llm-brain-fmri-alignment-002.md
+- claims/llm-explanations-brain-representations-014.md
+- claims/llm-explanations-brain-representations-004.md
+- claims/llm-explanations-brain-representations-011.md
+- claims/llm-explanations-brain-representations-005.md
 brain-architecture:
-- claims/llm-explanations-brain-representations-007.md
-- claims/google-brain-llm-language-processing-015.md
-brain-computation:
-- claims/transformers-neurons-astrocytes-003.md
+- claims/google-brain-llm-language-processing-012.md
+brain-computer-interface:
+- claims/google-brain-llm-language-processing-001.md
 brain-computer-interfaces:
 - sources/google-brain-llm-language-processing.md
-brain-convergence:
-- claims/do-large-language-models-think-like-the--015.md
-brain-correspondence:
-- claims/llm-explanations-brain-representations-003.md
-- claims/llm-explanations-brain-representations-005.md
-brain-hemispheres:
-- claims/llm-brain-fmri-alignment-006.md
+brain-hierarchy:
+- claims/do-large-language-models-think-like-the--019.md
+- claims/google-brain-llm-language-processing-021.md
+- claims/google-brain-llm-language-processing-011.md
+- claims/google-brain-llm-language-processing-010.md
+- claims/google-brain-llm-language-processing-023.md
+- claims/google-brain-llm-language-processing-022.md
+- claims/google-brain-llm-language-processing-009.md
 brain-imaging:
 - sources/temporal-language-llm-hierarchy.md
 brain-inspired-ai:
@@ -149,94 +153,74 @@ brain-language-mapping:
 - sources/temporal-language-llm-hierarchy.md
 brain-language-networks:
 - sources/llm-brain-fmri-alignment.md
-brain-lateralization:
-- claims/do-large-language-models-think-like-the--006.md
+brain-llm-analogy:
+- claims/google-brain-llm-language-processing-024.md
+brain-llm-comparison:
+- claims/google-brain-llm-language-processing-025.md
+- claims/google-brain-llm-language-processing-014.md
 brain-llm-similarity:
-- claims/google-brain-llm-language-processing-011.md
-- claims/google-brain-llm-language-processing-010.md
-- claims/google-brain-llm-language-processing-012.md
-brain-localization:
-- claims/temporal-language-llm-hierarchy-003.md
-brain-measurement:
-- claims/google-brain-llm-language-processing-002.md
+- claims/llm-brain-fmri-alignment-014.md
+- claims/llm-brain-fmri-alignment-015.md
+- claims/llm-brain-fmri-alignment-013.md
+brain-mapping:
+- claims/do-large-language-models-think-like-the--015.md
 brain-model-alignment:
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
 brain-model-correlation:
 - sources/llm-brain-fmri-alignment.md
-brain-modeling:
-- claims/do-large-language-models-think-like-the--008.md
-brain-prediction:
-- claims/temporal-language-llm-hierarchy-011.md
-- claims/temporal-language-llm-hierarchy-010.md
-brain-principles:
-- claims/llm-explanations-brain-representations-009.md
-brain-processing:
-- claims/temporal-language-llm-hierarchy-014.md
-- claims/google-brain-llm-language-processing-016.md
 brain-regions:
-- claims/llm-brain-fmri-alignment-014.md
-- claims/do-large-language-models-think-like-the--002.md
-- claims/google-brain-llm-language-processing-014.md
-- claims/google-brain-llm-language-processing-013.md
-- claims/llm-brain-fmri-alignment-009.md
-- claims/llm-brain-fmri-alignment-002.md
+- claims/google-brain-llm-language-processing-002.md
+- claims/llm-brain-fmri-alignment-017.md
+- claims/llm-brain-fmri-alignment-003.md
+- claims/do-large-language-models-think-like-the--004.md
 brain-similarity:
+- claims/llm-brain-fmri-alignment-004.md
+brain-simulation:
 - claims/llm-brain-fmri-alignment-012.md
-brain-transformer-comparison:
-- claims/google-brain-llm-language-processing-018.md
+broca-area:
+- claims/temporal-language-llm-hierarchy-003.md
+- claims/google-brain-llm-language-processing-003.md
 brocas-area:
 - sources/google-brain-llm-language-processing.md
 - sources/temporal-language-llm-hierarchy.md
-- claims/temporal-language-llm-hierarchy-003.md
-- claims/google-brain-llm-language-processing-006.md
 calcium-signaling:
 - claims/transformers-neurons-astrocytes-005.md
-causal-sequences:
-- claims/neuroscience-of-transformers-008.md
+- claims/transformers-neurons-astrocytes-004.md
 chinchilla:
-- claims/scaling-laws-for-neural-language-models-016.md
-- claims/scaling-laws-for-neural-language-models-014.md
-- claims/scaling-laws-for-neural-language-models-015.md
+- claims/scaling-laws-for-neural-language-models-012.md
+- claims/scaling-laws-for-neural-language-models-010.md
+- claims/scaling-laws-for-neural-language-models-011.md
 chinchilla-scaling-laws:
 - sources/scaling-laws-for-neural-language-models.md
 cognitive-modeling:
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
 - sources/temporal-language-llm-hierarchy.md
-- claims/do-large-language-models-think-like-the--014.md
+cognitive-networks:
+- claims/do-large-language-models-think-like-the--011.md
 cognitive-neuroscience:
 - sources/llm-brain-fmri-alignment.md
 cognitive-processing:
-- claims/do-large-language-models-think-like-the--006.md
 - claims/llm-explanations-brain-representations-004.md
-- claims/llm-brain-fmri-alignment-006.md
+- claims/llm-brain-fmri-alignment-007.md
 cognitive-science:
 - sources/llm-explanations-brain-representations.md
 - sources/google-brain-llm-language-processing.md
-- claims/llm-brain-fmri-alignment-011.md
-cognitive-stages:
-- claims/llm-explanations-brain-representations-007.md
+- claims/do-large-language-models-think-like-the--016.md
+comparative-analysis:
+- claims/do-large-language-models-think-like-the--012.md
 computational-analogy:
+- claims/neuroscience-of-transformers-016.md
+- claims/neuroscience-of-transformers-011.md
 - claims/neuroscience-of-transformers-001.md
-- claims/neuroscience-of-transformers-015.md
-computational-challenge:
-- claims/neuroscience-of-transformers-008.md
+- claims/neuroscience-of-transformers-010.md
 computational-complexity:
 - sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
-- claims/flashattention-fast-and-memory-efficient-001.md
-- claims/flashattention-fast-and-memory-efficient-009.md
 computational-efficiency:
-- claims/flashattention-fast-and-memory-efficient-015.md
-- claims/flashattention-fast-and-memory-efficient-013.md
-computational-linguistics:
-- claims/llm-explanations-brain-representations-009.md
-computational-mapping:
-- claims/temporal-language-llm-hierarchy-014.md
+- claims/flashattention-fast-and-memory-efficient-016.md
+- claims/flashattention-fast-and-memory-efficient-002.md
 computational-modeling:
-- claims/llm-brain-fmri-alignment-011.md
-- claims/do-large-language-models-think-like-the--011.md
-- claims/do-large-language-models-think-like-the--014.md
-computational-motif:
-- claims/neuroscience-of-transformers-002.md
+- claims/do-large-language-models-think-like-the--016.md
+- claims/llm-brain-fmri-alignment-012.md
 computational-neuroscience:
 - sources/transformers-neurons-astrocytes.md
 - sources/llm-explanations-brain-representations.md
@@ -245,88 +229,71 @@ computational-neuroscience:
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
 - sources/neuroscience-of-transformers.md
 - sources/temporal-language-llm-hierarchy.md
-- claims/llm-explanations-brain-representations-013.md
-- claims/do-large-language-models-think-like-the--010.md
-computational-organization:
-- claims/neuroscience-of-transformers-003.md
 computational-principles:
-- claims/google-brain-llm-language-processing-011.md
-- claims/google-brain-llm-language-processing-010.md
-- claims/google-brain-llm-language-processing-012.md
+- claims/llm-brain-fmri-alignment-014.md
+- claims/llm-brain-fmri-alignment-015.md
+- claims/google-brain-llm-language-processing-024.md
 - claims/llm-brain-fmri-alignment-013.md
 computational-resources:
 - sources/scaling-laws-for-neural-language-models.md
 compute-allocation:
-- claims/scaling-laws-for-neural-language-models-017.md
-- claims/scaling-laws-for-neural-language-models-005.md
-compute-budget:
+- claims/scaling-laws-for-neural-language-models-016.md
 - claims/scaling-laws-for-neural-language-models-004.md
-compute-memory-tradeoff:
-- claims/flashattention-fast-and-memory-efficient-006.md
+- claims/scaling-laws-for-neural-language-models-010.md
+compute-efficiency:
+- claims/scaling-laws-for-neural-language-models-003.md
 compute-optimal-training:
 - sources/scaling-laws-for-neural-language-models.md
 compute-planning:
-- claims/scaling-laws-for-neural-language-models-011.md
+- claims/scaling-laws-for-neural-language-models-013.md
 concepts/_index:
 - _index.md
 content-routing:
-- claims/neuroscience-of-transformers-004.md
+- claims/neuroscience-of-transformers-003.md
+context-modulation:
+- claims/transformers-neurons-astrocytes-005.md
 contextual-embeddings:
 - sources/google-brain-llm-language-processing.md
 contextual-modulation:
 - sources/neuroscience-of-transformers.md
-- claims/neuroscience-of-transformers-012.md
-- claims/transformers-neurons-astrocytes-005.md
+- claims/neuroscience-of-transformers-013.md
 contextual-representation:
-- claims/google-brain-llm-language-processing-012.md
-- claims/llm-brain-fmri-alignment-013.md
-contextual-selection:
-- claims/neuroscience-of-transformers-004.md
+- claims/llm-brain-fmri-alignment-015.md
+- claims/google-brain-llm-language-processing-008.md
 convergent-evolution:
-- claims/transformers-neurons-astrocytes-009.md
-convolutional-networks:
-- claims/attention-is-all-you-need-001.md
-- claims/attention-is-all-you-need-004.md
+- claims/transformers-neurons-astrocytes-008.md
 convolutional-neural-networks:
 - sources/attention-is-all-you-need.md
 correlation-analysis:
-- claims/llm-brain-fmri-alignment-014.md
-- claims/do-large-language-models-think-like-the--008.md
-- claims/llm-brain-fmri-alignment-009.md
-correlation-metrics:
-- claims/do-large-language-models-think-like-the--011.md
+- claims/do-large-language-models-think-like-the--015.md
+correspondence:
+- claims/temporal-language-llm-hierarchy-013.md
 cortical-circuits:
-- claims/neuroscience-of-transformers-007.md
-- claims/neuroscience-of-transformers-004.md
-- claims/neuroscience-of-transformers-010.md
+- claims/neuroscience-of-transformers-003.md
+- claims/neuroscience-of-transformers-006.md
 cortical-column-organization:
 - sources/neuroscience-of-transformers.md
 cortical-columns:
-- claims/neuroscience-of-transformers-002.md
-- claims/neuroscience-of-transformers-011.md
+- claims/neuroscience-of-transformers-012.md
 - claims/neuroscience-of-transformers-001.md
+cortical-computation:
+- claims/neuroscience-of-transformers-004.md
+cortical-coordination:
+- claims/neuroscience-of-transformers-005.md
 cortical-dynamics:
-- claims/neuroscience-of-transformers-006.md
-- claims/neuroscience-of-transformers-014.md
+- claims/neuroscience-of-transformers-009.md
+cortical-laminae:
+- claims/neuroscience-of-transformers-002.md
 cortical-layers:
 - sources/neuroscience-of-transformers.md
-cortical-mechanisms:
-- claims/neuroscience-of-transformers-012.md
 cortical-microcircuits:
 - sources/neuroscience-of-transformers.md
-cortical-organization:
-- claims/neuroscience-of-transformers-011.md
-cortical-processing:
-- claims/neuroscience-of-transformers-005.md
 data-efficiency:
 - claims/scaling-laws-for-neural-language-models-006.md
-- claims/scaling-laws-for-neural-language-models-007.md
-- claims/scaling-laws-for-neural-language-models-003.md
-- claims/scaling-laws-for-neural-language-models-014.md
 dataset-scaling:
 - sources/scaling-laws-for-neural-language-models.md
 dataset-size:
-- claims/scaling-laws-for-neural-language-models-003.md
+- claims/scaling-laws-for-neural-language-models-002.md
 deep-layers:
 - claims/temporal-language-llm-hierarchy-008.md
 deep-learning:
@@ -334,377 +301,374 @@ deep-learning:
 - sources/neuroscience-of-transformers.md
 dendritic-integration:
 - sources/neuroscience-of-transformers.md
-- claims/neuroscience-of-transformers-013.md
-- claims/neuroscience-of-transformers-005.md
-design-principles:
-- claims/scaling-laws-for-neural-language-models-008.md
+- claims/neuroscience-of-transformers-014.md
+- claims/neuroscience-of-transformers-004.md
 discourse-comprehension:
-- claims/llm-explanations-brain-representations-004.md
-- claims/llm-explanations-brain-representations-005.md
+- claims/llm-explanations-brain-representations-007.md
 discourse-processing:
 - claims/temporal-language-llm-hierarchy-009.md
 do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri:
 - sources/_index.md
-early-layers:
+early-processing:
 - claims/temporal-language-llm-hierarchy-004.md
-early-responses:
+early-stage:
 - claims/temporal-language-llm-hierarchy-005.md
 ecological-validity:
-- claims/do-large-language-models-think-like-the--009.md
+- claims/google-brain-llm-language-processing-020.md
 effective-connectivity:
-- claims/neuroscience-of-transformers-007.md
-efficiency:
-- claims/scaling-laws-for-neural-language-models-017.md
-- claims/scaling-laws-for-neural-language-models-004.md
+- claims/neuroscience-of-transformers-006.md
+embedding-analysis:
+- claims/llm-brain-fmri-alignment-016.md
+embedding-source:
+- claims/google-brain-llm-language-processing-019.md
 embeddings:
-- claims/llm-brain-fmri-alignment-010.md
-- claims/google-brain-llm-language-processing-001.md
-- claims/google-brain-llm-language-processing-012.md
-empirical-analysis:
-- claims/scaling-laws-for-neural-language-models-018.md
+- claims/google-brain-llm-language-processing-008.md
+emergent-properties:
+- claims/do-large-language-models-think-like-the--007.md
+empirical-relationships:
+- claims/scaling-laws-for-neural-language-models-017.md
 empirical-scaling:
 - sources/scaling-laws-for-neural-language-models.md
+empirical-validation:
+- claims/scaling-laws-for-neural-language-models-018.md
 encoder-decoder:
 - claims/attention-is-all-you-need-001.md
-- claims/attention-is-all-you-need-008.md
 - claims/attention-is-all-you-need-002.md
 encoder-decoder-architecture:
 - sources/attention-is-all-you-need.md
-evolutionary-computation:
-- claims/transformers-neurons-astrocytes-009.md
+evolution:
+- claims/transformers-neurons-astrocytes-008.md
 experimental-design:
-- claims/do-large-language-models-think-like-the--007.md
-- claims/llm-brain-fmri-alignment-008.md
-- claims/llm-brain-fmri-alignment-007.md
-experimental-paradigm:
-- claims/google-brain-llm-language-processing-019.md
-experimentation:
-- claims/scaling-laws-for-neural-language-models-012.md
-explainability-assessment:
-- claims/llm-explanations-brain-representations-010.md
+- claims/llm-brain-fmri-alignment-010.md
+- claims/do-large-language-models-think-like-the--012.md
+- claims/google-brain-llm-language-processing-020.md
+- claims/temporal-language-llm-hierarchy-017.md
+- claims/scaling-laws-for-neural-language-models-014.md
+experimental-scope:
+- claims/llm-brain-fmri-alignment-011.md
 explainable-ai:
 - sources/llm-explanations-brain-representations.md
-- claims/llm-explanations-brain-representations-008.md
+- claims/llm-explanations-brain-representations-009.md
+- claims/llm-explanations-brain-representations-010.md
 - claims/llm-explanations-brain-representations-001.md
-extrapolation:
-- claims/scaling-laws-for-neural-language-models-012.md
+- claims/llm-explanations-brain-representations-015.md
 feature-extraction:
-- claims/google-brain-llm-language-processing-004.md
-- claims/google-brain-llm-language-processing-003.md
+- claims/google-brain-llm-language-processing-017.md
+- claims/google-brain-llm-language-processing-016.md
 feed-forward-layers:
 - sources/neuroscience-of-transformers.md
-- claims/neuroscience-of-transformers-005.md
+feed-forward-networks:
+- claims/neuroscience-of-transformers-014.md
+- claims/neuroscience-of-transformers-004.md
 feedforward-models:
-- claims/google-brain-llm-language-processing-015.md
-fine-tuning:
-- claims/llm-brain-fmri-alignment-005.md
+- claims/google-brain-llm-language-processing-011.md
 flash-attention:
 - sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
 flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness:
 - sources/_index.md
-floating-point-operations:
-- claims/flashattention-fast-and-memory-efficient-013.md
+flops:
+- claims/flashattention-fast-and-memory-efficient-016.md
 fmri:
 - claims/llm-explanations-brain-representations-002.md
-- claims/do-large-language-models-think-like-the--007.md
-- claims/do-large-language-models-think-like-the--002.md
-- claims/do-large-language-models-think-like-the--009.md
+- claims/llm-explanations-brain-representations-013.md
+fmri-analysis:
 - claims/llm-brain-fmri-alignment-008.md
-- claims/llm-brain-fmri-alignment-002.md
 fmri-brain-imaging:
 - sources/llm-brain-fmri-alignment.md
 fmri-data:
 - sources/llm-explanations-brain-representations.md
+- claims/llm-brain-fmri-alignment-010.md
 fmri-language-processing:
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
-fmri-prediction:
-- claims/llm-explanations-brain-representations-012.md
-functional-units:
-- claims/neuroscience-of-transformers-010.md
+fmri-methodology:
+- claims/do-large-language-models-think-like-the--013.md
+functional-anatomy:
+- claims/do-large-language-models-think-like-the--017.md
+generalization:
+- claims/scaling-laws-for-neural-language-models-018.md
 glial-cell-function:
 - sources/transformers-neurons-astrocytes.md
 google-brain-llm-language-processing:
 - sources/_index.md
-gpt-2:
-- claims/temporal-language-llm-hierarchy-010.md
 gpt-models:
 - sources/scaling-laws-for-neural-language-models.md
+gpt2:
+- claims/temporal-language-llm-hierarchy-010.md
 gpu-architecture:
-- claims/flashattention-fast-and-memory-efficient-004.md
 - claims/flashattention-fast-and-memory-efficient-007.md
-- claims/flashattention-fast-and-memory-efficient-017.md
-- claims/flashattention-fast-and-memory-efficient-002.md
+- claims/flashattention-fast-and-memory-efficient-006.md
+- claims/flashattention-fast-and-memory-efficient-008.md
 gpu-computing:
 - sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
+gpu-memory:
+- claims/flashattention-fast-and-memory-efficient-001.md
 gpu-memory-hierarchy:
 - sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
 gpu-optimization:
-- claims/flashattention-fast-and-memory-efficient-005.md
-gpu-performance:
-- claims/flashattention-fast-and-memory-efficient-015.md
-gradient-computation:
-- claims/flashattention-fast-and-memory-efficient-006.md
-hardware-constraints:
 - claims/flashattention-fast-and-memory-efficient-004.md
-hardware-design:
-- claims/transformers-neurons-astrocytes-010.md
+- claims/flashattention-fast-and-memory-efficient-009.md
+- claims/flashattention-fast-and-memory-efficient-019.md
+gradient-computation:
+- claims/flashattention-fast-and-memory-efficient-005.md
+hardware:
+- claims/flashattention-fast-and-memory-efficient-006.md
+hardware-specs:
+- claims/flashattention-fast-and-memory-efficient-007.md
+- claims/flashattention-fast-and-memory-efficient-008.md
 hardware-utilization:
-- claims/flashattention-fast-and-memory-efficient-015.md
+- claims/flashattention-fast-and-memory-efficient-018.md
 hemispheric-language-processing:
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+hemispheric-lateralization:
+- claims/llm-brain-fmri-alignment-007.md
 hemispheric-processing:
-- claims/do-large-language-models-think-like-the--006.md
-hierarchical-embeddings:
-- claims/llm-brain-fmri-alignment-015.md
+- claims/do-large-language-models-think-like-the--011.md
 hierarchical-language-processing:
 - sources/llm-explanations-brain-representations.md
 hierarchical-processing:
-- claims/do-large-language-models-think-like-the--003.md
-- claims/llm-explanations-brain-representations-007.md
-- claims/temporal-language-llm-hierarchy-015.md
-- claims/llm-brain-fmri-alignment-003.md
+- claims/do-large-language-models-think-like-the--018.md
+hierarchical-structure:
+- claims/llm-brain-fmri-alignment-004.md
+- claims/llm-brain-fmri-alignment-016.md
 hierarchical-temporal-scaffolding:
 - sources/neuroscience-of-transformers.md
-- claims/neuroscience-of-transformers-009.md
-high-level-processing:
-- claims/temporal-language-llm-hierarchy-009.md
-human-cognition:
-- claims/llm-explanations-brain-representations-009.md
 human-like-processing:
-- claims/llm-explanations-brain-representations-011.md
-individual-differences:
-- claims/temporal-language-llm-hierarchy-012.md
-information-aggregation:
-- claims/transformers-neurons-astrocytes-011.md
+- claims/llm-explanations-brain-representations-010.md
 information-discretization:
-- claims/neuroscience-of-transformers-010.md
+- claims/neuroscience-of-transformers-009.md
+- claims/neuroscience-of-transformers-008.md
 instruction-tuning:
 - sources/llm-brain-fmri-alignment.md
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
-- claims/llm-brain-fmri-alignment-005.md
-- claims/do-large-language-models-think-like-the--005.md
-interdisciplinary:
-- claims/neuroscience-of-transformers-003.md
-- claims/llm-explanations-brain-representations-008.md
+- claims/do-large-language-models-think-like-the--009.md
+- claims/llm-brain-fmri-alignment-006.md
+- claims/do-large-language-models-think-like-the--010.md
+interaction:
+- claims/transformers-neurons-astrocytes-012.md
 intermediate-layer-representations:
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
-intermediate-layers:
-- claims/do-large-language-models-think-like-the--012.md
-internal-representations:
-- claims/llm-brain-fmri-alignment-015.md
-interpretability:
-- claims/llm-explanations-brain-representations-008.md
-- claims/llm-explanations-brain-representations-001.md
 intracranial-electrode-recordings:
 - sources/google-brain-llm-language-processing.md
-intracranial-electrodes:
-- claims/google-brain-llm-language-processing-002.md
+intracranial-recording:
+- claims/google-brain-llm-language-processing-015.md
 io-aware-algorithms:
 - sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
-io-efficiency:
-- claims/flashattention-fast-and-memory-efficient-007.md
-- claims/flashattention-fast-and-memory-efficient-016.md
-io-optimization:
-- claims/flashattention-fast-and-memory-efficient-017.md
-l2-users:
+io-awareness:
+- claims/flashattention-fast-and-memory-efficient-001.md
+- claims/flashattention-fast-and-memory-efficient-009.md
+- claims/flashattention-fast-and-memory-efficient-019.md
+l2-proficiency:
+- claims/temporal-language-llm-hierarchy-015.md
 - claims/temporal-language-llm-hierarchy-011.md
 - claims/temporal-language-llm-hierarchy-010.md
+- claims/temporal-language-llm-hierarchy-017.md
+- claims/temporal-language-llm-hierarchy-012.md
 laminar-specialization:
-- claims/neuroscience-of-transformers-011.md
+- claims/neuroscience-of-transformers-012.md
 laminar-structure:
 - sources/neuroscience-of-transformers.md
-- claims/neuroscience-of-transformers-002.md
 language-acquisition:
 - sources/temporal-language-llm-hierarchy.md
-language-areas:
-- claims/google-brain-llm-language-processing-007.md
-language-comprehension:
-- claims/temporal-language-llm-hierarchy-014.md
 language-embeddings:
-- claims/google-brain-llm-language-processing-004.md
+- claims/google-brain-llm-language-processing-017.md
 language-model-evaluation:
 - sources/llm-explanations-brain-representations.md
 language-model-performance:
 - sources/scaling-laws-for-neural-language-models.md
-language-modeling:
-- claims/llm-explanations-brain-representations-006.md
-- claims/llm-explanations-brain-representations-001.md
 language-models:
-- claims/scaling-laws-for-neural-language-models-001.md
+- claims/google-brain-llm-language-processing-006.md
 language-networks:
-- claims/do-large-language-models-think-like-the--006.md
+- claims/llm-brain-fmri-alignment-007.md
 language-processing:
 - sources/llm-brain-fmri-alignment.md
-- claims/llm-explanations-brain-representations-002.md
-- claims/llm-brain-fmri-alignment-001.md
-- claims/llm-brain-fmri-alignment-011.md
-- claims/do-large-language-models-think-like-the--002.md
-- claims/temporal-language-llm-hierarchy-005.md
+- claims/do-large-language-models-think-like-the--016.md
+- claims/llm-explanations-brain-representations-003.md
+- claims/llm-explanations-brain-representations-008.md
 - claims/temporal-language-llm-hierarchy-001.md
-- claims/google-brain-llm-language-processing-001.md
-- claims/llm-explanations-brain-representations-009.md
-- claims/temporal-language-llm-hierarchy-013.md
-- claims/temporal-language-llm-hierarchy-007.md
-- claims/llm-brain-fmri-alignment-002.md
-- claims/google-brain-llm-language-processing-019.md
-- claims/do-large-language-models-think-like-the--014.md
-language-proficiency:
-- claims/temporal-language-llm-hierarchy-011.md
-- claims/temporal-language-llm-hierarchy-010.md
-- claims/temporal-language-llm-hierarchy-012.md
+- claims/google-brain-llm-language-processing-003.md
+- claims/llm-brain-fmri-alignment-012.md
+- claims/do-large-language-models-think-like-the--001.md
+- claims/llm-explanations-brain-representations-011.md
+- claims/llm-brain-fmri-alignment-017.md
+- claims/llm-brain-fmri-alignment-003.md
+- claims/do-large-language-models-think-like-the--004.md
 language-proficiency-effects:
 - sources/temporal-language-llm-hierarchy.md
 language-regions:
+- claims/temporal-language-llm-hierarchy-011.md
+- claims/temporal-language-llm-hierarchy-010.md
 - claims/temporal-language-llm-hierarchy-003.md
 language-selective-brain-regions:
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
 language-systems:
-- claims/llm-brain-fmri-alignment-006.md
+- claims/do-large-language-models-think-like-the--011.md
 language-understanding:
-- claims/llm-explanations-brain-representations-013.md
+- claims/do-large-language-models-think-like-the--009.md
+- claims/google-brain-llm-language-processing-024.md
 large-language-models:
 - sources/google-brain-llm-language-processing.md
 - sources/llm-brain-fmri-alignment.md
 - sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
-- claims/flashattention-fast-and-memory-efficient-011.md
-late-responses:
-- claims/temporal-language-llm-hierarchy-009.md
+- claims/flashattention-fast-and-memory-efficient-014.md
+late-processing:
 - claims/temporal-language-llm-hierarchy-008.md
-layer-alignment:
-- claims/llm-explanations-brain-representations-003.md
-- claims/llm-explanations-brain-representations-004.md
-- claims/llm-explanations-brain-representations-005.md
+late-stage:
+- claims/temporal-language-llm-hierarchy-009.md
+latency-ranges:
+- claims/temporal-language-llm-hierarchy-006.md
 layer-analysis:
-- claims/do-large-language-models-think-like-the--001.md
-- claims/do-large-language-models-think-like-the--010.md
-layer-correspondence:
-- claims/temporal-language-llm-hierarchy-004.md
-layer-depth:
-- claims/temporal-language-llm-hierarchy-002.md
+- claims/do-large-language-models-think-like-the--015.md
 layer-hierarchy:
-- claims/temporal-language-llm-hierarchy-015.md
+- claims/llm-explanations-brain-representations-006.md
+- claims/llm-explanations-brain-representations-007.md
+- claims/llm-explanations-brain-representations-003.md
+- claims/do-large-language-models-think-like-the--019.md
+- claims/llm-explanations-brain-representations-008.md
 - claims/temporal-language-llm-hierarchy-001.md
+- claims/temporal-language-llm-hierarchy-004.md
+- claims/temporal-language-llm-hierarchy-014.md
+- claims/llm-explanations-brain-representations-004.md
 layer-normalization:
 - sources/neuroscience-of-transformers.md
-- claims/neuroscience-of-transformers-006.md
-layer-optimization:
-- claims/llm-brain-fmri-alignment-012.md
+- claims/neuroscience-of-transformers-015.md
+- claims/neuroscience-of-transformers-005.md
 layer-wise-analysis:
-- claims/llm-brain-fmri-alignment-010.md
-- claims/llm-brain-fmri-alignment-015.md
+- claims/llm-brain-fmri-alignment-001.md
+- claims/do-large-language-models-think-like-the--002.md
 layer-wise-embeddings:
 - sources/llm-brain-fmri-alignment.md
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
-linear-alignment:
-- claims/google-brain-llm-language-processing-020.md
+linear-regression:
+- claims/google-brain-llm-language-processing-018.md
 linguistic-information:
-- claims/do-large-language-models-think-like-the--012.md
-listening:
-- claims/google-brain-llm-language-processing-005.md
-- claims/google-brain-llm-language-processing-006.md
-listening-speaking:
-- claims/google-brain-llm-language-processing-009.md
-llama:
-- claims/scaling-laws-for-neural-language-models-016.md
-llm-applications:
-- claims/llm-brain-fmri-alignment-011.md
-- claims/do-large-language-models-think-like-the--014.md
+- claims/do-large-language-models-think-like-the--005.md
+linguistic-organization:
+- claims/do-large-language-models-think-like-the--018.md
+llm-analysis:
+- claims/temporal-language-llm-hierarchy-016.md
 llm-architecture:
+- claims/do-large-language-models-think-like-the--003.md
+- claims/google-brain-llm-language-processing-013.md
+llm-brain-alignment:
+- claims/llm-brain-fmri-alignment-001.md
+- claims/do-large-language-models-think-like-the--006.md
+- claims/do-large-language-models-think-like-the--002.md
+- claims/do-large-language-models-think-like-the--008.md
 - claims/do-large-language-models-think-like-the--001.md
-llm-architectures:
-- claims/llm-brain-fmri-alignment-015.md
-- claims/llm-brain-fmri-alignment-007.md
+- claims/do-large-language-models-think-like-the--010.md
+- claims/do-large-language-models-think-like-the--004.md
 llm-brain-fmri-alignment:
 - sources/_index.md
+llm-diversity:
+- claims/llm-brain-fmri-alignment-011.md
+llm-embeddings:
+- claims/llm-brain-fmri-alignment-008.md
 llm-explanations-brain-representations:
 - sources/_index.md
 llm-interpretability:
 - sources/llm-explanations-brain-representations.md
+- claims/llm-explanations-brain-representations-012.md
+- claims/llm-explanations-brain-representations-011.md
+- claims/llm-explanations-brain-representations-001.md
 llm-layer-hierarchy:
 - sources/temporal-language-llm-hierarchy.md
-llm-layers:
-- claims/llm-brain-fmri-alignment-014.md
-- claims/llm-brain-fmri-alignment-001.md
+llm-neuroscience:
+- claims/temporal-language-llm-hierarchy-015.md
+- claims/temporal-language-llm-hierarchy-001.md
+- claims/temporal-language-llm-hierarchy-014.md
+- claims/temporal-language-llm-hierarchy-002.md
+- claims/temporal-language-llm-hierarchy-012.md
+llm-optimization:
+- claims/llm-brain-fmri-alignment-002.md
 llm-representations:
-- claims/google-brain-llm-language-processing-020.md
+- claims/google-brain-llm-language-processing-001.md
+loss-curves:
+- claims/scaling-laws-for-neural-language-models-002.md
+- claims/scaling-laws-for-neural-language-models-003.md
+- claims/scaling-laws-for-neural-language-models-001.md
 loss-functions:
 - sources/scaling-laws-for-neural-language-models.md
 machine-learning:
-- claims/neuroscience-of-transformers-003.md
-- claims/scaling-laws-for-neural-language-models-018.md
+- claims/neuroscience-of-transformers-010.md
 machine-translation:
 - sources/attention-is-all-you-need.md
-- claims/attention-is-all-you-need-010.md
-- claims/attention-is-all-you-need-009.md
-matrix-computation:
-- claims/flashattention-fast-and-memory-efficient-003.md
-meaning-decoding:
-- claims/google-brain-llm-language-processing-014.md
-memory-bottleneck:
-- claims/flashattention-fast-and-memory-efficient-016.md
-memory-complexity:
-- claims/flashattention-fast-and-memory-efficient-001.md
+- claims/attention-is-all-you-need-008.md
+- claims/attention-is-all-you-need-007.md
+memory-access-pattern:
 - claims/flashattention-fast-and-memory-efficient-009.md
+memory-complexity:
+- claims/flashattention-fast-and-memory-efficient-002.md
+- claims/flashattention-fast-and-memory-efficient-012.md
 memory-efficiency:
+- claims/flashattention-fast-and-memory-efficient-005.md
+- claims/flashattention-fast-and-memory-efficient-020.md
 - claims/flashattention-fast-and-memory-efficient-003.md
-- claims/flashattention-fast-and-memory-efficient-006.md
+- claims/flashattention-fast-and-memory-efficient-012.md
 memory-efficient-training:
 - sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
 memory-hierarchy:
 - claims/flashattention-fast-and-memory-efficient-004.md
+- claims/flashattention-fast-and-memory-efficient-007.md
+- claims/flashattention-fast-and-memory-efficient-006.md
+- claims/flashattention-fast-and-memory-efficient-008.md
 memory-optimization:
 - sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
-- claims/flashattention-fast-and-memory-efficient-005.md
-- claims/flashattention-fast-and-memory-efficient-007.md
-- claims/flashattention-fast-and-memory-efficient-002.md
 methodology:
-- claims/neuroscience-of-transformers-015.md
-mid-latency:
+- claims/google-brain-llm-language-processing-015.md
+- claims/llm-brain-fmri-alignment-008.md
+- claims/temporal-language-llm-hierarchy-017.md
+- claims/temporal-language-llm-hierarchy-016.md
+- claims/llm-brain-fmri-alignment-009.md
+microcircuit-organization:
+- claims/neuroscience-of-transformers-002.md
+- claims/neuroscience-of-transformers-011.md
+mid-stage:
 - claims/temporal-language-llm-hierarchy-007.md
 middle-layers:
 - claims/temporal-language-llm-hierarchy-006.md
-model-alignment:
-- claims/do-large-language-models-think-like-the--005.md
 model-architecture-design:
 - sources/scaling-laws-for-neural-language-models.md
 model-comparison:
-- claims/do-large-language-models-think-like-the--007.md
-- claims/llm-brain-fmri-alignment-007.md
+- claims/llm-brain-fmri-alignment-011.md
 model-design:
-- claims/scaling-laws-for-neural-language-models-016.md
-- claims/llm-brain-fmri-alignment-012.md
-model-efficiency:
 - claims/scaling-laws-for-neural-language-models-015.md
-model-evolution:
-- claims/do-large-language-models-think-like-the--015.md
+model-development:
+- claims/scaling-laws-for-neural-language-models-012.md
+model-diversity:
+- claims/do-large-language-models-think-like-the--012.md
+model-improvement:
+- claims/do-large-language-models-think-like-the--007.md
 model-interpretability:
 - sources/llm-explanations-brain-representations.md
 model-performance:
-- claims/do-large-language-models-think-like-the--003.md
-- claims/llm-brain-fmri-alignment-005.md
-- claims/llm-brain-fmri-alignment-003.md
-- claims/attention-is-all-you-need-002.md
+- claims/llm-brain-fmri-alignment-004.md
+- claims/do-large-language-models-think-like-the--006.md
+- claims/do-large-language-models-think-like-the--009.md
+model-prediction:
+- claims/temporal-language-llm-hierarchy-011.md
 model-size:
-- claims/scaling-laws-for-neural-language-models-002.md
 - claims/scaling-laws-for-neural-language-models-006.md
 - claims/scaling-laws-for-neural-language-models-007.md
-- claims/scaling-laws-for-neural-language-models-008.md
+- claims/scaling-laws-for-neural-language-models-001.md
+- claims/scaling-laws-for-neural-language-models-005.md
+model-validation:
+- claims/llm-explanations-brain-representations-015.md
+model-variants:
+- claims/llm-brain-fmri-alignment-006.md
 morphological-analysis:
 - claims/temporal-language-llm-hierarchy-007.md
 motor-cortex:
-- claims/google-brain-llm-language-processing-008.md
+- claims/google-brain-llm-language-processing-005.md
+- claims/google-brain-llm-language-processing-004.md
+motor-pathway:
+- claims/google-brain-llm-language-processing-022.md
 multi-head-attention:
 - sources/attention-is-all-you-need.md
-- claims/attention-is-all-you-need-006.md
-narrative-processing:
-- claims/llm-explanations-brain-representations-012.md
-- claims/do-large-language-models-think-like-the--007.md
-- claims/do-large-language-models-think-like-the--009.md
-- claims/llm-brain-fmri-alignment-008.md
-natural-conversations:
-- claims/google-brain-llm-language-processing-019.md
-natural-language:
-- claims/temporal-language-llm-hierarchy-015.md
+- claims/attention-is-all-you-need-005.md
+multi-level-processing:
+- claims/google-brain-llm-language-processing-023.md
+narrative-comprehension:
+- claims/llm-explanations-brain-representations-013.md
 natural-language-processing:
 - sources/attention-is-all-you-need.md
 - sources/google-brain-llm-language-processing.md
@@ -712,90 +676,77 @@ natural-language-processing:
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
 - sources/temporal-language-llm-hierarchy.md
 naturalistic-stimuli:
-- claims/do-large-language-models-think-like-the--009.md
-- claims/llm-brain-fmri-alignment-008.md
-neural-activity:
-- claims/google-brain-llm-language-processing-001.md
+- claims/do-large-language-models-think-like-the--013.md
+- claims/llm-brain-fmri-alignment-010.md
 - claims/google-brain-llm-language-processing-020.md
 neural-activity-prediction:
 - sources/llm-explanations-brain-representations.md
 neural-alignment:
 - sources/llm-brain-fmri-alignment.md
-- claims/llm-brain-fmri-alignment-014.md
-- claims/temporal-language-llm-hierarchy-013.md
-neural-architecture:
-- claims/attention-is-all-you-need-008.md
-- claims/attention-is-all-you-need-003.md
+- claims/do-large-language-models-think-like-the--007.md
+- claims/google-brain-llm-language-processing-001.md
+- claims/google-brain-llm-language-processing-025.md
+- claims/google-brain-llm-language-processing-014.md
+- claims/temporal-language-llm-hierarchy-003.md
+- claims/do-large-language-models-think-like-the--005.md
+- claims/llm-brain-fmri-alignment-006.md
+- claims/llm-brain-fmri-alignment-003.md
+neural-analysis:
+- claims/do-large-language-models-think-like-the--014.md
 neural-circuits:
-- claims/transformers-neurons-astrocytes-003.md
-- claims/transformers-neurons-astrocytes-007.md
-neural-computation:
-- claims/neuroscience-of-transformers-013.md
-- claims/neuroscience-of-transformers-012.md
-- claims/neuroscience-of-transformers-005.md
+- claims/transformers-neurons-astrocytes-011.md
 neural-correlation:
-- claims/llm-brain-fmri-alignment-004.md
-- claims/llm-explanations-brain-representations-006.md
 - claims/llm-brain-fmri-alignment-001.md
 - claims/do-large-language-models-think-like-the--002.md
-- claims/llm-brain-fmri-alignment-002.md
-- claims/do-large-language-models-think-like-the--005.md
-- claims/do-large-language-models-think-like-the--001.md
-- claims/do-large-language-models-think-like-the--004.md
+- claims/llm-brain-fmri-alignment-018.md
 neural-correspondence:
-- claims/temporal-language-llm-hierarchy-002.md
+- claims/do-large-language-models-think-like-the--017.md
 neural-decoding:
-- claims/llm-explanations-brain-representations-012.md
+- claims/google-brain-llm-language-processing-018.md
 neural-dynamics:
-- claims/do-large-language-models-think-like-the--010.md
-neural-hierarchy:
-- claims/llm-explanations-brain-representations-007.md
+- claims/temporal-language-llm-hierarchy-002.md
+- claims/llm-brain-fmri-alignment-016.md
+neural-imaging:
+- claims/temporal-language-llm-hierarchy-016.md
 neural-language-alignment:
 - sources/google-brain-llm-language-processing.md
 neural-language-models:
 - sources/scaling-laws-for-neural-language-models.md
 neural-machine-translation:
 - sources/attention-is-all-you-need.md
-neural-mechanisms:
-- claims/transformers-neurons-astrocytes-008.md
+neural-measurement:
+- claims/google-brain-llm-language-processing-015.md
 neural-network-architectures:
 - sources/transformers-neurons-astrocytes.md
 neural-networks:
 - sources/google-brain-llm-language-processing.md
 - sources/llm-brain-fmri-alignment.md
 - sources/temporal-language-llm-hierarchy.md
-- claims/neuroscience-of-transformers-007.md
-- claims/attention-is-all-you-need-005.md
-- claims/llm-brain-fmri-alignment-006.md
-- claims/attention-is-all-you-need-007.md
-- claims/attention-is-all-you-need-006.md
+- claims/attention-is-all-you-need-001.md
+neural-organization:
+- claims/google-brain-llm-language-processing-011.md
+- claims/google-brain-llm-language-processing-023.md
 neural-oscillations:
 - sources/neuroscience-of-transformers.md
-- claims/neuroscience-of-transformers-006.md
-- claims/neuroscience-of-transformers-009.md
-- claims/neuroscience-of-transformers-014.md
 neural-prediction:
 - claims/llm-explanations-brain-representations-002.md
-- claims/do-large-language-models-think-like-the--008.md
 - claims/llm-brain-fmri-alignment-009.md
 neural-prediction-models:
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
 neural-recording:
-- claims/google-brain-llm-language-processing-002.md
+- claims/do-large-language-models-think-like-the--013.md
 neural-representation:
-- claims/llm-explanations-brain-representations-013.md
-neural-responses:
-- claims/llm-brain-fmri-alignment-010.md
-neural-similarity:
-- claims/do-large-language-models-think-like-the--011.md
-- claims/llm-brain-fmri-alignment-003.md
+- claims/temporal-language-llm-hierarchy-015.md
+neural-representations:
+- claims/do-large-language-models-think-like-the--001.md
+neural-selectivity:
+- claims/llm-brain-fmri-alignment-017.md
+neural-structure:
+- claims/do-large-language-models-think-like-the--018.md
 neural-synchronization:
 - sources/neuroscience-of-transformers.md
 neural-temporal-dynamics:
 - sources/temporal-language-llm-hierarchy.md
-neural-timing:
-- claims/temporal-language-llm-hierarchy-004.md
-- claims/temporal-language-llm-hierarchy-006.md
 neuroimaging:
 - sources/llm-explanations-brain-representations.md
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
@@ -807,18 +758,21 @@ neurolinguistics:
 neuromorphic-computing:
 - sources/transformers-neurons-astrocytes.md
 - claims/transformers-neurons-astrocytes-010.md
-neuron-astrocyte:
-- claims/transformers-neurons-astrocytes-008.md
-- claims/transformers-neurons-astrocytes-001.md
-- claims/transformers-neurons-astrocytes-010.md
 neuron-astrocyte-networks:
 - sources/transformers-neurons-astrocytes.md
+- claims/transformers-neurons-astrocytes-009.md
+- claims/transformers-neurons-astrocytes-012.md
+- claims/transformers-neurons-astrocytes-001.md
+- claims/transformers-neurons-astrocytes-010.md
 neuroscience:
-- claims/neuroscience-of-transformers-003.md
-- claims/llm-explanations-brain-representations-008.md
-- claims/neuroscience-of-transformers-001.md
-neuroscience-data:
-- claims/llm-explanations-brain-representations-011.md
+- claims/neuroscience-of-transformers-010.md
+neuroscience-integration:
+- claims/llm-explanations-brain-representations-012.md
+- claims/llm-explanations-brain-representations-015.md
+neuroscience-methodology:
+- claims/neuroscience-of-transformers-016.md
+neuroscience-methods:
+- claims/llm-explanations-brain-representations-013.md
 neuroscience-of-transformers:
 - sources/_index.md
 neuroscience-validation:
@@ -826,308 +780,251 @@ neuroscience-validation:
 next-word-prediction:
 - sources/llm-explanations-brain-representations.md
 - sources/google-brain-llm-language-processing.md
-- claims/google-brain-llm-language-processing-010.md
 optimization:
-- claims/scaling-laws-for-neural-language-models-017.md
-- claims/scaling-laws-for-neural-language-models-007.md
-- claims/scaling-laws-for-neural-language-models-013.md
-- claims/flashattention-fast-and-memory-efficient-013.md
-- claims/flashattention-fast-and-memory-efficient-012.md
-- claims/scaling-laws-for-neural-language-models-005.md
+- claims/scaling-laws-for-neural-language-models-016.md
+- claims/scaling-laws-for-neural-language-models-004.md
+optimization-bias:
+- claims/do-large-language-models-think-like-the--003.md
 oscillatory-coordination:
 - sources/neuroscience-of-transformers.md
-- claims/neuroscience-of-transformers-006.md
-- claims/neuroscience-of-transformers-014.md
-output-layers:
-- claims/do-large-language-models-think-like-the--013.md
+oscillatory-dynamics:
+- claims/neuroscience-of-transformers-005.md
+oscillatory-patterns:
+- claims/neuroscience-of-transformers-015.md
 parallel-computing:
 - sources/attention-is-all-you-need.md
 - sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
 parallel-processing:
-- claims/google-brain-llm-language-processing-017.md
+- claims/google-brain-llm-language-processing-013.md
 parallelization:
-- claims/flashattention-fast-and-memory-efficient-012.md
+- claims/flashattention-fast-and-memory-efficient-015.md
 parameter-scaling:
 - sources/scaling-laws-for-neural-language-models.md
-parameters:
-- claims/scaling-laws-for-neural-language-models-002.md
-- claims/scaling-laws-for-neural-language-models-009.md
-pareto-optimality:
-- claims/scaling-laws-for-neural-language-models-017.md
-peer-review:
-- claims/transformers-neurons-astrocytes-012.md
 performance:
-- claims/scaling-laws-for-neural-language-models-008.md
-- claims/scaling-laws-for-neural-language-models-001.md
-performance-alignment:
-- claims/do-large-language-models-think-like-the--015.md
-performance-evaluation:
-- claims/attention-is-all-you-need-009.md
+- claims/flashattention-fast-and-memory-efficient-011.md
+- claims/flashattention-fast-and-memory-efficient-010.md
+- claims/flashattention-fast-and-memory-efficient-013.md
+- claims/flashattention-fast-and-memory-efficient-017.md
+- claims/flashattention-fast-and-memory-efficient-018.md
 performance-improvement:
-- claims/attention-is-all-you-need-010.md
-- claims/flashattention-fast-and-memory-efficient-014.md
-- claims/flashattention-fast-and-memory-efficient-008.md
-performance-modeling:
-- claims/scaling-laws-for-neural-language-models-018.md
+- claims/attention-is-all-you-need-008.md
 phonological-processing:
 - sources/temporal-language-llm-hierarchy.md
-- claims/llm-explanations-brain-representations-003.md
+- claims/llm-explanations-brain-representations-006.md
 - claims/temporal-language-llm-hierarchy-005.md
 positional-encoding:
 - sources/attention-is-all-you-need.md
-- claims/attention-is-all-you-need-007.md
-power-law:
-- claims/scaling-laws-for-neural-language-models-002.md
-- claims/scaling-laws-for-neural-language-models-003.md
-- claims/scaling-laws-for-neural-language-models-004.md
-- claims/scaling-laws-for-neural-language-models-001.md
+- claims/attention-is-all-you-need-006.md
 power-law-scaling:
 - sources/scaling-laws-for-neural-language-models.md
-predictability:
-- claims/scaling-laws-for-neural-language-models-011.md
+power-laws:
+- claims/scaling-laws-for-neural-language-models-017.md
+practical-implications:
+- claims/scaling-laws-for-neural-language-models-013.md
 prediction:
-- claims/scaling-laws-for-neural-language-models-012.md
+- claims/neuroscience-of-transformers-013.md
+- claims/neuroscience-of-transformers-012.md
+- claims/scaling-laws-for-neural-language-models-014.md
+- claims/neuroscience-of-transformers-015.md
+- claims/neuroscience-of-transformers-014.md
 - claims/llm-brain-fmri-alignment-013.md
 prediction-error:
-- claims/google-brain-llm-language-processing-011.md
+- claims/google-brain-llm-language-processing-007.md
 prediction-error-signals:
 - sources/google-brain-llm-language-processing.md
 prediction-influence:
-- claims/llm-explanations-brain-representations-006.md
-predictions:
-- claims/neuroscience-of-transformers-013.md
-- claims/neuroscience-of-transformers-012.md
-- claims/neuroscience-of-transformers-011.md
-- claims/neuroscience-of-transformers-014.md
-production-deployment:
-- claims/flashattention-fast-and-memory-efficient-011.md
-proficiency-effects:
-- claims/temporal-language-llm-hierarchy-011.md
-- claims/temporal-language-llm-hierarchy-012.md
-publication-venue:
-- claims/transformers-neurons-astrocytes-012.md
+- claims/llm-explanations-brain-representations-014.md
+- claims/llm-explanations-brain-representations-005.md
+prediction-mechanisms:
+- claims/google-brain-llm-language-processing-006.md
+prediction-modeling:
+- claims/do-large-language-models-think-like-the--014.md
+quantification:
+- claims/llm-brain-fmri-alignment-018.md
 query-key-value:
-- claims/transformers-neurons-astrocytes-006.md
+- claims/transformers-neurons-astrocytes-007.md
 query-key-value-attention:
 - sources/transformers-neurons-astrocytes.md
 real-world-application:
-- claims/flashattention-fast-and-memory-efficient-011.md
+- claims/flashattention-fast-and-memory-efficient-014.md
 recurrent-dynamics:
-- claims/neuroscience-of-transformers-008.md
-recurrent-networks:
-- claims/attention-is-all-you-need-001.md
-- claims/attention-is-all-you-need-004.md
+- claims/neuroscience-of-transformers-007.md
 recurrent-neural-networks:
 - sources/attention-is-all-you-need.md
-representation-comparison:
-- claims/do-large-language-models-think-like-the--010.md
-representation-development:
-- claims/do-large-language-models-think-like-the--015.md
 representation-learning:
 - sources/llm-explanations-brain-representations.md
 - sources/llm-brain-fmri-alignment.md
-- claims/do-large-language-models-think-like-the--003.md
-representation-richness:
-- claims/do-large-language-models-think-like-the--012.md
-representation-trade-offs:
-- claims/do-large-language-models-think-like-the--013.md
-representational-alignment:
-- claims/google-brain-llm-language-processing-018.md
-research-framework:
-- claims/neuroscience-of-transformers-015.md
-research-priorities:
-- claims/scaling-laws-for-neural-language-models-013.md
-research-validation:
-- claims/transformers-neurons-astrocytes-012.md
+representational-levels:
+- claims/do-large-language-models-think-like-the--008.md
+representational-similarity:
+- claims/google-brain-llm-language-processing-025.md
+representational-structure:
+- claims/llm-brain-fmri-alignment-002.md
 residual-connections:
 - sources/neuroscience-of-transformers.md
-- claims/neuroscience-of-transformers-007.md
-resource-allocation:
-- claims/scaling-laws-for-neural-language-models-011.md
-resource-management:
-- claims/scaling-laws-for-neural-language-models-005.md
+- claims/neuroscience-of-transformers-006.md
 rhythmic-synchronization:
 - claims/neuroscience-of-transformers-009.md
-- claims/neuroscience-of-transformers-010.md
+- claims/neuroscience-of-transformers-008.md
 sample-efficiency:
 - sources/scaling-laws-for-neural-language-models.md
-- claims/scaling-laws-for-neural-language-models-006.md
+- claims/scaling-laws-for-neural-language-models-005.md
 scalability:
-- claims/flashattention-fast-and-memory-efficient-010.md
-scaling:
-- claims/scaling-laws-for-neural-language-models-006.md
-- claims/scaling-laws-for-neural-language-models-013.md
-- claims/scaling-laws-for-neural-language-models-010.md
+- claims/flashattention-fast-and-memory-efficient-013.md
 scaling-laws:
 - claims/scaling-laws-for-neural-language-models-012.md
 - claims/scaling-laws-for-neural-language-models-002.md
+- claims/scaling-laws-for-neural-language-models-016.md
+- claims/scaling-laws-for-neural-language-models-006.md
+- claims/scaling-laws-for-neural-language-models-017.md
+- claims/scaling-laws-for-neural-language-models-007.md
+- claims/scaling-laws-for-neural-language-models-013.md
 - claims/scaling-laws-for-neural-language-models-003.md
 - claims/scaling-laws-for-neural-language-models-018.md
+- claims/scaling-laws-for-neural-language-models-008.md
+- claims/scaling-laws-for-neural-language-models-009.md
 - claims/scaling-laws-for-neural-language-models-014.md
 - claims/scaling-laws-for-neural-language-models-004.md
+- claims/scaling-laws-for-neural-language-models-010.md
 - claims/scaling-laws-for-neural-language-models-011.md
 - claims/scaling-laws-for-neural-language-models-001.md
 - claims/scaling-laws-for-neural-language-models-015.md
+- claims/scaling-laws-for-neural-language-models-005.md
 scaling-laws-for-neural-language-models:
 - sources/_index.md
-scientific-publication:
-- claims/transformers-neurons-astrocytes-012.md
 self-attention:
 - sources/attention-is-all-you-need.md
-- claims/attention-is-all-you-need-005.md
+- claims/attention-is-all-you-need-004.md
 semantic-abstraction:
 - sources/llm-brain-fmri-alignment.md
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+- claims/do-large-language-models-think-like-the--017.md
+- claims/do-large-language-models-think-like-the--019.md
+- claims/do-large-language-models-think-like-the--008.md
+semantic-decoding:
+- claims/google-brain-llm-language-processing-010.md
 semantic-integration:
 - sources/temporal-language-llm-hierarchy.md
 - claims/temporal-language-llm-hierarchy-009.md
-- claims/llm-explanations-brain-representations-004.md
 semantic-processing:
-- claims/llm-brain-fmri-alignment-004.md
-- claims/google-brain-llm-language-processing-013.md
-- claims/temporal-language-llm-hierarchy-008.md
-- claims/llm-explanations-brain-representations-005.md
-- claims/do-large-language-models-think-like-the--004.md
+- claims/llm-explanations-brain-representations-007.md
+- claims/llm-brain-fmri-alignment-005.md
+- claims/google-brain-llm-language-processing-009.md
 sentence-comprehension:
 - sources/llm-brain-fmri-alignment.md
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
-- claims/llm-brain-fmri-alignment-010.md
-- claims/do-large-language-models-think-like-the--005.md
-sentence-level:
+sentence-level-analysis:
 - claims/llm-brain-fmri-alignment-009.md
+sentence-level-processing:
+- claims/do-large-language-models-think-like-the--014.md
 sentence-processing:
-- claims/do-large-language-models-think-like-the--012.md
-- claims/do-large-language-models-think-like-the--008.md
+- claims/do-large-language-models-think-like-the--005.md
 sequence-length:
-- claims/flashattention-fast-and-memory-efficient-010.md
+- claims/flashattention-fast-and-memory-efficient-013.md
 sequence-length-scaling:
 - sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
-sequence-modeling:
-- claims/attention-is-all-you-need-008.md
-- claims/attention-is-all-you-need-003.md
-- claims/attention-is-all-you-need-007.md
-sequence-processing:
-- claims/transformers-neurons-astrocytes-011.md
-- claims/flashattention-fast-and-memory-efficient-012.md
+sequence-representation:
+- claims/attention-is-all-you-need-006.md
 sequence-transduction:
 - sources/attention-is-all-you-need.md
 - claims/attention-is-all-you-need-001.md
+- claims/attention-is-all-you-need-010.md
+- claims/attention-is-all-you-need-009.md
 - claims/attention-is-all-you-need-002.md
+sequential-processing:
+- claims/google-brain-llm-language-processing-005.md
+- claims/google-brain-llm-language-processing-003.md
 serial-processing:
-- claims/google-brain-llm-language-processing-016.md
+- claims/google-brain-llm-language-processing-012.md
+shared-principles:
+- claims/google-brain-llm-language-processing-007.md
+- claims/google-brain-llm-language-processing-006.md
+- claims/google-brain-llm-language-processing-008.md
 signal-integration:
-- claims/transformers-neurons-astrocytes-004.md
-simultaneous-processing:
-- claims/google-brain-llm-language-processing-017.md
+- claims/transformers-neurons-astrocytes-003.md
 soft-hierarchy:
 - sources/google-brain-llm-language-processing.md
-- claims/google-brain-llm-language-processing-015.md
-- claims/google-brain-llm-language-processing-014.md
-- claims/google-brain-llm-language-processing-013.md
-sound-processing:
-- claims/google-brain-llm-language-processing-014.md
 sources/_index:
 - _index.md
 speech-embeddings:
-- claims/google-brain-llm-language-processing-003.md
+- claims/google-brain-llm-language-processing-016.md
 speech-processing:
-- claims/google-brain-llm-language-processing-005.md
-- claims/google-brain-llm-language-processing-006.md
-- claims/google-brain-llm-language-processing-009.md
+- claims/google-brain-llm-language-processing-021.md
+- claims/google-brain-llm-language-processing-002.md
 speech-processing-sequence:
 - sources/google-brain-llm-language-processing.md
 speech-production:
-- claims/google-brain-llm-language-processing-007.md
-- claims/google-brain-llm-language-processing-008.md
+- claims/google-brain-llm-language-processing-005.md
+- claims/google-brain-llm-language-processing-004.md
+- claims/google-brain-llm-language-processing-022.md
 speech-recognition:
 - sources/google-brain-llm-language-processing.md
+- claims/google-brain-llm-language-processing-019.md
 speedup:
-- claims/flashattention-fast-and-memory-efficient-014.md
+- claims/flashattention-fast-and-memory-efficient-010.md
+- claims/flashattention-fast-and-memory-efficient-017.md
+statistical-significance:
+- claims/do-large-language-models-think-like-the--010.md
 superior-temporal-gyrus:
 - sources/google-brain-llm-language-processing.md
-- claims/google-brain-llm-language-processing-005.md
+surprise-detection:
+- claims/llm-brain-fmri-alignment-014.md
 surprise-response:
-- claims/google-brain-llm-language-processing-011.md
+- claims/google-brain-llm-language-processing-007.md
 synaptic-modulation:
 - sources/transformers-neurons-astrocytes.md
 - claims/transformers-neurons-astrocytes-002.md
-synaptic-processing:
-- claims/neuroscience-of-transformers-013.md
-- claims/transformers-neurons-astrocytes-004.md
 synaptic-structure:
-- claims/transformers-neurons-astrocytes-007.md
+- claims/transformers-neurons-astrocytes-006.md
 syntactic-parsing:
 - sources/temporal-language-llm-hierarchy.md
 - claims/temporal-language-llm-hierarchy-007.md
 syntactic-processing:
-- claims/temporal-language-llm-hierarchy-006.md
-syntax:
-- claims/llm-explanations-brain-representations-003.md
-task-optimization:
-- claims/do-large-language-models-think-like-the--013.md
+- claims/llm-explanations-brain-representations-006.md
 task-performance:
-- claims/llm-brain-fmri-alignment-012.md
-technique-evaluation:
-- claims/llm-explanations-brain-representations-011.md
-temporal-depth-correspondence:
-- claims/temporal-language-llm-hierarchy-013.md
+- claims/do-large-language-models-think-like-the--003.md
 temporal-discretization:
 - sources/neuroscience-of-transformers.md
-- claims/neuroscience-of-transformers-009.md
-- claims/neuroscience-of-transformers-008.md
+- claims/neuroscience-of-transformers-007.md
 temporal-dynamics:
-- claims/temporal-language-llm-hierarchy-001.md
+- claims/google-brain-llm-language-processing-004.md
 - claims/temporal-language-llm-hierarchy-014.md
-- claims/transformers-neurons-astrocytes-005.md
+- claims/transformers-neurons-astrocytes-004.md
 temporal-language-llm-hierarchy:
 - sources/_index.md
 temporal-language-processing:
 - sources/temporal-language-llm-hierarchy.md
 temporal-mapping:
 - claims/temporal-language-llm-hierarchy-004.md
-- claims/temporal-language-llm-hierarchy-003.md
+- claims/temporal-language-llm-hierarchy-013.md
 - claims/temporal-language-llm-hierarchy-006.md
 - claims/temporal-language-llm-hierarchy-002.md
 - claims/temporal-language-llm-hierarchy-008.md
 temporal-processing:
-- claims/google-brain-llm-language-processing-016.md
-temporal-sequence:
-- claims/google-brain-llm-language-processing-005.md
-- claims/google-brain-llm-language-processing-007.md
-- claims/google-brain-llm-language-processing-006.md
-- claims/google-brain-llm-language-processing-009.md
-- claims/google-brain-llm-language-processing-008.md
-temporal-structure:
-- claims/temporal-language-llm-hierarchy-015.md
+- claims/google-brain-llm-language-processing-012.md
+temporal-scaffolding:
+- claims/neuroscience-of-transformers-008.md
+theoretical-framework:
+- claims/neuroscience-of-transformers-016.md
 tiling:
-- claims/flashattention-fast-and-memory-efficient-005.md
-- claims/flashattention-fast-and-memory-efficient-002.md
+- claims/flashattention-fast-and-memory-efficient-004.md
+- claims/flashattention-fast-and-memory-efficient-020.md
 tiling-computation:
 - sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
-timing:
-- claims/google-brain-llm-language-processing-007.md
 topics/_index:
 - _index.md
 training-dynamics:
 - sources/scaling-laws-for-neural-language-models.md
 training-efficiency:
 - sources/scaling-laws-for-neural-language-models.md
-- claims/scaling-laws-for-neural-language-models-016.md
-- claims/flashattention-fast-and-memory-efficient-010.md
-- claims/scaling-laws-for-neural-language-models-005.md
-training-strategy:
-- claims/scaling-laws-for-neural-language-models-007.md
-training-tokens:
-- claims/scaling-laws-for-neural-language-models-014.md
+- claims/scaling-laws-for-neural-language-models-011.md
 transformer:
 - claims/attention-is-all-you-need-005.md
-- claims/attention-is-all-you-need-010.md
 - claims/attention-is-all-you-need-004.md
+- claims/scaling-laws-for-neural-language-models-008.md
 - claims/scaling-laws-for-neural-language-models-009.md
-- claims/attention-is-all-you-need-009.md
 - claims/attention-is-all-you-need-008.md
 - claims/attention-is-all-you-need-003.md
-- claims/scaling-laws-for-neural-language-models-010.md
 - claims/attention-is-all-you-need-007.md
 - claims/attention-is-all-you-need-006.md
 transformer-architecture:
@@ -1141,29 +1038,33 @@ transformer-architecture:
 - sources/neuroscience-of-transformers.md
 - sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
 - sources/temporal-language-llm-hierarchy.md
-- claims/transformers-neurons-astrocytes-009.md
 - claims/neuroscience-of-transformers-002.md
-- claims/transformers-neurons-astrocytes-003.md
-- claims/transformers-neurons-astrocytes-011.md
-- claims/google-brain-llm-language-processing-017.md
-- claims/transformers-neurons-astrocytes-001.md
+- claims/neuroscience-of-transformers-011.md
 - claims/neuroscience-of-transformers-001.md
+transformer-cortex-gap:
+- claims/neuroscience-of-transformers-007.md
+transformers:
+- claims/transformers-neurons-astrocytes-009.md
+- claims/transformers-neurons-astrocytes-008.md
+- claims/google-brain-llm-language-processing-013.md
+- claims/transformers-neurons-astrocytes-011.md
+- claims/transformers-neurons-astrocytes-001.md
 transformers-neurons-astrocytes:
 - sources/_index.md
-tripartite-synapses:
-- sources/transformers-neurons-astrocytes.md
+tripartite-synapse:
 - claims/transformers-neurons-astrocytes-007.md
 - claims/transformers-neurons-astrocytes-006.md
-undertraining:
-- claims/scaling-laws-for-neural-language-models-015.md
+tripartite-synapses:
+- sources/transformers-neurons-astrocytes.md
+validation:
+- claims/llm-explanations-brain-representations-009.md
 whisper-decoder:
 - sources/google-brain-llm-language-processing.md
 whisper-encoder:
 - sources/google-brain-llm-language-processing.md
 whisper-model:
-- claims/google-brain-llm-language-processing-004.md
-- claims/google-brain-llm-language-processing-003.md
+- claims/google-brain-llm-language-processing-017.md
+- claims/google-brain-llm-language-processing-016.md
+- claims/google-brain-llm-language-processing-019.md
 wmt-dataset:
 - sources/attention-is-all-you-need.md
-xai-validation:
-- claims/llm-explanations-brain-representations-011.md

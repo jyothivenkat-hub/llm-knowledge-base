@@ -4,17 +4,16 @@ type: "finding"
 source: "papers/transformers-neurons-astrocytes.pdf"
 source_title: "Transformers Neurons Astrocytes"
 cluster: "other"
-tags: ["astrocytes", "signal-integration", "attention-mechanism", "synaptic-processing"]
+tags: ["astrocytes", "calcium-signaling", "temporal-dynamics"]
 ---
 
-# Astrocytes integrate signals from thousands of synapses, similar to how attention aggregates information across sequence positions.
+# Astrocytic calcium signaling operates on slower timescales than neuronal signaling
 
 **Type:** finding
 **Source:** Transformers Neurons Astrocytes
-**Evidence:** Observed through analysis of astrocytic connectivity and signal processing patterns
+**Evidence:** Described as operating on slower timescales in the biological attention mechanism section
 
 ## Tags
 - [[astrocytes]]
-- [[signal-integration]]
-- [[attention-mechanism]]
-- [[synaptic-processing]]
+- [[calcium-signaling]]
+- [[temporal-dynamics]]
