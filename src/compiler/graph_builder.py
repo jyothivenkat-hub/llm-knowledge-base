@@ -101,12 +101,12 @@ def build_graph(
     progress(f"  Total: {len(nodes)} claims from {len(source_texts)} sources")
 
     # ── Stage 2: Find connections ──────────────────────────
-    progress("Graph 2/5: Finding connections across claims...")
+    progress("Graph 2/6: Finding connections across claims...")
     edges = _connect_claims(llm, nodes, progress)
     progress(f"  Found {len(edges)} connections")
 
     # ── Stage 3: Cluster into themes ───────────────────────
-    progress("Graph 3/5: Clustering into themes...")
+    progress("Graph 3/6: Clustering into themes...")
     clusters = _cluster_claims(llm, nodes, edges, progress)
     progress(f"  Created {len(clusters)} clusters")
 
@@ -123,19 +123,26 @@ def build_graph(
             _save_claim_page(claims_dir, node)
 
     # ── Stage 4: Enrich ────────────────────────────────────
-    progress("Graph 4/5: Finding contradictions, gaps, synthesis...")
+    progress("Graph 4/6: Finding contradictions, gaps, synthesis...")
     insights = _enrich_graph(llm, nodes, edges, clusters, progress)
 
-    # ── Stage 5: Save ──────────────────────────────────────
-    progress("Graph 5/5: Saving knowledge graph...")
+    # ── Stage 5: Generate product ideas ─────────────────────
+    progress("Graph 5/6: Generating product ideas from insights...")
+    product_ideas = _generate_product_ideas(config, llm, nodes, clusters, insights, progress)
+    progress(f"  Generated {len(product_ideas)} product ideas")
+
+    # ── Stage 6: Save ──────────────────────────────────────
+    progress("Graph 6/6: Saving knowledge graph...")
     graph = {
         "nodes": nodes,
         "edges": edges,
         "clusters": clusters,
+        "product_ideas": product_ideas,
         "metadata": {
             "total_nodes": len(nodes),
             "total_edges": len(edges),
             "total_clusters": len(clusters),
+            "total_product_ideas": len(product_ideas),
             "papers_processed": len(source_texts),
             "built_at": datetime.now().isoformat(),
         },
@@ -148,8 +155,8 @@ def build_graph(
         json.dumps(insights, indent=2, ensure_ascii=False), encoding="utf-8"
     )
 
-    progress(f"Graph complete: {len(nodes)} claims, {len(edges)} connections, {len(clusters)} clusters")
-    return {"claims": len(nodes), "edges": len(edges), "clusters": len(clusters)}
+    progress(f"Done: {len(nodes)} claims, {len(edges)} connections, {len(clusters)} clusters, {len(product_ideas)} product ideas")
+    return {"claims": len(nodes), "edges": len(edges), "clusters": len(clusters), "ideas": len(product_ideas)}
 
 
 # ─── Save claim as wiki page ────────────────────────────
@@ -339,3 +346,53 @@ def _enrich_graph(
     except Exception as e:
         logger.warning("Enrichment failed: %s", e)
         return {"contradictions": [], "gaps": [], "synthesis": [], "bridges": [], "key_questions": []}
+
+
+# ─── Stage 5: Product Ideas ──────────────────────────────
+
+def _generate_product_ideas(
+    config: Config,
+    llm: LLM,
+    nodes: List[Dict],
+    clusters: List[Dict],
+    insights: Dict,
+    progress: Callable,
+) -> List[Dict]:
+    """Generate product ideas from the knowledge graph insights."""
+    try:
+        # Get top findings (highest-connected nodes or type=finding)
+        findings = [n for n in nodes if n.get("type") == "finding"]
+        if not findings:
+            findings = nodes[:20]
+        top_findings = findings[:25]
+
+        gaps = insights.get("gaps", [])
+        synthesis = insights.get("synthesis", [])
+        contradictions = insights.get("contradictions", [])
+
+        response = llm.call(
+            prompt="",
+            template="generate_product_ideas.md",
+            template_vars={
+                "clusters": clusters,
+                "top_findings": top_findings,
+                "gaps": gaps,
+                "synthesis": synthesis,
+                "contradictions": contradictions,
+            },
+            max_tokens=4096,
+        )
+
+        ideas = parse_llm_json(response)
+        if not isinstance(ideas, list):
+            ideas = ideas.get("ideas", ideas.get("product_ideas", []))
+
+        # Add IDs
+        for i, idea in enumerate(ideas):
+            idea["id"] = f"idea-{i+1:02d}"
+
+        return ideas
+
+    except Exception as e:
+        logger.warning("Product idea generation failed: %s", e)
+        return []

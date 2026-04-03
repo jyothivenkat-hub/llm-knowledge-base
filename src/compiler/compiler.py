@@ -44,7 +44,7 @@ def run_compile(
     llm = LLM(config)
     manifest = Manifest(config.raw_path / "_manifest.yaml")
 
-    stats = {"sources": 0, "claims": 0, "edges": 0, "clusters": 0}
+    stats = {"sources": 0, "claims": 0, "edges": 0, "clusters": 0, "ideas": 0}
 
     # Step 1: Identify sources
     if full:
@@ -80,6 +80,7 @@ def run_compile(
     stats["claims"] = graph_stats.get("claims", 0)
     stats["edges"] = graph_stats.get("edges", 0)
     stats["clusters"] = graph_stats.get("clusters", 0)
+    stats["ideas"] = graph_stats.get("ideas", 0)
 
     # Build legacy indexes + backlinks
     progress("Building indexes...")

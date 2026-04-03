@@ -79,6 +79,7 @@ def create_app(config: Optional[Config] = None) -> Flask:
             stats["claims"] = meta.get("total_nodes", 0)
             stats["edges"] = meta.get("total_edges", 0)
             stats["clusters"] = meta.get("total_clusters", 0)
+            stats["ideas"] = meta.get("total_product_ideas", len(graph.get("product_ideas", [])))
         return render_template("dashboard.html", active="home", stats=stats)
 
     @app.route("/ingest")
@@ -254,6 +255,14 @@ def create_app(config: Optional[Config] = None) -> Flask:
     def graph_page():
         has_graph = config.graph_path.exists()
         return render_template("graph.html", active="graph", has_graph=has_graph)
+
+    @app.route("/ideas")
+    def ideas_page():
+        ideas = []
+        if config.graph_path.exists():
+            graph = json.loads(config.graph_path.read_text(encoding="utf-8"))
+            ideas = graph.get("product_ideas", [])
+        return render_template("ideas.html", active="ideas", ideas=ideas)
 
     @app.route("/render")
     def render_page():

@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+{% block title %}Product Ideas{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h2>Product Ideas</h2>
+    <p>Generated from research insights, gaps, and synthesis opportunities</p>
+</div>
+
+{% if not ideas %}
+<div class="card" style="max-width: 480px; padding: 28px;">
+    <h3 style="margin-bottom: 8px;">No ideas yet</h3>
+    <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 16px;">
+        Run <a href="/compile">Compile</a> to analyze your research and generate product ideas.
+    </p>
+    <a href="/compile" class="btn btn-primary">Compile</a>
+</div>
+{% else %}
+
+<div class="cards" style="margin-bottom: 24px;">
+    <div class="card">
+        <div class="card-label">Total Ideas</div>
+        <div class="card-value accent">{{ ideas | length }}</div>
+    </div>
+    <div class="card">
+        <div class="card-label">Quick Wins</div>
+        <div class="card-value" style="color: var(--success);">{{ ideas | selectattr('difficulty', 'equalto', 'low') | list | length }}</div>
+    </div>
+    <div class="card">
+        <div class="card-label">Breakthroughs</div>
+        <div class="card-value" style="color: var(--warning);">{{ ideas | selectattr('novelty', 'equalto', 'breakthrough') | list | length }}</div>
+    </div>
+</div>
+
+{% for idea in ideas %}
+<div class="idea-card">
+    <div class="idea-header">
+        <div>
+            <h3 class="idea-name">{{ idea.name }}</h3>
+            <p class="idea-tagline">{{ idea.tagline }}</p>
+        </div>
+        <div class="idea-badges">
+            {% if idea.difficulty == 'low' %}
+            <span class="badge badge-success">Easy</span>
+            {% elif idea.difficulty == 'medium' %}
+            <span class="badge badge-warning">Medium</span>
+            {% else %}
+            <span class="badge badge-error">Hard</span>
+            {% endif %}
+            {% if idea.novelty == 'breakthrough' %}
+            <span class="badge" style="background: rgba(251,191,36,0.15); color: #fbbf24;">Breakthrough</span>
+            {% elif idea.novelty == 'significant' %}
+            <span class="badge badge-info">Significant</span>
+            {% else %}
+            <span class="badge" style="background: var(--bg-secondary); color: var(--text-muted);">Incremental</span>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="idea-sections">
+        <div class="idea-section">
+            <div class="idea-label">Problem</div>
+            <p>{{ idea.problem }}</p>
+        </div>
+        <div class="idea-section">
+            <div class="idea-label">Solution</div>
+            <p>{{ idea.solution }}</p>
+        </div>
+        <div class="idea-section">
+            <div class="idea-label">Target Audience</div>
+            <p>{{ idea.target_audience }}</p>
+        </div>
+        <div class="idea-section">
+            <div class="idea-label">Revenue Model</div>
+            <p>{{ idea.revenue_model }}</p>
+        </div>
+        {% if idea.evidence %}
+        <div class="idea-section">
+            <div class="idea-label">Research Evidence</div>
+            <ul class="idea-evidence">
+                {% for e in idea.evidence %}
+                <li>{{ e }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+
+<style>
+.idea-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 16px;
+    transition: border-color 0.15s;
+}
+.idea-card:hover { border-color: var(--accent); }
+.idea-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+.idea-name {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+.idea-tagline {
+    font-size: 14px;
+    color: var(--accent);
+    font-style: italic;
+}
+.idea-badges { display: flex; gap: 6px; flex-shrink: 0; }
+.idea-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 24px;
+}
+.idea-section { }
+.idea-section:last-child {
+    grid-column: 1 / -1;
+}
+.idea-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+.idea-section p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+.idea-evidence {
+    list-style: none;
+    padding: 0;
+}
+.idea-evidence li {
+    font-size: 13px;
+    color: var(--text-secondary);
+    padding: 4px 0;
+    padding-left: 16px;
+    position: relative;
+}
+.idea-evidence li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+}
+</style>
+{% endblock %}
