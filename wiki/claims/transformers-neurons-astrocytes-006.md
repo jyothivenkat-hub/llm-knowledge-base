@@ -1,19 +1,20 @@
 ---
 id: "transformers-neurons-astrocytes-006"
-type: "concept"
+type: "finding"
 source: "papers/transformers-neurons-astrocytes.pdf"
 source_title: "Transformers Neurons Astrocytes"
-cluster: "other"
-tags: ["tripartite-synapse", "synaptic-structure", "astrocytes"]
+cluster: "biological-attention-implementation"
+tags: ["gating", "attention", "synaptic-transmission", "astrocytes"]
 ---
 
-# Tripartite synapses consist of pre-synaptic neuron, post-synaptic neuron, and astrocyte
+# Astrocytes act as a biological attention mechanism by selectively modulating which synaptic signals are transmitted to post-synaptic neurons, implementing a form of gating functionally similar to softmax attention in transformers.
 
-**Type:** concept
+**Type:** finding
 **Source:** Transformers Neurons Astrocytes
-**Evidence:** Defined in biological attention mechanism section
+**Evidence:** Biological Attention Mechanism section; astrocytic role in modulating synaptic transmission explicitly compared to attention gating
 
 ## Tags
-- [[tripartite-synapse]]
-- [[synaptic-structure]]
+- [[gating]]
+- [[attention]]
+- [[synaptic-transmission]]
 - [[astrocytes]]

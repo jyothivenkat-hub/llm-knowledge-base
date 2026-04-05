@@ -1,19 +1,20 @@
 ---
 id: "temporal-language-llm-hierarchy-008"
-type: "finding"
+type: "method"
 source: "papers/temporal-language-llm-hierarchy.pdf"
 source_title: "Temporal Language Llm Hierarchy"
-cluster: "other"
-tags: ["temporal-mapping", "deep-layers", "late-processing"]
+cluster: "temporal-hierarchy-language"
+tags: ["neural-prediction", "computational-modeling", "layer-analysis", "brain-decoding"]
 ---
 
-# Deep LLM layers (9-12+) correspond to late neural responses occurring at 350-600ms
+# LLM layer hierarchy can serve as a computational model of temporal language comprehension stages in the brain, enabling prediction of neural activity patterns from model layer activations.
 
-**Type:** finding
+**Type:** method
 **Source:** Temporal Language Llm Hierarchy
-**Evidence:** Temporal mapping section specifies latency ranges for layer groups
+**Evidence:** Core Finding: GPT-2 models predicted language-related regions, demonstrating predictive validity of the layer-to-time mapping
 
 ## Tags
-- [[temporal-mapping]]
-- [[deep-layers]]
-- [[late-processing]]
+- [[neural-prediction]]
+- [[computational-modeling]]
+- [[layer-analysis]]
+- [[brain-decoding]]

@@ -1,19 +1,20 @@
 ---
 id: "transformers-neurons-astrocytes-001"
-type: "claim"
+type: "finding"
 source: "papers/transformers-neurons-astrocytes.pdf"
 source_title: "Transformers Neurons Astrocytes"
-cluster: "other"
-tags: ["transformers", "neuron-astrocyte-networks", "biological-computation"]
+cluster: "biological-attention-implementation"
+tags: ["attention", "biological-computation", "synaptic-plasticity", "astrocytes"]
 ---
 
-# Neuron-astrocyte networks can naturally implement the core computation performed by Transformer blocks
+# Tripartite synapses—composed of a pre-synaptic neuron, post-synaptic neuron, and astrocyte—implement a biological analog of query-key-value attention, where astrocytes modulate synaptic transmission based on integrated signals from multiple sources.
 
-**Type:** claim
+**Type:** finding
 **Source:** Transformers Neurons Astrocytes
-**Evidence:** Core thesis of the paper demonstrating biological implementation of transformer architecture
+**Evidence:** Core mechanism described in Biological Attention Mechanism section; tripartite synapse structure explicitly mapped to QKV attention architecture
 
 ## Tags
-- [[transformers]]
-- [[neuron-astrocyte-networks]]
+- [[attention]]
 - [[biological-computation]]
+- [[synaptic-plasticity]]
+- [[astrocytes]]

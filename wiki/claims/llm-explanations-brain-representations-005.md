@@ -1,19 +1,20 @@
 ---
 id: "llm-explanations-brain-representations-005"
-type: "finding"
+type: "hypothesis"
 source: "papers/llm-explanations-brain-representations.pdf"
 source_title: "Llm Explanations Brain Representations"
-cluster: "other"
-tags: ["attribution-methods", "brain-alignment", "prediction-influence"]
+cluster: "llm-interpretability-neuroscience"
+tags: ["xai-evaluation", "neuroscience-benchmark", "human-alignment", "interpretability"]
 ---
 
-# LLM layers with greater influence on next-word prediction demonstrate stronger alignment with brain activity
+# Neuroscience data (fMRI) can be used as an empirical benchmark to evaluate which XAI techniques best capture human-like language processing principles, creating a feedback loop between neuroscience and AI interpretability research.
 
-**Type:** finding
+**Type:** hypothesis
 **Source:** Llm Explanations Brain Representations
-**Evidence:** Listed as key finding relating prediction influence to neural alignment
+**Evidence:** Novel Contribution: 'Opens pathway to use neuroscience data to validate which XAI techniques best capture human-like processing.'
 
 ## Tags
-- [[attribution-methods]]
-- [[brain-alignment]]
-- [[prediction-influence]]
+- [[xai-evaluation]]
+- [[neuroscience-benchmark]]
+- [[human-alignment]]
+- [[interpretability]]

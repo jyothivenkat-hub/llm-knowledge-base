@@ -1,19 +1,20 @@
 ---
 id: "llm-explanations-brain-representations-008"
-type: "finding"
+type: "hypothesis"
 source: "papers/llm-explanations-brain-representations.pdf"
 source_title: "Llm Explanations Brain Representations"
-cluster: "other"
-tags: ["layer-hierarchy", "brain-alignment", "language-processing"]
+cluster: "llm-interpretability-neuroscience"
+tags: ["transformer-architecture", "emergent-alignment", "inductive-bias", "language-models"]
 ---
 
-# The hierarchical processing pipeline in LLMs mirrors the brain's own hierarchical language processing structure
+# The hierarchical alignment between LLM layers and brain processing stages suggests that transformer architectures may have implicitly learned to organize information in ways that parallel human neural language processing, despite no explicit neuroscience-inspired design.
 
-**Type:** finding
+**Type:** hypothesis
 **Source:** Llm Explanations Brain Representations
-**Evidence:** Stated in hierarchical layer alignment section as key observation
+**Evidence:** Hierarchical Layer Alignment section describing layer-to-processing-stage correspondence and the statement 'This mirrors the brain's own hierarchical processing pipeline.'
 
 ## Tags
-- [[layer-hierarchy]]
-- [[brain-alignment]]
-- [[language-processing]]
+- [[transformer-architecture]]
+- [[emergent-alignment]]
+- [[inductive-bias]]
+- [[language-models]]

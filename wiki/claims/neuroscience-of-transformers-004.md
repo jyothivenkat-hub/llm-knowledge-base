@@ -1,19 +1,20 @@
 ---
 id: "neuroscience-of-transformers-004"
-type: "hypothesis"
+type: "concept"
 source: "papers/neuroscience-of-transformers.pdf"
 source_title: "Neuroscience Of Transformers"
-cluster: "other"
-tags: ["feed-forward-networks", "dendritic-integration", "cortical-computation"]
+cluster: "transformer-neuroscience-analogy"
+tags: ["transformers", "neuroscience", "residual-connections", "connectivity"]
 ---
 
-# Feed-forward layers in transformers correspond to dendritic integration processes in the cortex
+# Residual connections in transformers map to effective connectivity within cortical circuits, providing a computational framework for understanding how information flows through cortical layers.
 
-**Type:** hypothesis
+**Type:** concept
 **Source:** Neuroscience Of Transformers
-**Evidence:** Specified in the transformer-to-cortex mapping section
+**Evidence:** Mapping section identifies residual connections as mapping to effective connectivity within cortical circuits
 
 ## Tags
-- [[feed-forward-networks]]
-- [[dendritic-integration]]
-- [[cortical-computation]]
+- [[transformers]]
+- [[neuroscience]]
+- [[residual-connections]]
+- [[connectivity]]

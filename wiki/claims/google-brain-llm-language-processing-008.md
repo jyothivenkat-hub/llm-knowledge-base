@@ -1,19 +1,20 @@
 ---
 id: "google-brain-llm-language-processing-008"
-type: "finding"
+type: "concept"
 source: "papers/google-brain-llm-language-processing.pdf"
 source_title: "Google Brain Llm Language Processing"
-cluster: "brain-language-processing"
-tags: ["embeddings", "contextual-representation", "shared-principles"]
+cluster: "llm-brain-alignment-empirical"
+tags: ["prediction-error", "surprise", "shared-mechanisms", "anomaly-detection"]
 ---
 
-# Both the brain and large language models use embedding-based contextual representations for language processing
+# Prediction error signals (surprise responses) are a shared computational mechanism between human brains and LLMs, suggesting both systems use similar mechanisms to detect unexpected or novel linguistic input.
 
-**Type:** finding
+**Type:** concept
 **Source:** Google Brain Llm Language Processing
-**Evidence:** Listed as shared computational principle between brain and LLMs
+**Evidence:** Shared Computational Principles section lists 'Prediction error signals (surprise responses)' as a mechanism common to both brain and LLM processing.
 
 ## Tags
-- [[embeddings]]
-- [[contextual-representation]]
-- [[shared-principles]]
+- [[prediction-error]]
+- [[surprise]]
+- [[shared-mechanisms]]
+- [[anomaly-detection]]

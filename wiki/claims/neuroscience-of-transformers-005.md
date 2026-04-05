@@ -3,17 +3,19 @@ id: "neuroscience-of-transformers-005"
 type: "hypothesis"
 source: "papers/neuroscience-of-transformers.pdf"
 source_title: "Neuroscience Of Transformers"
-cluster: "other"
-tags: ["layer-normalization", "oscillatory-dynamics", "cortical-coordination"]
+cluster: "transformer-neuroscience-analogy"
+tags: ["temporal-dynamics", "neuroscience", "discretization", "oscillations", "recurrence"]
 ---
 
-# Layer normalization in transformers parallels oscillatory coordination patterns in cortical circuits
+# The cortex may resolve the temporal discretization challenge—reconciling transformers' discrete causal sequences with the brain's continuous recurrent dynamics—through hierarchical temporal scaffolding using rhythmic synchronization to discretize information into functionally atomic units.
 
 **Type:** hypothesis
 **Source:** Neuroscience Of Transformers
-**Evidence:** Specified in the transformer-to-cortex mapping section
+**Evidence:** Temporal Discretization Challenge section proposes hierarchical temporal scaffolding as a resolution mechanism
 
 ## Tags
-- [[layer-normalization]]
-- [[oscillatory-dynamics]]
-- [[cortical-coordination]]
+- [[temporal-dynamics]]
+- [[neuroscience]]
+- [[discretization]]
+- [[oscillations]]
+- [[recurrence]]

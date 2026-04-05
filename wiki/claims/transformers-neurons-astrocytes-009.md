@@ -1,19 +1,20 @@
 ---
 id: "transformers-neurons-astrocytes-009"
-type: "claim"
+type: "finding"
 source: "papers/transformers-neurons-astrocytes.pdf"
 source_title: "Transformers Neurons Astrocytes"
-cluster: "other"
-tags: ["neuron-astrocyte-networks", "transformers", "biological-substrate"]
+cluster: "biological-attention-implementation"
+tags: ["temporal-hierarchy", "calcium-signaling", "timescale", "modulation"]
 ---
 
-# Neuron-astrocyte interactions provide a biological substrate for transformer-like computations in the brain
+# The slower timescale of astrocytic calcium signaling compared to neuronal firing rates creates a natural temporal hierarchy for attention computation, where fast synaptic events are modulated by slower contextual signals.
 
-**Type:** claim
+**Type:** finding
 **Source:** Transformers Neurons Astrocytes
-**Evidence:** Core thesis identifying biological basis for transformer computations
+**Evidence:** Biological Attention Mechanism section; astrocytic calcium signaling timescale explicitly contrasted with neuronal timescales
 
 ## Tags
-- [[neuron-astrocyte-networks]]
-- [[transformers]]
-- [[biological-substrate]]
+- [[temporal-hierarchy]]
+- [[calcium-signaling]]
+- [[timescale]]
+- [[modulation]]

@@ -1,19 +1,20 @@
 ---
 id: "transformers-neurons-astrocytes-005"
-type: "finding"
+type: "concept"
 source: "papers/transformers-neurons-astrocytes.pdf"
 source_title: "Transformers Neurons Astrocytes"
-cluster: "other"
-tags: ["astrocytes", "calcium-signaling", "context-modulation"]
+cluster: "biological-attention-implementation"
+tags: ["attention-mechanism", "biological-implementation", "synaptic-modulation", "astrocytes"]
 ---
 
-# Astrocytic calcium signaling provides a form of contextual modulation for neural computation
+# The biological attention mechanism in tripartite synapses operates through astrocyte-mediated modulation rather than explicit weight matrices, offering a fundamentally different implementation pathway for attention than current deep learning systems.
 
-**Type:** finding
+**Type:** concept
 **Source:** Transformers Neurons Astrocytes
-**Evidence:** Identified as mechanism for contextual modulation in biological attention
+**Evidence:** Described throughout Biological Attention Mechanism section; contrasts with standard transformer QKV formulation
 
 ## Tags
+- [[attention-mechanism]]
+- [[biological-implementation]]
+- [[synaptic-modulation]]
 - [[astrocytes]]
-- [[calcium-signaling]]
-- [[context-modulation]]

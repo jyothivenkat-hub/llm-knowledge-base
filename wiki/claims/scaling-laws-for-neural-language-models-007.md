@@ -1,19 +1,20 @@
 ---
 id: "scaling-laws-for-neural-language-models-007"
-type: "finding"
+type: "concept"
 source: "articles/scaling-laws.md"
 source_title: "Scaling Laws for Neural Language Models"
-cluster: "scaling-laws"
-tags: ["scaling-laws", "architecture", "model-size"]
+cluster: "scaling-laws-training"
+tags: ["pareto optimality", "compute efficiency", "frontier", "optimization"]
 ---
 
-# Language model performance depends strongly on model size (width and depth) rather than specific architectural details
+# The loss-compute frontier defines a Pareto-optimal allocation curve, establishing a principled framework for trading off model size, dataset size, and training compute.
 
-**Type:** finding
+**Type:** concept
 **Source:** Scaling Laws for Neural Language Models
-**Evidence:** Stated in impact on transformer architecture section
+**Evidence:** Paper establishes the concept of loss-compute frontier as defining optimal allocations
 
 ## Tags
-- [[scaling-laws]]
-- [[architecture]]
-- [[model-size]]
+- [[pareto optimality]]
+- [[compute efficiency]]
+- [[frontier]]
+- [[optimization]]

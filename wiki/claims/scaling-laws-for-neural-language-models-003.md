@@ -1,19 +1,20 @@
 ---
 id: "scaling-laws-for-neural-language-models-003"
-type: "finding"
+type: "concept"
 source: "articles/scaling-laws.md"
 source_title: "Scaling Laws for Neural Language Models"
-cluster: "scaling-laws"
-tags: ["scaling-laws", "compute-efficiency", "loss-curves"]
+cluster: "scaling-laws-training"
+tags: ["compute budget", "optimization", "resource allocation", "training efficiency"]
 ---
 
-# Language model loss scales as a power law with compute budget C according to L(C) ~ C^(-0.050)
+# Given a fixed compute budget, there exists an optimal allocation between model size and training tokens, with a specific ratio that maximizes performance.
 
-**Type:** finding
+**Type:** concept
 **Source:** Scaling Laws for Neural Language Models
-**Evidence:** Empirical scaling law established by Kaplan et al. (2020) as key finding
+**Evidence:** Paper establishes that compute budget C can be optimally split between N and D parameters
 
 ## Tags
-- [[scaling-laws]]
-- [[compute-efficiency]]
-- [[loss-curves]]
+- [[compute budget]]
+- [[optimization]]
+- [[resource allocation]]
+- [[training efficiency]]

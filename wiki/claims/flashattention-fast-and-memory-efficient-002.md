@@ -1,19 +1,19 @@
 ---
 id: "flashattention-fast-and-memory-efficient-002"
-type: "claim"
+type: "concept"
 source: "articles/flash-attention.md"
 source_title: "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness"
 cluster: "attention-optimization"
-tags: ["attention-mechanism", "memory-complexity", "computational-efficiency"]
+tags: ["gpu-optimization", "memory-hierarchy", "io-awareness"]
 ---
 
-# Standard attention has O(N^2) memory complexity due to materializing the full attention matrix
+# IO-aware algorithm design exploits GPU memory hierarchy: SRAM is fast but tiny (~20MB on A100), while HBM is large but slow (40-80GB). Minimizing HBM transfers is the bottleneck, not FLOPs.
 
-**Type:** claim
+**Type:** concept
 **Source:** FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness
-**Evidence:** Listed as key problem in Key Ideas section
+**Evidence:** Paper defines memory hierarchy with specific capacities and identifies HBM reads/writes as the optimization target
 
 ## Tags
-- [[attention-mechanism]]
-- [[memory-complexity]]
-- [[computational-efficiency]]
+- [[gpu-optimization]]
+- [[memory-hierarchy]]
+- [[io-awareness]]

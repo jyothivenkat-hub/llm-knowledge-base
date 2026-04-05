@@ -1,19 +1,20 @@
 ---
 id: "do-large-language-models-think-like-the--007"
-type: "claim"
+type: "method"
 source: "articles/llm-brain-fmri-alignment.md"
 source_title: "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI"
-cluster: "llm-brain-alignment"
-tags: ["model-improvement", "neural-alignment", "emergent-properties"]
+cluster: "llm-brain-alignment-empirical"
+tags: ["comparative-analysis", "fmri", "methodology", "brain-alignment"]
 ---
 
-# As LLMs improve at language tasks, their internal representations naturally evolve toward brain-like processing patterns
+# Comparison of 14 publicly available LLMs of varying sizes and architectures against fMRI data from naturalistic narrative comprehension reveals that brain alignment is not architecture-specific but emerges across diverse model designs.
 
-**Type:** claim
+**Type:** method
 **Source:** Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI
-**Evidence:** Stated as consequence of performance-driven architecture development
+**Evidence:** Methodology: 'Compared 14 LLMs (various sizes and architectures)' and 'Used fMRI data from participants exposed to naturalistic narrative'
 
 ## Tags
-- [[model-improvement]]
-- [[neural-alignment]]
-- [[emergent-properties]]
+- [[comparative-analysis]]
+- [[fmri]]
+- [[methodology]]
+- [[brain-alignment]]

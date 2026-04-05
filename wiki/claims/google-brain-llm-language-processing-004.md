@@ -1,19 +1,20 @@
 ---
 id: "google-brain-llm-language-processing-004"
-type: "finding"
+type: "concept"
 source: "papers/google-brain-llm-language-processing.pdf"
 source_title: "Google Brain Llm Language Processing"
-cluster: "brain-language-processing"
-tags: ["speech-production", "motor-cortex", "temporal-dynamics"]
+cluster: "llm-brain-alignment-empirical"
+tags: ["prediction", "shared-principles", "llm-neuroscience", "computation"]
 ---
 
-# During speaking, language areas activate approximately 500 milliseconds before articulation
+# The human brain and LLMs share three core computational principles: next-word prediction mechanisms, prediction error signals (surprise responses), and embedding-based contextual representation.
 
-**Type:** finding
+**Type:** concept
 **Source:** Google Brain Llm Language Processing
-**Evidence:** Explicitly stated in speech processing sequence during speaking phase
+**Evidence:** Shared Computational Principles section explicitly lists these three mechanisms as common to both brain and LLM processing.
 
 ## Tags
-- [[speech-production]]
-- [[motor-cortex]]
-- [[temporal-dynamics]]
+- [[prediction]]
+- [[shared-principles]]
+- [[llm-neuroscience]]
+- [[computation]]

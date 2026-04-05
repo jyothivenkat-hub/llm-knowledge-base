@@ -1,19 +1,19 @@
 ---
 id: "do-large-language-models-think-like-the--009"
-type: "finding"
+type: "hypothesis"
 source: "articles/llm-brain-fmri-alignment.md"
 source_title: "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI"
-cluster: "llm-brain-alignment"
-tags: ["instruction-tuning", "model-performance", "language-understanding"]
+cluster: "llm-brain-alignment-empirical"
+tags: ["optimization-tradeoff", "brain-alignment", "model-design"]
 ---
 
-# Instruction-tuned LLMs outperform base model versions in sentence comprehension tasks
+# The finding that intermediate rather than final layers best predict brain activity suggests a fundamental trade-off in LLM design: optimization for downstream task performance diverges from neural-like representations.
 
-**Type:** finding
+**Type:** hypothesis
 **Source:** Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI
-**Evidence:** Comparative analysis of instruction-tuned versus base models
+**Evidence:** Implications: 'The finding that intermediate layers best predict brain activity suggests that the final output layers of LLMs may over-optimize for task performance at the expense of brain-like representations.'
 
 ## Tags
-- [[instruction-tuning]]
-- [[model-performance]]
-- [[language-understanding]]
+- [[optimization-tradeoff]]
+- [[brain-alignment]]
+- [[model-design]]

@@ -1,19 +1,20 @@
 ---
 id: "temporal-language-llm-hierarchy-007"
-type: "finding"
+type: "concept"
 source: "papers/temporal-language-llm-hierarchy.pdf"
 source_title: "Temporal Language Llm Hierarchy"
-cluster: "other"
-tags: ["syntactic-parsing", "morphological-analysis", "mid-stage"]
+cluster: "temporal-hierarchy-language"
+tags: ["transformer-architecture", "brain-inspired", "temporal-processing", "computational-analogy"]
 ---
 
-# Mid-latency neural responses at 150-350ms involve syntactic parsing and morphological analysis
+# The temporal-to-depth correspondence between LLM layers and brain activity suggests that transformer architecture may implement computations that are fundamentally similar to how the brain processes language sequentially over time.
 
-**Type:** finding
+**Type:** concept
 **Source:** Temporal Language Llm Hierarchy
-**Evidence:** Characterized as the function of middle LLM layers in temporal mapping
+**Evidence:** Abstract and Core Finding: establishes alignment as a structural correspondence, not coincidence
 
 ## Tags
-- [[syntactic-parsing]]
-- [[morphological-analysis]]
-- [[mid-stage]]
+- [[transformer-architecture]]
+- [[brain-inspired]]
+- [[temporal-processing]]
+- [[computational-analogy]]

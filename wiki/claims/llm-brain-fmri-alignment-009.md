@@ -1,19 +1,20 @@
 ---
 id: "llm-brain-fmri-alignment-009"
-type: "method"
+type: "concept"
 source: "papers/llm-brain-fmri-alignment.pdf"
 source_title: "Llm Brain Fmri Alignment"
-cluster: "llm-brain-alignment"
-tags: ["neural-prediction", "sentence-level-analysis", "methodology"]
+cluster: "llm-brain-alignment-empirical"
+tags: ["computational-modeling", "language-processing", "brain-alignment", "model-validation"]
 ---
 
-# Sentence-level neural prediction models were constructed to identify correlations between model layers and brain region activations
+# LLMs function as viable computational models for understanding human language processing mechanisms, validated through quantitative alignment with fMRI neural responses during naturalistic comprehension tasks.
 
-**Type:** method
+**Type:** concept
 **Source:** Llm Brain Fmri Alignment
-**Evidence:** Described as primary analytical method in methodology section
+**Evidence:** Implications: 'LLMs function as viable computational models for understanding human language processing.'
 
 ## Tags
-- [[neural-prediction]]
-- [[sentence-level-analysis]]
-- [[methodology]]
+- [[computational-modeling]]
+- [[language-processing]]
+- [[brain-alignment]]
+- [[model-validation]]

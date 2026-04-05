@@ -1,19 +1,20 @@
 ---
 id: "llm-explanations-brain-representations-004"
-type: "finding"
+type: "concept"
 source: "papers/llm-explanations-brain-representations.pdf"
 source_title: "Llm Explanations Brain Representations"
-cluster: "other"
-tags: ["layer-hierarchy", "brain-alignment", "cognitive-processing"]
+cluster: "llm-interpretability-neuroscience"
+tags: ["xai-validation", "biological-plausibility", "neuroscience-ai-bridge", "interpretability"]
 ---
 
-# Deeper layers of large language models correspond to more advanced cognitive stages in the brain
+# Explainability methods can serve as a validation tool for biological plausibility of AI systems by measuring how well XAI-derived explanations predict actual neural activity, reversing the typical direction of neuroscience-to-AI transfer.
 
-**Type:** finding
+**Type:** concept
 **Source:** Llm Explanations Brain Representations
-**Evidence:** Stated in key findings and hierarchical layer alignment section
+**Evidence:** Novel Contribution: 'Demonstrates that explainability methods can assess biological plausibility of AI explanation methods.'
 
 ## Tags
-- [[layer-hierarchy]]
-- [[brain-alignment]]
-- [[cognitive-processing]]
+- [[xai-validation]]
+- [[biological-plausibility]]
+- [[neuroscience-ai-bridge]]
+- [[interpretability]]

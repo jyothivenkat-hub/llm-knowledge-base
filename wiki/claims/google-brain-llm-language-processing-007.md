@@ -1,19 +1,20 @@
 ---
 id: "google-brain-llm-language-processing-007"
-type: "finding"
+type: "method"
 source: "papers/google-brain-llm-language-processing.pdf"
 source_title: "Google Brain Llm Language Processing"
-cluster: "brain-language-processing"
-tags: ["prediction-error", "surprise-response", "shared-principles"]
+cluster: "llm-brain-alignment-empirical"
+tags: ["whisper-model", "embeddings", "neural-prediction", "methodology"]
 ---
 
-# The brain and large language models both generate prediction error signals in response to unexpected language
+# Whisper encoder speech embeddings and Whisper decoder language embeddings can be used to predict and explain human neural activity patterns during natural conversation, establishing a practical bridge between specific LLM components and brain function.
 
-**Type:** finding
+**Type:** method
 **Source:** Google Brain Llm Language Processing
-**Evidence:** Listed as shared computational principle between brain and LLMs
+**Evidence:** Abstract and methodology: extracted speech embeddings from Whisper encoder and language embeddings from Whisper decoder; used to predict neural activity in intracranial electrode recordings.
 
 ## Tags
-- [[prediction-error]]
-- [[surprise-response]]
-- [[shared-principles]]
+- [[whisper-model]]
+- [[embeddings]]
+- [[neural-prediction]]
+- [[methodology]]

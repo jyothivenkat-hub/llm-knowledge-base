@@ -1,19 +1,20 @@
 ---
 id: "llm-explanations-brain-representations-007"
-type: "finding"
+type: "method"
 source: "papers/llm-explanations-brain-representations.pdf"
 source_title: "Llm Explanations Brain Representations"
-cluster: "other"
-tags: ["layer-hierarchy", "semantic-processing", "discourse-comprehension"]
+cluster: "llm-interpretability-neuroscience"
+tags: ["attribution-methods", "fmri-analysis", "methodology", "neural-prediction"]
 ---
 
-# Later layer explanations in LLMs align with semantic integration and discourse-level comprehension in the brain
+# The study uses attribution methods to quantify word influence on next-word predictions, then maps these computational explanations to fMRI data from narrative listening tasks, establishing a novel methodology linking XAI to neuroscience.
 
-**Type:** finding
+**Type:** method
 **Source:** Llm Explanations Brain Representations
-**Evidence:** Detailed in hierarchical layer alignment section
+**Evidence:** Abstract: 'We applied attribution methods to quantify how preceding words influence next-word predictions, then used these explanations to predict brain activity (fMRI data) from people listening to narratives.'
 
 ## Tags
-- [[layer-hierarchy]]
-- [[semantic-processing]]
-- [[discourse-comprehension]]
+- [[attribution-methods]]
+- [[fmri-analysis]]
+- [[methodology]]
+- [[neural-prediction]]

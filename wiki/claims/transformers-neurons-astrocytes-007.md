@@ -1,19 +1,20 @@
 ---
 id: "transformers-neurons-astrocytes-007"
-type: "claim"
+type: "concept"
 source: "papers/transformers-neurons-astrocytes.pdf"
 source_title: "Transformers Neurons Astrocytes"
-cluster: "other"
-tags: ["tripartite-synapse", "attention-mechanism", "query-key-value"]
+cluster: "biological-attention-implementation"
+tags: ["neuromorphic-computing", "bio-inspired", "astrocytes", "hardware-design"]
 ---
 
-# Tripartite synapses implement a biological form of query-key-value attention
+# The discovery that neuron-astrocyte interactions implement transformer-like computations opens a new research direction for neuromorphic computing systems that exploit biological principles rather than mimicking artificial neural networks.
 
-**Type:** claim
+**Type:** concept
 **Source:** Transformers Neurons Astrocytes
-**Evidence:** Proposed mechanism in biological attention mechanism section
+**Evidence:** Stated in Implications section: 'Opens new directions for neuromorphic computing inspired by neuron-astrocyte interactions'
 
 ## Tags
-- [[tripartite-synapse]]
-- [[attention-mechanism]]
-- [[query-key-value]]
+- [[neuromorphic-computing]]
+- [[bio-inspired]]
+- [[astrocytes]]
+- [[hardware-design]]

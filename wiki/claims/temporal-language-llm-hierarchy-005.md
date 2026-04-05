@@ -3,17 +3,18 @@ id: "temporal-language-llm-hierarchy-005"
 type: "finding"
 source: "papers/temporal-language-llm-hierarchy.pdf"
 source_title: "Temporal Language Llm Hierarchy"
-cluster: "other"
-tags: ["phonological-processing", "acoustic-processing", "early-stage"]
+cluster: "temporal-hierarchy-language"
+tags: ["semantics", "discourse", "deep-layers", "temporal-stages"]
 ---
 
-# Early neural responses at 50-150ms involve phonological and basic acoustic processing
+# Deep LLM layers (9-12+) perform semantic integration and discourse-level processing, corresponding to late neural responses (350-600ms), the final stage of language comprehension.
 
 **Type:** finding
 **Source:** Temporal Language Llm Hierarchy
-**Evidence:** Characterized as the function of early LLM layers in temporal mapping
+**Evidence:** Temporal Mapping section: deep layer range mapped to semantic and discourse-level processing
 
 ## Tags
-- [[phonological-processing]]
-- [[acoustic-processing]]
-- [[early-stage]]
+- [[semantics]]
+- [[discourse]]
+- [[deep-layers]]
+- [[temporal-stages]]

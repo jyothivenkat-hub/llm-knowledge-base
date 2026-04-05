@@ -1,19 +1,20 @@
 ---
 id: "neuroscience-of-transformers-009"
-type: "hypothesis"
+type: "method"
 source: "papers/neuroscience-of-transformers.pdf"
 source_title: "Neuroscience Of Transformers"
-cluster: "other"
-tags: ["rhythmic-synchronization", "information-discretization", "cortical-dynamics"]
+cluster: "transformer-neuroscience-analogy"
+tags: ["neuroscience", "transformers", "predictions", "experimental-design"]
 ---
 
-# Cortical circuits use rhythmic synchronization to discretize information into functionally atomic units
+# The transformer-to-cortex mapping generates testable predictions about dendritic integration processes, oscillatory coordination, and laminar specialization that can be empirically validated in neuroscience.
 
-**Type:** hypothesis
+**Type:** method
 **Source:** Neuroscience Of Transformers
-**Evidence:** Proposed mechanism for temporal resolution in cortical computation
+**Evidence:** Predictions Generated section lists four specific testable predictions: laminar specialization, contextual modulation, dendritic integration, and oscillatory coordination
 
 ## Tags
-- [[rhythmic-synchronization]]
-- [[information-discretization]]
-- [[cortical-dynamics]]
+- [[neuroscience]]
+- [[transformers]]
+- [[predictions]]
+- [[experimental-design]]

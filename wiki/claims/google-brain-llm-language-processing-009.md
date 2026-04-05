@@ -1,19 +1,20 @@
 ---
 id: "google-brain-llm-language-processing-009"
-type: "finding"
+type: "method"
 source: "papers/google-brain-llm-language-processing.pdf"
 source_title: "Google Brain Llm Language Processing"
-cluster: "brain-language-processing"
-tags: ["semantic-processing", "acoustic-features", "brain-hierarchy"]
+cluster: "llm-brain-alignment-empirical"
+tags: ["intracranial-recording", "methodology", "temporal-resolution", "neuroscience"]
 ---
 
-# Higher-order brain regions prioritize semantic information while still capturing acoustic features
+# Intracranial electrode recordings during natural conversations provide direct evidence of brain-LLM alignment, offering higher temporal and spatial resolution than non-invasive neuroimaging methods for validating computational models of language.
 
-**Type:** finding
+**Type:** method
 **Source:** Google Brain Llm Language Processing
-**Evidence:** Described in soft hierarchy section
+**Evidence:** Abstract: used intracranial electrode recordings during natural conversations to measure neural activity alignment with LLM embeddings.
 
 ## Tags
-- [[semantic-processing]]
-- [[acoustic-features]]
-- [[brain-hierarchy]]
+- [[intracranial-recording]]
+- [[methodology]]
+- [[temporal-resolution]]
+- [[neuroscience]]

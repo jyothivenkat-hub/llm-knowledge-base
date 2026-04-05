@@ -3,17 +3,18 @@ id: "transformers-neurons-astrocytes-003"
 type: "finding"
 source: "papers/transformers-neurons-astrocytes.pdf"
 source_title: "Transformers Neurons Astrocytes"
-cluster: "other"
-tags: ["astrocytes", "attention-mechanism", "signal-integration"]
+cluster: "biological-attention-implementation"
+tags: ["calcium-signaling", "temporal-dynamics", "modulation", "astrocytes"]
 ---
 
-# Astrocytes integrate signals from thousands of synapses similar to how attention aggregates information across sequence positions
+# Astrocytic calcium signaling operates on slower timescales than neuronal firing, providing a biological substrate for contextual modulation analogous to the learned attention weights in transformer blocks.
 
 **Type:** finding
 **Source:** Transformers Neurons Astrocytes
-**Evidence:** Biological attention mechanism section comparing astrocytic integration to attention aggregation
+**Evidence:** Described in Biological Attention Mechanism section; temporal scale difference highlighted as key to modulation function
 
 ## Tags
+- [[calcium-signaling]]
+- [[temporal-dynamics]]
+- [[modulation]]
 - [[astrocytes]]
-- [[attention-mechanism]]
-- [[signal-integration]]

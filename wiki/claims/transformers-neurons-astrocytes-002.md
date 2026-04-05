@@ -3,17 +3,18 @@ id: "transformers-neurons-astrocytes-002"
 type: "finding"
 source: "papers/transformers-neurons-astrocytes.pdf"
 source_title: "Transformers Neurons Astrocytes"
-cluster: "other"
-tags: ["astrocytes", "attention-mechanism", "synaptic-modulation"]
+cluster: "biological-attention-implementation"
+tags: ["attention", "astrocytes", "signal-integration", "biological-plausibility"]
 ---
 
-# Astrocytes modulate synaptic transmission in a way analogous to attention mechanisms
+# Astrocytes integrate signals from thousands of synapses simultaneously, performing a form of information aggregation functionally equivalent to how attention mechanisms aggregate across sequence positions in transformers.
 
 **Type:** finding
 **Source:** Transformers Neurons Astrocytes
-**Evidence:** Described as key role of astrocytes in implementing attention-like operations
+**Evidence:** Stated in Biological Attention Mechanism section; astrocytic integration capacity compared directly to attention aggregation
 
 ## Tags
+- [[attention]]
 - [[astrocytes]]
-- [[attention-mechanism]]
-- [[synaptic-modulation]]
+- [[signal-integration]]
+- [[biological-plausibility]]

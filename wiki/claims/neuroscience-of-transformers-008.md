@@ -3,17 +3,18 @@ id: "neuroscience-of-transformers-008"
 type: "hypothesis"
 source: "papers/neuroscience-of-transformers.pdf"
 source_title: "Neuroscience Of Transformers"
-cluster: "other"
-tags: ["temporal-scaffolding", "rhythmic-synchronization", "information-discretization"]
+cluster: "transformer-neuroscience-analogy"
+tags: ["attention", "neuroscience", "contextual-modulation", "cortical-circuits"]
 ---
 
-# The brain may resolve temporal discretization through hierarchical temporal scaffolding using rhythmic synchronization
+# Contextual modulation mechanisms in cortical circuits operate similarly to attention mechanisms in transformers, enabling content-dependent routing and selection of information.
 
 **Type:** hypothesis
 **Source:** Neuroscience Of Transformers
-**Evidence:** Proposed as a solution to the temporal discretization challenge
+**Evidence:** Mapping section and predictions identify contextual modulation mechanisms as a generated prediction
 
 ## Tags
-- [[temporal-scaffolding]]
-- [[rhythmic-synchronization]]
-- [[information-discretization]]
+- [[attention]]
+- [[neuroscience]]
+- [[contextual-modulation]]
+- [[cortical-circuits]]

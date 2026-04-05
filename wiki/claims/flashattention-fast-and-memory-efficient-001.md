@@ -4,16 +4,16 @@ type: "concept"
 source: "articles/flash-attention.md"
 source_title: "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness"
 cluster: "attention-optimization"
-tags: ["attention-mechanism", "io-awareness", "gpu-memory"]
+tags: ["attention", "memory-efficiency", "algorithmic-complexity"]
 ---
 
-# FlashAttention is an IO-aware exact attention algorithm that reduces memory reads/writes between GPU HBM and SRAM through tiling
+# Standard attention materializes the full N×N attention matrix, creating O(N²) memory complexity. FlashAttention eliminates this by computing attention in tiles that fit in SRAM, reducing memory to O(N).
 
 **Type:** concept
 **Source:** FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness
-**Evidence:** Stated in abstract and key ideas section as core algorithm design
+**Evidence:** Paper states 'Standard attention has O(N^2) memory complexity due to materializing the attention matrix' and 'Reduces memory from O(N^2) to O(N)'
 
 ## Tags
-- [[attention-mechanism]]
-- [[io-awareness]]
-- [[gpu-memory]]
+- [[attention]]
+- [[memory-efficiency]]
+- [[algorithmic-complexity]]

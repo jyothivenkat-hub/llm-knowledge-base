@@ -3,17 +3,18 @@ id: "llm-explanations-brain-representations-006"
 type: "finding"
 source: "papers/llm-explanations-brain-representations.pdf"
 source_title: "Llm Explanations Brain Representations"
-cluster: "other"
-tags: ["layer-hierarchy", "syntactic-processing", "phonological-processing"]
+cluster: "llm-interpretability-neuroscience"
+tags: ["interpretability", "neural-mechanisms", "language-models", "cognitive-alignment"]
 ---
 
-# Early layer explanations in LLMs correspond to phonological and basic syntactic processing in the brain
+# Attribution-based explanations of LLM predictions reflect principles underlying human brain language processing, establishing that computational explanations and neural mechanisms operate on similar organizational principles.
 
 **Type:** finding
 **Source:** Llm Explanations Brain Representations
-**Evidence:** Detailed in hierarchical layer alignment section
+**Evidence:** Abstract: 'This bridges computational linguistics and neuroscience by showing LLM explanations reflect principles underlying human brain language processing.'
 
 ## Tags
-- [[layer-hierarchy]]
-- [[syntactic-processing]]
-- [[phonological-processing]]
+- [[interpretability]]
+- [[neural-mechanisms]]
+- [[language-models]]
+- [[cognitive-alignment]]

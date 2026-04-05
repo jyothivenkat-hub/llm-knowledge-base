@@ -3,17 +3,17 @@ id: "do-large-language-models-think-like-the--004"
 type: "finding"
 source: "articles/llm-brain-fmri-alignment.md"
 source_title: "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI"
-cluster: "llm-brain-alignment"
-tags: ["brain-regions", "llm-brain-alignment", "language-processing"]
+cluster: "llm-brain-alignment-empirical"
+tags: ["semantic-abstraction", "brain-alignment", "representation-learning"]
 ---
 
-# Language-selective brain regions including inferior frontal gyrus and posterior temporal cortex show strongest alignment with intermediate LLM layers
+# Strongest brain-model correspondence occurs at higher levels of semantic abstraction, with stronger functional and anatomical alignment at more abstract semantic levels rather than surface-level representations.
 
 **Type:** finding
 **Source:** Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI
-**Evidence:** Identified specific brain regions with highest model-brain correlation
+**Evidence:** Key Findings: 'The strongest correspondence between models and brain activity occurs at higher levels of semantic abstraction — stronger functional and anatomical correspondence at higher semantic abstraction levels.'
 
 ## Tags
-- [[brain-regions]]
-- [[llm-brain-alignment]]
-- [[language-processing]]
+- [[semantic-abstraction]]
+- [[brain-alignment]]
+- [[representation-learning]]

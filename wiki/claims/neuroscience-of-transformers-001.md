@@ -1,19 +1,20 @@
 ---
 id: "neuroscience-of-transformers-001"
-type: "hypothesis"
+type: "concept"
 source: "papers/neuroscience-of-transformers.pdf"
 source_title: "Neuroscience Of Transformers"
-cluster: "other"
-tags: ["transformer-architecture", "cortical-columns", "computational-analogy"]
+cluster: "transformer-neuroscience-analogy"
+tags: ["transformers", "neuroscience", "cortical-computation", "analogy"]
 ---
 
-# The transformer architecture provides a natural computational analogy for understanding cortical column organization
+# Transformer architecture provides a computational analogy for understanding cortical column organization, mapping attention mechanisms to contextual selection and content routing in cortical circuits rather than claiming literal implementation in the brain.
 
-**Type:** hypothesis
+**Type:** concept
 **Source:** Neuroscience Of Transformers
-**Evidence:** Stated as the core proposal in the abstract and main thesis
+**Evidence:** Core thesis and mapping section: attention mechanisms map to contextual selection and content routing in cortical circuits
 
 ## Tags
-- [[transformer-architecture]]
-- [[cortical-columns]]
-- [[computational-analogy]]
+- [[transformers]]
+- [[neuroscience]]
+- [[cortical-computation]]
+- [[analogy]]

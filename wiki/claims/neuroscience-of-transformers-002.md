@@ -1,19 +1,20 @@
 ---
 id: "neuroscience-of-transformers-002"
-type: "claim"
+type: "concept"
 source: "papers/neuroscience-of-transformers.pdf"
 source_title: "Neuroscience Of Transformers"
-cluster: "other"
-tags: ["cortical-laminae", "transformer-architecture", "microcircuit-organization"]
+cluster: "transformer-neuroscience-analogy"
+tags: ["transformers", "neuroscience", "dendritic-computation", "microcircuits"]
 ---
 
-# The laminar structure of the cortical column instantiates a transformer-like computational motif
+# Feed-forward layers in transformers correspond to dendritic integration processes in cortical microcircuits, suggesting a computational homology between artificial and biological neural processing.
 
-**Type:** claim
+**Type:** concept
 **Source:** Neuroscience Of Transformers
-**Evidence:** Listed as first core thesis statement
+**Evidence:** Mapping section explicitly states feed-forward layers correspond to dendritic integration processes
 
 ## Tags
-- [[cortical-laminae]]
-- [[transformer-architecture]]
-- [[microcircuit-organization]]
+- [[transformers]]
+- [[neuroscience]]
+- [[dendritic-computation]]
+- [[microcircuits]]

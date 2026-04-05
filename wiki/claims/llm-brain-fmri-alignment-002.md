@@ -1,19 +1,20 @@
 ---
 id: "llm-brain-fmri-alignment-002"
-type: "claim"
+type: "finding"
 source: "papers/llm-brain-fmri-alignment.pdf"
 source_title: "Llm Brain Fmri Alignment"
-cluster: "llm-brain-alignment"
-tags: ["llm-optimization", "brain-alignment", "representational-structure"]
+cluster: "llm-brain-alignment-empirical"
+tags: ["instruction-tuning", "model-variants", "brain-alignment", "language-models"]
 ---
 
-# Final output layers of LLMs may over-optimize for task performance at the expense of brain-like representations
+# Instruction-tuned LLM variants consistently outperform base model versions in both sentence comprehension tasks and neural alignment with fMRI data, indicating that instruction-tuning produces representations closer to human language processing.
 
-**Type:** claim
+**Type:** finding
 **Source:** Llm Brain Fmri Alignment
-**Evidence:** Stated as implication of intermediate layers showing stronger brain correlation
+**Evidence:** Key Findings: 'Instruction-tuned models consistently outperformed base versions in both sentence comprehension and neural alignment.'
 
 ## Tags
-- [[llm-optimization]]
+- [[instruction-tuning]]
+- [[model-variants]]
 - [[brain-alignment]]
-- [[representational-structure]]
+- [[language-models]]

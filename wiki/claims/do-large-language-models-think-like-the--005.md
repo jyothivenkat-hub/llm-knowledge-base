@@ -1,19 +1,19 @@
 ---
 id: "do-large-language-models-think-like-the--005"
-type: "claim"
+type: "finding"
 source: "articles/llm-brain-fmri-alignment.md"
 source_title: "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI"
-cluster: "llm-brain-alignment"
-tags: ["linguistic-information", "sentence-processing", "neural-alignment"]
+cluster: "llm-brain-alignment-empirical"
+tags: ["hemispheric-processing", "brain-alignment", "language-networks"]
 ---
 
-# Intermediate LLM representations carry rich linguistic information that mirrors human sentence-level processing
+# LLM processing engages both left-hemispheric language systems and right-hemispheric networks supporting higher-order cognitive demands, mirroring the distributed nature of human language processing.
 
-**Type:** claim
+**Type:** finding
 **Source:** Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI
-**Evidence:** Explanation for why intermediate layers match brain activity better than final layers
+**Evidence:** Key Findings: 'LLM processing engages both conserved left-hemispheric language systems and right-hemispheric networks supporting higher-order cognitive demands.'
 
 ## Tags
-- [[linguistic-information]]
-- [[sentence-processing]]
-- [[neural-alignment]]
+- [[hemispheric-processing]]
+- [[brain-alignment]]
+- [[language-networks]]

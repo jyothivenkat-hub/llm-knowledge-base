@@ -1,19 +1,20 @@
 ---
 id: "llm-brain-fmri-alignment-010"
-type: "method"
+type: "hypothesis"
 source: "papers/llm-brain-fmri-alignment.pdf"
 source_title: "Llm Brain Fmri Alignment"
-cluster: "llm-brain-alignment"
-tags: ["fmri-data", "naturalistic-stimuli", "experimental-design"]
+cluster: "llm-brain-alignment-empirical"
+tags: ["task-performance", "neural-plausibility", "optimization-trade-offs", "layer-analysis"]
 ---
 
-# fMRI data was collected from participants exposed to a naturalistic narrative story
+# The finding that intermediate rather than final layers best predict brain activity contradicts the assumption that task-optimized outputs best reflect human cognition, suggesting a fundamental trade-off between task performance and neural plausibility.
 
-**Type:** method
+**Type:** hypothesis
 **Source:** Llm Brain Fmri Alignment
-**Evidence:** Described in abstract and methodology section
+**Evidence:** Implications: 'final output layers may over-optimize for task performance at the expense of brain-like representations.'
 
 ## Tags
-- [[fmri-data]]
-- [[naturalistic-stimuli]]
-- [[experimental-design]]
+- [[task-performance]]
+- [[neural-plausibility]]
+- [[optimization-trade-offs]]
+- [[layer-analysis]]

@@ -3,17 +3,18 @@ id: "temporal-language-llm-hierarchy-004"
 type: "finding"
 source: "papers/temporal-language-llm-hierarchy.pdf"
 source_title: "Temporal Language Llm Hierarchy"
-cluster: "other"
-tags: ["temporal-mapping", "early-processing", "layer-hierarchy"]
+cluster: "temporal-hierarchy-language"
+tags: ["syntax", "morphology", "middle-layers", "temporal-stages"]
 ---
 
-# Early LLM layers (1-4) correspond to early neural responses occurring at 50-150ms latency
+# Middle LLM layers (5-8) implement syntactic parsing and morphological analysis, corresponding to the 150-350ms mid-latency neural response window.
 
 **Type:** finding
 **Source:** Temporal Language Llm Hierarchy
-**Evidence:** Temporal mapping section specifies latency ranges for layer groups
+**Evidence:** Temporal Mapping section: middle layer range mapped to syntactic and morphological processing
 
 ## Tags
-- [[temporal-mapping]]
-- [[early-processing]]
-- [[layer-hierarchy]]
+- [[syntax]]
+- [[morphology]]
+- [[middle-layers]]
+- [[temporal-stages]]

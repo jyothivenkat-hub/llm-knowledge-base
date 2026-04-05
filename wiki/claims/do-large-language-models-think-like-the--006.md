@@ -1,19 +1,19 @@
 ---
 id: "do-large-language-models-think-like-the--006"
-type: "finding"
+type: "concept"
 source: "articles/llm-brain-fmri-alignment.md"
 source_title: "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI"
-cluster: "llm-brain-alignment"
-tags: ["model-performance", "llm-brain-alignment", "architecture-evolution"]
+cluster: "llm-brain-alignment-empirical"
+tags: ["representation-learning", "sentence-processing", "brain-alignment"]
 ---
 
-# Enhanced model performance correlates with representational structures that increasingly resemble brain-like hierarchies
+# Intermediate layer representations in LLMs carry rich linguistic information that most closely mirrors human sentence-level processing, suggesting a functional correspondence between mid-layer embeddings and neural sentence comprehension mechanisms.
 
-**Type:** finding
+**Type:** concept
 **Source:** Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI
-**Evidence:** Finding linking improved language task performance to brain-like processing patterns
+**Evidence:** Key Findings: 'These intermediate representations carry rich linguistic information that most closely mirrors human sentence-level processing.'
 
 ## Tags
-- [[model-performance]]
-- [[llm-brain-alignment]]
-- [[architecture-evolution]]
+- [[representation-learning]]
+- [[sentence-processing]]
+- [[brain-alignment]]

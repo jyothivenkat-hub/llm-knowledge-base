@@ -1,19 +1,20 @@
 ---
 id: "neuroscience-of-transformers-010"
-type: "claim"
+type: "finding"
 source: "papers/neuroscience-of-transformers.pdf"
 source_title: "Neuroscience Of Transformers"
-cluster: "other"
-tags: ["computational-analogy", "neuroscience", "machine-learning"]
+cluster: "transformer-neuroscience-analogy"
+tags: ["temporal-dynamics", "transformers", "neuroscience", "recurrence"]
 ---
 
-# Comparing brains and architectures at the level of computational organization yields genuine insight into both disciplines
+# Fundamental tension exists between transformers' requirement for discrete causal sequences and the brain's continuous recurrent dynamics, representing a key challenge in mapping artificial to biological neural computation.
 
-**Type:** claim
+**Type:** finding
 **Source:** Neuroscience Of Transformers
-**Evidence:** Stated as core thesis for the comparative approach
+**Evidence:** Temporal Discretization Challenge section identifies this as a fundamental challenge requiring resolution
 
 ## Tags
-- [[computational-analogy]]
+- [[temporal-dynamics]]
+- [[transformers]]
 - [[neuroscience]]
-- [[machine-learning]]
+- [[recurrence]]

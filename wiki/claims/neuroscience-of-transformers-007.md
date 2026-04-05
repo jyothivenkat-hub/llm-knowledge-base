@@ -1,19 +1,20 @@
 ---
 id: "neuroscience-of-transformers-007"
-type: "claim"
+type: "hypothesis"
 source: "papers/neuroscience-of-transformers.pdf"
 source_title: "Neuroscience Of Transformers"
-cluster: "other"
-tags: ["temporal-discretization", "recurrent-dynamics", "transformer-cortex-gap"]
+cluster: "transformer-neuroscience-analogy"
+tags: ["cortical-columns", "laminar-organization", "transformers", "neuroscience"]
 ---
 
-# A fundamental challenge exists in reconciling the transformer's discrete causal sequences with the cortex's continuous recurrent dynamics
+# Laminar structure of cortical columns instantiates a transformer-like computational motif, suggesting the vertical organization of cortex implements attention-like mechanisms for contextual modulation.
 
-**Type:** claim
+**Type:** hypothesis
 **Source:** Neuroscience Of Transformers
-**Evidence:** Identified as a core temporal discretization challenge
+**Evidence:** Core thesis and predictions section identify laminar specialization patterns as a key prediction
 
 ## Tags
-- [[temporal-discretization]]
-- [[recurrent-dynamics]]
-- [[transformer-cortex-gap]]
+- [[cortical-columns]]
+- [[laminar-organization]]
+- [[transformers]]
+- [[neuroscience]]

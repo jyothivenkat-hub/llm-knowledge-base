@@ -1,19 +1,20 @@
 ---
 id: "transformers-neurons-astrocytes-010"
-type: "hypothesis"
+type: "finding"
 source: "papers/transformers-neurons-astrocytes.pdf"
 source_title: "Transformers Neurons Astrocytes"
-cluster: "other"
-tags: ["neuromorphic-computing", "neuron-astrocyte-networks", "bio-inspired"]
+cluster: "biological-attention-implementation"
+tags: ["global-context", "information-integration", "astrocytes", "sequence-modeling"]
 ---
 
-# Neuromorphic computing can be inspired by neuron-astrocyte interactions
+# Astrocytes integrate information across thousands of synapses, providing a biological mechanism for the global context aggregation that transformers achieve through attention over entire sequences.
 
-**Type:** hypothesis
+**Type:** finding
 **Source:** Transformers Neurons Astrocytes
-**Evidence:** Identified as new direction for neuromorphic computing in implications section
+**Evidence:** Biological Attention Mechanism section; astrocytic integration capacity and scope compared to transformer attention span
 
 ## Tags
-- [[neuromorphic-computing]]
-- [[neuron-astrocyte-networks]]
-- [[bio-inspired]]
+- [[global-context]]
+- [[information-integration]]
+- [[astrocytes]]
+- [[sequence-modeling]]

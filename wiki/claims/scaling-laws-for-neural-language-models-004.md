@@ -3,17 +3,18 @@ id: "scaling-laws-for-neural-language-models-004"
 type: "finding"
 source: "articles/scaling-laws.md"
 source_title: "Scaling Laws for Neural Language Models"
-cluster: "scaling-laws"
-tags: ["scaling-laws", "compute-allocation", "optimization"]
+cluster: "scaling-laws-training"
+tags: ["architecture", "scale", "transformers", "hyperparameters"]
 ---
 
-# Given a fixed compute budget, there exists an optimal allocation between model size and number of training tokens
+# Transformer performance is determined primarily by scale (model width and depth), not by architectural hyperparameters like attention head count or feed-forward dimensions when total parameters are held constant.
 
 **Type:** finding
 **Source:** Scaling Laws for Neural Language Models
-**Evidence:** Presented as key finding in optimal allocation section
+**Evidence:** Increasing attention heads or feed-forward dimensions while keeping total parameters fixed has little effect on performance
 
 ## Tags
-- [[scaling-laws]]
-- [[compute-allocation]]
-- [[optimization]]
+- [[architecture]]
+- [[scale]]
+- [[transformers]]
+- [[hyperparameters]]

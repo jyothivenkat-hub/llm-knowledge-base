@@ -1,19 +1,20 @@
 ---
 id: "scaling-laws-for-neural-language-models-005"
-type: "finding"
+type: "concept"
 source: "articles/scaling-laws.md"
 source_title: "Scaling Laws for Neural Language Models"
-cluster: "scaling-laws"
-tags: ["scaling-laws", "sample-efficiency", "model-size"]
+cluster: "scaling-laws-training"
+tags: ["architecture search", "scaling", "transformers", "research priorities"]
 ---
 
-# Larger language models are more sample-efficient than smaller models, achieving better loss per token seen
+# The Transformer architecture itself is not a performance bottleneck; scaling is the dominant factor, making architecture search less critical than previously believed.
 
-**Type:** finding
+**Type:** concept
 **Source:** Scaling Laws for Neural Language Models
-**Evidence:** Stated as finding in optimal allocation section
+**Evidence:** Performance depends strongly on model size, not specific architectural details
 
 ## Tags
-- [[scaling-laws]]
-- [[sample-efficiency]]
-- [[model-size]]
+- [[architecture search]]
+- [[scaling]]
+- [[transformers]]
+- [[research priorities]]

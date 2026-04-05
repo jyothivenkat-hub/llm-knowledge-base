@@ -1,19 +1,19 @@
 ---
 id: "do-large-language-models-think-like-the--008"
-type: "finding"
+type: "concept"
 source: "articles/llm-brain-fmri-alignment.md"
 source_title: "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI"
-cluster: "llm-brain-alignment"
-tags: ["semantic-abstraction", "llm-brain-alignment", "representational-levels"]
+cluster: "llm-brain-alignment-empirical"
+tags: ["computational-neuroscience", "model-interpretation", "brain-alignment"]
 ---
 
-# The strongest correspondence between models and brain activity occurs at higher levels of semantic abstraction
+# LLMs function as viable computational models for understanding human language processing, with layer-wise embeddings providing interpretable windows into neural mechanisms of sentence comprehension.
 
-**Type:** finding
+**Type:** concept
 **Source:** Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI
-**Evidence:** Key finding on semantic abstraction alignment with brain activity
+**Evidence:** Implications: 'LLMs function as viable computational models for understanding human language processing.'
 
 ## Tags
-- [[semantic-abstraction]]
-- [[llm-brain-alignment]]
-- [[representational-levels]]
+- [[computational-neuroscience]]
+- [[model-interpretation]]
+- [[brain-alignment]]

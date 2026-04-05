@@ -1,19 +1,20 @@
 ---
 id: "attention-is-all-you-need-005"
-type: "method"
+type: "concept"
 source: "articles/sample-attention.md"
 source_title: "Attention Is All You Need"
-cluster: "transformer-architecture"
-tags: ["transformer", "attention-mechanism", "multi-head-attention"]
+cluster: "transformer-architecture-fundamentals"
+tags: ["encoder-decoder", "attention", "architecture", "sequence-transduction"]
 ---
 
-# Multi-head attention is a component of the Transformer architecture
+# The encoder-decoder architecture with attention mechanisms can be simplified and unified under a single attention-based framework, moving away from the previous paradigm of complex recurrent or convolutional components connecting encoder and decoder.
 
-**Type:** method
+**Type:** concept
 **Source:** Attention Is All You Need
-**Evidence:** Listed as a key concept of the paper
+**Evidence:** Introduction: 'The best performing models also connect the encoder and decoder through an attention mechanism' followed by proposal to base entire architecture on attention
 
 ## Tags
-- [[transformer]]
-- [[attention-mechanism]]
-- [[multi-head-attention]]
+- [[encoder-decoder]]
+- [[attention]]
+- [[architecture]]
+- [[sequence-transduction]]

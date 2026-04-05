@@ -1,19 +1,20 @@
 ---
 id: "transformers-neurons-astrocytes-004"
-type: "finding"
+type: "hypothesis"
 source: "papers/transformers-neurons-astrocytes.pdf"
 source_title: "Transformers Neurons Astrocytes"
-cluster: "other"
-tags: ["astrocytes", "calcium-signaling", "temporal-dynamics"]
+cluster: "biological-attention-implementation"
+tags: ["transformer-architecture", "biological-substrate", "convergent-evolution", "neural-computation"]
 ---
 
-# Astrocytic calcium signaling operates on slower timescales than neuronal signaling
+# Neuron-astrocyte networks can naturally implement the complete computational pipeline of a transformer block without requiring explicit training or architectural engineering, suggesting transformers may have rediscovered a computation evolution already solved in biology.
 
-**Type:** finding
+**Type:** hypothesis
 **Source:** Transformers Neurons Astrocytes
-**Evidence:** Described as operating on slower timescales in the biological attention mechanism section
+**Evidence:** Core thesis of paper; stated in Implications section as 'accidentally discovered a computation that biology evolved independently'
 
 ## Tags
-- [[astrocytes]]
-- [[calcium-signaling]]
-- [[temporal-dynamics]]
+- [[transformer-architecture]]
+- [[biological-substrate]]
+- [[convergent-evolution]]
+- [[neural-computation]]

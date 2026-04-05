@@ -3,17 +3,18 @@ id: "llm-explanations-brain-representations-003"
 type: "finding"
 source: "papers/llm-explanations-brain-representations.pdf"
 source_title: "Llm Explanations Brain Representations"
-cluster: "other"
-tags: ["layer-hierarchy", "brain-alignment", "language-processing"]
+cluster: "llm-interpretability-neuroscience"
+tags: ["attribution", "predictive-power", "neural-alignment", "computational-neuroscience"]
 ---
 
-# Early layers of large language models align with initial stages of brain language processing
+# LLM layers with greater influence on next-word prediction demonstrate stronger alignment with brain activity, suggesting that computational importance in language models correlates with neural importance in human language processing.
 
 **Type:** finding
 **Source:** Llm Explanations Brain Representations
-**Evidence:** Stated in key findings and hierarchical layer alignment section
+**Evidence:** Key Findings: 'Layers with greater influence on next-word prediction demonstrate stronger brain alignment.'
 
 ## Tags
-- [[layer-hierarchy]]
-- [[brain-alignment]]
-- [[language-processing]]
+- [[attribution]]
+- [[predictive-power]]
+- [[neural-alignment]]
+- [[computational-neuroscience]]
