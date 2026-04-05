@@ -97,20 +97,85 @@ def _generate_section_index(section_dir: Path, title: str, description: str):
 
 
 def _generate_master_index(config: Config):
-    """Generate the master wiki/_index.md."""
+    """Generate a comprehensive wiki/_index.md — full catalog of everything."""
     wiki_path = config.wiki_path
+    import json as _json
 
     lines = ["# Knowledge Base Index", ""]
-    lines.append("## Sections")
+    lines.append("A complete catalog of everything in this knowledge base.")
     lines.append("")
 
-    for section in ["sources", "concepts", "topics"]:
-        section_path = wiki_path / section
-        if section_path.exists():
-            count = len([f for f in section_path.rglob("*.md") if not f.name.startswith("_")])
-            lines.append(f"- [[{section}/_index|{section.title()}]] — {count} articles")
+    # Entity pages
+    entities_dir = wiki_path / "entities"
+    if entities_dir.exists():
+        entity_files = sorted(f for f in entities_dir.glob("*.md") if not f.name.startswith("_"))
+        if entity_files:
+            lines.append(f"## Entities ({len(entity_files)})")
+            lines.append("")
+            for f in entity_files:
+                brief = _extract_brief(read_markdown(f), f.stem)
+                lines.append(f"- [[entities/{f.stem}|{f.stem.replace('-', ' ').title()}]] — {brief}")
+            lines.append("")
 
+    # Claims by paper
+    graph_path = config.graph_path
+    if graph_path.exists():
+        graph = _json.loads(graph_path.read_text(encoding="utf-8"))
+        nodes = graph.get("nodes", [])
+
+        # Group claims by source paper
+        papers = {}
+        for n in nodes:
+            paper = n.get("source_title", n.get("source_paper", "Unknown"))
+            if paper not in papers:
+                papers[paper] = []
+            papers[paper].append(n)
+
+        lines.append(f"## Claims by Paper ({len(nodes)} total)")
+        lines.append("")
+        for paper_title, claims in sorted(papers.items()):
+            lines.append(f"### {paper_title} ({len(claims)} claims)")
+            for c in claims[:5]:
+                lines.append(f"- [[claims/{c['id']}]] — {c['text'][:80]}")
+            if len(claims) > 5:
+                lines.append(f"- ... and {len(claims) - 5} more")
+            lines.append("")
+
+        # Clusters
+        clusters = graph.get("clusters", [])
+        if clusters:
+            lines.append(f"## Clusters ({len(clusters)})")
+            lines.append("")
+            for c in clusters:
+                lines.append(f"- **{c.get('label', c['id'])}** — {len(c.get('node_ids', []))} claims — {c.get('description', '')[:80]}")
+            lines.append("")
+
+        # Product ideas
+        ideas = graph.get("product_ideas", [])
+        if ideas:
+            lines.append(f"## Product Ideas ({len(ideas)})")
+            lines.append("")
+            for idea in ideas:
+                lines.append(f"- **{idea.get('name', '?')}** — {idea.get('tagline', '')}")
+            lines.append("")
+
+    # Source summaries
+    sources_dir = wiki_path / "sources"
+    if sources_dir.exists():
+        source_files = sorted(f for f in sources_dir.glob("*.md") if not f.name.startswith("_"))
+        if source_files:
+            lines.append(f"## Source Summaries ({len(source_files)})")
+            lines.append("")
+            for f in source_files:
+                brief = _extract_brief(read_markdown(f), f.stem)
+                lines.append(f"- [[sources/{f.stem}]] — {brief}")
+            lines.append("")
+
+    # Stats
+    lines.append("---")
+    lines.append(f"*Last updated: {__import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M')}*")
     lines.append("")
+
     (wiki_path / "_index.md").write_text("\n".join(lines), encoding="utf-8")
     logger.info("Generated master index")
 

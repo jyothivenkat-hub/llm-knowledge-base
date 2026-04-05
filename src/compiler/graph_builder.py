@@ -153,13 +153,13 @@ def build_graph(
     progress(f"  Total: {len(all_nodes)} claims ({len(preserved_nodes)} preserved + {len(new_nodes)} new)")
 
     # ── Stage 2: Find connections (only involving new nodes) ──
-    progress("Graph 2/6: Finding connections for new claims...")
+    progress("Graph 2/7: Finding connections for new claims...")
     new_edges = _connect_new_claims(llm, all_nodes, new_node_ids, progress)
     all_edges = preserved_edges + new_edges
     progress(f"  Connections: {len(all_edges)} total ({len(preserved_edges)} preserved + {len(new_edges)} new)")
 
     # ── Stage 3: Update clusters ───────────────────────────
-    progress("Graph 3/6: Updating clusters...")
+    progress("Graph 3/7: Updating clusters...")
     clusters = _update_clusters(llm, all_nodes, all_edges, existing_clusters, new_node_ids, progress)
     progress(f"  {len(clusters)} clusters")
 
@@ -175,17 +175,23 @@ def build_graph(
         if node["cluster"]:
             _save_claim_page(claims_dir, node)
 
-    # ── Stage 4: Enrich ────────────────────────────────────
-    progress("Graph 4/6: Analyzing insights...")
+    # ── Stage 4: Generate/update entity pages ────────────────
+    progress("Graph 4/7: Updating entity pages...")
+    entities_dir = ensure_dir(config.wiki_path / "entities")
+    entity_count = _update_entity_pages(config, llm, all_nodes, entities_dir, progress)
+    progress(f"  {entity_count} entity pages")
+
+    # ── Stage 5: Enrich ────────────────────────────────────
+    progress("Graph 5/7: Analyzing insights...")
     insights = _enrich_graph(llm, all_nodes, all_edges, clusters, progress)
 
-    # ── Stage 5: Product ideas ─────────────────────────────
-    progress("Graph 5/6: Generating product ideas...")
+    # ── Stage 6: Product ideas ─────────────────────────────
+    progress("Graph 6/7: Generating product ideas...")
     product_ideas = _generate_product_ideas(config, llm, all_nodes, clusters, insights, progress)
     progress(f"  {len(product_ideas)} product ideas")
 
-    # ── Stage 6: Save ──────────────────────────────────────
-    progress("Graph 6/6: Saving graph...")
+    # ── Stage 7: Save ──────────────────────────────────────
+    progress("Graph 7/7: Saving graph...")
     # Count total papers from all nodes
     all_papers = set(n.get("source_paper", "") for n in all_nodes)
 
@@ -469,7 +475,73 @@ def _fallback_cluster(nodes: List[Dict]) -> List[Dict]:
             for i, (tag, nids) in enumerate(tag_groups.items())]
 
 
-# ─── Stage 4: Enrich ─────────────────────────────────────
+# ─── Stage 4: Entity Pages ───────────────────────────────
+
+def _update_entity_pages(
+    config: Config, llm: LLM, nodes: List[Dict], entities_dir: Path, progress: Callable
+) -> int:
+    """Generate or update entity pages — synthesis pages that evolve across papers.
+
+    Finds the most common tags across claims and creates a page for each major entity.
+    Existing pages get updated with new claims, not rewritten from scratch.
+    """
+    from ..utils import read_markdown
+
+    # Count tag frequency across all claims
+    tag_counts = defaultdict(list)
+    for node in nodes:
+        for tag in node.get("tags", []):
+            tag_counts[tag.lower()].append(node)
+
+    # Only create entity pages for tags with 3+ claims
+    entities_to_generate = {
+        tag: claims for tag, claims in tag_counts.items()
+        if len(claims) >= 3
+    }
+
+    if not entities_to_generate:
+        return 0
+
+    count = 0
+    for entity_tag, entity_claims in sorted(entities_to_generate.items(), key=lambda x: -len(x[1])):
+        entity_name = entity_tag.replace("-", " ").title()
+        entity_path = entities_dir / f"{slugify(entity_tag)}.md"
+
+        # Load existing content if page already exists
+        existing_content = ""
+        if entity_path.exists():
+            existing_content = read_markdown(entity_path)
+
+        # Get unique source papers
+        source_papers = set(c.get("source_title", "") for c in entity_claims)
+        claim_ids = ", ".join(f'"{c["id"]}"' for c in entity_claims)
+
+        progress(f"  Entity: {entity_name} ({len(entity_claims)} claims from {len(source_papers)} papers)")
+
+        try:
+            article = llm.call(
+                prompt="",
+                template="generate_entity.md",
+                template_vars={
+                    "entity_name": entity_name,
+                    "claims": entity_claims[:20],
+                    "existing_content": existing_content[:2000] if existing_content else "",
+                    "claim_ids": claim_ids,
+                    "date": datetime.now().strftime("%Y-%m-%d"),
+                    "source_count": len(source_papers),
+                },
+            )
+
+            entity_path.write_text(article, encoding="utf-8")
+            count += 1
+
+        except Exception as e:
+            logger.warning("Entity page failed for %s: %s", entity_name, e)
+
+    return count
+
+
+# ─── Stage 5: Enrich ─────────────────────────────────────
 
 def _enrich_graph(llm: LLM, nodes: List[Dict], edges: List[Dict], clusters: List[Dict], progress: Callable) -> Dict:
     try:
