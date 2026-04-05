@@ -1,20 +1,19 @@
 ---
 id: "llm-brain-fmri-alignment-006"
-type: "method"
+type: "finding"
 source: "papers/llm-brain-fmri-alignment.pdf"
 source_title: "Llm Brain Fmri Alignment"
-cluster: "llm-brain-alignment-empirical"
-tags: ["neural-prediction", "layer-wise-analysis", "fmri-alignment", "methodology"]
+cluster: "llm-brain-alignment-neuroscience"
+tags: ["computational-principles", "hierarchical-representations", "brain-alignment"]
 ---
 
-# Sentence-level neural prediction models using layer-wise LLM embeddings can identify specific model layers that correlate with activations in particular brain regions, enabling fine-grained mapping between computational and neural representations.
+# Enhanced LLM model performance correlates with representational structures that increasingly resemble brain-like hierarchies, suggesting computational principles may be shared between artificial and biological language systems.
 
-**Type:** method
+**Type:** finding
 **Source:** Llm Brain Fmri Alignment
-**Evidence:** Methodology section: 'Constructed sentence-level neural prediction models. Identified model layers most correlated with brain region activations.'
+**Evidence:** Key finding: 'Enhanced model performance correlates with representational structures that increasingly resemble brain-like hierarchies'
 
 ## Tags
-- [[neural-prediction]]
-- [[layer-wise-analysis]]
-- [[fmri-alignment]]
-- [[methodology]]
+- [[computational-principles]]
+- [[hierarchical-representations]]
+- [[brain-alignment]]

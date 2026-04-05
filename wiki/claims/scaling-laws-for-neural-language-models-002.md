@@ -3,18 +3,18 @@ id: "scaling-laws-for-neural-language-models-002"
 type: "finding"
 source: "articles/scaling-laws.md"
 source_title: "Scaling Laws for Neural Language Models"
-cluster: "scaling-laws-training"
-tags: ["sample efficiency", "model size", "data efficiency", "compute allocation"]
+cluster: "scaling-laws-language-models"
+tags: ["sample efficiency", "compute allocation", "training dynamics", "data efficiency"]
 ---
 
-# Larger models are more sample-efficient than smaller models: training a larger model on fewer tokens achieves better loss than training a smaller model on more tokens with equivalent compute.
+# Given a fixed compute budget, larger models trained on fewer tokens are more sample-efficient and achieve better loss than smaller models trained on more tokens. This inverts the conventional wisdom that more data is always better.
 
 **Type:** finding
 **Source:** Scaling Laws for Neural Language Models
-**Evidence:** Demonstrated through power law exponents showing D^-0.095 scaling is weaker than N^-0.076, indicating model size has stronger effect on loss
+**Evidence:** Optimal Allocation section: 'Larger models are more sample-efficient' and 'It's better to train a larger model on less data than a smaller model on more data'
 
 ## Tags
 - [[sample efficiency]]
-- [[model size]]
-- [[data efficiency]]
 - [[compute allocation]]
+- [[training dynamics]]
+- [[data efficiency]]

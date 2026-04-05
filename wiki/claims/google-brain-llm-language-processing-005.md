@@ -3,18 +3,19 @@ id: "google-brain-llm-language-processing-005"
 type: "finding"
 source: "papers/google-brain-llm-language-processing.pdf"
 source_title: "Google Brain Llm Language Processing"
-cluster: "llm-brain-alignment-empirical"
-tags: ["hierarchy", "semantic-acoustic", "brain-organization", "soft-hierarchy"]
+cluster: "temporal-dynamics-language-processing"
+tags: ["architecture-differences", "serial-vs-parallel", "representational-alignment", "transformers", "neuroscience"]
 ---
 
-# Brain language processing exhibits a soft hierarchy where higher-order regions prioritize semantic information but still capture acoustic features, while lower-order areas primarily process sound but also decode meaning—contradicting strict feedforward models.
+# Despite fundamental architectural differences—brains process language serially and temporally while transformers process thousands of words simultaneously—representational alignment between brain activity and LLM embeddings remains striking, suggesting alignment is independent of processing speed/parallelism.
 
 **Type:** finding
 **Source:** Google Brain Llm Language Processing
-**Evidence:** Soft Hierarchy section: higher-order brain regions prioritize semantic information yet still capture acoustic features; lower-order areas primarily process sound but also decode meaning; contrasts with strict feedforward models.
+**Evidence:** Key Differences section identifies this paradox as a major finding
 
 ## Tags
-- [[hierarchy]]
-- [[semantic-acoustic]]
-- [[brain-organization]]
-- [[soft-hierarchy]]
+- [[architecture-differences]]
+- [[serial-vs-parallel]]
+- [[representational-alignment]]
+- [[transformers]]
+- [[neuroscience]]

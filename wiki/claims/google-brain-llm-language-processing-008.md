@@ -1,20 +1,21 @@
 ---
 id: "google-brain-llm-language-processing-008"
-type: "concept"
+type: "finding"
 source: "papers/google-brain-llm-language-processing.pdf"
 source_title: "Google Brain Llm Language Processing"
-cluster: "llm-brain-alignment-empirical"
-tags: ["prediction-error", "surprise", "shared-mechanisms", "anomaly-detection"]
+cluster: "temporal-dynamics-language-processing"
+tags: ["speech-production", "prediction", "motor-planning", "temporal-dynamics", "language-generation"]
 ---
 
-# Prediction error signals (surprise responses) are a shared computational mechanism between human brains and LLMs, suggesting both systems use similar mechanisms to detect unexpected or novel linguistic input.
+# The temporal ordering of brain activation during speech production (language planning ~500ms before articulation) provides evidence that the brain implements predictive language generation similar to LLM decoding, not just reactive speech output.
 
-**Type:** concept
+**Type:** finding
 **Source:** Google Brain Llm Language Processing
-**Evidence:** Shared Computational Principles section lists 'Prediction error signals (surprise responses)' as a mechanism common to both brain and LLM processing.
+**Evidence:** Speech Processing Sequence section: language areas activate ~500ms before motor cortex engagement during speaking
 
 ## Tags
-- [[prediction-error]]
-- [[surprise]]
-- [[shared-mechanisms]]
-- [[anomaly-detection]]
+- [[speech-production]]
+- [[prediction]]
+- [[motor-planning]]
+- [[temporal-dynamics]]
+- [[language-generation]]

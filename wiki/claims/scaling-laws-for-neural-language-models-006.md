@@ -3,18 +3,18 @@ id: "scaling-laws-for-neural-language-models-006"
 type: "finding"
 source: "articles/scaling-laws.md"
 source_title: "Scaling Laws for Neural Language Models"
-cluster: "scaling-laws-training"
-tags: ["scaling laws", "prediction", "extrapolation", "experimental design"]
+cluster: "scaling-laws-language-models"
+tags: ["scaling laws", "training tokens", "compute allocation", "chinchilla"]
 ---
 
-# Small-scale model experiments can reliably predict large-scale model performance through power law extrapolation, enabling cost-effective performance forecasting.
+# Chinchilla scaling laws (Hoffmann et al., 2022) revised the original findings to show that models should be trained on approximately 20x more tokens than parameters, indicating that many existing models were significantly undertrained relative to their size.
 
 **Type:** finding
 **Source:** Scaling Laws for Neural Language Models
-**Evidence:** Power law relationships enable prediction across different scales
+**Evidence:** Connection to Chinchilla Scaling Laws section: 'Showed that models should be trained on roughly 20x more tokens than parameters' and 'Many existing models were significantly undertrained'
 
 ## Tags
 - [[scaling laws]]
-- [[prediction]]
-- [[extrapolation]]
-- [[experimental design]]
+- [[training tokens]]
+- [[compute allocation]]
+- [[chinchilla]]

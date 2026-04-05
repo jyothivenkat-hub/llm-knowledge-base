@@ -1,19 +1,20 @@
 ---
 id: "do-large-language-models-think-like-the--009"
-type: "hypothesis"
+type: "concept"
 source: "articles/llm-brain-fmri-alignment.md"
 source_title: "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI"
-cluster: "llm-brain-alignment-empirical"
-tags: ["optimization-tradeoff", "brain-alignment", "model-design"]
+cluster: "llm-brain-alignment-neuroscience"
+tags: ["computational-neuroscience", "brain-modeling", "llm-interpretability", "language-processing"]
 ---
 
-# The finding that intermediate rather than final layers best predict brain activity suggests a fundamental trade-off in LLM design: optimization for downstream task performance diverges from neural-like representations.
+# Large language models function as viable computational models for understanding human language processing mechanisms, with layer-wise representations providing interpretable proxies for neural computation.
 
-**Type:** hypothesis
+**Type:** concept
 **Source:** Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI
-**Evidence:** Implications: 'The finding that intermediate layers best predict brain activity suggests that the final output layers of LLMs may over-optimize for task performance at the expense of brain-like representations.'
+**Evidence:** Implications section: 'LLMs function as viable computational models for understanding human language processing.'
 
 ## Tags
-- [[optimization-tradeoff]]
-- [[brain-alignment]]
-- [[model-design]]
+- [[computational-neuroscience]]
+- [[brain-modeling]]
+- [[llm-interpretability]]
+- [[language-processing]]

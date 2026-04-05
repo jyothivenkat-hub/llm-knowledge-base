@@ -1,19 +1,20 @@
 ---
 id: "do-large-language-models-think-like-the--006"
-type: "concept"
+type: "finding"
 source: "articles/llm-brain-fmri-alignment.md"
 source_title: "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI"
-cluster: "llm-brain-alignment-empirical"
-tags: ["representation-learning", "sentence-processing", "brain-alignment"]
+cluster: "llm-brain-alignment-neuroscience"
+tags: ["hemispheric-specialization", "neural-architecture", "brain-alignment", "cognitive-processing"]
 ---
 
-# Intermediate layer representations in LLMs carry rich linguistic information that most closely mirrors human sentence-level processing, suggesting a functional correspondence between mid-layer embeddings and neural sentence comprehension mechanisms.
+# LLM processing engages both left-hemispheric language systems and right-hemispheric networks supporting higher-order cognitive demands, mirroring the distributed neural architecture of human language comprehension.
 
-**Type:** concept
+**Type:** finding
 **Source:** Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI
-**Evidence:** Key Findings: 'These intermediate representations carry rich linguistic information that most closely mirrors human sentence-level processing.'
+**Evidence:** Key Findings section: 'LLM processing engages both conserved left-hemispheric language systems and right-hemispheric networks supporting higher-order cognitive demands.'
 
 ## Tags
-- [[representation-learning]]
-- [[sentence-processing]]
+- [[hemispheric-specialization]]
+- [[neural-architecture]]
 - [[brain-alignment]]
+- [[cognitive-processing]]

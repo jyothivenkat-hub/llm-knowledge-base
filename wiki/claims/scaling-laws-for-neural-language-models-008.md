@@ -1,20 +1,20 @@
 ---
 id: "scaling-laws-for-neural-language-models-008"
-type: "finding"
+type: "hypothesis"
 source: "articles/scaling-laws.md"
 source_title: "Scaling Laws for Neural Language Models"
-cluster: "scaling-laws-training"
-tags: ["scaling laws", "training tokens", "model size", "chinchilla"]
+cluster: "scaling-laws-language-models"
+tags: ["scaling laws", "generalization", "empirical validation", "robustness"]
 ---
 
-# Chinchilla scaling laws (Hoffmann et al., 2022) revised the original findings to show models should be trained on approximately 20x more tokens than parameters, indicating many contemporary models were significantly undertrained.
+# Scaling laws are empirically consistent across model sizes, dataset sizes, and compute budgets, suggesting these relationships are fundamental properties of language modeling rather than artifacts of specific experimental conditions.
 
-**Type:** finding
+**Type:** hypothesis
 **Source:** Scaling Laws for Neural Language Models
-**Evidence:** Chinchilla paper demonstrated 20x token-to-parameter ratio is optimal, contradicting earlier allocation strategies
+**Evidence:** Key Findings section describes power law relationships as consistent across 'multiple orders of magnitude' (implied by the general framing)
 
 ## Tags
 - [[scaling laws]]
-- [[training tokens]]
-- [[model size]]
-- [[chinchilla]]
+- [[generalization]]
+- [[empirical validation]]
+- [[robustness]]

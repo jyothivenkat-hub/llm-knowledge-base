@@ -675,6 +675,30 @@ def create_app(config: Optional[Config] = None) -> Flask:
 
         built_at = graph_meta.get("built_at", "")
 
+        # Domains
+        graph_domains = graph_data.get("domains", [])
+        bridge_facts = graph_data.get("bridge_facts", [])
+
+        # Enrich domains with counts
+        cluster_map = {c["id"]: c for c in graph_clusters}
+        domains_enriched = []
+        for domain in graph_domains:
+            domain_cluster_ids = set(domain.get("cluster_ids", []))
+            domain_claim_count = 0
+            domain_papers = set()
+            for cid in domain_cluster_ids:
+                cluster = cluster_map.get(cid, {})
+                for nid in cluster.get("node_ids", []):
+                    domain_claim_count += 1
+                    node = node_map.get(nid, {})
+                    if node.get("source_paper"):
+                        domain_papers.add(node["source_paper"])
+            domains_enriched.append({
+                **domain,
+                "claim_count": domain_claim_count,
+                "article_count": len(domain_papers),
+            })
+
         return jsonify({
             "papers": papers,
             "claims_summary": {
@@ -686,11 +710,130 @@ def create_app(config: Optional[Config] = None) -> Flask:
                 "claims": type_counts.get("claim", 0),
             },
             "cluster_sections": cluster_sections,
+            "domains": domains_enriched,
+            "bridge_facts": bridge_facts,
             "product_ideas": product_ideas,
             "insights": insights,
             "source_articles": source_articles,
             "total_edges": graph_meta.get("total_edges", 0),
             "built_at": built_at,
+        })
+
+    @app.route("/api/domain/<domain_id>")
+    def api_domain(domain_id):
+        """Return portal data for a single domain — its clusters, articles, entities, ideas."""
+        if not config.graph_path.exists():
+            return jsonify({"error": "No graph data"}), 404
+
+        graph_data = json.loads(config.graph_path.read_text(encoding="utf-8"))
+        graph_nodes = graph_data.get("nodes", [])
+        graph_edges = graph_data.get("edges", [])
+        graph_clusters = graph_data.get("clusters", [])
+        graph_domains = graph_data.get("domains", [])
+        product_ideas = graph_data.get("product_ideas", [])
+
+        # Find the domain
+        domain = next((d for d in graph_domains if d.get("id") == domain_id), None)
+        if not domain:
+            return jsonify({"error": "Domain not found"}), 404
+
+        domain_cluster_ids = set(domain.get("cluster_ids", []))
+        node_map = {n["id"]: n for n in graph_nodes}
+
+        # Collect all node IDs in this domain
+        domain_node_ids = set()
+        for cluster in graph_clusters:
+            if cluster.get("id") in domain_cluster_ids:
+                domain_node_ids.update(cluster.get("node_ids", []))
+
+        # Domain papers (unique source papers)
+        domain_papers = set()
+        for nid in domain_node_ids:
+            node = node_map.get(nid, {})
+            if node.get("source_paper"):
+                domain_papers.add(node["source_paper"])
+
+        # Build cluster sections for this domain only
+        domain_clusters = []
+        for cluster in graph_clusters:
+            if cluster.get("id") not in domain_cluster_ids:
+                continue
+            cid = cluster.get("id", "")
+            cluster_node_ids_set = set(cluster.get("node_ids", []))
+            cluster_nodes = [node_map[nid] for nid in cluster_node_ids_set if nid in node_map]
+            findings = [n for n in cluster_nodes if n.get("type") == "finding"]
+            methods = [n for n in cluster_nodes if n.get("type") == "method"]
+            concepts = [n for n in cluster_nodes if n.get("type") in ("concept",)]
+
+            domain_clusters.append({
+                "id": cid,
+                "label": cluster.get("label", cid),
+                "description": cluster.get("description", ""),
+                "key_findings": [{"text": n["text"], "source_title": n.get("source_title", ""), "type": n.get("type", "")} for n in findings[:8]],
+                "methods": [{"text": n["text"], "type": n.get("type", "")} for n in methods[:5]],
+                "concepts": [{"text": n["text"], "type": n.get("type", "")} for n in concepts[:5]],
+                "total_claims": len(cluster_nodes),
+            })
+
+        # Cross-domain bridge connections
+        bridges = []
+        for edge in graph_edges:
+            src_in = edge.get("source_id", "") in domain_node_ids
+            tgt_in = edge.get("target_id", "") in domain_node_ids
+            if src_in != tgt_in:  # crosses domain boundary
+                src_node = node_map.get(edge.get("source_id", ""), {})
+                tgt_node = node_map.get(edge.get("target_id", ""), {})
+                if src_node and tgt_node and edge.get("strength", 0) >= 0.5:
+                    bridges.append({
+                        "relationship": edge.get("relationship", "related"),
+                        "source_text": src_node.get("text", ""),
+                        "target_text": tgt_node.get("text", ""),
+                        "explanation": edge.get("explanation", ""),
+                    })
+        bridges = bridges[:10]
+
+        # Filter product ideas relevant to this domain's clusters
+        domain_ideas = []
+        for idea in product_ideas:
+            evidence = idea.get("evidence", [])
+            if any(True for e in evidence if isinstance(e, str) and any(
+                nid in e for nid in list(domain_node_ids)[:20]
+            )):
+                domain_ideas.append(idea)
+        if not domain_ideas:
+            domain_ideas = product_ideas[:3]
+
+        # Entity pages in this domain
+        import frontmatter as fm
+        entities_dir = config.wiki_path / "entities"
+        domain_entities = []
+        if entities_dir.exists():
+            for f in sorted(entities_dir.glob("*.md")):
+                if f.name.startswith("_"):
+                    continue
+                raw = f.read_text(encoding="utf-8")
+                try:
+                    post = fm.loads(raw)
+                    meta = post.metadata
+                except Exception:
+                    meta = {}
+                related = meta.get("related_claims", [])
+                if any(rc in domain_node_ids for rc in related):
+                    domain_entities.append({
+                        "slug": f.stem,
+                        "title": meta.get("title", f.stem.replace("-", " ").title()),
+                        "source_count": meta.get("source_count", 0),
+                    })
+
+        return jsonify({
+            **domain,
+            "clusters": domain_clusters,
+            "article_count": len(domain_papers),
+            "claim_count": len(domain_node_ids),
+            "entity_count": len(domain_entities),
+            "entities": domain_entities,
+            "bridges": bridges,
+            "product_ideas": domain_ideas,
         })
 
     @app.route("/api/wiki-articles")
@@ -731,6 +874,68 @@ def create_app(config: Optional[Config] = None) -> Flask:
                 })
 
         return jsonify({"articles": articles})
+
+    @app.route("/api/entities")
+    def api_entities():
+        """List all wiki entity pages with metadata."""
+        import frontmatter as fm
+
+        entities_dir = config.wiki_path / "entities"
+        entities = []
+        if entities_dir.exists():
+            for f in sorted(entities_dir.glob("*.md")):
+                if f.name.startswith("_"):
+                    continue
+                raw = f.read_text(encoding="utf-8")
+                try:
+                    post = fm.loads(raw)
+                    meta = post.metadata
+                except Exception:
+                    meta = {}
+                entities.append({
+                    "slug": f.stem,
+                    "title": meta.get("title", f.stem.replace("-", " ").title()),
+                    "related_claims": meta.get("related_claims", []),
+                    "last_updated": meta.get("last_updated", ""),
+                    "source_count": meta.get("source_count", 0),
+                })
+        return jsonify({"entities": entities})
+
+    @app.route("/api/entity/<slug>")
+    def api_entity(slug):
+        """Return a single entity page with HTML content."""
+        import frontmatter as fm
+        import re
+
+        entity_file = config.wiki_path / "entities" / f"{slug}.md"
+        if not entity_file.exists():
+            return jsonify({"error": "Entity not found"}), 404
+
+        raw = entity_file.read_text(encoding="utf-8")
+        try:
+            post = fm.loads(raw)
+            meta = post.metadata
+            body = post.content
+        except Exception:
+            meta = {}
+            body = raw
+
+        # Convert [[wikilinks]] to data attributes for React
+        body = re.sub(
+            r"\[\[([^\]|]+?)(?:\|([^\]]+?))?\]\]",
+            lambda m: f'<a data-wikilink="{m.group(1)}">{m.group(2) or m.group(1)}</a>',
+            body,
+        )
+
+        return jsonify({
+            "slug": slug,
+            "title": meta.get("title", slug.replace("-", " ").title()),
+            "related_claims": meta.get("related_claims", []),
+            "last_updated": meta.get("last_updated", ""),
+            "source_count": meta.get("source_count", 0),
+            "content_md": body,
+            "content_html": render_md(body) if render_md else body,
+        })
 
     @app.route("/raw/<path:filepath>")
     def serve_raw(filepath):
@@ -906,10 +1111,27 @@ def create_app(config: Optional[Config] = None) -> Flask:
                             "source_paper": r.get("source_paper", ""),
                         })
 
+                    # Auto-cache the result
+                    try:
+                        cached_path = Path(__file__).parent / "static" / "cached_answers.json"
+                        cached = {}
+                        if cached_path.exists():
+                            cached = json.loads(cached_path.read_text(encoding="utf-8"))
+                        cached[question.strip().lower()] = {
+                            "question": question.strip(),
+                            "answer": answer_html,
+                            "evidence": evidence,
+                        }
+                        cached_path.parent.mkdir(parents=True, exist_ok=True)
+                        cached_path.write_text(json.dumps(cached, indent=2, ensure_ascii=False), encoding="utf-8")
+                    except Exception:
+                        pass  # Don't fail the response if caching fails
+
                     queue.put({
                         "done": True,
                         "answer_html": answer_html,
                         "evidence": evidence,
+                        "cached": False,
                     })
 
                 except Exception as e:

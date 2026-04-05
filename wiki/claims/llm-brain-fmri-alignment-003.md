@@ -3,18 +3,17 @@ id: "llm-brain-fmri-alignment-003"
 type: "finding"
 source: "papers/llm-brain-fmri-alignment.pdf"
 source_title: "Llm Brain Fmri Alignment"
-cluster: "llm-brain-alignment-empirical"
-tags: ["semantic-abstraction", "representation-learning", "brain-alignment", "language-processing"]
+cluster: "llm-brain-alignment-neuroscience"
+tags: ["instruction-tuning", "model-variants", "brain-alignment"]
 ---
 
-# LLM representations achieve strongest correspondence with brain activity at higher levels of semantic abstraction rather than at surface-level linguistic features, suggesting shared computational principles for meaning extraction.
+# Instruction-tuned LLM variants consistently outperform base model versions in both sentence comprehension tasks and alignment with neural activity patterns.
 
 **Type:** finding
 **Source:** Llm Brain Fmri Alignment
-**Evidence:** Key Findings: 'The strongest correspondence between models and brain activity occurs at higher levels of semantic abstraction.'
+**Evidence:** Key finding: 'Instruction-tuned models consistently outperformed base versions in both sentence comprehension and neural alignment'
 
 ## Tags
-- [[semantic-abstraction]]
-- [[representation-learning]]
+- [[instruction-tuning]]
+- [[model-variants]]
 - [[brain-alignment]]
-- [[language-processing]]

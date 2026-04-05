@@ -1,20 +1,20 @@
 ---
 id: "transformers-neurons-astrocytes-008"
-type: "hypothesis"
+type: "concept"
 source: "papers/transformers-neurons-astrocytes.pdf"
 source_title: "Transformers Neurons Astrocytes"
-cluster: "biological-attention-implementation"
-tags: ["fundamental-computation", "biological-substrate", "attention", "learning-vs-structure"]
+cluster: "transformer-neuroscience-mapping"
+tags: ["neuromorphic-computing", "brain-inspired-ai", "hardware-design", "biological-implementation"]
 ---
 
-# Biological neural circuits achieve attention-like operations through structural properties of tripartite synapses and calcium signaling dynamics, rather than through learned parameters, suggesting attention may be a fundamental computation rather than a learned pattern.
+# The discovery of transformer-like computations in neuron-astrocyte networks provides a concrete biological mechanism that could inform the design of neuromorphic hardware and brain-inspired AI systems.
 
-**Type:** hypothesis
+**Type:** concept
 **Source:** Transformers Neurons Astrocytes
-**Evidence:** Implicit in core thesis and implications; the natural implementation without training suggests structural inevitability
+**Evidence:** Implications section identifies opening new directions for neuromorphic computing inspired by neuron-astrocyte interactions.
 
 ## Tags
-- [[fundamental-computation]]
-- [[biological-substrate]]
-- [[attention]]
-- [[learning-vs-structure]]
+- [[neuromorphic-computing]]
+- [[brain-inspired-ai]]
+- [[hardware-design]]
+- [[biological-implementation]]

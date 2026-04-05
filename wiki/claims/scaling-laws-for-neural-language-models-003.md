@@ -1,20 +1,20 @@
 ---
 id: "scaling-laws-for-neural-language-models-003"
-type: "concept"
+type: "finding"
 source: "articles/scaling-laws.md"
 source_title: "Scaling Laws for Neural Language Models"
-cluster: "scaling-laws-training"
-tags: ["compute budget", "optimization", "resource allocation", "training efficiency"]
+cluster: "scaling-laws-language-models"
+tags: ["architecture", "scale", "model design", "hyperparameters"]
 ---
 
-# Given a fixed compute budget, there exists an optimal allocation between model size and training tokens, with a specific ratio that maximizes performance.
+# Language model performance is determined primarily by scale (model size and compute), not by architectural details like the number of attention heads or feed-forward dimensions when total parameters are held constant.
 
-**Type:** concept
+**Type:** finding
 **Source:** Scaling Laws for Neural Language Models
-**Evidence:** Paper establishes that compute budget C can be optimally split between N and D parameters
+**Evidence:** Impact on Transformer Architecture section: 'Increasing the number of attention heads or feed-forward dimensions while keeping total parameters fixed has little effect'
 
 ## Tags
-- [[compute budget]]
-- [[optimization]]
-- [[resource allocation]]
-- [[training efficiency]]
+- [[architecture]]
+- [[scale]]
+- [[model design]]
+- [[hyperparameters]]

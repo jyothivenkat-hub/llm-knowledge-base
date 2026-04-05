@@ -1,20 +1,20 @@
 ---
 id: "temporal-language-llm-hierarchy-008"
-type: "method"
+type: "concept"
 source: "papers/temporal-language-llm-hierarchy.pdf"
 source_title: "Temporal Language Llm Hierarchy"
-cluster: "temporal-hierarchy-language"
-tags: ["neural-prediction", "computational-modeling", "layer-analysis", "brain-decoding"]
+cluster: "temporal-dynamics-language-processing"
+tags: ["processing-cascade", "temporal-decomposition", "language-hierarchy", "neural-dynamics"]
 ---
 
-# LLM layer hierarchy can serve as a computational model of temporal language comprehension stages in the brain, enabling prediction of neural activity patterns from model layer activations.
+# LLM layer hierarchy encodes a temporal decomposition of language comprehension: phonology → syntax → semantics, mirroring the 50-600ms cascade of neural responses in human language processing.
 
-**Type:** method
+**Type:** concept
 **Source:** Temporal Language Llm Hierarchy
-**Evidence:** Core Finding: GPT-2 models predicted language-related regions, demonstrating predictive validity of the layer-to-time mapping
+**Evidence:** Temporal Mapping section shows three-stage progression across layer ranges with distinct linguistic functions at each stage
 
 ## Tags
-- [[neural-prediction]]
-- [[computational-modeling]]
-- [[layer-analysis]]
-- [[brain-decoding]]
+- [[processing-cascade]]
+- [[temporal-decomposition]]
+- [[language-hierarchy]]
+- [[neural-dynamics]]

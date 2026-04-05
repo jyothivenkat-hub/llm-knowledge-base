@@ -9,3 +9,7 @@ search_index/
 *.egg
 .venv/
 .vercel
+.DS_Store
+node_modules/
+frontend/dist/
+.claude/

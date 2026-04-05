@@ -1,20 +1,19 @@
 ---
 id: "llm-brain-fmri-alignment-010"
-type: "hypothesis"
+type: "concept"
 source: "papers/llm-brain-fmri-alignment.pdf"
 source_title: "Llm Brain Fmri Alignment"
-cluster: "llm-brain-alignment-empirical"
-tags: ["task-performance", "neural-plausibility", "optimization-trade-offs", "layer-analysis"]
+cluster: "llm-brain-alignment-neuroscience"
+tags: ["computational-modeling", "neuroscience-ai-bridge", "language-processing"]
 ---
 
-# The finding that intermediate rather than final layers best predict brain activity contradicts the assumption that task-optimized outputs best reflect human cognition, suggesting a fundamental trade-off between task performance and neural plausibility.
+# LLMs function as viable computational models for understanding human language processing mechanisms, bridging neuroscience and artificial intelligence research.
 
-**Type:** hypothesis
+**Type:** concept
 **Source:** Llm Brain Fmri Alignment
-**Evidence:** Implications: 'final output layers may over-optimize for task performance at the expense of brain-like representations.'
+**Evidence:** Implications: 'LLMs function as viable computational models for understanding human language processing'
 
 ## Tags
-- [[task-performance]]
-- [[neural-plausibility]]
-- [[optimization-trade-offs]]
-- [[layer-analysis]]
+- [[computational-modeling]]
+- [[neuroscience-ai-bridge]]
+- [[language-processing]]

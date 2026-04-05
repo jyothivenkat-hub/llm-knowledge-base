@@ -1,20 +1,21 @@
 ---
 id: "google-brain-llm-language-processing-004"
-type: "concept"
+type: "finding"
 source: "papers/google-brain-llm-language-processing.pdf"
 source_title: "Google Brain Llm Language Processing"
-cluster: "llm-brain-alignment-empirical"
-tags: ["prediction", "shared-principles", "llm-neuroscience", "computation"]
+cluster: "temporal-dynamics-language-processing"
+tags: ["hierarchy", "brain-organization", "semantic-acoustic", "feedback-loops", "neural-architecture"]
 ---
 
-# The human brain and LLMs share three core computational principles: next-word prediction mechanisms, prediction error signals (surprise responses), and embedding-based contextual representation.
+# Brain language processing exhibits a 'soft hierarchy' where higher-order regions prioritize semantic information but still capture acoustic features, while lower-order areas primarily process sound but also decode meaning—contradicting strict feedforward hierarchical models.
 
-**Type:** concept
+**Type:** finding
 **Source:** Google Brain Llm Language Processing
-**Evidence:** Shared Computational Principles section explicitly lists these three mechanisms as common to both brain and LLM processing.
+**Evidence:** Soft Hierarchy section explicitly contrasts this finding against strict feedforward models
 
 ## Tags
-- [[prediction]]
-- [[shared-principles]]
-- [[llm-neuroscience]]
-- [[computation]]
+- [[hierarchy]]
+- [[brain-organization]]
+- [[semantic-acoustic]]
+- [[feedback-loops]]
+- [[neural-architecture]]

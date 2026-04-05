@@ -29,3 +29,24 @@ sources:
   papers/transformers-neurons-astrocytes.pdf:
     compiled_hash: e670b95124670e4a4ad7c9267b6f48c2a61a966a88379695917fac962d09f38a
     compiled: true
+  articles/blue-light-screens-melatonin-sleep.md:
+    compiled_hash: b56e7d975f638c724be3dca3072d8f18da3b8fe1c2d26de89c8b6754bc4c24ce
+    compiled: true
+  articles/caffeine-dose-timing-effects-sleep.md:
+    compiled_hash: eda0699e168f7bd3c1a512f751bd4e217aae4960c7fb5de3463e2222ebcf0713
+    compiled: true
+  articles/karpathy-llm-knowledge-base-tweets.md:
+    compiled_hash: 0cce751edcf1f93fcd0704c55943da13bc2ae107ec2c6b3a9c1326afbafee871
+    compiled: true
+  articles/optimal-exercise-dose-sleep-quality.md:
+    compiled_hash: 31d7ae990ddcd685231f378a7e37585e5a08ef0113fca0654bd6b071aba8dedc
+    compiled: true
+  articles/stress-impact-sleep-quality-mediation.md:
+    compiled_hash: fe3817f68e2dcf01d649047ad15592e17dd31ace5ed66dcfd99e337b1581bffa
+    compiled: true
+  papers/cognitive-performance-sleep-wearables.pdf:
+    compiled_hash: e3c99b076cc893abef9df61956351789c721bac304b81114d453f586bbee004f
+    compiled: true
+  papers/gut-microbiota-influences-sleep.pdf:
+    compiled_hash: 923f6b1021254a1127dfea8e5c9209385db640bf46b4199d447797f101f35042
+    compiled: true

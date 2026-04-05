@@ -1,0 +1,751 @@
+# Wiki Health Report
+
+Generated: 2026-04-04 23:43
+
+## Orphan Articles
+Found 101 articles with no incoming links:
+
+- attention-is-all-you-need
+- attention-is-all-you-need-001
+- attention-is-all-you-need-002
+- attention-is-all-you-need-003
+- attention-is-all-you-need-004
+- attention-is-all-you-need-005
+- attention-is-all-you-need-006
+- do-large-language-models-think-like-the--001
+- do-large-language-models-think-like-the--002
+- do-large-language-models-think-like-the--003
+- do-large-language-models-think-like-the--004
+- do-large-language-models-think-like-the--005
+- do-large-language-models-think-like-the--006
+- do-large-language-models-think-like-the--007
+- do-large-language-models-think-like-the--008
+- do-large-language-models-think-like-the--009
+- do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri
+- flashattention-fast-and-memory-efficient-001
+- flashattention-fast-and-memory-efficient-002
+- flashattention-fast-and-memory-efficient-003
+- flashattention-fast-and-memory-efficient-004
+- flashattention-fast-and-memory-efficient-005
+- flashattention-fast-and-memory-efficient-006
+- flashattention-fast-and-memory-efficient-007
+- flashattention-fast-and-memory-efficient-008
+- flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness
+- google-brain-llm-language-processing
+- google-brain-llm-language-processing-001
+- google-brain-llm-language-processing-002
+- google-brain-llm-language-processing-003
+- google-brain-llm-language-processing-004
+- google-brain-llm-language-processing-005
+- google-brain-llm-language-processing-006
+- google-brain-llm-language-processing-007
+- google-brain-llm-language-processing-008
+- google-brain-llm-language-processing-009
+- google-brain-llm-language-processing-010
+- llm-brain-fmri-alignment
+- llm-brain-fmri-alignment-001
+- llm-brain-fmri-alignment-002
+- llm-brain-fmri-alignment-003
+- llm-brain-fmri-alignment-004
+- llm-brain-fmri-alignment-005
+- llm-brain-fmri-alignment-006
+- llm-brain-fmri-alignment-007
+- llm-brain-fmri-alignment-008
+- llm-brain-fmri-alignment-009
+- llm-brain-fmri-alignment-010
+- llm-explanations-brain-representations
+- llm-explanations-brain-representations-001
+- llm-explanations-brain-representations-002
+- llm-explanations-brain-representations-003
+- llm-explanations-brain-representations-004
+- llm-explanations-brain-representations-005
+- llm-explanations-brain-representations-006
+- llm-explanations-brain-representations-007
+- llm-explanations-brain-representations-008
+- log
+- neuroscience-of-transformers
+- neuroscience-of-transformers-001
+- neuroscience-of-transformers-002
+- neuroscience-of-transformers-003
+- neuroscience-of-transformers-004
+- neuroscience-of-transformers-005
+- neuroscience-of-transformers-006
+- neuroscience-of-transformers-007
+- neuroscience-of-transformers-008
+- neuroscience-of-transformers-009
+- neuroscience-of-transformers-010
+- scaling-laws-for-neural-language-models
+- scaling-laws-for-neural-language-models-001
+- scaling-laws-for-neural-language-models-002
+- scaling-laws-for-neural-language-models-003
+- scaling-laws-for-neural-language-models-004
+- scaling-laws-for-neural-language-models-005
+- scaling-laws-for-neural-language-models-006
+- scaling-laws-for-neural-language-models-007
+- scaling-laws-for-neural-language-models-008
+- scaling-laws-for-neural-language-models-009
+- scaling-laws-for-neural-language-models-010
+- temporal-language-llm-hierarchy
+- temporal-language-llm-hierarchy-001
+- temporal-language-llm-hierarchy-002
+- temporal-language-llm-hierarchy-003
+- temporal-language-llm-hierarchy-004
+- temporal-language-llm-hierarchy-005
+- temporal-language-llm-hierarchy-006
+- temporal-language-llm-hierarchy-007
+- temporal-language-llm-hierarchy-008
+- temporal-language-llm-hierarchy-009
+- transformers-neurons-astrocytes
+- transformers-neurons-astrocytes-001
+- transformers-neurons-astrocytes-002
+- transformers-neurons-astrocytes-003
+- transformers-neurons-astrocytes-004
+- transformers-neurons-astrocytes-005
+- transformers-neurons-astrocytes-006
+- transformers-neurons-astrocytes-007
+- transformers-neurons-astrocytes-008
+- transformers-neurons-astrocytes-009
+- transformers-neurons-astrocytes-010
+
+## Broken Links
+Found 629 broken wikilinks:
+
+  - `[[neuron-astrocyte-networks]]` in sources/transformers-neurons-astrocytes.md
+  - `[[attention-mechanism]]` in sources/transformers-neurons-astrocytes.md
+  - `[[biological-attention-mechanism]]` in sources/transformers-neurons-astrocytes.md
+  - `[[Astrocytic-calcium-signaling]]` in sources/transformers-neurons-astrocytes.md
+  - `[[tripartite-synapses]]` in sources/transformers-neurons-astrocytes.md
+  - `[[query-key-value-attention]]` in sources/transformers-neurons-astrocytes.md
+  - `[[neuromorphic-computing]]` in sources/transformers-neurons-astrocytes.md
+  - `[[neuron-astrocyte-networks]]` in sources/transformers-neurons-astrocytes.md
+  - `[[biological-attention-mechanism]]` in sources/transformers-neurons-astrocytes.md
+  - `[[tripartite-synapses]]` in sources/transformers-neurons-astrocytes.md
+  - `[[astrocytic-calcium-signaling]]` in sources/transformers-neurons-astrocytes.md
+  - `[[neuromorphic-computing]]` in sources/transformers-neurons-astrocytes.md
+  - `[[query-key-value-attention]]` in sources/transformers-neurons-astrocytes.md
+  - `[[synaptic-modulation]]` in sources/transformers-neurons-astrocytes.md
+  - `[[computational-neuroscience]]` in sources/transformers-neurons-astrocytes.md
+  - `[[artificial-intelligence]]` in sources/transformers-neurons-astrocytes.md
+  - `[[brain-inspired-computing]]` in sources/transformers-neurons-astrocytes.md
+  - `[[glial-cell-function]]` in sources/transformers-neurons-astrocytes.md
+  - `[[attention-mechanisms]]` in sources/transformers-neurons-astrocytes.md
+  - `[[biological-computation]]` in sources/transformers-neurons-astrocytes.md
+  - `[[neural-network-architectures]]` in sources/transformers-neurons-astrocytes.md
+  - `[[attribution-methods]]` in sources/llm-explanations-brain-representations.md
+  - `[[next-word-prediction]]` in sources/llm-explanations-brain-representations.md
+  - `[[neural-activity-prediction]]` in sources/llm-explanations-brain-representations.md
+  - `[[hierarchical-language-processing]]` in sources/llm-explanations-brain-representations.md
+  - `[[explainable-ai]]` in sources/llm-explanations-brain-representations.md
+  - `[[biological-plausibility]]` in sources/llm-explanations-brain-representations.md
+  - `[[computational-neuroscience]]` in sources/llm-explanations-brain-representations.md
+  - `[[llm-interpretability]]` in sources/llm-explanations-brain-representations.md
+  - `[[explainable-ai]]` in sources/llm-explanations-brain-representations.md
+  - `[[attribution-methods]]` in sources/llm-explanations-brain-representations.md
+  - `[[neural-activity-prediction]]` in sources/llm-explanations-brain-representations.md
+  - `[[hierarchical-language-processing]]` in sources/llm-explanations-brain-representations.md
+  - `[[next-word-prediction]]` in sources/llm-explanations-brain-representations.md
+  - `[[fmri-data]]` in sources/llm-explanations-brain-representations.md
+  - `[[computational-neuroscience]]` in sources/llm-explanations-brain-representations.md
+  - `[[llm-interpretability]]` in sources/llm-explanations-brain-representations.md
+  - `[[biological-plausibility]]` in sources/llm-explanations-brain-representations.md
+  - `[[attention-mechanism]]` in sources/llm-explanations-brain-representations.md
+  - `[[language-model-evaluation]]` in sources/llm-explanations-brain-representations.md
+  - `[[cognitive-science]]` in sources/llm-explanations-brain-representations.md
+  - `[[neuroimaging]]` in sources/llm-explanations-brain-representations.md
+  - `[[model-interpretability]]` in sources/llm-explanations-brain-representations.md
+  - `[[artificial-intelligence]]` in sources/llm-explanations-brain-representations.md
+  - `[[recurrent-neural-networks]]` in sources/attention-is-all-you-need.md
+  - `[[convolutional-neural-networks]]` in sources/attention-is-all-you-need.md
+  - `[[encoder-decoder-architecture]]` in sources/attention-is-all-you-need.md
+  - `[[attention-mechanism]]` in sources/attention-is-all-you-need.md
+  - `[[self-attention]]` in sources/attention-is-all-you-need.md
+  - `[[multi-head-attention]]` in sources/attention-is-all-you-need.md
+  - `[[positional-encoding]]` in sources/attention-is-all-you-need.md
+  - `[[machine-translation]]` in sources/attention-is-all-you-need.md
+  - `[[self-attention]]` in sources/attention-is-all-you-need.md
+  - `[[multi-head-attention]]` in sources/attention-is-all-you-need.md
+  - `[[positional-encoding]]` in sources/attention-is-all-you-need.md
+  - `[[encoder-decoder-architecture]]` in sources/attention-is-all-you-need.md
+  - `[[attention-mechanism]]` in sources/attention-is-all-you-need.md
+  - `[[sequence-transduction]]` in sources/attention-is-all-you-need.md
+  - `[[neural-machine-translation]]` in sources/attention-is-all-you-need.md
+  - `[[recurrent-neural-networks]]` in sources/attention-is-all-you-need.md
+  - `[[convolutional-neural-networks]]` in sources/attention-is-all-you-need.md
+  - `[[deep-learning]]` in sources/attention-is-all-you-need.md
+  - `[[natural-language-processing]]` in sources/attention-is-all-you-need.md
+  - `[[bleu-score]]` in sources/attention-is-all-you-need.md
+  - `[[parallel-computing]]` in sources/attention-is-all-you-need.md
+  - `[[wmt-dataset]]` in sources/attention-is-all-you-need.md
+  - `[[intracranial-electrode-recordings]]` in sources/google-brain-llm-language-processing.md
+  - `[[whisper-encoder]]` in sources/google-brain-llm-language-processing.md
+  - `[[whisper-decoder]]` in sources/google-brain-llm-language-processing.md
+  - `[[neural-language-alignment]]` in sources/google-brain-llm-language-processing.md
+  - `[[contextual-embeddings]]` in sources/google-brain-llm-language-processing.md
+  - `[[speech-processing-sequence]]` in sources/google-brain-llm-language-processing.md
+  - `[[superior-temporal-gyrus]]` in sources/google-brain-llm-language-processing.md
+  - `[[brocas-area]]` in sources/google-brain-llm-language-processing.md
+  - `[[next-word-prediction]]` in sources/google-brain-llm-language-processing.md
+  - `[[prediction-error-signals]]` in sources/google-brain-llm-language-processing.md
+  - `[[soft-hierarchy]]` in sources/google-brain-llm-language-processing.md
+  - `[[neural-language-alignment]]` in sources/google-brain-llm-language-processing.md
+  - `[[speech-processing-sequence]]` in sources/google-brain-llm-language-processing.md
+  - `[[next-word-prediction]]` in sources/google-brain-llm-language-processing.md
+  - `[[prediction-error-signals]]` in sources/google-brain-llm-language-processing.md
+  - `[[contextual-embeddings]]` in sources/google-brain-llm-language-processing.md
+  - `[[soft-hierarchy]]` in sources/google-brain-llm-language-processing.md
+  - `[[superior-temporal-gyrus]]` in sources/google-brain-llm-language-processing.md
+  - `[[brocas-area]]` in sources/google-brain-llm-language-processing.md
+  - `[[intracranial-electrode-recordings]]` in sources/google-brain-llm-language-processing.md
+  - `[[whisper-encoder]]` in sources/google-brain-llm-language-processing.md
+  - `[[whisper-decoder]]` in sources/google-brain-llm-language-processing.md
+  - `[[large-language-models]]` in sources/google-brain-llm-language-processing.md
+  - `[[neurolinguistics]]` in sources/google-brain-llm-language-processing.md
+  - `[[brain-computer-interfaces]]` in sources/google-brain-llm-language-processing.md
+  - `[[speech-recognition]]` in sources/google-brain-llm-language-processing.md
+  - `[[computational-neuroscience]]` in sources/google-brain-llm-language-processing.md
+  - `[[natural-language-processing]]` in sources/google-brain-llm-language-processing.md
+  - `[[neural-networks]]` in sources/google-brain-llm-language-processing.md
+  - `[[cognitive-science]]` in sources/google-brain-llm-language-processing.md
+  - `[[large-language-models]]` in sources/llm-brain-fmri-alignment.md
+  - `[[sentence-comprehension]]` in sources/llm-brain-fmri-alignment.md
+  - `[[fmri-brain-imaging]]` in sources/llm-brain-fmri-alignment.md
+  - `[[brain-model-correlation]]` in sources/llm-brain-fmri-alignment.md
+  - `[[semantic-abstraction]]` in sources/llm-brain-fmri-alignment.md
+  - `[[Instruction-tuning]]` in sources/llm-brain-fmri-alignment.md
+  - `[[layer-wise-embeddings]]` in sources/llm-brain-fmri-alignment.md
+  - `[[large-language-models]]` in sources/llm-brain-fmri-alignment.md
+  - `[[fmri-brain-imaging]]` in sources/llm-brain-fmri-alignment.md
+  - `[[sentence-comprehension]]` in sources/llm-brain-fmri-alignment.md
+  - `[[layer-wise-embeddings]]` in sources/llm-brain-fmri-alignment.md
+  - `[[brain-model-correlation]]` in sources/llm-brain-fmri-alignment.md
+  - `[[semantic-abstraction]]` in sources/llm-brain-fmri-alignment.md
+  - `[[instruction-tuning]]` in sources/llm-brain-fmri-alignment.md
+  - `[[computational-neuroscience]]` in sources/llm-brain-fmri-alignment.md
+  - `[[natural-language-processing]]` in sources/llm-brain-fmri-alignment.md
+  - `[[cognitive-neuroscience]]` in sources/llm-brain-fmri-alignment.md
+  - `[[neural-networks]]` in sources/llm-brain-fmri-alignment.md
+  - `[[brain-language-networks]]` in sources/llm-brain-fmri-alignment.md
+  - `[[neuroimaging-analysis]]` in sources/llm-brain-fmri-alignment.md
+  - `[[artificial-intelligence]]` in sources/llm-brain-fmri-alignment.md
+  - `[[layer-wise-embeddings]]` in sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+  - `[[fmri-language-processing]]` in sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+  - `[[intermediate-layer-representations]]` in sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+  - `[[language-selective-brain-regions]]` in sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+  - `[[brain-model-alignment]]` in sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+  - `[[semantic-abstraction]]` in sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+  - `[[Instruction-tuning]]` in sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+  - `[[hemispheric-language-processing]]` in sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+  - `[[neural-prediction-models]]` in sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+  - `[[layer-wise-embeddings]]` in sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+  - `[[brain-model-alignment]]` in sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+  - `[[fmri-language-processing]]` in sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+  - `[[intermediate-layer-representations]]` in sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+  - `[[semantic-abstraction]]` in sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+  - `[[instruction-tuning]]` in sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+  - `[[hemispheric-language-processing]]` in sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+  - `[[neural-prediction-models]]` in sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+  - `[[language-selective-brain-regions]]` in sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+  - `[[computational-neuroscience]]` in sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+  - `[[natural-language-processing]]` in sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+  - `[[cognitive-modeling]]` in sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+  - `[[neuroimaging]]` in sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+  - `[[sentence-comprehension]]` in sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+  - `[[artificial-neural-networks]]` in sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+  - `[[brain-inspired-ai]]` in sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+  - `[[chinchilla-scaling-laws]]` in sources/scaling-laws-for-neural-language-models.md
+  - `[[chinchilla-scaling-laws]]` in sources/scaling-laws-for-neural-language-models.md
+  - `[[power-law-scaling]]` in sources/scaling-laws-for-neural-language-models.md
+  - `[[compute-optimal-training]]` in sources/scaling-laws-for-neural-language-models.md
+  - `[[language-model-performance]]` in sources/scaling-laws-for-neural-language-models.md
+  - `[[parameter-scaling]]` in sources/scaling-laws-for-neural-language-models.md
+  - `[[dataset-scaling]]` in sources/scaling-laws-for-neural-language-models.md
+  - `[[chinchilla-scaling-laws]]` in sources/scaling-laws-for-neural-language-models.md
+  - `[[sample-efficiency]]` in sources/scaling-laws-for-neural-language-models.md
+  - `[[neural-language-models]]` in sources/scaling-laws-for-neural-language-models.md
+  - `[[gpt-models]]` in sources/scaling-laws-for-neural-language-models.md
+  - `[[training-efficiency]]` in sources/scaling-laws-for-neural-language-models.md
+  - `[[computational-resources]]` in sources/scaling-laws-for-neural-language-models.md
+  - `[[model-architecture-design]]` in sources/scaling-laws-for-neural-language-models.md
+  - `[[empirical-scaling]]` in sources/scaling-laws-for-neural-language-models.md
+  - `[[loss-functions]]` in sources/scaling-laws-for-neural-language-models.md
+  - `[[training-dynamics]]` in sources/scaling-laws-for-neural-language-models.md
+  - `[[cortical-column-organization]]` in sources/neuroscience-of-transformers.md
+  - `[[laminar-structure]]` in sources/neuroscience-of-transformers.md
+  - `[[attention-mechanisms]]` in sources/neuroscience-of-transformers.md
+  - `[[feed-forward-layers]]` in sources/neuroscience-of-transformers.md
+  - `[[dendritic-integration]]` in sources/neuroscience-of-transformers.md
+  - `[[layer-normalization]]` in sources/neuroscience-of-transformers.md
+  - `[[oscillatory-coordination]]` in sources/neuroscience-of-transformers.md
+  - `[[residual-connections]]` in sources/neuroscience-of-transformers.md
+  - `[[temporal-discretization]]` in sources/neuroscience-of-transformers.md
+  - `[[hierarchical-temporal-scaffolding]]` in sources/neuroscience-of-transformers.md
+  - `[[contextual-modulation]]` in sources/neuroscience-of-transformers.md
+  - `[[cortical-column-organization]]` in sources/neuroscience-of-transformers.md
+  - `[[attention-mechanisms]]` in sources/neuroscience-of-transformers.md
+  - `[[laminar-structure]]` in sources/neuroscience-of-transformers.md
+  - `[[feed-forward-layers]]` in sources/neuroscience-of-transformers.md
+  - `[[dendritic-integration]]` in sources/neuroscience-of-transformers.md
+  - `[[layer-normalization]]` in sources/neuroscience-of-transformers.md
+  - `[[oscillatory-coordination]]` in sources/neuroscience-of-transformers.md
+  - `[[residual-connections]]` in sources/neuroscience-of-transformers.md
+  - `[[temporal-discretization]]` in sources/neuroscience-of-transformers.md
+  - `[[hierarchical-temporal-scaffolding]]` in sources/neuroscience-of-transformers.md
+  - `[[contextual-modulation]]` in sources/neuroscience-of-transformers.md
+  - `[[computational-neuroscience]]` in sources/neuroscience-of-transformers.md
+  - `[[artificial-neural-networks]]` in sources/neuroscience-of-transformers.md
+  - `[[cortical-microcircuits]]` in sources/neuroscience-of-transformers.md
+  - `[[neural-oscillations]]` in sources/neuroscience-of-transformers.md
+  - `[[brain-inspired-computing]]` in sources/neuroscience-of-transformers.md
+  - `[[deep-learning]]` in sources/neuroscience-of-transformers.md
+  - `[[neural-synchronization]]` in sources/neuroscience-of-transformers.md
+  - `[[cortical-layers]]` in sources/neuroscience-of-transformers.md
+  - `[[flash-attention]]` in sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
+  - `[[io-aware-algorithms]]` in sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
+  - `[[attention-mechanism]]` in sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
+  - `[[memory-optimization]]` in sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
+  - `[[gpu-memory-hierarchy]]` in sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
+  - `[[tiling-computation]]` in sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
+  - `[[sequence-length-scaling]]` in sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
+  - `[[attention-optimization]]` in sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
+  - `[[gpu-computing]]` in sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
+  - `[[memory-efficient-training]]` in sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
+  - `[[large-language-models]]` in sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
+  - `[[computational-complexity]]` in sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
+  - `[[parallel-computing]]` in sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
+  - `[[temporal-language-processing]]` in sources/temporal-language-llm-hierarchy.md
+  - `[[llm-layer-hierarchy]]` in sources/temporal-language-llm-hierarchy.md
+  - `[[brain-language-mapping]]` in sources/temporal-language-llm-hierarchy.md
+  - `[[brocas-area]]` in sources/temporal-language-llm-hierarchy.md
+  - `[[phonological-processing]]` in sources/temporal-language-llm-hierarchy.md
+  - `[[syntactic-parsing]]` in sources/temporal-language-llm-hierarchy.md
+  - `[[semantic-integration]]` in sources/temporal-language-llm-hierarchy.md
+  - `[[language-proficiency-effects]]` in sources/temporal-language-llm-hierarchy.md
+  - `[[neural-temporal-dynamics]]` in sources/temporal-language-llm-hierarchy.md
+  - `[[artificial-biological-correspondence]]` in sources/temporal-language-llm-hierarchy.md
+  - `[[neurolinguistics]]` in sources/temporal-language-llm-hierarchy.md
+  - `[[computational-neuroscience]]` in sources/temporal-language-llm-hierarchy.md
+  - `[[language-acquisition]]` in sources/temporal-language-llm-hierarchy.md
+  - `[[neural-networks]]` in sources/temporal-language-llm-hierarchy.md
+  - `[[cognitive-modeling]]` in sources/temporal-language-llm-hierarchy.md
+  - `[[brain-imaging]]` in sources/temporal-language-llm-hierarchy.md
+  - `[[natural-language-processing]]` in sources/temporal-language-llm-hierarchy.md
+  - `[[Multi-head attention]]` in entities/transformer.md
+  - `[[positional encoding]]` in entities/transformer.md
+  - `[[Attention Is All You Need]]` in entities/transformer.md
+  - `[[Large Language Models]]` in entities/neuroscience.md
+  - `[[Transformer Architecture]]` in entities/neuroscience.md
+  - `[[Transformer Architecture]]` in entities/neuroscience.md
+  - `[[Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI]]` in entities/neuroscience.md
+  - `[[Google Brain Llm Language Processing]]` in entities/neuroscience.md
+  - `[[Llm Explanations Brain Representations]]` in entities/neuroscience.md
+  - `[[Neuroscience Of Transformers]]` in entities/neuroscience.md
+  - `[[attention mechanisms]]` in entities/architecture.md
+  - `[[Multi-head attention]]` in entities/architecture.md
+  - `[[Attention Is All You Need]]` in entities/architecture.md
+  - `[[Scaling Laws for Neural Language Models]]` in entities/architecture.md
+  - `[[Language Model]]` in entities/scaling-laws.md
+  - `[[Chinchilla]]` in entities/scaling-laws.md
+  - `[[LLaMA]]` in entities/scaling-laws.md
+  - `[[Architecture Search]]` in entities/scaling-laws.md
+  - `[[Compute Budget]]` in entities/scaling-laws.md
+  - `[[Scaling Laws for Neural Language Models]]` in entities/scaling-laws.md
+  - `[[attention mechanism]]` in entities/astrocytes.md
+  - `[[transformer neural networks]]` in entities/astrocytes.md
+  - `[[tripartite synapses]]` in entities/astrocytes.md
+  - `[[neuromorphic computing]]` in entities/astrocytes.md
+  - `[[Transformers Neurons Astrocytes]]` in entities/astrocytes.md
+  - `[[brain alignment]]` in entities/methodology.md
+  - `[[LLM architectures]]` in entities/methodology.md
+  - `[[Whisper encoder]]` in entities/methodology.md
+  - `[[Whisper decoder]]` in entities/methodology.md
+  - `[[explainable AI (XAI)]]` in entities/methodology.md
+  - `[[brain alignment]]` in entities/methodology.md
+  - `[[Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI]]` in entities/methodology.md
+  - `[[Google Brain Llm Language Processing]]` in entities/methodology.md
+  - `[[Llm Brain Fmri Alignment]]` in entities/methodology.md
+  - `[[Llm Explanations Brain Representations]]` in entities/methodology.md
+  - `[[Neuroscience Of Transformers]]` in entities/methodology.md
+  - `[[Large Language Model]]` in entities/temporal-stages.md
+  - `[[phonological]]` in entities/temporal-stages.md
+  - `[[syntactic parsing]]` in entities/temporal-stages.md
+  - `[[morphological analysis]]` in entities/temporal-stages.md
+  - `[[semantic integration]]` in entities/temporal-stages.md
+  - `[[discourse-level processing]]` in entities/temporal-stages.md
+  - `[[model architectures]]` in entities/temporal-stages.md
+  - `[[attention mechanisms]]` in entities/temporal-stages.md
+  - `[[residual connections]]` in entities/temporal-stages.md
+  - `[[Temporal Language Llm Hierarchy]]` in entities/temporal-stages.md
+  - `[[neuron-astrocyte networks]]` in entities/transformer-architecture.md
+  - `[[Llm Explanations Brain Representations]]` in entities/transformer-architecture.md
+  - `[[Temporal Language Llm Hierarchy]]` in entities/transformer-architecture.md
+  - `[[Transformers Neurons Astrocytes]]` in entities/transformer-architecture.md
+  - `[[Language proficiency]]` in entities/modulation.md
+  - `[[Astrocytic calcium signaling]]` in entities/modulation.md
+  - `[[neuronal firing]]` in entities/modulation.md
+  - `[[attention weights]]` in entities/modulation.md
+  - `[[transformer blocks]]` in entities/modulation.md
+  - `[[Temporal Language Llm Hierarchy]]` in entities/modulation.md
+  - `[[Transformers Neurons Astrocytes]]` in entities/modulation.md
+  - `[[Large Language Models]]` in entities/layer-analysis.md
+  - `[[Brain Activity]]` in entities/layer-analysis.md
+  - `[[Cognitive Processing]]` in entities/layer-analysis.md
+  - `[[fMRI]]` in entities/layer-analysis.md
+  - `[[Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI]]` in entities/layer-analysis.md
+  - `[[Llm Brain Fmri Alignment]]` in entities/layer-analysis.md
+  - `[[Llm Explanations Brain Representations]]` in entities/layer-analysis.md
+  - `[[Temporal Language Llm Hierarchy]]` in entities/layer-analysis.md
+  - `[[Brain Language Processing]]` in entities/language-models.md
+  - `[[Instruction-tuning]]` in entities/language-models.md
+  - `[[fMRI]]` in entities/language-models.md
+  - `[[Attribution-based explanations]]` in entities/language-models.md
+  - `[[fMRI]]` in entities/language-models.md
+  - `[[Llm Brain Fmri Alignment]]` in entities/language-models.md
+  - `[[Llm Explanations Brain Representations]]` in entities/language-models.md
+  - `[[scaling laws]]` in entities/transformers.md
+  - `[[Scaling Laws for Neural Language Models]]` in entities/transformers.md
+  - `[[Neuroscience Of Transformers]]` in entities/transformers.md
+  - `[[Large Language Models]]` in entities/interpretability.md
+  - `[[Attribution methods]]` in entities/interpretability.md
+  - `[[LLM]]` in entities/interpretability.md
+  - `[[fMRI]]` in entities/interpretability.md
+  - `[[XAI]]` in entities/interpretability.md
+  - `[[attribution-based explanations]]` in entities/interpretability.md
+  - `[[fMRI]]` in entities/interpretability.md
+  - `[[XAI]]` in entities/interpretability.md
+  - `[[LLM]]` in entities/interpretability.md
+  - `[[Llm Explanations Brain Representations]]` in entities/interpretability.md
+  - `[[Large Language Models]]` in entities/neural-prediction.md
+  - `[[Cognitive Science]]` in entities/neural-prediction.md
+  - `[[Machine Learning]]` in entities/neural-prediction.md
+  - `[[LLM]]` in entities/neural-prediction.md
+  - `[[Whisper encoder]]` in entities/neural-prediction.md
+  - `[[Whisper decoder]]` in entities/neural-prediction.md
+  - `[[Explainable AI]]` in entities/neural-prediction.md
+  - `[[Explainable AI]]` in entities/neural-prediction.md
+  - `[[fMRI]]` in entities/neural-prediction.md
+  - `[[LLM architectures]]` in entities/neural-prediction.md
+  - `[[Language Disorders]]` in entities/neural-prediction.md
+  - `[[Neurolinguistics]]` in entities/neural-prediction.md
+  - `[[Google Brain Llm Language Processing]]` in entities/neural-prediction.md
+  - `[[Llm Brain Fmri Alignment]]` in entities/neural-prediction.md
+  - `[[Llm Explanations Brain Representations]]` in entities/neural-prediction.md
+  - `[[Temporal Language Llm Hierarchy]]` in entities/neural-prediction.md
+  - `[[Google Brain Llm Language Processing]]` in entities/llm-neuroscience.md
+  - `[[Llm Brain Fmri Alignment]]` in entities/llm-neuroscience.md
+  - `[[Temporal Language Llm Hierarchy]]` in entities/llm-neuroscience.md
+  - `[[Recurrent Neural Networks]]` in entities/attention.md
+  - `[[Multi-head attention]]` in entities/attention.md
+  - `[[Recurrent Neural Networks]]` in entities/attention.md
+  - `[[positional encoding]]` in entities/attention.md
+  - `[[FlashAttention]]` in entities/attention.md
+  - `[[FlashAttention-2]]` in entities/attention.md
+  - `[[Large Language Models]]` in entities/attention.md
+  - `[[Tripartite synapses]]` in entities/attention.md
+  - `[[query-key-value]]` in entities/attention.md
+  - `[[Attention Is All You Need]]` in entities/attention.md
+  - `[[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness]]` in entities/attention.md
+  - `[[Neuroscience Of Transformers]]` in entities/attention.md
+  - `[[Transformers Neurons Astrocytes]]` in entities/attention.md
+  - `[[Recurrent Neural Networks]]` in entities/sequence-modeling.md
+  - `[[Convolutional Neural Networks]]` in entities/sequence-modeling.md
+  - `[[Attention Mechanisms]]` in entities/sequence-modeling.md
+  - `[[Self-Attention]]` in entities/sequence-modeling.md
+  - `[[Attention Mechanisms]]` in entities/sequence-modeling.md
+  - `[[Self-Attention]]` in entities/sequence-modeling.md
+  - `[[Self-Attention]]` in entities/sequence-modeling.md
+  - `[[Attention Is All You Need]]` in entities/sequence-modeling.md
+  - `[[Transformers Neurons Astrocytes]]` in entities/sequence-modeling.md
+  - `[[model-size]]` in entities/optimization.md
+  - `[[dataset-size]]` in entities/optimization.md
+  - `[[loss-compute-frontier]]` in entities/optimization.md
+  - `[[model-size]]` in entities/optimization.md
+  - `[[training-tokens]]` in entities/optimization.md
+  - `[[representational-structure]]` in entities/optimization.md
+  - `[[Scaling Laws for Neural Language Models]]` in entities/optimization.md
+  - `[[Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI]]` in entities/optimization.md
+  - `[[Attention Mechanisms]]` in entities/gpu-optimization.md
+  - `[[FlashAttention]]` in entities/gpu-optimization.md
+  - `[[FlashAttention-2]]` in entities/gpu-optimization.md
+  - `[[FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness]]` in entities/gpu-optimization.md
+  - `[[Large Language Models]]` in entities/representation-learning.md
+  - `[[Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI]]` in entities/representation-learning.md
+  - `[[Llm Brain Fmri Alignment]]` in entities/representation-learning.md
+  - `[[Large Language Models]]` in entities/brain-alignment.md
+  - `[[fMRI]]` in entities/brain-alignment.md
+  - `[[Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI]]` in entities/brain-alignment.md
+  - `[[Llm Brain Fmri Alignment]]` in entities/brain-alignment.md
+  - `[[Temporal Language Llm Hierarchy]]` in entities/brain-alignment.md
+  - `[[Language Comprehension]]` in entities/temporal-dynamics.md
+  - `[[Language Production]]` in entities/temporal-dynamics.md
+  - `[[Transformer Architecture]]` in entities/temporal-dynamics.md
+  - `[[Speech Comprehension]]` in entities/temporal-dynamics.md
+  - `[[Superior Temporal Gyrus]]` in entities/temporal-dynamics.md
+  - `[[Broca's Area]]` in entities/temporal-dynamics.md
+  - `[[Language Embeddings]]` in entities/temporal-dynamics.md
+  - `[[Large Language Models]]` in entities/temporal-dynamics.md
+  - `[[Language Production]]` in entities/temporal-dynamics.md
+  - `[[Motor Cortex]]` in entities/temporal-dynamics.md
+  - `[[Large Language Models]]` in entities/temporal-dynamics.md
+  - `[[LLM Representations]]` in entities/temporal-dynamics.md
+  - `[[Neuroscience of Transformers]]` in entities/temporal-dynamics.md
+  - `[[Transformer Architecture]]` in entities/temporal-dynamics.md
+  - `[[Astrocytic Calcium Signaling]]` in entities/temporal-dynamics.md
+  - `[[Attention Mechanisms]]` in entities/temporal-dynamics.md
+  - `[[Transformer Architecture]]` in entities/temporal-dynamics.md
+  - `[[Superior Temporal Gyrus]]` in entities/temporal-dynamics.md
+  - `[[Broca's Area]]` in entities/temporal-dynamics.md
+  - `[[Large Language Models]]` in entities/temporal-dynamics.md
+  - `[[Language Embeddings]]` in entities/temporal-dynamics.md
+  - `[[Speech Comprehension]]` in entities/temporal-dynamics.md
+  - `[[Language Production]]` in entities/temporal-dynamics.md
+  - `[[Transformer Architecture]]` in entities/temporal-dynamics.md
+  - `[[Attention Mechanisms]]` in entities/temporal-dynamics.md
+  - `[[Hierarchical Processing]]` in entities/temporal-dynamics.md
+  - `[[Astrocytic Calcium Signaling]]` in entities/temporal-dynamics.md
+  - `[[Motor Cortex]]` in entities/temporal-dynamics.md
+  - `[[Superior Temporal Gyrus]]` in entities/temporal-dynamics.md
+  - `[[Broca's Area]]` in entities/temporal-dynamics.md
+  - `[[Google Brain Llm Language Processing]]` in entities/temporal-dynamics.md
+  - `[[Neuroscience Of Transformers]]` in entities/temporal-dynamics.md
+  - `[[Transformers Neurons Astrocytes]]` in entities/temporal-dynamics.md
+  - `[[Large Language Models]]` in entities/language-processing.md
+  - `[[fMRI]]` in entities/language-processing.md
+  - `[[inferior frontal gyrus]]` in entities/language-processing.md
+  - `[[posterior temporal cortex]]` in entities/language-processing.md
+  - `[[Google Brain Llm Language Processing]]` in entities/language-processing.md
+  - `[[Llm Brain Fmri Alignment]]` in entities/language-processing.md
+  - `[[Llm Explanations Brain Representations]]` in entities/language-processing.md
+  - `[[Large Language Models]]` in entities/neural-alignment.md
+  - `[[Natural Language Processing]]` in entities/neural-alignment.md
+  - `[[LLM]]` in entities/neural-alignment.md
+  - `[[phonological processing]]` in entities/neural-alignment.md
+  - `[[syntactic processing]]` in entities/neural-alignment.md
+  - `[[discourse-level comprehension]]` in entities/neural-alignment.md
+  - `[[next-word prediction]]` in entities/neural-alignment.md
+  - `[[fMRI]]` in entities/neural-alignment.md
+  - `[[Google Brain Llm Language Processing]]` in entities/neural-alignment.md
+  - `[[Llm Explanations Brain Representations]]` in entities/neural-alignment.md
+  - `[[model-scaling]]` in claims/llm-brain-fmri-alignment-004.md
+  - `[[hierarchical-representations]]` in claims/llm-brain-fmri-alignment-004.md
+  - `[[neural-plausibility]]` in claims/llm-brain-fmri-alignment-004.md
+  - `[[hierarchical-processing]]` in claims/llm-explanations-brain-representations-002.md
+  - `[[semantic-processing]]` in claims/llm-explanations-brain-representations-002.md
+  - `[[temporal-hierarchy]]` in claims/transformers-neurons-astrocytes-009.md
+  - `[[calcium-signaling]]` in claims/transformers-neurons-astrocytes-009.md
+  - `[[timescale]]` in claims/transformers-neurons-astrocytes-009.md
+  - `[[cortical-columns]]` in claims/neuroscience-of-transformers-007.md
+  - `[[laminar-organization]]` in claims/neuroscience-of-transformers-007.md
+  - `[[encoder-decoder]]` in claims/attention-is-all-you-need-005.md
+  - `[[sequence-transduction]]` in claims/attention-is-all-you-need-005.md
+  - `[[instruction-tuning]]` in claims/do-large-language-models-think-like-the--003.md
+  - `[[model-comparison]]` in claims/do-large-language-models-think-like-the--003.md
+  - `[[sample efficiency]]` in claims/scaling-laws-for-neural-language-models-002.md
+  - `[[model size]]` in claims/scaling-laws-for-neural-language-models-002.md
+  - `[[data efficiency]]` in claims/scaling-laws-for-neural-language-models-002.md
+  - `[[compute allocation]]` in claims/scaling-laws-for-neural-language-models-002.md
+  - `[[neural-mechanisms]]` in claims/llm-explanations-brain-representations-006.md
+  - `[[cognitive-alignment]]` in claims/llm-explanations-brain-representations-006.md
+  - `[[task-performance]]` in claims/llm-brain-fmri-alignment-010.md
+  - `[[neural-plausibility]]` in claims/llm-brain-fmri-alignment-010.md
+  - `[[optimization-trade-offs]]` in claims/llm-brain-fmri-alignment-010.md
+  - `[[machine-translation]]` in claims/attention-is-all-you-need-001.md
+  - `[[benchmark]]` in claims/attention-is-all-you-need-001.md
+  - `[[scaling laws]]` in claims/scaling-laws-for-neural-language-models-006.md
+  - `[[prediction]]` in claims/scaling-laws-for-neural-language-models-006.md
+  - `[[extrapolation]]` in claims/scaling-laws-for-neural-language-models-006.md
+  - `[[experimental design]]` in claims/scaling-laws-for-neural-language-models-006.md
+  - `[[comparative-analysis]]` in claims/do-large-language-models-think-like-the--007.md
+  - `[[fmri]]` in claims/do-large-language-models-think-like-the--007.md
+  - `[[normalization]]` in claims/neuroscience-of-transformers-003.md
+  - `[[oscillations]]` in claims/neuroscience-of-transformers-003.md
+  - `[[layer-wise-analysis]]` in claims/llm-brain-fmri-alignment-001.md
+  - `[[attribution-methods]]` in claims/llm-explanations-brain-representations-007.md
+  - `[[fmri-analysis]]` in claims/llm-explanations-brain-representations-007.md
+  - `[[pareto optimality]]` in claims/scaling-laws-for-neural-language-models-007.md
+  - `[[compute efficiency]]` in claims/scaling-laws-for-neural-language-models-007.md
+  - `[[frontier]]` in claims/scaling-laws-for-neural-language-models-007.md
+  - `[[sentence-processing]]` in claims/do-large-language-models-think-like-the--006.md
+  - `[[dendritic-computation]]` in claims/neuroscience-of-transformers-002.md
+  - `[[microcircuits]]` in claims/neuroscience-of-transformers-002.md
+  - `[[hemispheric-specialization]]` in claims/llm-brain-fmri-alignment-005.md
+  - `[[cognitive-networks]]` in claims/llm-brain-fmri-alignment-005.md
+  - `[[attribution]]` in claims/llm-explanations-brain-representations-003.md
+  - `[[predictive-power]]` in claims/llm-explanations-brain-representations-003.md
+  - `[[computational-neuroscience]]` in claims/llm-explanations-brain-representations-003.md
+  - `[[fundamental-computation]]` in claims/transformers-neurons-astrocytes-008.md
+  - `[[biological-substrate]]` in claims/transformers-neurons-astrocytes-008.md
+  - `[[learning-vs-structure]]` in claims/transformers-neurons-astrocytes-008.md
+  - `[[computational-analogy]]` in claims/neuroscience-of-transformers-006.md
+  - `[[positional-encoding]]` in claims/attention-is-all-you-need-004.md
+  - `[[sequence-order]]` in claims/attention-is-all-you-need-004.md
+  - `[[model-scaling]]` in claims/do-large-language-models-think-like-the--002.md
+  - `[[emergent-properties]]` in claims/do-large-language-models-think-like-the--002.md
+  - `[[compute budget]]` in claims/scaling-laws-for-neural-language-models-003.md
+  - `[[resource allocation]]` in claims/scaling-laws-for-neural-language-models-003.md
+  - `[[training efficiency]]` in claims/scaling-laws-for-neural-language-models-003.md
+  - `[[semantics]]` in claims/temporal-language-llm-hierarchy-005.md
+  - `[[discourse]]` in claims/temporal-language-llm-hierarchy-005.md
+  - `[[deep-layers]]` in claims/temporal-language-llm-hierarchy-005.md
+  - `[[performance]]` in claims/flashattention-fast-and-memory-efficient-005.md
+  - `[[sequence-length]]` in claims/flashattention-fast-and-memory-efficient-005.md
+  - `[[hierarchy]]` in claims/google-brain-llm-language-processing-005.md
+  - `[[semantic-acoustic]]` in claims/google-brain-llm-language-processing-005.md
+  - `[[brain-organization]]` in claims/google-brain-llm-language-processing-005.md
+  - `[[soft-hierarchy]]` in claims/google-brain-llm-language-processing-005.md
+  - `[[optimization-tradeoff]]` in claims/do-large-language-models-think-like-the--009.md
+  - `[[model-design]]` in claims/do-large-language-models-think-like-the--009.md
+  - `[[scaling laws]]` in claims/scaling-laws-for-neural-language-models-008.md
+  - `[[training tokens]]` in claims/scaling-laws-for-neural-language-models-008.md
+  - `[[model size]]` in claims/scaling-laws-for-neural-language-models-008.md
+  - `[[chinchilla]]` in claims/scaling-laws-for-neural-language-models-008.md
+  - `[[emergent-alignment]]` in claims/llm-explanations-brain-representations-008.md
+  - `[[inductive-bias]]` in claims/llm-explanations-brain-representations-008.md
+  - `[[calcium-signaling]]` in claims/transformers-neurons-astrocytes-003.md
+  - `[[temporal-structure]]` in claims/temporal-language-llm-hierarchy-001.md
+  - `[[layer-hierarchy]]` in claims/temporal-language-llm-hierarchy-001.md
+  - `[[memory-efficiency]]` in claims/flashattention-fast-and-memory-efficient-001.md
+  - `[[algorithmic-complexity]]` in claims/flashattention-fast-and-memory-efficient-001.md
+  - `[[llm-interpretability]]` in claims/google-brain-llm-language-processing-001.md
+  - `[[embeddings]]` in claims/google-brain-llm-language-processing-001.md
+  - `[[predictions]]` in claims/neuroscience-of-transformers-009.md
+  - `[[experimental-design]]` in claims/neuroscience-of-transformers-009.md
+  - `[[neuromorphic-computing]]` in claims/transformers-neurons-astrocytes-007.md
+  - `[[bio-inspired]]` in claims/transformers-neurons-astrocytes-007.md
+  - `[[hardware-design]]` in claims/transformers-neurons-astrocytes-007.md
+  - `[[contextual-modulation]]` in claims/neuroscience-of-transformers-008.md
+  - `[[cortical-circuits]]` in claims/neuroscience-of-transformers-008.md
+  - `[[comprehension-production]]` in claims/google-brain-llm-language-processing-010.md
+  - `[[bidirectional]]` in claims/google-brain-llm-language-processing-010.md
+  - `[[gating]]` in claims/transformers-neurons-astrocytes-006.md
+  - `[[synaptic-transmission]]` in claims/transformers-neurons-astrocytes-006.md
+  - `[[syntax]]` in claims/temporal-language-llm-hierarchy-004.md
+  - `[[morphology]]` in claims/temporal-language-llm-hierarchy-004.md
+  - `[[middle-layers]]` in claims/temporal-language-llm-hierarchy-004.md
+  - `[[memory-compute-tradeoff]]` in claims/flashattention-fast-and-memory-efficient-004.md
+  - `[[backpropagation]]` in claims/flashattention-fast-and-memory-efficient-004.md
+  - `[[prediction]]` in claims/google-brain-llm-language-processing-004.md
+  - `[[shared-principles]]` in claims/google-brain-llm-language-processing-004.md
+  - `[[computation]]` in claims/google-brain-llm-language-processing-004.md
+  - `[[computational-neuroscience]]` in claims/do-large-language-models-think-like-the--008.md
+  - `[[model-interpretation]]` in claims/do-large-language-models-think-like-the--008.md
+  - `[[scaling laws]]` in claims/scaling-laws-for-neural-language-models-009.md
+  - `[[model training]]` in claims/scaling-laws-for-neural-language-models-009.md
+  - `[[practical impact]]` in claims/scaling-laws-for-neural-language-models-009.md
+  - `[[llama]]` in claims/scaling-laws-for-neural-language-models-009.md
+  - `[[signal-integration]]` in claims/transformers-neurons-astrocytes-002.md
+  - `[[biological-plausibility]]` in claims/transformers-neurons-astrocytes-002.md
+  - `[[tiling]]` in claims/flashattention-fast-and-memory-efficient-003.md
+  - `[[memory-optimization]]` in claims/flashattention-fast-and-memory-efficient-003.md
+  - `[[phonology]]` in claims/temporal-language-llm-hierarchy-003.md
+  - `[[acoustic-processing]]` in claims/temporal-language-llm-hierarchy-003.md
+  - `[[early-layers]]` in claims/temporal-language-llm-hierarchy-003.md
+  - `[[speech-production]]` in claims/google-brain-llm-language-processing-003.md
+  - `[[motor-cortex]]` in claims/google-brain-llm-language-processing-003.md
+  - `[[planning]]` in claims/google-brain-llm-language-processing-003.md
+  - `[[computational-principles]]` in claims/llm-brain-fmri-alignment-008.md
+  - `[[autoregressive-models]]` in claims/llm-brain-fmri-alignment-008.md
+  - `[[attention-mechanism]]` in claims/transformers-neurons-astrocytes-005.md
+  - `[[biological-implementation]]` in claims/transformers-neurons-astrocytes-005.md
+  - `[[synaptic-modulation]]` in claims/transformers-neurons-astrocytes-005.md
+  - `[[production-systems]]` in claims/flashattention-fast-and-memory-efficient-007.md
+  - `[[llm]]` in claims/flashattention-fast-and-memory-efficient-007.md
+  - `[[brain-inspired]]` in claims/temporal-language-llm-hierarchy-007.md
+  - `[[temporal-processing]]` in claims/temporal-language-llm-hierarchy-007.md
+  - `[[computational-analogy]]` in claims/temporal-language-llm-hierarchy-007.md
+  - `[[whisper-model]]` in claims/google-brain-llm-language-processing-007.md
+  - `[[embeddings]]` in claims/google-brain-llm-language-processing-007.md
+  - `[[biological-computation]]` in claims/transformers-neurons-astrocytes-001.md
+  - `[[synaptic-plasticity]]` in claims/transformers-neurons-astrocytes-001.md
+  - `[[parallelization]]` in claims/flashattention-fast-and-memory-efficient-006.md
+  - `[[global-context]]` in claims/transformers-neurons-astrocytes-010.md
+  - `[[information-integration]]` in claims/transformers-neurons-astrocytes-010.md
+  - `[[language-proficiency]]` in claims/temporal-language-llm-hierarchy-006.md
+  - `[[l2-learning]]` in claims/temporal-language-llm-hierarchy-006.md
+  - `[[individual-differences]]` in claims/temporal-language-llm-hierarchy-006.md
+  - `[[architecture-differences]]` in claims/google-brain-llm-language-processing-006.md
+  - `[[serial-vs-parallel]]` in claims/google-brain-llm-language-processing-006.md
+  - `[[scalability]]` in claims/google-brain-llm-language-processing-006.md
+  - `[[memory-hierarchy]]` in claims/flashattention-fast-and-memory-efficient-002.md
+  - `[[io-awareness]]` in claims/flashattention-fast-and-memory-efficient-002.md
+  - `[[broca-area]]` in claims/temporal-language-llm-hierarchy-002.md
+  - `[[language-regions]]` in claims/temporal-language-llm-hierarchy-002.md
+  - `[[neural-mapping]]` in claims/temporal-language-llm-hierarchy-002.md
+  - `[[speech-processing]]` in claims/google-brain-llm-language-processing-002.md
+  - `[[brain-regions]]` in claims/google-brain-llm-language-processing-002.md
+  - `[[listening]]` in claims/google-brain-llm-language-processing-002.md
+  - `[[computational-modeling]]` in claims/llm-brain-fmri-alignment-009.md
+  - `[[model-validation]]` in claims/llm-brain-fmri-alignment-009.md
+  - `[[biological-substrate]]` in claims/transformers-neurons-astrocytes-004.md
+  - `[[convergent-evolution]]` in claims/transformers-neurons-astrocytes-004.md
+  - `[[neural-computation]]` in claims/transformers-neurons-astrocytes-004.md
+  - `[[intracranial-recording]]` in claims/google-brain-llm-language-processing-009.md
+  - `[[temporal-resolution]]` in claims/google-brain-llm-language-processing-009.md
+  - `[[instruction-tuning]]` in claims/llm-brain-fmri-alignment-002.md
+  - `[[model-variants]]` in claims/llm-brain-fmri-alignment-002.md
+  - `[[expertise-effects]]` in claims/temporal-language-llm-hierarchy-009.md
+  - `[[neural-plasticity]]` in claims/temporal-language-llm-hierarchy-009.md
+  - `[[proficiency-modulation]]` in claims/temporal-language-llm-hierarchy-009.md
+  - `[[learning]]` in claims/temporal-language-llm-hierarchy-009.md
+  - `[[xai-validation]]` in claims/llm-explanations-brain-representations-004.md
+  - `[[biological-plausibility]]` in claims/llm-explanations-brain-representations-004.md
+  - `[[neuroscience-ai-bridge]]` in claims/llm-explanations-brain-representations-004.md
+  - `[[hemispheric-processing]]` in claims/do-large-language-models-think-like-the--005.md
+  - `[[language-networks]]` in claims/do-large-language-models-think-like-the--005.md
+  - `[[scale]]` in claims/scaling-laws-for-neural-language-models-004.md
+  - `[[hyperparameters]]` in claims/scaling-laws-for-neural-language-models-004.md
+  - `[[multi-head-attention]]` in claims/attention-is-all-you-need-003.md
+  - `[[cortical-computation]]` in claims/neuroscience-of-transformers-001.md
+  - `[[analogy]]` in claims/neuroscience-of-transformers-001.md
+  - `[[layer-wise-analysis]]` in claims/llm-brain-fmri-alignment-006.md
+  - `[[fmri-alignment]]` in claims/llm-brain-fmri-alignment-006.md
+  - `[[scaling laws]]` in claims/scaling-laws-for-neural-language-models-010.md
+  - `[[research methodology]]` in claims/scaling-laws-for-neural-language-models-010.md
+  - `[[compute planning]]` in claims/scaling-laws-for-neural-language-models-010.md
+  - `[[efficiency]]` in claims/scaling-laws-for-neural-language-models-010.md
+  - `[[discretization]]` in claims/neuroscience-of-transformers-005.md
+  - `[[oscillations]]` in claims/neuroscience-of-transformers-005.md
+  - `[[recurrence]]` in claims/neuroscience-of-transformers-005.md
+  - `[[llm-interpretability]]` in claims/do-large-language-models-think-like-the--001.md
+  - `[[model-comparison]]` in claims/llm-brain-fmri-alignment-007.md
+  - `[[generalization]]` in claims/llm-brain-fmri-alignment-007.md
+  - `[[empirical-scope]]` in claims/llm-brain-fmri-alignment-007.md
+  - `[[attribution-methods]]` in claims/llm-explanations-brain-representations-001.md
+  - `[[fmri]]` in claims/llm-explanations-brain-representations-001.md
+  - `[[residual-connections]]` in claims/neuroscience-of-transformers-004.md
+  - `[[connectivity]]` in claims/neuroscience-of-transformers-004.md
+  - `[[scaling laws]]` in claims/scaling-laws-for-neural-language-models-001.md
+  - `[[power laws]]` in claims/scaling-laws-for-neural-language-models-001.md
+  - `[[language models]]` in claims/scaling-laws-for-neural-language-models-001.md
+  - `[[empirical]]` in claims/scaling-laws-for-neural-language-models-001.md
+  - `[[long-range-dependencies]]` in claims/attention-is-all-you-need-006.md
+  - `[[gradient-flow]]` in claims/attention-is-all-you-need-006.md
+  - `[[parallelization]]` in claims/attention-is-all-you-need-006.md
+  - `[[prediction-error]]` in claims/google-brain-llm-language-processing-008.md
+  - `[[surprise]]` in claims/google-brain-llm-language-processing-008.md
+  - `[[shared-mechanisms]]` in claims/google-brain-llm-language-processing-008.md
+  - `[[anomaly-detection]]` in claims/google-brain-llm-language-processing-008.md
+  - `[[recurrence]]` in claims/neuroscience-of-transformers-010.md
+  - `[[semantic-abstraction]]` in claims/llm-brain-fmri-alignment-003.md
+  - `[[computational-modeling]]` in claims/temporal-language-llm-hierarchy-008.md
+  - `[[brain-decoding]]` in claims/temporal-language-llm-hierarchy-008.md
+  - `[[bottleneck-analysis]]` in claims/flashattention-fast-and-memory-efficient-008.md
+  - `[[memory-bandwidth]]` in claims/flashattention-fast-and-memory-efficient-008.md
+  - `[[xai-evaluation]]` in claims/llm-explanations-brain-representations-005.md
+  - `[[neuroscience-benchmark]]` in claims/llm-explanations-brain-representations-005.md
+  - `[[human-alignment]]` in claims/llm-explanations-brain-representations-005.md
+  - `[[semantic-abstraction]]` in claims/do-large-language-models-think-like-the--004.md
+  - `[[architecture search]]` in claims/scaling-laws-for-neural-language-models-005.md
+  - `[[scaling]]` in claims/scaling-laws-for-neural-language-models-005.md
+  - `[[research priorities]]` in claims/scaling-laws-for-neural-language-models-005.md
+  - `[[self-attention]]` in claims/attention-is-all-you-need-002.md
+  - `[[architecture-design]]` in claims/attention-is-all-you-need-002.md
+
+## Stale Content
+Found 0 sources modified since last compilation:
+
+
+## Missing Concepts
+No concepts exist yet. Run `kb compile` first.
+
+## Inconsistencies
+Need at least 2 concept articles to check.

@@ -18,24 +18,31 @@ User uploads papers (PDFs, markdown, text)
   ↓
 Flask Backend (Python, port 8888)
   ├── Ingest: track files in raw/_manifest.yaml
-  ├── Compile: 7-stage LLM pipeline
+  ├── Compile: 8-stage LLM pipeline
   │   1. Extract text from PDFs/md
   │   2. Chunk into 8-15 key insights per paper
   │   3. Find cross-paper connections (supports/contradicts/extends)
   │   4. Cluster into research themes
+  │   3.5. Detect domains (group clusters, generate "Did You Know" facts)
   │   5. Generate evolving entity pages
   │   6. Enrich (contradictions, gaps, synthesis)
   │   7. Generate product ideas
-  ├── Search: BM25 + graph nodes + LLM synthesis
+  ├── Search: BM25 + graph nodes + LLM synthesis + auto-caching
   ├── Wiki: compiled source articles in markdown
   └── All data stored as JSON + markdown files (no database)
   ↓
 React Frontend (TypeScript/Vite, port 3000)
-  ├── Main Page: Wikipedia-style with featured research, articles, clusters
-  ├── Knowledge Graph: D3.js force-directed visualization
-  ├── Search: Smart search with synthesized answers + evidence trail
+  ├── Main Page: 3-level Wikipedia-style (Domains → Portal → Article)
+  │   ├── "Did You Know?" section with verified cross-domain facts
+  │   ├── Domain cards (3-6 clickable portals)
+  │   ├── Domain portal with filtered clusters, entities, articles
+  │   └── Article/entity detail with breadcrumb navigation
+  ├── Knowledge Graph: D3.js with domain dropdown + cluster filters
+  ├── Search: Smart search with cached answers + evidence trail
   ├── Research Ideas: Product ideas with evidence
-  └── Sources: Upload, manage, compile
+  ├── Sources: Grouped by domain, upload, compile
+  ├── Wiki Editor: In-browser markdown editing
+  └── Web Clipper: Clip articles from browser
 ```
 
 ## Two Frontends

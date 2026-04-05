@@ -3,18 +3,18 @@ id: "neuroscience-of-transformers-008"
 type: "hypothesis"
 source: "papers/neuroscience-of-transformers.pdf"
 source_title: "Neuroscience Of Transformers"
-cluster: "transformer-neuroscience-analogy"
-tags: ["attention", "neuroscience", "contextual-modulation", "cortical-circuits"]
+cluster: "transformer-neuroscience-mapping"
+tags: ["predictions", "testable-hypotheses", "cortical-organization", "experimental-design"]
 ---
 
-# Contextual modulation mechanisms in cortical circuits operate similarly to attention mechanisms in transformers, enabling content-dependent routing and selection of information.
+# The transformer-to-cortex mapping generates testable predictions about laminar specialization patterns, contextual modulation mechanisms, dendritic integration processes, and oscillatory coordination patterns in cortical columns.
 
 **Type:** hypothesis
 **Source:** Neuroscience Of Transformers
-**Evidence:** Mapping section and predictions identify contextual modulation mechanisms as a generated prediction
+**Evidence:** Predictions Generated section lists four specific prediction categories derived from the mapping framework
 
 ## Tags
-- [[attention]]
-- [[neuroscience]]
-- [[contextual-modulation]]
-- [[cortical-circuits]]
+- [[predictions]]
+- [[testable-hypotheses]]
+- [[cortical-organization]]
+- [[experimental-design]]

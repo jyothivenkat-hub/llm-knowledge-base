@@ -1,20 +1,20 @@
 ---
 id: "neuroscience-of-transformers-007"
-type: "hypothesis"
+type: "concept"
 source: "papers/neuroscience-of-transformers.pdf"
 source_title: "Neuroscience Of Transformers"
-cluster: "transformer-neuroscience-analogy"
-tags: ["cortical-columns", "laminar-organization", "transformers", "neuroscience"]
+cluster: "transformer-neuroscience-mapping"
+tags: ["computational-analogy", "neuroscience", "machine-learning", "comparative-analysis"]
 ---
 
-# Laminar structure of cortical columns instantiates a transformer-like computational motif, suggesting the vertical organization of cortex implements attention-like mechanisms for contextual modulation.
+# Analyzing brains and artificial architectures at the level of computational organization—rather than implementation details—can yield genuine insights into both neuroscience and machine learning, establishing a bidirectional research framework.
 
-**Type:** hypothesis
+**Type:** concept
 **Source:** Neuroscience Of Transformers
-**Evidence:** Core thesis and predictions section identify laminar specialization patterns as a key prediction
+**Evidence:** Core thesis: 'Comparing brains and architectures at the level of computational organization can yield genuine insight into both disciplines'
 
 ## Tags
-- [[cortical-columns]]
-- [[laminar-organization]]
-- [[transformers]]
+- [[computational-analogy]]
 - [[neuroscience]]
+- [[machine-learning]]
+- [[comparative-analysis]]

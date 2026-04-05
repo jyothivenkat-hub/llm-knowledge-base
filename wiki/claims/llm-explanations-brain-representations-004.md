@@ -3,18 +3,19 @@ id: "llm-explanations-brain-representations-004"
 type: "concept"
 source: "papers/llm-explanations-brain-representations.pdf"
 source_title: "Llm Explanations Brain Representations"
-cluster: "llm-interpretability-neuroscience"
-tags: ["xai-validation", "biological-plausibility", "neuroscience-ai-bridge", "interpretability"]
+cluster: "llm-interpretability-explanations"
+tags: ["explainability", "validation", "neuroscience", "biological-plausibility", "xai"]
 ---
 
-# Explainability methods can serve as a validation tool for biological plausibility of AI systems by measuring how well XAI-derived explanations predict actual neural activity, reversing the typical direction of neuroscience-to-AI transfer.
+# Explainability methods can be validated against neuroscience data (fMRI) to assess biological plausibility of AI explanation techniques, creating a bidirectional bridge between XAI and cognitive neuroscience.
 
 **Type:** concept
 **Source:** Llm Explanations Brain Representations
-**Evidence:** Novel Contribution: 'Demonstrates that explainability methods can assess biological plausibility of AI explanation methods.'
+**Evidence:** Novel Contribution: 'Demonstrates that explainability methods can assess biological plausibility of AI explanation methods. Opens pathway to use neuroscience data to validate which XAI techniques best capture human-like processing.'
 
 ## Tags
-- [[xai-validation]]
+- [[explainability]]
+- [[validation]]
+- [[neuroscience]]
 - [[biological-plausibility]]
-- [[neuroscience-ai-bridge]]
-- [[interpretability]]
+- [[xai]]

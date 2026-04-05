@@ -1,20 +1,21 @@
 ---
 id: "google-brain-llm-language-processing-009"
-type: "method"
+type: "concept"
 source: "papers/google-brain-llm-language-processing.pdf"
 source_title: "Google Brain Llm Language Processing"
-cluster: "llm-brain-alignment-empirical"
-tags: ["intracranial-recording", "methodology", "temporal-resolution", "neuroscience"]
+cluster: "temporal-dynamics-language-processing"
+tags: ["embeddings", "context-representation", "distributed-representations", "language-understanding", "universal-principles"]
 ---
 
-# Intracranial electrode recordings during natural conversations provide direct evidence of brain-LLM alignment, offering higher temporal and spatial resolution than non-invasive neuroimaging methods for validating computational models of language.
+# Embedding-based contextual representation is a shared computational principle between brains and LLMs, suggesting that distributed vector representations of context are fundamental to language understanding across biological and artificial systems.
 
-**Type:** method
+**Type:** concept
 **Source:** Google Brain Llm Language Processing
-**Evidence:** Abstract: used intracranial electrode recordings during natural conversations to measure neural activity alignment with LLM embeddings.
+**Evidence:** Shared Computational Principles section lists embedding-based contextual representation as a core mechanism
 
 ## Tags
-- [[intracranial-recording]]
-- [[methodology]]
-- [[temporal-resolution]]
-- [[neuroscience]]
+- [[embeddings]]
+- [[context-representation]]
+- [[distributed-representations]]
+- [[language-understanding]]
+- [[universal-principles]]

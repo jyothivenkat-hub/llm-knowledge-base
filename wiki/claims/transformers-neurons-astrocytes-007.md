@@ -1,20 +1,20 @@
 ---
 id: "transformers-neurons-astrocytes-007"
-type: "concept"
+type: "finding"
 source: "papers/transformers-neurons-astrocytes.pdf"
 source_title: "Transformers Neurons Astrocytes"
-cluster: "biological-attention-implementation"
-tags: ["neuromorphic-computing", "bio-inspired", "astrocytes", "hardware-design"]
+cluster: "transformer-neuroscience-mapping"
+tags: ["synaptic-modulation", "attention-weights", "astrocytes", "information-flow"]
 ---
 
-# The discovery that neuron-astrocyte interactions implement transformer-like computations opens a new research direction for neuromorphic computing systems that exploit biological principles rather than mimicking artificial neural networks.
+# Astrocytic modulation of synaptic transmission provides a biological mechanism for dynamic reweighting of information flow, functionally equivalent to the softmax-weighted aggregation in transformer attention heads.
 
-**Type:** concept
+**Type:** finding
 **Source:** Transformers Neurons Astrocytes
-**Evidence:** Stated in Implications section: 'Opens new directions for neuromorphic computing inspired by neuron-astrocyte interactions'
+**Evidence:** Biological Attention Mechanism section describes astrocytes as modulating synaptic transmission analogously to attention mechanisms.
 
 ## Tags
-- [[neuromorphic-computing]]
-- [[bio-inspired]]
+- [[synaptic-modulation]]
+- [[attention-weights]]
 - [[astrocytes]]
-- [[hardware-design]]
+- [[information-flow]]

@@ -3,18 +3,18 @@ id: "temporal-language-llm-hierarchy-002"
 type: "finding"
 source: "papers/temporal-language-llm-hierarchy.pdf"
 source_title: "Temporal Language Llm Hierarchy"
-cluster: "temporal-hierarchy-language"
-tags: ["broca-area", "language-regions", "neural-mapping", "llm-neuroscience"]
+cluster: "temporal-dynamics-language-processing"
+tags: ["broca-area", "neural-alignment", "language-regions", "deep-layers"]
 ---
 
-# Broca's area and language-related brain regions show particularly strong alignment with LLM layer hierarchy, suggesting these regions implement computations analogous to deep transformer layers.
+# Deeper LLM layers predict activity in Broca's area and language-related brain regions with stronger alignment than shallow layers, suggesting artificial and biological language processing share a common temporal-to-depth organizational principle.
 
 **Type:** finding
 **Source:** Temporal Language Llm Hierarchy
-**Evidence:** Core Finding and Abstract: 'particularly strong in Broca's area and other language-related regions'
+**Evidence:** Core Finding and Temporal Mapping sections establish that deep layer correspondence is 'particularly strong in Broca's area and language-related regions'
 
 ## Tags
 - [[broca-area]]
+- [[neural-alignment]]
 - [[language-regions]]
-- [[neural-mapping]]
-- [[llm-neuroscience]]
+- [[deep-layers]]

@@ -1,20 +1,20 @@
 ---
 id: "temporal-language-llm-hierarchy-007"
-type: "concept"
+type: "hypothesis"
 source: "papers/temporal-language-llm-hierarchy.pdf"
 source_title: "Temporal Language Llm Hierarchy"
-cluster: "temporal-hierarchy-language"
-tags: ["transformer-architecture", "brain-inspired", "temporal-processing", "computational-analogy"]
+cluster: "temporal-dynamics-language-processing"
+tags: ["architectural-convergence", "optimization", "biological-plausibility", "inductive-bias"]
 ---
 
-# The temporal-to-depth correspondence between LLM layers and brain activity suggests that transformer architecture may implement computations that are fundamentally similar to how the brain processes language sequentially over time.
+# The temporal-to-depth correspondence between LLM architecture and brain dynamics suggests that transformer layer stacking may be a computationally optimal solution that independently converges with biological language processing organization.
 
-**Type:** concept
+**Type:** hypothesis
 **Source:** Temporal Language Llm Hierarchy
-**Evidence:** Abstract and Core Finding: establishes alignment as a structural correspondence, not coincidence
+**Evidence:** Core Finding establishes alignment as a systematic correspondence rather than coincidence, implying shared organizational principles
 
 ## Tags
-- [[transformer-architecture]]
-- [[brain-inspired]]
-- [[temporal-processing]]
-- [[computational-analogy]]
+- [[architectural-convergence]]
+- [[optimization]]
+- [[biological-plausibility]]
+- [[inductive-bias]]

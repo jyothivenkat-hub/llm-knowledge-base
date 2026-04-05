@@ -1,20 +1,21 @@
 ---
 id: "google-brain-llm-language-processing-003"
-type: "finding"
+type: "concept"
 source: "papers/google-brain-llm-language-processing.pdf"
 source_title: "Google Brain Llm Language Processing"
-cluster: "llm-brain-alignment-empirical"
-tags: ["speech-production", "motor-cortex", "temporal-dynamics", "planning"]
+cluster: "temporal-dynamics-language-processing"
+tags: ["prediction", "surprise-signals", "shared-mechanisms", "language-understanding", "transformers"]
 ---
 
-# During speech production, the temporal sequence reverses: language areas activate approximately 500ms before articulation, followed by motor cortex engagement, indicating planning precedes execution.
+# The human brain and LLMs both implement next-word prediction and prediction error (surprise) signals as core computational mechanisms, suggesting this is a fundamental principle of language understanding rather than an artifact of transformer architecture.
 
-**Type:** finding
+**Type:** concept
 **Source:** Google Brain Llm Language Processing
-**Evidence:** Speech Processing Sequence section: during speaking, language areas activate ~500ms before articulation, followed by motor cortex engagement.
+**Evidence:** Shared Computational Principles section identifies next-word prediction and prediction error signals as common to both brain and LLMs
 
 ## Tags
-- [[speech-production]]
-- [[motor-cortex]]
-- [[temporal-dynamics]]
-- [[planning]]
+- [[prediction]]
+- [[surprise-signals]]
+- [[shared-mechanisms]]
+- [[language-understanding]]
+- [[transformers]]

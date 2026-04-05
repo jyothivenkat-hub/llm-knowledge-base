@@ -52,6 +52,34 @@ export type ProductIdea = {
   backingClaims: string[];
 };
 
+export type Domain = {
+  id: string;
+  label: string;
+  description: string;
+  icon: string;
+  cluster_ids: string[];
+  claim_count: number;
+  article_count: number;
+  entity_count?: number;
+  featured_finding?: string;
+  did_you_know?: string[];
+  // Portal data (loaded on demand)
+  clusters?: any[];
+  entities?: any[];
+  bridges?: any[];
+  product_ideas?: any[];
+};
+
+export type WikiEntity = {
+  slug: string;
+  title: string;
+  related_claims: string[];
+  last_updated: string;
+  source_count: number;
+  content_html?: string;
+  content_md?: string;
+};
+
 export type AppState = {
   sources: ResearchSource[];
   claims: AtomicClaim[];

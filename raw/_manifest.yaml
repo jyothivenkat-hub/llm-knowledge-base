@@ -70,3 +70,56 @@ sources:
   date_ingested: '2026-04-02'
   compiled: true
   compiled_hash: e670b95124670e4a4ad7c9267b6f48c2a61a966a88379695917fac962d09f38a
+- path: articles/blue-light-screens-melatonin-sleep.md
+  sha256: b56e7d975f638c724be3dca3072d8f18da3b8fe1c2d26de89c8b6754bc4c24ce
+  title: Impacts of Blue Light Exposure From Electronic Devices on Circadian Rhythm
+    and Sleep Disruption in Adolescent and Young Adult Students
+  source_url: ''
+  date_ingested: '2026-04-05'
+  compiled: true
+  compiled_hash: b56e7d975f638c724be3dca3072d8f18da3b8fe1c2d26de89c8b6754bc4c24ce
+- path: articles/caffeine-dose-timing-effects-sleep.md
+  sha256: eda0699e168f7bd3c1a512f751bd4e217aae4960c7fb5de3463e2222ebcf0713
+  title: 'Dose and Timing Effects of Caffeine on Subsequent Sleep: A Randomized Clinical
+    Crossover Trial'
+  source_url: ''
+  date_ingested: '2026-04-05'
+  compiled: true
+  compiled_hash: eda0699e168f7bd3c1a512f751bd4e217aae4960c7fb5de3463e2222ebcf0713
+- path: articles/karpathy-llm-knowledge-base-tweets.md
+  sha256: 0cce751edcf1f93fcd0704c55943da13bc2ae107ec2c6b3a9c1326afbafee871
+  title: "Andrej Karpathy: LLM Knowledge Bases \u2014 Complete Reference"
+  source_url: https://x.com/karpathy
+  date_ingested: '2026-04-05'
+  compiled: true
+  compiled_hash: 0cce751edcf1f93fcd0704c55943da13bc2ae107ec2c6b3a9c1326afbafee871
+- path: articles/optimal-exercise-dose-sleep-quality.md
+  sha256: 31d7ae990ddcd685231f378a7e37585e5a08ef0113fca0654bd6b071aba8dedc
+  title: 'Optimal Exercise Dose and Type for Improving Sleep Quality: A Systematic
+    Review and Network Meta-Analysis of RCTs'
+  source_url: ''
+  date_ingested: '2026-04-05'
+  compiled: true
+  compiled_hash: 31d7ae990ddcd685231f378a7e37585e5a08ef0113fca0654bd6b071aba8dedc
+- path: articles/stress-impact-sleep-quality-mediation.md
+  sha256: fe3817f68e2dcf01d649047ad15592e17dd31ace5ed66dcfd99e337b1581bffa
+  title: 'The Impact of Stress on Sleep Quality: A Mediation Analysis Based on Longitudinal
+    Data'
+  source_url: ''
+  date_ingested: '2026-04-05'
+  compiled: true
+  compiled_hash: fe3817f68e2dcf01d649047ad15592e17dd31ace5ed66dcfd99e337b1581bffa
+- path: papers/cognitive-performance-sleep-wearables.pdf
+  sha256: e3c99b076cc893abef9df61956351789c721bac304b81114d453f586bbee004f
+  title: Cognitive Performance Sleep Wearables
+  source_url: ''
+  date_ingested: '2026-04-05'
+  compiled: true
+  compiled_hash: e3c99b076cc893abef9df61956351789c721bac304b81114d453f586bbee004f
+- path: papers/gut-microbiota-influences-sleep.pdf
+  sha256: 923f6b1021254a1127dfea8e5c9209385db640bf46b4199d447797f101f35042
+  title: Gut Microbiota Influences Sleep
+  source_url: ''
+  date_ingested: '2026-04-05'
+  compiled: true
+  compiled_hash: 923f6b1021254a1127dfea8e5c9209385db640bf46b4199d447797f101f35042

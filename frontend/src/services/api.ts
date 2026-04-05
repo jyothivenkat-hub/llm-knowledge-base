@@ -3,7 +3,7 @@
  * All calls go to the Flask API at /api/*
  */
 
-import { AppState, AtomicClaim, Concept, ProductIdea, ResearchSource } from '../types';
+import { AppState, AtomicClaim, Concept, Domain, ProductIdea, ResearchSource, WikiEntity } from '../types';
 
 const API_BASE = '';  // Same origin, proxied by Vite in dev
 
@@ -92,6 +92,41 @@ export async function loadState(): Promise<AppState> {
   };
 }
 
+// ─── Domains ───────────────────────────────────────────
+
+export async function getDomainPage(domainId: string): Promise<Domain | null> {
+  try {
+    const res = await fetch(`${API_BASE}/api/domain/${encodeURIComponent(domainId)}`);
+    if (!res.ok) return null;
+    return res.json();
+  } catch {
+    return null;
+  }
+}
+
+// ─── Entities ──────────────────────────────────────────
+
+export async function getEntities(): Promise<WikiEntity[]> {
+  try {
+    const res = await fetch(`${API_BASE}/api/entities`);
+    if (!res.ok) return [];
+    const data = await res.json();
+    return data.entities || [];
+  } catch {
+    return [];
+  }
+}
+
+export async function getEntity(slug: string): Promise<WikiEntity | null> {
+  try {
+    const res = await fetch(`${API_BASE}/api/entity/${encodeURIComponent(slug)}`);
+    if (!res.ok) return null;
+    return res.json();
+  } catch {
+    return null;
+  }
+}
+
 // ─── Compile (triggers backend pipeline) ────────────────
 
 export async function runCompile(
@@ -124,13 +159,16 @@ export async function runCompile(
 
 export async function askQuestion(
   query: string,
-  onProgress: (msg: string) => void
-): Promise<{ answer: string; evidence: any[] }> {
-  // Try cached first
-  const cachedRes = await fetch(`${API_BASE}/api/cached-search?q=${encodeURIComponent(query)}`);
-  const cached = await cachedRes.json();
-  if (cached.answer) {
-    return { answer: cached.answer, evidence: cached.evidence || [] };
+  onProgress: (msg: string) => void,
+  skipCache = false
+): Promise<{ answer: string; evidence: any[]; cached: boolean }> {
+  // Try cached first (unless skipped)
+  if (!skipCache) {
+    const cachedRes = await fetch(`${API_BASE}/api/cached-search?q=${encodeURIComponent(query)}`);
+    const cached = await cachedRes.json();
+    if (cached.answer) {
+      return { answer: cached.answer, evidence: cached.evidence || [], cached: true };
+    }
   }
 
   // Fall back to live SSE
@@ -144,6 +182,7 @@ export async function askQuestion(
         resolve({
           answer: data.answer_html || data.answer || '',
           evidence: data.evidence || [],
+          cached: false,
         });
       } else if (data.error) {
         source.close();

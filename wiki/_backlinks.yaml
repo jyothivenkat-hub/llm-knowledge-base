@@ -1,22 +1,67 @@
-acoustic-processing:
+academic-performance:
+- claims/impacts-of-blue-light-exposure-from-elec-004.md
+acoustic-features:
 - claims/temporal-language-llm-hierarchy-003.md
-algorithmic-complexity:
-- claims/flashattention-fast-and-memory-efficient-001.md
-analogy:
-- claims/neuroscience-of-transformers-001.md
-anomaly-detection:
-- claims/google-brain-llm-language-processing-008.md
+active-testing:
+- claims/cognitive-performance-sleep-wearables-005.md
+adaptation:
+- entities/dose-response.md
+- claims/optimal-exercise-dose-and-type-for-impro-009.md
+adaptive-systems:
+- claims/cognitive-performance-sleep-wearables-007.md
+addiction:
+- claims/impacts-of-blue-light-exposure-from-elec-009.md
+adenosine:
+- entities/circadian-rhythm.md
+- claims/optimal-exercise-dose-and-type-for-impro-007.md
+- claims/dose-and-timing-effects-of-caffeine-on-s-007.md
+adolescent sleep:
+- entities/circadian-disruption.md
+adolescent-development:
+- claims/impacts-of-blue-light-exposure-from-elec-012.md
+adolescents:
+- entities/circadian-rhythm.md
+- entities/circadian-disruption.md
+adoption:
+- claims/flashattention-fast-and-memory-efficient-007.md
+age-differences:
+- claims/impacts-of-blue-light-exposure-from-elec-012.md
+age-related-changes:
+- claims/gut-microbiota-influences-sleep-011.md
+aging:
+- claims/gut-microbiota-influences-sleep-011.md
+alertness:
+- entities/cognitive-performance.md
+- claims/cognitive-performance-sleep-wearables-005.md
+alternative-medicine:
+- claims/gut-microbiota-influences-sleep-009.md
+amplification:
+- claims/the-impact-of-stress-on-sleep-quality-a--007.md
+anticipatory-anxiety:
+- claims/the-impact-of-stress-on-sleep-quality-a--008.md
+anxiety:
+- claims/the-impact-of-stress-on-sleep-quality-a--004.md
+approximation-free:
+- claims/flashattention-fast-and-memory-efficient-010.md
+architectural-convergence:
+- claims/temporal-language-llm-hierarchy-007.md
+architectural-diversity:
+- claims/llm-brain-fmri-alignment-009.md
+architectural-principles:
+- claims/transformers-neurons-astrocytes-006.md
 architecture:
 - claims/attention-is-all-you-need-005.md
-- claims/scaling-laws-for-neural-language-models-004.md
-- claims/attention-is-all-you-need-003.md
-architecture search:
-- entities/scaling-laws.md
+- claims/scaling-laws-for-neural-language-models-003.md
 - claims/scaling-laws-for-neural-language-models-005.md
-architecture-design:
+architecture design:
+- claims/attention-is-all-you-need-006.md
 - claims/attention-is-all-you-need-002.md
 architecture-differences:
-- claims/google-brain-llm-language-processing-006.md
+- claims/google-brain-llm-language-processing-005.md
+- claims/neuroscience-of-transformers-009.md
+arousal:
+- entities/sleep-disruption.md
+- claims/dose-and-timing-effects-of-caffeine-on-s-004.md
 artificial-biological-correspondence:
 - sources/temporal-language-llm-hierarchy.md
 artificial-intelligence:
@@ -27,14 +72,11 @@ artificial-neural-networks:
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
 - sources/neuroscience-of-transformers.md
 astrocytes:
+- entities/biological-plausibility.md
 - entities/sequence-modeling.md
 - claims/transformers-neurons-astrocytes-003.md
 - claims/transformers-neurons-astrocytes-007.md
-- claims/transformers-neurons-astrocytes-006.md
 - claims/transformers-neurons-astrocytes-002.md
-- claims/transformers-neurons-astrocytes-005.md
-- claims/transformers-neurons-astrocytes-001.md
-- claims/transformers-neurons-astrocytes-010.md
 astrocytic calcium signaling:
 - entities/modulation.md
 - entities/temporal-dynamics.md
@@ -43,36 +85,30 @@ astrocytic-calcium-signaling:
 attention:
 - entities/transformer.md
 - entities/architecture.md
-- claims/attention-is-all-you-need-005.md
-- claims/attention-is-all-you-need-001.md
-- claims/transformers-neurons-astrocytes-008.md
-- claims/attention-is-all-you-need-004.md
-- claims/flashattention-fast-and-memory-efficient-005.md
 - claims/flashattention-fast-and-memory-efficient-001.md
-- claims/neuroscience-of-transformers-008.md
-- claims/transformers-neurons-astrocytes-006.md
-- claims/flashattention-fast-and-memory-efficient-004.md
-- claims/transformers-neurons-astrocytes-002.md
-- claims/flashattention-fast-and-memory-efficient-003.md
-- claims/flashattention-fast-and-memory-efficient-007.md
+- claims/flashattention-fast-and-memory-efficient-010.md
 - claims/transformers-neurons-astrocytes-001.md
-- claims/flashattention-fast-and-memory-efficient-006.md
-- claims/attention-is-all-you-need-003.md
-- claims/attention-is-all-you-need-006.md
-- claims/attention-is-all-you-need-002.md
+attention heads:
+- entities/architecture.md
 attention is all you need:
 - entities/transformer.md
 - entities/architecture.md
+- entities/attention-mechanisms.md
 - entities/attention.md
 - entities/sequence-modeling.md
 attention mechanism:
 - entities/astrocytes.md
+- entities/biological-plausibility.md
+- entities/temporal-dynamics.md
 attention mechanisms:
 - entities/architecture.md
-- entities/temporal-stages.md
 - entities/sequence-modeling.md
 - entities/gpu-optimization.md
-- entities/temporal-dynamics.md
+- claims/attention-is-all-you-need-005.md
+- claims/attention-is-all-you-need-001.md
+- claims/attention-is-all-you-need-004.md
+- claims/attention-is-all-you-need-003.md
+- claims/attention-is-all-you-need-006.md
 attention weights:
 - entities/modulation.md
 attention-is-all-you-need:
@@ -82,51 +118,84 @@ attention-mechanism:
 - sources/llm-explanations-brain-representations.md
 - sources/attention-is-all-you-need.md
 - sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
-- claims/transformers-neurons-astrocytes-005.md
+- claims/transformers-neurons-astrocytes-006.md
+- claims/transformers-neurons-astrocytes-002.md
 attention-mechanisms:
 - sources/transformers-neurons-astrocytes.md
 - sources/neuroscience-of-transformers.md
 attention-optimization:
 - sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
-attribution:
-- claims/llm-explanations-brain-representations-003.md
+attention-weights:
+- claims/transformers-neurons-astrocytes-007.md
 attribution methods:
 - entities/interpretability.md
 attribution-based explanations:
 - entities/language-models.md
 - entities/interpretability.md
+- entities/computational-neuroscience.md
 attribution-methods:
 - sources/llm-explanations-brain-representations.md
-- claims/llm-explanations-brain-representations-007.md
+- claims/llm-explanations-brain-representations-006.md
 - claims/llm-explanations-brain-representations-001.md
+auditory-processing:
+- claims/google-brain-llm-language-processing-010.md
+autoregressive language models:
+- entities/computational-neuroscience.md
 autoregressive-models:
-- claims/llm-brain-fmri-alignment-008.md
+- claims/llm-brain-fmri-alignment-007.md
 backpropagation:
+- entities/prediction.md
+backward-pass:
 - claims/flashattention-fast-and-memory-efficient-004.md
+behavioral-mechanism:
+- claims/the-impact-of-stress-on-sleep-quality-a--012.md
+behavioral-metrics:
+- claims/cognitive-performance-sleep-wearables-010.md
 benchmark:
+- claims/flashattention-fast-and-memory-efficient-005.md
+benchmarks:
 - claims/attention-is-all-you-need-001.md
 bidirectional:
-- claims/google-brain-llm-language-processing-010.md
-bio-inspired:
-- claims/transformers-neurons-astrocytes-007.md
+- claims/gut-microbiota-influences-sleep-004.md
+bidirectional-signaling:
+- claims/gut-microbiota-influences-sleep-001.md
 biological-attention-mechanism:
 - sources/transformers-neurons-astrocytes.md
 biological-computation:
 - sources/transformers-neurons-astrocytes.md
 - claims/transformers-neurons-astrocytes-001.md
 biological-implementation:
+- claims/transformers-neurons-astrocytes-008.md
+biological-inspiration:
+- claims/transformers-neurons-astrocytes-004.md
+biological-learning:
 - claims/transformers-neurons-astrocytes-005.md
 biological-plausibility:
 - sources/llm-explanations-brain-representations.md
 - claims/transformers-neurons-astrocytes-002.md
+- claims/temporal-language-llm-hierarchy-007.md
 - claims/llm-explanations-brain-representations-004.md
 biological-substrate:
-- claims/transformers-neurons-astrocytes-008.md
-- claims/transformers-neurons-astrocytes-004.md
+- claims/transformers-neurons-astrocytes-006.md
 bleu-score:
 - sources/attention-is-all-you-need.md
-bottleneck-analysis:
-- claims/flashattention-fast-and-memory-efficient-008.md
+block-computation:
+- claims/flashattention-fast-and-memory-efficient-003.md
+blue light exposure:
+- entities/sleep-quality.md
+- entities/sleep-hygiene.md
+- entities/circadian-disruption.md
+- entities/sleep-disruption.md
+- entities/sleep-deprivation.md
+- entities/sleep-duration.md
+blue-light:
+- claims/impacts-of-blue-light-exposure-from-elec-001.md
+- claims/the-impact-of-stress-on-sleep-quality-a--003.md
+blue-light-glasses:
+- claims/impacts-of-blue-light-exposure-from-elec-011.md
+bottleneck:
+- claims/flashattention-fast-and-memory-efficient-009.md
+- claims/scaling-laws-for-neural-language-models-005.md
 brain activity:
 - entities/layer-analysis.md
 brain alignment:
@@ -141,28 +210,30 @@ brain-alignment:
 - claims/llm-brain-fmri-alignment-001.md
 - claims/do-large-language-models-think-like-the--006.md
 - claims/llm-brain-fmri-alignment-005.md
+- claims/llm-explanations-brain-representations-003.md
 - claims/do-large-language-models-think-like-the--002.md
-- claims/do-large-language-models-think-like-the--009.md
-- claims/temporal-language-llm-hierarchy-001.md
 - claims/do-large-language-models-think-like-the--008.md
-- claims/llm-brain-fmri-alignment-008.md
 - claims/llm-brain-fmri-alignment-009.md
 - claims/llm-brain-fmri-alignment-002.md
 - claims/do-large-language-models-think-like-the--005.md
+- claims/llm-brain-fmri-alignment-006.md
 - claims/do-large-language-models-think-like-the--001.md
-- claims/llm-brain-fmri-alignment-007.md
 - claims/llm-brain-fmri-alignment-003.md
 - claims/do-large-language-models-think-like-the--004.md
+brain-computation:
+- claims/transformers-neurons-astrocytes-005.md
+brain-computer:
+- claims/google-brain-llm-language-processing-001.md
 brain-computer-interfaces:
 - sources/google-brain-llm-language-processing.md
 brain-decoding:
-- claims/temporal-language-llm-hierarchy-008.md
+- claims/do-large-language-models-think-like-the--010.md
 brain-imaging:
 - sources/temporal-language-llm-hierarchy.md
-brain-inspired:
-- claims/temporal-language-llm-hierarchy-007.md
+- claims/google-brain-llm-language-processing-007.md
 brain-inspired-ai:
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+- claims/transformers-neurons-astrocytes-008.md
 brain-inspired-computing:
 - sources/transformers-neurons-astrocytes.md
 - sources/neuroscience-of-transformers.md
@@ -170,59 +241,358 @@ brain-language-mapping:
 - sources/temporal-language-llm-hierarchy.md
 brain-language-networks:
 - sources/llm-brain-fmri-alignment.md
+brain-mapping:
+- claims/temporal-language-llm-hierarchy-001.md
+brain-model alignment:
+- entities/layer-wise-analysis.md
 brain-model-alignment:
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
 brain-model-correlation:
 - sources/llm-brain-fmri-alignment.md
+brain-modeling:
+- claims/do-large-language-models-think-like-the--009.md
 brain-organization:
-- claims/google-brain-llm-language-processing-005.md
+- claims/google-brain-llm-language-processing-004.md
 brain-regions:
+- claims/google-brain-llm-language-processing-010.md
 - claims/google-brain-llm-language-processing-002.md
+brain-structure:
+- claims/impacts-of-blue-light-exposure-from-elec-007.md
 broca's area:
 - entities/temporal-dynamics.md
 broca-area:
 - claims/temporal-language-llm-hierarchy-002.md
+- claims/temporal-language-llm-hierarchy-009.md
 brocas-area:
 - sources/google-brain-llm-language-processing.md
 - sources/temporal-language-llm-hierarchy.md
+caffeine:
+- entities/sleep-quality.md
+- entities/chronobiology.md
+- entities/melatonin.md
+- entities/generalizability.md
+- entities/dose-response.md
+- entities/study-design.md
+- entities/sleep-duration.md
+- claims/dose-and-timing-effects-of-caffeine-on-s-005.md
+- claims/dose-and-timing-effects-of-caffeine-on-s-001.md
+- claims/dose-and-timing-effects-of-caffeine-on-s-010.md
+- claims/dose-and-timing-effects-of-caffeine-on-s-004.md
+- claims/dose-and-timing-effects-of-caffeine-on-s-008.md
+- claims/dose-and-timing-effects-of-caffeine-on-s-003.md
+- claims/dose-and-timing-effects-of-caffeine-on-s-007.md
+- claims/dose-and-timing-effects-of-caffeine-on-s-006.md
+- claims/dose-and-timing-effects-of-caffeine-on-s-012.md
+- claims/dose-and-timing-effects-of-caffeine-on-s-002.md
+caffeine consumption:
+- entities/sleep-duration.md
+caffeine metabolism:
+- entities/chronobiology.md
+caffeine-metabolism:
+- claims/dose-and-timing-effects-of-caffeine-on-s-009.md
 calcium-signaling:
-- claims/transformers-neurons-astrocytes-009.md
 - claims/transformers-neurons-astrocytes-003.md
+cascade-effects:
+- claims/the-impact-of-stress-on-sleep-quality-a--007.md
+causal masking:
+- entities/temporal-dynamics.md
+chain-reaction:
+- claims/the-impact-of-stress-on-sleep-quality-a--001.md
+china:
+- claims/the-impact-of-stress-on-sleep-quality-a--005.md
 chinchilla:
-- entities/scaling-laws.md
-- claims/scaling-laws-for-neural-language-models-008.md
+- claims/scaling-laws-for-neural-language-models-006.md
+- claims/scaling-laws-for-neural-language-models-009.md
 chinchilla-scaling-laws:
 - sources/scaling-laws-for-neural-language-models.md
+chronobiology:
+- claims/cognitive-performance-sleep-wearables-006.md
+- claims/dose-and-timing-effects-of-caffeine-on-s-006.md
+- claims/dose-and-timing-effects-of-caffeine-on-s-002.md
+chrononutrition:
+- claims/gut-microbiota-influences-sleep-008.md
+chronotherapy:
+- claims/impacts-of-blue-light-exposure-from-elec-014.md
+circadian rhythm:
+- entities/sleep-quality.md
+- entities/sleep-hygiene.md
+- entities/melatonin.md
+- entities/cognitive-performance.md
+- entities/circadian-disruption.md
+- entities/sleep-deprivation.md
+circadian rhythms:
+- entities/chronobiology.md
+circadian-disruption:
+- claims/impacts-of-blue-light-exposure-from-elec-009.md
+- claims/impacts-of-blue-light-exposure-from-elec-003.md
+- claims/impacts-of-blue-light-exposure-from-elec-013.md
+circadian-genes:
+- claims/impacts-of-blue-light-exposure-from-elec-008.md
+- claims/impacts-of-blue-light-exposure-from-elec-002.md
+circadian-maturation:
+- claims/impacts-of-blue-light-exposure-from-elec-012.md
+circadian-mechanism:
+- claims/impacts-of-blue-light-exposure-from-elec-010.md
+circadian-misalignment:
+- claims/gut-microbiota-influences-sleep-005.md
+circadian-reset:
+- claims/impacts-of-blue-light-exposure-from-elec-014.md
+circadian-restoration:
+- claims/gut-microbiota-influences-sleep-008.md
+circadian-rhythm:
+- claims/optimal-exercise-dose-and-type-for-impro-007.md
+- claims/cognitive-performance-sleep-wearables-006.md
+- claims/impacts-of-blue-light-exposure-from-elec-001.md
+circadian-rhythms:
+- claims/gut-microbiota-influences-sleep-004.md
+claims/attention-is-all-you-need-001:
+- _index.md
+claims/attention-is-all-you-need-002:
+- _index.md
+claims/attention-is-all-you-need-003:
+- _index.md
+claims/attention-is-all-you-need-004:
+- _index.md
+claims/attention-is-all-you-need-005:
+- _index.md
+claims/cognitive-performance-sleep-wearables-001:
+- _index.md
+claims/cognitive-performance-sleep-wearables-002:
+- _index.md
+claims/cognitive-performance-sleep-wearables-003:
+- _index.md
+claims/cognitive-performance-sleep-wearables-004:
+- _index.md
+claims/cognitive-performance-sleep-wearables-005:
+- _index.md
+claims/do-large-language-models-think-like-the--001:
+- _index.md
+claims/do-large-language-models-think-like-the--002:
+- _index.md
+claims/do-large-language-models-think-like-the--003:
+- _index.md
+claims/do-large-language-models-think-like-the--004:
+- _index.md
+claims/do-large-language-models-think-like-the--005:
+- _index.md
+claims/dose-and-timing-effects-of-caffeine-on-s-001:
+- _index.md
+claims/dose-and-timing-effects-of-caffeine-on-s-002:
+- _index.md
+claims/dose-and-timing-effects-of-caffeine-on-s-003:
+- _index.md
+claims/dose-and-timing-effects-of-caffeine-on-s-004:
+- _index.md
+claims/dose-and-timing-effects-of-caffeine-on-s-005:
+- _index.md
+claims/flashattention-fast-and-memory-efficient-001:
+- _index.md
+claims/flashattention-fast-and-memory-efficient-002:
+- _index.md
+claims/flashattention-fast-and-memory-efficient-003:
+- _index.md
+claims/flashattention-fast-and-memory-efficient-004:
+- _index.md
+claims/flashattention-fast-and-memory-efficient-005:
+- _index.md
+claims/google-brain-llm-language-processing-001:
+- _index.md
+claims/google-brain-llm-language-processing-002:
+- _index.md
+claims/google-brain-llm-language-processing-003:
+- _index.md
+claims/google-brain-llm-language-processing-004:
+- _index.md
+claims/google-brain-llm-language-processing-005:
+- _index.md
+claims/gut-microbiota-influences-sleep-001:
+- _index.md
+claims/gut-microbiota-influences-sleep-002:
+- _index.md
+claims/gut-microbiota-influences-sleep-003:
+- _index.md
+claims/gut-microbiota-influences-sleep-004:
+- _index.md
+claims/gut-microbiota-influences-sleep-005:
+- _index.md
+claims/impacts-of-blue-light-exposure-from-elec-001:
+- _index.md
+claims/impacts-of-blue-light-exposure-from-elec-002:
+- _index.md
+claims/impacts-of-blue-light-exposure-from-elec-003:
+- _index.md
+claims/impacts-of-blue-light-exposure-from-elec-004:
+- _index.md
+claims/impacts-of-blue-light-exposure-from-elec-005:
+- _index.md
+claims/llm-brain-fmri-alignment-001:
+- _index.md
+claims/llm-brain-fmri-alignment-002:
+- _index.md
+claims/llm-brain-fmri-alignment-003:
+- _index.md
+claims/llm-brain-fmri-alignment-004:
+- _index.md
+claims/llm-brain-fmri-alignment-005:
+- _index.md
+claims/llm-explanations-brain-representations-001:
+- _index.md
+claims/llm-explanations-brain-representations-002:
+- _index.md
+claims/llm-explanations-brain-representations-003:
+- _index.md
+claims/llm-explanations-brain-representations-004:
+- _index.md
+claims/llm-explanations-brain-representations-005:
+- _index.md
+claims/neuroscience-of-transformers-001:
+- _index.md
+claims/neuroscience-of-transformers-002:
+- _index.md
+claims/neuroscience-of-transformers-003:
+- _index.md
+claims/neuroscience-of-transformers-004:
+- _index.md
+claims/neuroscience-of-transformers-005:
+- _index.md
+claims/optimal-exercise-dose-and-type-for-impro-001:
+- _index.md
+claims/optimal-exercise-dose-and-type-for-impro-002:
+- _index.md
+claims/optimal-exercise-dose-and-type-for-impro-003:
+- _index.md
+claims/optimal-exercise-dose-and-type-for-impro-004:
+- _index.md
+claims/optimal-exercise-dose-and-type-for-impro-005:
+- _index.md
+claims/scaling-laws-for-neural-language-models-001:
+- _index.md
+claims/scaling-laws-for-neural-language-models-002:
+- _index.md
+claims/scaling-laws-for-neural-language-models-003:
+- _index.md
+claims/scaling-laws-for-neural-language-models-004:
+- _index.md
+claims/scaling-laws-for-neural-language-models-005:
+- _index.md
+claims/temporal-language-llm-hierarchy-001:
+- _index.md
+claims/temporal-language-llm-hierarchy-002:
+- _index.md
+claims/temporal-language-llm-hierarchy-003:
+- _index.md
+claims/temporal-language-llm-hierarchy-004:
+- _index.md
+claims/temporal-language-llm-hierarchy-005:
+- _index.md
+claims/the-impact-of-stress-on-sleep-quality-a--001:
+- _index.md
+claims/the-impact-of-stress-on-sleep-quality-a--002:
+- _index.md
+claims/the-impact-of-stress-on-sleep-quality-a--003:
+- _index.md
+claims/the-impact-of-stress-on-sleep-quality-a--004:
+- _index.md
+claims/the-impact-of-stress-on-sleep-quality-a--005:
+- _index.md
+claims/transformers-neurons-astrocytes-001:
+- _index.md
+claims/transformers-neurons-astrocytes-002:
+- _index.md
+claims/transformers-neurons-astrocytes-003:
+- _index.md
+claims/transformers-neurons-astrocytes-004:
+- _index.md
+claims/transformers-neurons-astrocytes-005:
+- _index.md
+clinical-guideline:
+- claims/optimal-exercise-dose-and-type-for-impro-006.md
+clinical-recommendations:
+- claims/dose-and-timing-effects-of-caffeine-on-s-010.md
+clock-genes:
+- claims/gut-microbiota-influences-sleep-004.md
+cognition-aware systems:
+- entities/ubiquitous-computing.md
+cognitive neuroscience:
+- entities/biological-plausibility.md
+cognitive performance:
+- entities/sleep.md
+- entities/ubiquitous-computing.md
+- entities/wearables.md
+- entities/circadian-rhythm.md
+- entities/passive-sensing.md
+- entities/study-design.md
+cognitive performance sleep wearables:
+- entities/sleep.md
+- entities/ubiquitous-computing.md
+- entities/wearables.md
+- entities/chronobiology.md
+- entities/cognitive-performance.md
+- entities/circadian-rhythm.md
+- entities/passive-sensing.md
+- entities/study-design.md
 cognitive processing:
 - entities/layer-analysis.md
 cognitive science:
 - entities/neural-prediction.md
 cognitive-alignment:
-- claims/llm-explanations-brain-representations-006.md
+- claims/llm-explanations-brain-representations-007.md
+cognitive-assessment:
+- claims/cognitive-performance-sleep-wearables-005.md
+- claims/cognitive-performance-sleep-wearables-002.md
+cognitive-function:
+- claims/impacts-of-blue-light-exposure-from-elec-006.md
+- claims/gut-microbiota-influences-sleep-007.md
+cognitive-mechanisms:
+- claims/the-impact-of-stress-on-sleep-quality-a--002.md
 cognitive-modeling:
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
 - sources/temporal-language-llm-hierarchy.md
 cognitive-networks:
-- claims/llm-brain-fmri-alignment-005.md
+- claims/llm-brain-fmri-alignment-004.md
 cognitive-neuroscience:
 - sources/llm-brain-fmri-alignment.md
+cognitive-performance:
+- claims/cognitive-performance-sleep-wearables-001.md
+- claims/cognitive-performance-sleep-wearables-006.md
+- claims/cognitive-performance-sleep-wearables-003.md
+- claims/cognitive-performance-sleep-wearables-009.md
+cognitive-processing:
+- claims/do-large-language-models-think-like-the--006.md
 cognitive-science:
 - sources/llm-explanations-brain-representations.md
 - sources/google-brain-llm-language-processing.md
+cognitive-state:
+- claims/cognitive-performance-sleep-wearables-007.md
+college-students:
+- claims/impacts-of-blue-light-exposure-from-elec-013.md
+combined exercise:
+- entities/sleep-quality.md
+combined-training:
+- claims/optimal-exercise-dose-and-type-for-impro-005.md
+common method variance:
+- entities/methodology.md
+comorbidities:
+- claims/gut-microbiota-influences-sleep-006.md
 comparative-analysis:
-- claims/do-large-language-models-think-like-the--007.md
-comprehension-production:
-- claims/google-brain-llm-language-processing-010.md
-computation:
-- claims/google-brain-llm-language-processing-004.md
+- claims/neuroscience-of-transformers-007.md
+- claims/do-large-language-models-think-like-the--008.md
+comparative-effectiveness:
+- claims/optimal-exercise-dose-and-type-for-impro-011.md
+compliance:
+- entities/dose-response.md
+- claims/optimal-exercise-dose-and-type-for-impro-009.md
+computation-theory:
+- claims/transformers-neurons-astrocytes-004.md
 computational-analogy:
-- claims/neuroscience-of-transformers-006.md
-- claims/temporal-language-llm-hierarchy-007.md
+- claims/neuroscience-of-transformers-007.md
+- claims/neuroscience-of-transformers-001.md
 computational-complexity:
 - sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
+computational-mismatch:
+- claims/neuroscience-of-transformers-009.md
 computational-modeling:
-- claims/llm-brain-fmri-alignment-009.md
-- claims/temporal-language-llm-hierarchy-008.md
+- claims/llm-brain-fmri-alignment-010.md
 computational-neuroscience:
 - sources/transformers-neurons-astrocytes.md
 - sources/llm-explanations-brain-representations.md
@@ -231,169 +601,366 @@ computational-neuroscience:
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
 - sources/neuroscience-of-transformers.md
 - sources/temporal-language-llm-hierarchy.md
-- claims/llm-explanations-brain-representations-003.md
-- claims/do-large-language-models-think-like-the--008.md
+- claims/do-large-language-models-think-like-the--009.md
+- claims/llm-brain-fmri-alignment-007.md
+- claims/llm-explanations-brain-representations-005.md
 computational-principles:
-- claims/llm-brain-fmri-alignment-008.md
+- claims/llm-brain-fmri-alignment-006.md
 computational-resources:
 - sources/scaling-laws-for-neural-language-models.md
 compute allocation:
 - claims/scaling-laws-for-neural-language-models-002.md
-compute budget:
-- entities/scaling-laws.md
-- claims/scaling-laws-for-neural-language-models-003.md
+- claims/scaling-laws-for-neural-language-models-006.md
+compute budget allocation:
+- entities/prediction.md
 compute efficiency:
 - claims/scaling-laws-for-neural-language-models-007.md
 compute planning:
-- claims/scaling-laws-for-neural-language-models-010.md
+- claims/scaling-laws-for-neural-language-models-004.md
 compute-optimal-training:
 - sources/scaling-laws-for-neural-language-models.md
-concepts/_index:
-- _index.md
-connectivity:
-- claims/neuroscience-of-transformers-004.md
+context-modeling:
+- claims/transformers-neurons-astrocytes-003.md
+context-representation:
+- claims/google-brain-llm-language-processing-009.md
+contextual embeddings:
+- entities/computational-neuroscience.md
 contextual-embeddings:
 - sources/google-brain-llm-language-processing.md
 contextual-modulation:
 - sources/neuroscience-of-transformers.md
-- claims/neuroscience-of-transformers-008.md
 convergent-evolution:
+- claims/llm-explanations-brain-representations-008.md
 - claims/transformers-neurons-astrocytes-004.md
 convolutional neural networks:
 - entities/sequence-modeling.md
 convolutional-neural-networks:
 - sources/attention-is-all-you-need.md
+coping-strategies:
+- claims/the-impact-of-stress-on-sleep-quality-a--004.md
+correlation:
+- claims/cognitive-performance-sleep-wearables-003.md
+cortical column:
+- entities/transformers.md
 cortical-circuits:
-- claims/neuroscience-of-transformers-008.md
+- claims/neuroscience-of-transformers-002.md
+- claims/neuroscience-of-transformers-001.md
 cortical-column-organization:
 - sources/neuroscience-of-transformers.md
 cortical-columns:
-- claims/neuroscience-of-transformers-007.md
-cortical-computation:
-- claims/neuroscience-of-transformers-001.md
+- claims/neuroscience-of-transformers-006.md
+cortical-connectivity:
+- claims/neuroscience-of-transformers-004.md
+cortical-dynamics:
+- claims/neuroscience-of-transformers-003.md
 cortical-layers:
 - sources/neuroscience-of-transformers.md
 cortical-microcircuits:
 - sources/neuroscience-of-transformers.md
+cortical-organization:
+- claims/neuroscience-of-transformers-008.md
+cultural-specificity:
+- claims/the-impact-of-stress-on-sleep-quality-a--010.md
+cumulative-effects:
+- claims/impacts-of-blue-light-exposure-from-elec-003.md
 data efficiency:
 - claims/scaling-laws-for-neural-language-models-002.md
 dataset-scaling:
 - sources/scaling-laws-for-neural-language-models.md
-dataset-size:
-- entities/optimization.md
+daytime dysfunction:
+- entities/sleep-quality.md
 deep-layers:
 - claims/temporal-language-llm-hierarchy-005.md
+- claims/temporal-language-llm-hierarchy-002.md
 deep-learning:
 - sources/attention-is-all-you-need.md
 - sources/neuroscience-of-transformers.md
-dendritic-computation:
+deep-sleep:
+- claims/dose-and-timing-effects-of-caffeine-on-s-003.md
+dendrites:
 - claims/neuroscience-of-transformers-002.md
 dendritic-integration:
 - sources/neuroscience-of-transformers.md
-discourse:
-- claims/temporal-language-llm-hierarchy-005.md
+depression risk:
+- entities/circadian-disruption.md
+device-use:
+- claims/impacts-of-blue-light-exposure-from-elec-005.md
 discourse-level comprehension:
 - entities/neural-alignment.md
 discourse-level processing:
 - entities/temporal-stages.md
+discourse-processing:
+- claims/temporal-language-llm-hierarchy-005.md
+discrete-vs-continuous:
+- claims/neuroscience-of-transformers-009.md
 discretization:
 - claims/neuroscience-of-transformers-005.md
+disease-risk:
+- claims/gut-microbiota-influences-sleep-005.md
+- claims/gut-microbiota-influences-sleep-006.md
+distributed-representations:
+- claims/google-brain-llm-language-processing-009.md
+dna-methylation:
+- claims/impacts-of-blue-light-exposure-from-elec-008.md
 do large language models think like the brain? layer-wise embeddings and fmri:
-- entities/neuroscience.md
 - entities/methodology.md
 - entities/layer-analysis.md
-- entities/optimization.md
+- entities/llm-neuroscience.md
+- entities/neural-architecture.md
 - entities/representation-learning.md
 - entities/brain-alignment.md
+- entities/language-processing.md
+- entities/computational-neuroscience.md
+- entities/layer-wise-analysis.md
 do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri:
 - sources/_index.md
+'dose and timing effects of caffeine on subsequent sleep: a randomized clinical crossover trial':
+- entities/sleep-quality.md
+- entities/chronobiology.md
+- entities/sleep-hygiene.md
+- entities/melatonin.md
+- entities/generalizability.md
+- entities/dose-response.md
+- entities/methodology.md
+- entities/study-design.md
+- entities/caffeine.md
+- entities/sleep-duration.md
+dose-response:
+- claims/dose-and-timing-effects-of-caffeine-on-s-005.md
+- claims/optimal-exercise-dose-and-type-for-impro-002.md
+- claims/dose-and-timing-effects-of-caffeine-on-s-001.md
+- claims/optimal-exercise-dose-and-type-for-impro-003.md
+- claims/optimal-exercise-dose-and-type-for-impro-008.md
+- claims/optimal-exercise-dose-and-type-for-impro-009.md
+- claims/optimal-exercise-dose-and-type-for-impro-004.md
+- claims/optimal-exercise-dose-and-type-for-impro-001.md
+- claims/dose-and-timing-effects-of-caffeine-on-s-012.md
+dosing:
+- claims/dose-and-timing-effects-of-caffeine-on-s-010.md
+dysbiosis:
+- claims/gut-microbiota-influences-sleep-002.md
 early-layers:
 - claims/temporal-language-llm-hierarchy-003.md
-efficiency:
-- claims/scaling-laws-for-neural-language-models-010.md
+ecological-validity:
+- claims/google-brain-llm-language-processing-007.md
+effective-connectivity:
+- claims/neuroscience-of-transformers-004.md
+effectiveness:
+- claims/impacts-of-blue-light-exposure-from-elec-011.md
+embedding-based contextual representation:
+- entities/llm-neuroscience.md
+embedding-extraction:
+- claims/google-brain-llm-language-processing-006.md
 embeddings:
 - claims/google-brain-llm-language-processing-001.md
-- claims/google-brain-llm-language-processing-007.md
-emergent-alignment:
-- claims/llm-explanations-brain-representations-008.md
+- claims/google-brain-llm-language-processing-009.md
 emergent-properties:
-- claims/do-large-language-models-think-like-the--002.md
-empirical:
-- claims/scaling-laws-for-neural-language-models-001.md
+- claims/do-large-language-models-think-like-the--003.md
+emotion-focused:
+- claims/the-impact-of-stress-on-sleep-quality-a--004.md
+empirical validation:
+- claims/scaling-laws-for-neural-language-models-008.md
 empirical-scaling:
 - sources/scaling-laws-for-neural-language-models.md
-empirical-scope:
-- claims/llm-brain-fmri-alignment-007.md
 encoder-decoder:
 - claims/attention-is-all-you-need-005.md
+encoder-decoder architecture:
+- entities/attention-mechanisms.md
+encoder-decoder models:
+- entities/attention-mechanisms.md
 encoder-decoder-architecture:
 - sources/attention-is-all-you-need.md
+endocrine-response:
+- claims/optimal-exercise-dose-and-type-for-impro-007.md
+endorphin:
+- entities/circadian-rhythm.md
+endorphins:
+- entities/circadian-rhythm.md
+entities/architecture:
+- _index.md
+entities/astrocytes:
+- _index.md
+entities/attention:
+- _index.md
+entities/brain-alignment:
+- _index.md
+entities/caffeine:
+- _index.md
+entities/circadian-rhythm:
+- _index.md
+entities/cognitive-performance:
+- _index.md
+entities/dose-response:
+- _index.md
+entities/generalizability:
+- _index.md
+entities/gpu-optimization:
+- _index.md
+entities/interpretability:
+- _index.md
+entities/language-models:
+- _index.md
+entities/language-processing:
+- _index.md
+entities/layer-analysis:
+- _index.md
+entities/llm-neuroscience:
+- _index.md
+entities/melatonin:
+- _index.md
+entities/methodology:
+- _index.md
+entities/modulation:
+- _index.md
+entities/neural-alignment:
+- _index.md
+entities/neural-prediction:
+- _index.md
+entities/neuroscience:
+- _index.md
+entities/optimization:
+- _index.md
+entities/representation-learning:
+- _index.md
+entities/scaling-laws:
+- _index.md
+entities/sequence-modeling:
+- _index.md
+entities/sleep:
+- _index.md
+entities/sleep-deprivation:
+- _index.md
+entities/sleep-disruption:
+- _index.md
+entities/sleep-duration:
+- _index.md
+entities/sleep-quality:
+- _index.md
+entities/study-design:
+- _index.md
+entities/temporal-dynamics:
+- _index.md
+entities/temporal-stages:
+- _index.md
+entities/transformer:
+- _index.md
+entities/transformer-architecture:
+- _index.md
+entities/transformers:
+- _index.md
+entities/ubiquitous-computing:
+- _index.md
+entities/wearables:
+- _index.md
+epidemiology:
+- claims/gut-microbiota-influences-sleep-006.md
+epigenetics:
+- claims/impacts-of-blue-light-exposure-from-elec-008.md
+exact-computation:
+- claims/flashattention-fast-and-memory-efficient-010.md
+exercise:
+- entities/generalizability.md
+- entities/dose-response.md
+- entities/study-design.md
+exercise-frequency:
+- claims/optimal-exercise-dose-and-type-for-impro-001.md
+exercise-intensity:
+- claims/optimal-exercise-dose-and-type-for-impro-004.md
+exercise-physiology:
+- claims/optimal-exercise-dose-and-type-for-impro-008.md
+exercise-prescription:
+- claims/optimal-exercise-dose-and-type-for-impro-002.md
+- claims/optimal-exercise-dose-and-type-for-impro-006.md
+exercise-type:
+- claims/optimal-exercise-dose-and-type-for-impro-005.md
 experimental design:
-- claims/scaling-laws-for-neural-language-models-006.md
+- claims/scaling-laws-for-neural-language-models-004.md
 experimental-design:
-- claims/neuroscience-of-transformers-009.md
-expertise-effects:
-- claims/temporal-language-llm-hierarchy-009.md
+- claims/neuroscience-of-transformers-008.md
+- claims/do-large-language-models-think-like-the--008.md
+explainability:
+- claims/llm-explanations-brain-representations-004.md
+explainability methods:
+- entities/biological-plausibility.md
 explainable ai:
-- entities/neural-prediction.md
-explainable ai (xai):
 - entities/methodology.md
+- entities/neural-prediction.md
 explainable-ai:
 - sources/llm-explanations-brain-representations.md
-extrapolation:
-- claims/scaling-laws-for-neural-language-models-006.md
+explanation-methods:
+- claims/llm-explanations-brain-representations-007.md
+fatigue:
+- entities/cognitive-performance.md
 feed-forward-layers:
 - sources/neuroscience-of-transformers.md
+feedback-loop:
+- claims/impacts-of-blue-light-exposure-from-elec-009.md
+feedback-loops:
+- claims/google-brain-llm-language-processing-004.md
+- claims/the-impact-of-stress-on-sleep-quality-a--006.md
+field-study:
+- claims/cognitive-performance-sleep-wearables-008.md
+fine-tuning:
+- claims/do-large-language-models-think-like-the--004.md
 flash-attention:
 - sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
 flashattention:
 - entities/attention.md
 - entities/gpu-optimization.md
 flashattention-2:
-- entities/attention.md
+- entities/optimization.md
 - entities/gpu-optimization.md
 flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness:
 - sources/_index.md
 'flashattention: fast and memory-efficient exact attention with io-awareness':
 - entities/attention.md
+- entities/optimization.md
 - entities/gpu-optimization.md
+flops-efficiency:
+- claims/flashattention-fast-and-memory-efficient-008.md
 fmri:
-- entities/layer-analysis.md
 - entities/language-models.md
 - entities/interpretability.md
 - entities/neural-prediction.md
+- entities/biological-plausibility.md
 - entities/brain-alignment.md
 - entities/language-processing.md
-- entities/neural-alignment.md
-- claims/do-large-language-models-think-like-the--007.md
+- entities/computational-neuroscience.md
+- entities/layer-wise-analysis.md
+- claims/llm-explanations-brain-representations-006.md
 - claims/llm-explanations-brain-representations-001.md
-fmri-alignment:
-- claims/llm-brain-fmri-alignment-006.md
 fmri-analysis:
-- claims/llm-explanations-brain-representations-007.md
+- claims/llm-brain-fmri-alignment-008.md
 fmri-brain-imaging:
 - sources/llm-brain-fmri-alignment.md
 fmri-data:
 - sources/llm-explanations-brain-representations.md
 fmri-language-processing:
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
-frontier:
-- claims/scaling-laws-for-neural-language-models-007.md
-fundamental-computation:
-- claims/transformers-neurons-astrocytes-008.md
-gating:
-- claims/transformers-neurons-astrocytes-006.md
+fmri-methodology:
+- claims/do-large-language-models-think-like-the--008.md
+- claims/do-large-language-models-think-like-the--010.md
+frontal-lobe:
+- claims/impacts-of-blue-light-exposure-from-elec-007.md
+generalizability:
+- claims/dose-and-timing-effects-of-caffeine-on-s-011.md
+- claims/the-impact-of-stress-on-sleep-quality-a--010.md
+- claims/optimal-exercise-dose-and-type-for-impro-010.md
 generalization:
-- claims/llm-brain-fmri-alignment-007.md
+- claims/scaling-laws-for-neural-language-models-008.md
+genetic testing:
+- entities/study-design.md
+genetics:
+- claims/impacts-of-blue-light-exposure-from-elec-002.md
 glial-cell-function:
 - sources/transformers-neurons-astrocytes.md
-global-context:
-- claims/transformers-neurons-astrocytes-010.md
 google brain llm language processing:
 - entities/neuroscience.md
+- entities/prediction.md
 - entities/methodology.md
+- entities/transformers.md
 - entities/neural-prediction.md
-- entities/llm-neuroscience.md
+- entities/neural-architecture.md
 - entities/temporal-dynamics.md
 - entities/language-processing.md
 - entities/neural-alignment.md
@@ -406,105 +973,162 @@ gpu-computing:
 gpu-memory-hierarchy:
 - sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
 gpu-optimization:
-- claims/flashattention-fast-and-memory-efficient-006.md
 - claims/flashattention-fast-and-memory-efficient-002.md
-- claims/flashattention-fast-and-memory-efficient-008.md
-gradient-flow:
-- claims/attention-is-all-you-need-006.md
+gut microbiota:
+- entities/circadian-rhythm.md
+- entities/sleep-deprivation.md
+gut microbiota influences sleep:
+- entities/circadian-rhythm.md
+- entities/sleep-deprivation.md
+gut-microbiota:
+- claims/gut-microbiota-influences-sleep-004.md
+- claims/gut-microbiota-influences-sleep-001.md
+half-life:
+- claims/dose-and-timing-effects-of-caffeine-on-s-006.md
 hardware-design:
-- claims/transformers-neurons-astrocytes-007.md
+- claims/transformers-neurons-astrocytes-008.md
+hardware-limits:
+- claims/flashattention-fast-and-memory-efficient-009.md
+health-monitoring:
+- claims/cognitive-performance-sleep-wearables-004.md
+- claims/cognitive-performance-sleep-wearables-001.md
+health-outcomes:
+- claims/gut-microbiota-influences-sleep-007.md
+hemispheric lateralization:
+- entities/neural-architecture.md
 hemispheric-language-processing:
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
-hemispheric-processing:
-- claims/do-large-language-models-think-like-the--005.md
+hemispheric-lateralization:
+- claims/llm-brain-fmri-alignment-004.md
 hemispheric-specialization:
-- claims/llm-brain-fmri-alignment-005.md
-hierarchical processing:
-- entities/temporal-dynamics.md
+- claims/do-large-language-models-think-like-the--006.md
 hierarchical-language-processing:
 - sources/llm-explanations-brain-representations.md
 hierarchical-processing:
 - claims/llm-explanations-brain-representations-002.md
 hierarchical-representations:
-- claims/llm-brain-fmri-alignment-004.md
+- claims/llm-brain-fmri-alignment-006.md
 hierarchical-temporal-scaffolding:
 - sources/neuroscience-of-transformers.md
 hierarchy:
-- claims/google-brain-llm-language-processing-005.md
-human-alignment:
+- claims/google-brain-llm-language-processing-004.md
 - claims/llm-explanations-brain-representations-005.md
+high-intensity:
+- claims/optimal-exercise-dose-and-type-for-impro-004.md
+high-intensity exercise:
+- entities/sleep-quality.md
+homeostatic sleep pressure:
+- entities/chronobiology.md
+hpa-axis:
+- claims/gut-microbiota-influences-sleep-002.md
+human brain activity:
+- entities/layer-wise-analysis.md
+human-computer-interaction:
+- claims/cognitive-performance-sleep-wearables-007.md
 hyperparameters:
-- claims/scaling-laws-for-neural-language-models-004.md
+- claims/scaling-laws-for-neural-language-models-003.md
+? impacts of blue light exposure from electronic devices on circadian rhythm and sleep
+  disruption in adolescent and young adult students
+: - entities/sleep-quality.md
+  - entities/sleep-hygiene.md
+  - entities/melatonin.md
+  - entities/circadian-rhythm.md
+  - entities/circadian-disruption.md
+  - entities/sleep-disruption.md
+  - entities/sleep-deprivation.md
+  - entities/sleep-duration.md
 individual-differences:
+- claims/impacts-of-blue-light-exposure-from-elec-002.md
 - claims/temporal-language-llm-hierarchy-006.md
+inductive bias:
+- claims/attention-is-all-you-need-004.md
+- claims/attention-is-all-you-need-006.md
 inductive-bias:
-- claims/llm-explanations-brain-representations-008.md
+- claims/temporal-language-llm-hierarchy-007.md
 inferior frontal gyrus:
+- entities/llm-neuroscience.md
 - entities/language-processing.md
-information-integration:
-- claims/transformers-neurons-astrocytes-010.md
+inflammation:
+- claims/gut-microbiota-influences-sleep-002.md
+- claims/gut-microbiota-influences-sleep-007.md
+information-flow:
+- claims/transformers-neurons-astrocytes-007.md
+insomnia:
+- claims/gut-microbiota-influences-sleep-003.md
 instruction-tuning:
 - sources/llm-brain-fmri-alignment.md
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
 - entities/language-models.md
-- claims/do-large-language-models-think-like-the--003.md
-- claims/llm-brain-fmri-alignment-002.md
+- claims/llm-brain-fmri-alignment-003.md
+- claims/do-large-language-models-think-like-the--004.md
 intermediate-layer-representations:
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
 interpretability:
-- claims/llm-explanations-brain-representations-006.md
-- claims/llm-explanations-brain-representations-004.md
+- entities/interpretability.md
 - claims/llm-explanations-brain-representations-001.md
-- claims/llm-explanations-brain-representations-005.md
+intervention:
+- claims/impacts-of-blue-light-exposure-from-elec-014.md
+- claims/impacts-of-blue-light-exposure-from-elec-011.md
+intervention-design:
+- claims/the-impact-of-stress-on-sleep-quality-a--009.md
+intervention-duration:
+- claims/optimal-exercise-dose-and-type-for-impro-003.md
+intervention-leverage:
+- claims/the-impact-of-stress-on-sleep-quality-a--012.md
 intracranial-electrode-recordings:
 - sources/google-brain-llm-language-processing.md
 intracranial-recording:
-- claims/google-brain-llm-language-processing-009.md
+- claims/google-brain-llm-language-processing-007.md
 io-aware-algorithms:
 - sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
-io-awareness:
+io-efficiency:
 - claims/flashattention-fast-and-memory-efficient-002.md
+irregular-schedules:
+- claims/impacts-of-blue-light-exposure-from-elec-013.md
+l2-assessment:
+- claims/temporal-language-llm-hierarchy-010.md
 l2-learning:
 - claims/temporal-language-llm-hierarchy-006.md
-laminar-organization:
-- claims/neuroscience-of-transformers-007.md
 laminar-structure:
 - sources/neuroscience-of-transformers.md
-language comprehension:
-- entities/temporal-dynamics.md
-language disorders:
-- entities/neural-prediction.md
+- claims/neuroscience-of-transformers-006.md
 language embeddings:
 - entities/temporal-dynamics.md
 language model:
 - entities/scaling-laws.md
+- entities/language-models.md
 language models:
-- claims/scaling-laws-for-neural-language-models-001.md
+- entities/transformers.md
+language processing:
+- entities/neural-architecture.md
+- entities/temporal-dynamics.md
+- entities/computational-neuroscience.md
 language production:
 - entities/temporal-dynamics.md
 language proficiency:
 - entities/modulation.md
+language understanding:
+- entities/transformers.md
 language-acquisition:
 - sources/temporal-language-llm-hierarchy.md
+language-generation:
+- claims/google-brain-llm-language-processing-008.md
+language-hierarchy:
+- claims/temporal-language-llm-hierarchy-008.md
 language-model-evaluation:
 - sources/llm-explanations-brain-representations.md
 language-model-performance:
 - sources/scaling-laws-for-neural-language-models.md
-language-models:
-- claims/llm-explanations-brain-representations-006.md
-- claims/llm-explanations-brain-representations-008.md
-- claims/llm-brain-fmri-alignment-002.md
-language-networks:
-- claims/do-large-language-models-think-like-the--005.md
 language-processing:
 - sources/llm-brain-fmri-alignment.md
-- claims/llm-brain-fmri-alignment-001.md
-- claims/llm-brain-fmri-alignment-005.md
-- claims/google-brain-llm-language-processing-010.md
-- claims/llm-brain-fmri-alignment-008.md
-- claims/llm-brain-fmri-alignment-009.md
+- claims/llm-brain-fmri-alignment-010.md
+- claims/do-large-language-models-think-like-the--009.md
+- claims/llm-explanations-brain-representations-008.md
+- claims/google-brain-llm-language-processing-001.md
+- claims/do-large-language-models-think-like-the--005.md
+- claims/do-large-language-models-think-like-the--001.md
 - claims/llm-explanations-brain-representations-001.md
-- claims/llm-brain-fmri-alignment-003.md
+- claims/llm-explanations-brain-representations-005.md
 language-proficiency:
 - claims/temporal-language-llm-hierarchy-006.md
 language-proficiency-effects:
@@ -513,55 +1137,75 @@ language-regions:
 - claims/temporal-language-llm-hierarchy-002.md
 language-selective-brain-regions:
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+language-understanding:
+- claims/google-brain-llm-language-processing-003.md
+- claims/google-brain-llm-language-processing-009.md
 large language model:
 - entities/temporal-stages.md
 large language models:
 - entities/neuroscience.md
+- entities/prediction.md
 - entities/layer-analysis.md
 - entities/interpretability.md
 - entities/neural-prediction.md
-- entities/attention.md
+- entities/neural-architecture.md
 - entities/representation-learning.md
 - entities/brain-alignment.md
 - entities/temporal-dynamics.md
 - entities/language-processing.md
+- entities/computational-neuroscience.md
+- entities/layer-wise-analysis.md
 - entities/neural-alignment.md
 large-language-models:
 - sources/google-brain-llm-language-processing.md
 - sources/llm-brain-fmri-alignment.md
 - sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
+- entities/optimization.md
+late-responses:
+- claims/temporal-language-llm-hierarchy-005.md
 layer-analysis:
 - claims/llm-explanations-brain-representations-002.md
-- claims/llm-brain-fmri-alignment-010.md
-- claims/do-large-language-models-think-like-the--001.md
-- claims/temporal-language-llm-hierarchy-008.md
+- claims/do-large-language-models-think-like-the--010.md
 layer-hierarchy:
 - claims/temporal-language-llm-hierarchy-001.md
 layer-normalization:
 - sources/neuroscience-of-transformers.md
+- claims/neuroscience-of-transformers-003.md
+layer-wise representations:
+- entities/computational-neuroscience.md
 layer-wise-analysis:
-- claims/llm-brain-fmri-alignment-001.md
-- claims/llm-brain-fmri-alignment-006.md
+- claims/do-large-language-models-think-like-the--007.md
+- claims/llm-brain-fmri-alignment-008.md
+- claims/do-large-language-models-think-like-the--001.md
 layer-wise-embeddings:
 - sources/llm-brain-fmri-alignment.md
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+layer-wise-representations:
+- claims/llm-brain-fmri-alignment-001.md
 learning:
+- entities/sleep-disruption.md
+- claims/impacts-of-blue-light-exposure-from-elec-006.md
+life-transition:
+- claims/impacts-of-blue-light-exposure-from-elec-013.md
+light-therapy:
+- claims/impacts-of-blue-light-exposure-from-elec-014.md
+limitations:
+- claims/dose-and-timing-effects-of-caffeine-on-s-011.md
+- claims/the-impact-of-stress-on-sleep-quality-a--010.md
+linguistic-information:
+- claims/do-large-language-models-think-like-the--007.md
+linguistic-specialization:
 - claims/temporal-language-llm-hierarchy-009.md
-learning-vs-structure:
-- claims/transformers-neurons-astrocytes-008.md
-listening:
-- claims/google-brain-llm-language-processing-002.md
-llama:
-- entities/scaling-laws.md
-- claims/scaling-laws-for-neural-language-models-009.md
+literature-synthesis:
+- claims/gut-microbiota-influences-sleep-010.md
 llm:
+- entities/neuroscience.md
 - entities/interpretability.md
 - entities/neural-prediction.md
 - entities/neural-alignment.md
 - claims/flashattention-fast-and-memory-efficient-007.md
 llm architectures:
 - entities/methodology.md
-- entities/neural-prediction.md
 llm brain fmri alignment:
 - entities/methodology.md
 - entities/layer-analysis.md
@@ -571,115 +1215,183 @@ llm brain fmri alignment:
 - entities/representation-learning.md
 - entities/brain-alignment.md
 - entities/language-processing.md
+- entities/computational-neuroscience.md
+- entities/layer-wise-analysis.md
+llm decoding:
+- entities/prediction.md
+llm embeddings:
+- entities/transformers.md
 llm explanations brain representations:
 - entities/neuroscience.md
 - entities/methodology.md
 - entities/transformer-architecture.md
 - entities/layer-analysis.md
 - entities/language-models.md
+- entities/transformers.md
 - entities/interpretability.md
 - entities/neural-prediction.md
+- entities/biological-plausibility.md
+- entities/neural-architecture.md
+- entities/brain-alignment.md
 - entities/language-processing.md
+- entities/computational-neuroscience.md
 - entities/neural-alignment.md
-llm representations:
-- entities/temporal-dynamics.md
+llm-alignment:
+- claims/google-brain-llm-language-processing-001.md
+llm-architecture:
+- claims/do-large-language-models-think-like-the--002.md
 llm-brain-fmri-alignment:
 - sources/_index.md
 llm-explanations-brain-representations:
 - sources/_index.md
 llm-interpretability:
 - sources/llm-explanations-brain-representations.md
-- claims/google-brain-llm-language-processing-001.md
-- claims/do-large-language-models-think-like-the--001.md
+- claims/do-large-language-models-think-like-the--009.md
+- claims/llm-brain-fmri-alignment-002.md
 llm-layer-hierarchy:
 - sources/temporal-language-llm-hierarchy.md
 llm-neuroscience:
 - claims/llm-brain-fmri-alignment-001.md
 - claims/temporal-language-llm-hierarchy-001.md
-- claims/google-brain-llm-language-processing-004.md
-- claims/google-brain-llm-language-processing-006.md
-- claims/temporal-language-llm-hierarchy-002.md
-long-range-dependencies:
-- claims/attention-is-all-you-need-006.md
-loss-compute-frontier:
+- claims/do-large-language-models-think-like-the--001.md
+llms:
+- entities/transformers.md
+long-context:
+- claims/flashattention-fast-and-memory-efficient-006.md
+longitudinal field studies:
+- entities/wearables.md
+longitudinal-research:
+- claims/cognitive-performance-sleep-wearables-008.md
+loss:
+- claims/scaling-laws-for-neural-language-models-001.md
+loss frontier:
+- claims/scaling-laws-for-neural-language-models-007.md
+loss-compute frontier:
 - entities/optimization.md
 loss-functions:
 - sources/scaling-laws-for-neural-language-models.md
 machine learning:
 - entities/neural-prediction.md
+machine translation:
+- claims/attention-is-all-you-need-001.md
+machine-learning:
+- claims/neuroscience-of-transformers-007.md
 machine-translation:
 - sources/attention-is-all-you-need.md
-- claims/attention-is-all-you-need-001.md
-memory-bandwidth:
-- claims/flashattention-fast-and-memory-efficient-008.md
-memory-compute-tradeoff:
-- claims/flashattention-fast-and-memory-efficient-004.md
-memory-efficiency:
+measurement-bias:
+- claims/optimal-exercise-dose-and-type-for-impro-010.md
+measurement-limitations:
+- claims/cognitive-performance-sleep-wearables-005.md
+mechanism-of-action:
+- claims/dose-and-timing-effects-of-caffeine-on-s-007.md
+mediation-analysis:
+- claims/the-impact-of-stress-on-sleep-quality-a--001.md
+melatonin:
+- entities/circadian-rhythm.md
+- entities/sleep-disruption.md
+- entities/caffeine.md
+- claims/impacts-of-blue-light-exposure-from-elec-001.md
+- claims/dose-and-timing-effects-of-caffeine-on-s-007.md
+- claims/the-impact-of-stress-on-sleep-quality-a--003.md
+melatonin-regulation:
+- claims/impacts-of-blue-light-exposure-from-elec-010.md
+memory consolidation:
+- entities/sleep-disruption.md
+memory-complexity:
 - claims/flashattention-fast-and-memory-efficient-001.md
+memory-efficiency:
+- claims/flashattention-fast-and-memory-efficient-004.md
 memory-efficient-training:
 - sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
 memory-hierarchy:
 - claims/flashattention-fast-and-memory-efficient-002.md
 memory-optimization:
 - sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
-- claims/flashattention-fast-and-memory-efficient-003.md
+mental-health:
+- claims/impacts-of-blue-light-exposure-from-elec-003.md
+metabolic processes:
+- entities/circadian-rhythm.md
+metabolic syndrome:
+- entities/circadian-rhythm.md
+metabolic-syndrome:
+- claims/gut-microbiota-influences-sleep-005.md
+metabolites:
+- claims/gut-microbiota-influences-sleep-003.md
 methodology:
-- claims/do-large-language-models-think-like-the--007.md
-- claims/llm-explanations-brain-representations-007.md
-- claims/neuroscience-of-transformers-006.md
-- claims/google-brain-llm-language-processing-007.md
-- claims/google-brain-llm-language-processing-009.md
-- claims/llm-brain-fmri-alignment-006.md
+- claims/gut-microbiota-influences-sleep-010.md
+methodology-limitations:
+- claims/the-impact-of-stress-on-sleep-quality-a--011.md
+microbiota-composition:
+- claims/gut-microbiota-influences-sleep-003.md
+microbiota-modulation:
+- claims/gut-microbiota-influences-sleep-009.md
+microbiota-transplantation:
+- claims/gut-microbiota-influences-sleep-012.md
 microcircuits:
-- claims/neuroscience-of-transformers-002.md
+- claims/neuroscience-of-transformers-006.md
 middle-layers:
 - claims/temporal-language-llm-hierarchy-004.md
-model architectures:
-- entities/temporal-stages.md
+mobile-sensing:
+- claims/cognitive-performance-sleep-wearables-010.md
+- claims/cognitive-performance-sleep-wearables-002.md
+modality-comparison:
+- claims/optimal-exercise-dose-and-type-for-impro-005.md
+model design:
+- claims/scaling-laws-for-neural-language-models-003.md
+model simplicity:
+- claims/attention-is-all-you-need-006.md
 model size:
-- claims/scaling-laws-for-neural-language-models-002.md
-- claims/scaling-laws-for-neural-language-models-008.md
+- claims/scaling-laws-for-neural-language-models-001.md
 model training:
 - claims/scaling-laws-for-neural-language-models-009.md
 model-architecture-design:
 - sources/scaling-laws-for-neural-language-models.md
-model-comparison:
-- claims/do-large-language-models-think-like-the--003.md
-- claims/llm-brain-fmri-alignment-007.md
-model-design:
-- claims/do-large-language-models-think-like-the--009.md
+model-based-metrics:
+- claims/temporal-language-llm-hierarchy-010.md
+model-generalization:
+- claims/llm-brain-fmri-alignment-009.md
 model-interpretability:
 - sources/llm-explanations-brain-representations.md
-model-interpretation:
-- claims/do-large-language-models-think-like-the--008.md
-model-scaling:
-- claims/llm-brain-fmri-alignment-004.md
-- claims/do-large-language-models-think-like-the--002.md
+model-performance:
+- claims/do-large-language-models-think-like-the--003.md
+model-prediction:
+- claims/temporal-language-llm-hierarchy-006.md
 model-size:
 - entities/optimization.md
-model-validation:
-- claims/llm-brain-fmri-alignment-009.md
 model-variants:
-- claims/llm-brain-fmri-alignment-002.md
-modulation:
-- claims/transformers-neurons-astrocytes-009.md
-- claims/transformers-neurons-astrocytes-003.md
-- claims/temporal-language-llm-hierarchy-006.md
+- claims/llm-brain-fmri-alignment-003.md
+- claims/do-large-language-models-think-like-the--004.md
+modern-lifestyle:
+- claims/gut-microbiota-influences-sleep-005.md
+molecular-mechanism:
+- claims/impacts-of-blue-light-exposure-from-elec-008.md
 morphological analysis:
 - entities/temporal-stages.md
 morphology:
 - claims/temporal-language-llm-hierarchy-004.md
 motor cortex:
 - entities/temporal-dynamics.md
-motor-cortex:
-- claims/google-brain-llm-language-processing-003.md
+motor-planning:
+- claims/google-brain-llm-language-processing-008.md
+mri:
+- entities/sleep-deprivation.md
 multi-head attention:
 - entities/transformer.md
 - entities/architecture.md
-- entities/attention.md
+- entities/attention-mechanisms.md
+- claims/attention-is-all-you-need-003.md
 multi-head-attention:
 - sources/attention-is-all-you-need.md
-- claims/attention-is-all-you-need-003.md
+multi-modal-sensing:
+- claims/cognitive-performance-sleep-wearables-008.md
+multi-target:
+- claims/the-impact-of-stress-on-sleep-quality-a--009.md
+multimodal:
+- claims/google-brain-llm-language-processing-006.md
+multimodal models:
+- entities/scaling-laws.md
+narrative-comprehension:
+- claims/llm-explanations-brain-representations-006.md
 natural language processing:
 - entities/neural-alignment.md
 natural-language-processing:
@@ -688,15 +1400,33 @@ natural-language-processing:
 - sources/llm-brain-fmri-alignment.md
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
 - sources/temporal-language-llm-hierarchy.md
+naturalistic-stimuli:
+- claims/google-brain-llm-language-processing-007.md
+network-meta-analysis:
+- claims/optimal-exercise-dose-and-type-for-impro-011.md
+neural networks:
+- claims/attention-is-all-you-need-002.md
 neural-activity-prediction:
 - sources/llm-explanations-brain-representations.md
 neural-alignment:
 - sources/llm-brain-fmri-alignment.md
-- claims/llm-explanations-brain-representations-002.md
-- claims/llm-explanations-brain-representations-003.md
-- claims/google-brain-llm-language-processing-001.md
+- claims/temporal-language-llm-hierarchy-002.md
+neural-architecture:
+- claims/do-large-language-models-think-like-the--006.md
+- claims/llm-explanations-brain-representations-008.md
+- claims/google-brain-llm-language-processing-004.md
+- claims/neuroscience-of-transformers-004.md
 neural-computation:
-- claims/transformers-neurons-astrocytes-004.md
+- claims/neuroscience-of-transformers-002.md
+- claims/transformers-neurons-astrocytes-006.md
+neural-correlation:
+- claims/llm-explanations-brain-representations-003.md
+neural-decoding:
+- claims/google-brain-llm-language-processing-006.md
+neural-dynamics:
+- claims/temporal-language-llm-hierarchy-008.md
+neural-efficiency:
+- claims/temporal-language-llm-hierarchy-010.md
 neural-language-alignment:
 - sources/google-brain-llm-language-processing.md
 neural-language-models:
@@ -704,9 +1434,9 @@ neural-language-models:
 neural-machine-translation:
 - sources/attention-is-all-you-need.md
 neural-mapping:
-- claims/temporal-language-llm-hierarchy-002.md
-neural-mechanisms:
 - claims/llm-explanations-brain-representations-006.md
+neural-network-architecture:
+- entities/optimization.md
 neural-network-architectures:
 - sources/transformers-neurons-astrocytes.md
 neural-networks:
@@ -715,18 +1445,15 @@ neural-networks:
 - sources/temporal-language-llm-hierarchy.md
 neural-oscillations:
 - sources/neuroscience-of-transformers.md
-neural-plasticity:
-- claims/temporal-language-llm-hierarchy-009.md
-neural-plausibility:
-- claims/llm-brain-fmri-alignment-004.md
-- claims/llm-brain-fmri-alignment-010.md
+neural-pathway:
+- claims/impacts-of-blue-light-exposure-from-elec-010.md
 neural-prediction:
-- claims/llm-explanations-brain-representations-007.md
-- claims/google-brain-llm-language-processing-007.md
-- claims/llm-brain-fmri-alignment-006.md
-- claims/temporal-language-llm-hierarchy-008.md
+- claims/do-large-language-models-think-like-the--010.md
 neural-prediction-models:
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+- claims/llm-brain-fmri-alignment-008.md
+neural-selectivity:
+- claims/temporal-language-llm-hierarchy-009.md
 neural-synchronization:
 - sources/neuroscience-of-transformers.md
 neural-temporal-dynamics:
@@ -734,19 +1461,18 @@ neural-temporal-dynamics:
 neuroimaging:
 - sources/llm-explanations-brain-representations.md
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
+- claims/impacts-of-blue-light-exposure-from-elec-007.md
 neuroimaging-analysis:
 - sources/llm-brain-fmri-alignment.md
 neurolinguistics:
 - sources/google-brain-llm-language-processing.md
 - sources/temporal-language-llm-hierarchy.md
-- entities/neural-prediction.md
-neuromorphic computing:
-- entities/astrocytes.md
 neuromorphic-computing:
 - sources/transformers-neurons-astrocytes.md
-- claims/transformers-neurons-astrocytes-007.md
-neuron-astrocyte networks:
-- entities/transformer-architecture.md
+- claims/transformers-neurons-astrocytes-008.md
+- claims/transformers-neurons-astrocytes-005.md
+neuron-astrocyte:
+- claims/transformers-neurons-astrocytes-001.md
 neuron-astrocyte-networks:
 - sources/transformers-neurons-astrocytes.md
 neuronal firing:
@@ -754,47 +1480,66 @@ neuronal firing:
 neuroscience:
 - entities/interpretability.md
 - entities/neural-prediction.md
+- entities/optimization.md
+- claims/llm-explanations-brain-representations-002.md
 - claims/neuroscience-of-transformers-007.md
-- claims/neuroscience-of-transformers-003.md
-- claims/neuroscience-of-transformers-002.md
-- claims/neuroscience-of-transformers-006.md
+- claims/google-brain-llm-language-processing-005.md
 - claims/google-brain-llm-language-processing-001.md
-- claims/neuroscience-of-transformers-009.md
-- claims/neuroscience-of-transformers-008.md
-- claims/google-brain-llm-language-processing-009.md
+- claims/llm-explanations-brain-representations-004.md
 - claims/neuroscience-of-transformers-001.md
-- claims/neuroscience-of-transformers-005.md
-- claims/do-large-language-models-think-like-the--001.md
 - claims/llm-explanations-brain-representations-001.md
-- claims/neuroscience-of-transformers-004.md
-- claims/neuroscience-of-transformers-010.md
 neuroscience of transformers:
 - entities/neuroscience.md
 - entities/methodology.md
 - entities/transformers.md
-- entities/attention.md
+- entities/neural-architecture.md
 - entities/temporal-dynamics.md
 neuroscience-ai-bridge:
-- claims/llm-explanations-brain-representations-004.md
+- claims/llm-brain-fmri-alignment-010.md
 neuroscience-benchmark:
-- claims/llm-explanations-brain-representations-005.md
+- claims/llm-explanations-brain-representations-007.md
+neuroscience-methods:
+- claims/google-brain-llm-language-processing-007.md
 neuroscience-of-transformers:
 - sources/_index.md
+neurotransmitters:
+- claims/gut-microbiota-influences-sleep-003.md
 next-word prediction:
 - entities/neural-alignment.md
 next-word-prediction:
 - sources/llm-explanations-brain-representations.md
 - sources/google-brain-llm-language-processing.md
-normalization:
-- claims/neuroscience-of-transformers-003.md
+- claims/llm-explanations-brain-representations-003.md
+non-linear:
+- claims/optimal-exercise-dose-and-type-for-impro-008.md
+non-linear-effects:
+- claims/the-impact-of-stress-on-sleep-quality-a--007.md
+non-linearity:
+- claims/dose-and-timing-effects-of-caffeine-on-s-005.md
+non-pharmacological:
+- claims/gut-microbiota-influences-sleep-009.md
+nutraceuticals:
+- claims/gut-microbiota-influences-sleep-012.md
+'optimal exercise dose and type for improving sleep quality: a systematic review and network meta-analysis of rcts':
+- entities/sleep-quality.md
+- entities/generalizability.md
+- entities/dose-response.md
+- entities/circadian-rhythm.md
+- entities/optimization.md
+- entities/study-design.md
+- entities/temporal-dynamics.md
 optimization:
 - claims/scaling-laws-for-neural-language-models-007.md
+- claims/optimal-exercise-dose-and-type-for-impro-008.md
+- claims/temporal-language-llm-hierarchy-007.md
+- claims/optimal-exercise-dose-and-type-for-impro-001.md
+- claims/flashattention-fast-and-memory-efficient-008.md
+optimization-trade-off:
 - claims/do-large-language-models-think-like-the--002.md
-- claims/scaling-laws-for-neural-language-models-003.md
 optimization-trade-offs:
-- claims/llm-brain-fmri-alignment-010.md
-optimization-tradeoff:
-- claims/do-large-language-models-think-like-the--009.md
+- claims/llm-brain-fmri-alignment-002.md
+organization:
+- claims/neuroscience-of-transformers-006.md
 oscillations:
 - claims/neuroscience-of-transformers-003.md
 - claims/neuroscience-of-transformers-005.md
@@ -804,31 +1549,52 @@ parallel-computing:
 - sources/attention-is-all-you-need.md
 - sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
 parallelization:
-- claims/flashattention-fast-and-memory-efficient-006.md
-- claims/attention-is-all-you-need-006.md
+- claims/flashattention-fast-and-memory-efficient-008.md
 parameter-scaling:
 - sources/scaling-laws-for-neural-language-models.md
 pareto optimality:
 - claims/scaling-laws-for-neural-language-models-007.md
+passive-sensing:
+- claims/cognitive-performance-sleep-wearables-010.md
+- claims/cognitive-performance-sleep-wearables-002.md
+- claims/cognitive-performance-sleep-wearables-003.md
+perception-gap:
+- claims/dose-and-timing-effects-of-caffeine-on-s-008.md
+- claims/dose-and-timing-effects-of-caffeine-on-s-002.md
 performance:
 - claims/flashattention-fast-and-memory-efficient-005.md
+performance-gap:
+- claims/flashattention-fast-and-memory-efficient-009.md
+personalization:
+- claims/impacts-of-blue-light-exposure-from-elec-002.md
+personalized-medicine:
+- claims/optimal-exercise-dose-and-type-for-impro-006.md
+pharmacogenomics:
+- claims/dose-and-timing-effects-of-caffeine-on-s-009.md
+pharmacokinetics:
+- claims/dose-and-timing-effects-of-caffeine-on-s-006.md
+phase-delay:
+- claims/impacts-of-blue-light-exposure-from-elec-003.md
 phonological:
 - entities/temporal-stages.md
 phonological processing:
 - entities/neural-alignment.md
 phonological-processing:
 - sources/temporal-language-llm-hierarchy.md
-phonology:
 - claims/temporal-language-llm-hierarchy-003.md
-planning:
-- claims/google-brain-llm-language-processing-003.md
+polysomnography:
+- entities/study-design.md
+- claims/dose-and-timing-effects-of-caffeine-on-s-009.md
+population-specificity:
+- claims/dose-and-timing-effects-of-caffeine-on-s-011.md
 positional encoding:
 - entities/transformer.md
-- entities/attention.md
+- entities/attention-mechanisms.md
+- claims/attention-is-all-you-need-004.md
 positional-encoding:
 - sources/attention-is-all-you-need.md
-- claims/attention-is-all-you-need-004.md
 posterior temporal cortex:
+- entities/llm-neuroscience.md
 - entities/language-processing.md
 power laws:
 - claims/scaling-laws-for-neural-language-models-001.md
@@ -837,160 +1603,386 @@ power-law-scaling:
 practical impact:
 - claims/scaling-laws-for-neural-language-models-009.md
 prediction:
-- claims/scaling-laws-for-neural-language-models-006.md
-- claims/google-brain-llm-language-processing-004.md
-prediction-error:
+- claims/google-brain-llm-language-processing-003.md
+- claims/scaling-laws-for-neural-language-models-004.md
 - claims/google-brain-llm-language-processing-008.md
+prediction error:
+- entities/transformers.md
+prediction error signals:
+- entities/llm-neuroscience.md
 prediction-error-signals:
 - sources/google-brain-llm-language-processing.md
 predictions:
-- claims/neuroscience-of-transformers-009.md
+- claims/neuroscience-of-transformers-008.md
 predictive-power:
 - claims/llm-explanations-brain-representations-003.md
+predictive-processing:
+- claims/llm-brain-fmri-alignment-007.md
+probiotics:
+- claims/gut-microbiota-influences-sleep-008.md
+processing-cascade:
+- claims/temporal-language-llm-hierarchy-008.md
+processing-hierarchy:
+- claims/temporal-language-llm-hierarchy-004.md
 production-systems:
 - claims/flashattention-fast-and-memory-efficient-007.md
-proficiency-modulation:
-- claims/temporal-language-llm-hierarchy-009.md
-query-key-value:
-- entities/attention.md
+proficiency-measurement:
+- claims/temporal-language-llm-hierarchy-010.md
+psychological-pathways:
+- claims/the-impact-of-stress-on-sleep-quality-a--001.md
+psychomotor vigilance task:
+- entities/study-design.md
+public-health:
+- claims/the-impact-of-stress-on-sleep-quality-a--005.md
 query-key-value-attention:
 - sources/transformers-neurons-astrocytes.md
-recurrence:
-- claims/neuroscience-of-transformers-005.md
-- claims/neuroscience-of-transformers-010.md
+ranking:
+- claims/optimal-exercise-dose-and-type-for-impro-011.md
+recomputation:
+- claims/flashattention-fast-and-memory-efficient-004.md
 recurrent neural networks:
-- entities/attention.md
 - entities/sequence-modeling.md
+recurrent-dynamics:
+- claims/neuroscience-of-transformers-005.md
 recurrent-neural-networks:
 - sources/attention-is-all-you-need.md
+region-specificity:
+- claims/temporal-language-llm-hierarchy-009.md
+representation learning:
+- claims/attention-is-all-you-need-003.md
+representation-hierarchy:
+- claims/llm-brain-fmri-alignment-005.md
+- claims/do-large-language-models-think-like-the--005.md
 representation-learning:
 - sources/llm-explanations-brain-representations.md
 - sources/llm-brain-fmri-alignment.md
-- claims/do-large-language-models-think-like-the--006.md
-- claims/llm-brain-fmri-alignment-003.md
-- claims/do-large-language-models-think-like-the--004.md
-representational-structure:
-- entities/optimization.md
-research methodology:
-- claims/scaling-laws-for-neural-language-models-010.md
-research priorities:
-- claims/scaling-laws-for-neural-language-models-005.md
+representational-alignment:
+- claims/google-brain-llm-language-processing-005.md
+representational-learning:
+- claims/do-large-language-models-think-like-the--002.md
+research-gap:
+- claims/gut-microbiota-influences-sleep-010.md
 residual connections:
-- entities/temporal-stages.md
+- entities/neural-architecture.md
 residual-connections:
 - sources/neuroscience-of-transformers.md
 - claims/neuroscience-of-transformers-004.md
-resource allocation:
-- claims/scaling-laws-for-neural-language-models-003.md
+retinal-photoreception:
+- claims/impacts-of-blue-light-exposure-from-elec-010.md
+robustness:
+- claims/scaling-laws-for-neural-language-models-008.md
+rumination:
+- entities/sleep.md
+- entities/sleep-disruption.md
+- claims/the-impact-of-stress-on-sleep-quality-a--008.md
+- claims/the-impact-of-stress-on-sleep-quality-a--002.md
+safety:
+- claims/cognitive-performance-sleep-wearables-009.md
 sample efficiency:
 - claims/scaling-laws-for-neural-language-models-002.md
+sample-bias:
+- claims/the-impact-of-stress-on-sleep-quality-a--010.md
 sample-efficiency:
 - sources/scaling-laws-for-neural-language-models.md
 scalability:
-- claims/google-brain-llm-language-processing-006.md
+- claims/flashattention-fast-and-memory-efficient-006.md
 scale:
-- claims/scaling-laws-for-neural-language-models-004.md
-scaling:
+- claims/scaling-laws-for-neural-language-models-003.md
 - claims/scaling-laws-for-neural-language-models-005.md
 scaling laws:
+- entities/prediction.md
 - entities/transformers.md
 - claims/scaling-laws-for-neural-language-models-006.md
 - claims/scaling-laws-for-neural-language-models-008.md
 - claims/scaling-laws-for-neural-language-models-009.md
-- claims/scaling-laws-for-neural-language-models-010.md
+- claims/scaling-laws-for-neural-language-models-004.md
 - claims/scaling-laws-for-neural-language-models-001.md
 scaling laws for neural language models:
 - entities/architecture.md
 - entities/scaling-laws.md
+- entities/prediction.md
 - entities/transformers.md
 - entities/optimization.md
 scaling-laws:
-- entities/optimization.md
+- claims/do-large-language-models-think-like-the--003.md
 scaling-laws-for-neural-language-models:
 - sources/_index.md
+screen-time:
+- claims/impacts-of-blue-light-exposure-from-elec-005.md
 self-attention:
 - sources/attention-is-all-you-need.md
 - entities/sequence-modeling.md
 - claims/attention-is-all-you-need-002.md
+self-reinforcement:
+- claims/the-impact-of-stress-on-sleep-quality-a--006.md
+self-report:
+- claims/optimal-exercise-dose-and-type-for-impro-010.md
+self-report measures:
+- entities/methodology.md
+self-report-bias:
+- claims/the-impact-of-stress-on-sleep-quality-a--011.md
 semantic integration:
 - entities/temporal-stages.md
+- entities/neural-alignment.md
+semantic processing:
+- entities/temporal-dynamics.md
 semantic-abstraction:
 - sources/llm-brain-fmri-alignment.md
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
-- claims/llm-brain-fmri-alignment-003.md
-- claims/do-large-language-models-think-like-the--004.md
+- claims/llm-brain-fmri-alignment-005.md
+- claims/do-large-language-models-think-like-the--005.md
 semantic-acoustic:
-- claims/google-brain-llm-language-processing-005.md
+- claims/google-brain-llm-language-processing-004.md
 semantic-integration:
 - sources/temporal-language-llm-hierarchy.md
-semantic-processing:
-- claims/llm-explanations-brain-representations-002.md
-semantics:
 - claims/temporal-language-llm-hierarchy-005.md
+semantic-processing:
+- claims/google-brain-llm-language-processing-010.md
+semantics:
+- claims/llm-explanations-brain-representations-002.md
+sensor-technology:
+- claims/cognitive-performance-sleep-wearables-004.md
 sentence-comprehension:
 - sources/llm-brain-fmri-alignment.md
 - sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri.md
 sentence-processing:
-- claims/do-large-language-models-think-like-the--006.md
+- claims/do-large-language-models-think-like-the--007.md
+sequence modeling:
+- claims/attention-is-all-you-need-002.md
+sequence order:
+- claims/attention-is-all-you-need-004.md
+sequence transduction:
+- claims/attention-is-all-you-need-001.md
 sequence-length:
-- claims/flashattention-fast-and-memory-efficient-005.md
+- claims/flashattention-fast-and-memory-efficient-006.md
 sequence-length-scaling:
 - sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
-sequence-modeling:
-- claims/attention-is-all-you-need-001.md
-- claims/transformers-neurons-astrocytes-010.md
-- claims/attention-is-all-you-need-002.md
-sequence-order:
-- claims/attention-is-all-you-need-004.md
+sequence-to-sequence:
+- claims/attention-is-all-you-need-005.md
+sequence-to-sequence learning:
+- entities/attention-mechanisms.md
 sequence-transduction:
 - sources/attention-is-all-you-need.md
-- claims/attention-is-all-you-need-005.md
 serial-vs-parallel:
-- claims/google-brain-llm-language-processing-006.md
+- claims/google-brain-llm-language-processing-005.md
+session-duration:
+- claims/optimal-exercise-dose-and-type-for-impro-002.md
 shared-mechanisms:
-- claims/google-brain-llm-language-processing-008.md
-shared-principles:
-- claims/google-brain-llm-language-processing-004.md
+- claims/google-brain-llm-language-processing-003.md
 signal-integration:
 - claims/transformers-neurons-astrocytes-002.md
+sleep:
+- entities/study-design.md
+- entities/caffeine.md
+- claims/the-impact-of-stress-on-sleep-quality-a--001.md
+- claims/cognitive-performance-sleep-wearables-001.md
+- claims/cognitive-performance-sleep-wearables-003.md
+- claims/cognitive-performance-sleep-wearables-009.md
+sleep architecture:
+- entities/dose-response.md
+- entities/caffeine.md
+sleep assessment:
+- entities/cognitive-performance.md
+sleep deprivation:
+- entities/cognitive-performance.md
+sleep disruption:
+- entities/circadian-disruption.md
+sleep efficiency:
+- entities/sleep-quality.md
+- entities/dose-response.md
+sleep homeostasis:
+- entities/chronobiology.md
+sleep interventions:
+- entities/dose-response.md
+sleep quality:
+- entities/cognitive-performance.md
+- entities/generalizability.md
+- entities/dose-response.md
+- entities/passive-sensing.md
+sleep tracking devices:
+- entities/study-design.md
+sleep wearables:
+- entities/cognitive-performance.md
+sleep-architecture:
+- claims/dose-and-timing-effects-of-caffeine-on-s-003.md
+- claims/dose-and-timing-effects-of-caffeine-on-s-002.md
+sleep-behavior:
+- claims/impacts-of-blue-light-exposure-from-elec-009.md
+sleep-continuity:
+- claims/dose-and-timing-effects-of-caffeine-on-s-004.md
+sleep-deprivation:
+- claims/the-impact-of-stress-on-sleep-quality-a--005.md
+- claims/impacts-of-blue-light-exposure-from-elec-006.md
+- claims/impacts-of-blue-light-exposure-from-elec-007.md
+- claims/gut-microbiota-influences-sleep-007.md
+sleep-disorders:
+- claims/gut-microbiota-influences-sleep-011.md
+- claims/gut-microbiota-influences-sleep-006.md
+sleep-disruption:
+- claims/gut-microbiota-influences-sleep-002.md
+- claims/the-impact-of-stress-on-sleep-quality-a--003.md
+sleep-duration:
+- claims/dose-and-timing-effects-of-caffeine-on-s-005.md
+- claims/dose-and-timing-effects-of-caffeine-on-s-001.md
+- claims/impacts-of-blue-light-exposure-from-elec-004.md
+sleep-efficiency:
+- claims/dose-and-timing-effects-of-caffeine-on-s-012.md
+sleep-epidemiology:
+- claims/the-impact-of-stress-on-sleep-quality-a--005.md
+sleep-fragmentation:
+- claims/dose-and-timing-effects-of-caffeine-on-s-004.md
+sleep-homeostasis:
+- claims/cognitive-performance-sleep-wearables-006.md
+sleep-hygiene:
+- claims/dose-and-timing-effects-of-caffeine-on-s-010.md
+- claims/impacts-of-blue-light-exposure-from-elec-011.md
+- claims/the-impact-of-stress-on-sleep-quality-a--012.md
+sleep-improvement:
+- claims/the-impact-of-stress-on-sleep-quality-a--009.md
+sleep-mechanisms:
+- claims/optimal-exercise-dose-and-type-for-impro-007.md
+sleep-onset:
+- claims/dose-and-timing-effects-of-caffeine-on-s-001.md
+- claims/the-impact-of-stress-on-sleep-quality-a--002.md
+sleep-physiology:
+- claims/impacts-of-blue-light-exposure-from-elec-001.md
+sleep-quality:
+- claims/optimal-exercise-dose-and-type-for-impro-002.md
+- claims/optimal-exercise-dose-and-type-for-impro-006.md
+- claims/optimal-exercise-dose-and-type-for-impro-003.md
+- claims/impacts-of-blue-light-exposure-from-elec-005.md
+- claims/dose-and-timing-effects-of-caffeine-on-s-008.md
+- claims/optimal-exercise-dose-and-type-for-impro-004.md
+- claims/optimal-exercise-dose-and-type-for-impro-001.md
+- claims/dose-and-timing-effects-of-caffeine-on-s-012.md
+- claims/optimal-exercise-dose-and-type-for-impro-005.md
+sleep-regulation:
+- claims/gut-microbiota-influences-sleep-001.md
+sleep-stages:
+- claims/dose-and-timing-effects-of-caffeine-on-s-003.md
+sleep-tracking:
+- claims/cognitive-performance-sleep-wearables-004.md
+sleep-tracking wearables:
+- entities/ubiquitous-computing.md
+sleep-treatment:
+- claims/gut-microbiota-influences-sleep-009.md
+- claims/gut-microbiota-influences-sleep-012.md
+smartphone dependence:
+- entities/sleep.md
+- entities/sleep-hygiene.md
+- entities/melatonin.md
+- entities/sleep-disruption.md
+smartphone keyboard typing metrics:
+- entities/ubiquitous-computing.md
+smartphone-dependence:
+- claims/the-impact-of-stress-on-sleep-quality-a--003.md
+smartphone-use:
+- claims/the-impact-of-stress-on-sleep-quality-a--012.md
+social anxiety:
+- entities/sleep.md
+- entities/sleep-hygiene.md
+- entities/sleep-disruption.md
+social desirability bias:
+- entities/methodology.md
+social-anxiety:
+- claims/the-impact-of-stress-on-sleep-quality-a--008.md
 soft-hierarchy:
 - sources/google-brain-llm-language-processing.md
-- claims/google-brain-llm-language-processing-005.md
-sources/_index:
+sources/attention-is-all-you-need:
+- _index.md
+sources/do-large-language-models-think-like-the-brain-layer-wise-embeddings-and-fmri:
+- _index.md
+sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness:
+- _index.md
+sources/google-brain-llm-language-processing:
+- _index.md
+sources/llm-brain-fmri-alignment:
+- _index.md
+sources/llm-explanations-brain-representations:
+- _index.md
+sources/neuroscience-of-transformers:
+- _index.md
+sources/scaling-laws-for-neural-language-models:
+- _index.md
+sources/temporal-language-llm-hierarchy:
+- _index.md
+sources/transformers-neurons-astrocytes:
 - _index.md
 speech comprehension:
 - entities/temporal-dynamics.md
-speech-processing:
+speech embeddings:
+- entities/temporal-dynamics.md
+speech-language:
+- claims/google-brain-llm-language-processing-006.md
+speech-perception:
+- claims/google-brain-llm-language-processing-010.md
 - claims/google-brain-llm-language-processing-002.md
 speech-processing-sequence:
 - sources/google-brain-llm-language-processing.md
 speech-production:
-- claims/google-brain-llm-language-processing-003.md
+- claims/google-brain-llm-language-processing-002.md
+- claims/google-brain-llm-language-processing-008.md
 speech-recognition:
 - sources/google-brain-llm-language-processing.md
+speedup:
+- claims/flashattention-fast-and-memory-efficient-005.md
+sram:
+- claims/flashattention-fast-and-memory-efficient-003.md
+statistical-method:
+- claims/optimal-exercise-dose-and-type-for-impro-011.md
+stress:
+- entities/sleep.md
+- entities/generalizability.md
+- entities/sleep-disruption.md
+- entities/study-design.md
+- claims/the-impact-of-stress-on-sleep-quality-a--001.md
+- claims/the-impact-of-stress-on-sleep-quality-a--002.md
+stress-management:
+- claims/the-impact-of-stress-on-sleep-quality-a--004.md
+stress-response:
+- claims/the-impact-of-stress-on-sleep-quality-a--007.md
+stress-sleep relationship:
+- entities/sleep-disruption.md
+stress-sleep-cycle:
+- claims/the-impact-of-stress-on-sleep-quality-a--006.md
+student-health:
+- claims/impacts-of-blue-light-exposure-from-elec-005.md
+student-outcomes:
+- claims/impacts-of-blue-light-exposure-from-elec-004.md
+study-design:
+- claims/dose-and-timing-effects-of-caffeine-on-s-011.md
+- claims/dose-and-timing-effects-of-caffeine-on-s-009.md
+- claims/cognitive-performance-sleep-wearables-008.md
+- claims/optimal-exercise-dose-and-type-for-impro-010.md
+subjective-awareness:
+- claims/dose-and-timing-effects-of-caffeine-on-s-008.md
 superior temporal gyrus:
 - entities/temporal-dynamics.md
 superior-temporal-gyrus:
 - sources/google-brain-llm-language-processing.md
-surprise:
-- claims/google-brain-llm-language-processing-008.md
+surprise-signals:
+- claims/google-brain-llm-language-processing-003.md
 synaptic-modulation:
 - sources/transformers-neurons-astrocytes.md
-- claims/transformers-neurons-astrocytes-005.md
+- claims/transformers-neurons-astrocytes-007.md
 synaptic-plasticity:
 - claims/transformers-neurons-astrocytes-001.md
-synaptic-transmission:
-- claims/transformers-neurons-astrocytes-006.md
+synchronization:
+- claims/neuroscience-of-transformers-003.md
 syntactic parsing:
 - entities/temporal-stages.md
 syntactic processing:
 - entities/neural-alignment.md
 syntactic-parsing:
 - sources/temporal-language-llm-hierarchy.md
-syntax:
 - claims/temporal-language-llm-hierarchy-004.md
-task-performance:
-- claims/llm-brain-fmri-alignment-010.md
+syntax:
+- claims/llm-explanations-brain-representations-002.md
+systems-integration:
+- claims/gut-microbiota-influences-sleep-010.md
+- claims/gut-microbiota-influences-sleep-001.md
+technology-use:
+- claims/the-impact-of-stress-on-sleep-quality-a--003.md
 temporal language llm hierarchy:
 - entities/temporal-stages.md
 - entities/transformer-architecture.md
@@ -998,44 +1990,59 @@ temporal language llm hierarchy:
 - entities/layer-analysis.md
 - entities/neural-prediction.md
 - entities/llm-neuroscience.md
-- entities/brain-alignment.md
+- entities/biological-plausibility.md
+- entities/optimization.md
+temporal-alignment:
+- claims/temporal-language-llm-hierarchy-001.md
+temporal-decomposition:
+- claims/temporal-language-llm-hierarchy-008.md
 temporal-discretization:
 - sources/neuroscience-of-transformers.md
 temporal-dynamics:
 - claims/transformers-neurons-astrocytes-003.md
-- claims/google-brain-llm-language-processing-010.md
-- claims/google-brain-llm-language-processing-003.md
+- claims/neuroscience-of-transformers-009.md
+- claims/optimal-exercise-dose-and-type-for-impro-009.md
 - claims/google-brain-llm-language-processing-002.md
+- claims/the-impact-of-stress-on-sleep-quality-a--006.md
 - claims/neuroscience-of-transformers-005.md
-- claims/neuroscience-of-transformers-010.md
-temporal-hierarchy:
-- claims/transformers-neurons-astrocytes-009.md
+- claims/google-brain-llm-language-processing-008.md
 temporal-language-llm-hierarchy:
 - sources/_index.md
 temporal-language-processing:
 - sources/temporal-language-llm-hierarchy.md
-temporal-processing:
-- claims/temporal-language-llm-hierarchy-007.md
-temporal-resolution:
-- claims/google-brain-llm-language-processing-009.md
+temporal-optimization:
+- claims/optimal-exercise-dose-and-type-for-impro-003.md
+temporal-ordering:
+- claims/google-brain-llm-language-processing-010.md
+temporal-scope:
+- claims/the-impact-of-stress-on-sleep-quality-a--011.md
 temporal-stages:
-- claims/temporal-language-llm-hierarchy-005.md
-- claims/temporal-language-llm-hierarchy-004.md
 - claims/temporal-language-llm-hierarchy-003.md
-temporal-structure:
-- claims/temporal-language-llm-hierarchy-001.md
+testable-hypotheses:
+- claims/neuroscience-of-transformers-008.md
+'the impact of stress on sleep quality: a mediation analysis based on longitudinal data':
+- entities/sleep.md
+- entities/sleep-hygiene.md
+- entities/melatonin.md
+- entities/generalizability.md
+- entities/methodology.md
+- entities/sleep-disruption.md
+- entities/sleep-deprivation.md
+- entities/temporal-dynamics.md
+therapeutic-intervention:
+- claims/gut-microbiota-influences-sleep-008.md
+therapeutic-strategies:
+- claims/gut-microbiota-influences-sleep-012.md
 tiling:
 - claims/flashattention-fast-and-memory-efficient-003.md
 tiling-computation:
 - sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
-timescale:
-- claims/transformers-neurons-astrocytes-009.md
-topics/_index:
-- _index.md
-training efficiency:
-- claims/scaling-laws-for-neural-language-models-003.md
+timing:
+- claims/google-brain-llm-language-processing-002.md
+training dynamics:
+- claims/scaling-laws-for-neural-language-models-002.md
 training tokens:
-- claims/scaling-laws-for-neural-language-models-008.md
+- claims/scaling-laws-for-neural-language-models-006.md
 training-dynamics:
 - sources/scaling-laws-for-neural-language-models.md
 training-efficiency:
@@ -1045,14 +2052,18 @@ training-tokens:
 transformer:
 - entities/architecture.md
 - entities/language-models.md
+- entities/attention-mechanisms.md
+- entities/biological-plausibility.md
 - entities/attention.md
 - entities/sequence-modeling.md
-- claims/attention-is-all-you-need-001.md
-- claims/attention-is-all-you-need-004.md
-- claims/attention-is-all-you-need-003.md
+- claims/flashattention-fast-and-memory-efficient-001.md
+- claims/scaling-laws-for-neural-language-models-005.md
 transformer architecture:
 - entities/neuroscience.md
-- entities/temporal-dynamics.md
+- entities/attention-mechanisms.md
+- entities/neural-architecture.md
+transformer architectures:
+- entities/modulation.md
 transformer blocks:
 - entities/modulation.md
 transformer neural networks:
@@ -1068,52 +2079,74 @@ transformer-architecture:
 - sources/neuroscience-of-transformers.md
 - sources/flashattention-fast-and-memory-efficient-exact-attention-with-io-awareness.md
 - sources/temporal-language-llm-hierarchy.md
-- claims/llm-explanations-brain-representations-008.md
-- claims/temporal-language-llm-hierarchy-007.md
 - claims/transformers-neurons-astrocytes-004.md
+transformer-implementation:
+- claims/transformers-neurons-astrocytes-005.md
 transformers:
 - entities/llm-neuroscience.md
-- claims/neuroscience-of-transformers-007.md
-- claims/neuroscience-of-transformers-003.md
+- entities/temporal-dynamics.md
 - claims/neuroscience-of-transformers-002.md
-- claims/neuroscience-of-transformers-006.md
-- claims/neuroscience-of-transformers-009.md
-- claims/scaling-laws-for-neural-language-models-004.md
+- claims/google-brain-llm-language-processing-005.md
+- claims/llm-explanations-brain-representations-008.md
+- claims/google-brain-llm-language-processing-003.md
 - claims/neuroscience-of-transformers-001.md
-- claims/neuroscience-of-transformers-004.md
-- claims/neuroscience-of-transformers-010.md
-- claims/scaling-laws-for-neural-language-models-005.md
 transformers neurons astrocytes:
 - entities/astrocytes.md
 - entities/transformer-architecture.md
 - entities/modulation.md
+- entities/biological-plausibility.md
 - entities/attention.md
 - entities/sequence-modeling.md
 - entities/temporal-dynamics.md
 transformers-neurons-astrocytes:
 - sources/_index.md
-tripartite synapses:
+treatment-strategy:
+- claims/the-impact-of-stress-on-sleep-quality-a--009.md
+tripartite synapse:
 - entities/astrocytes.md
-- entities/attention.md
 tripartite-synapses:
 - sources/transformers-neurons-astrocytes.md
+typing metrics:
+- entities/cognitive-performance.md
+ubiquitous-computing:
+- claims/cognitive-performance-sleep-wearables-010.md
+- claims/cognitive-performance-sleep-wearables-002.md
+- claims/cognitive-performance-sleep-wearables-007.md
+universal-principles:
+- claims/google-brain-llm-language-processing-009.md
+- claims/llm-explanations-brain-representations-005.md
+validation:
+- claims/llm-explanations-brain-representations-004.md
+vulnerability:
+- claims/impacts-of-blue-light-exposure-from-elec-012.md
+vulnerable-populations:
+- claims/gut-microbiota-influences-sleep-011.md
+wearables:
+- claims/cognitive-performance-sleep-wearables-004.md
+- claims/cognitive-performance-sleep-wearables-001.md
 whisper decoder:
-- entities/methodology.md
 - entities/neural-prediction.md
 whisper encoder:
-- entities/methodology.md
 - entities/neural-prediction.md
 whisper-decoder:
 - sources/google-brain-llm-language-processing.md
 whisper-encoder:
 - sources/google-brain-llm-language-processing.md
 whisper-model:
-- claims/google-brain-llm-language-processing-007.md
+- claims/google-brain-llm-language-processing-006.md
 wmt-dataset:
 - sources/attention-is-all-you-need.md
+working-memory:
+- claims/impacts-of-blue-light-exposure-from-elec-006.md
+workplace-performance:
+- claims/cognitive-performance-sleep-wearables-009.md
+worry:
+- claims/the-impact-of-stress-on-sleep-quality-a--008.md
 xai:
 - entities/interpretability.md
-xai-evaluation:
-- claims/llm-explanations-brain-representations-005.md
-xai-validation:
+- entities/biological-plausibility.md
 - claims/llm-explanations-brain-representations-004.md
+xai-validation:
+- claims/llm-explanations-brain-representations-007.md
+young adults:
+- entities/circadian-disruption.md

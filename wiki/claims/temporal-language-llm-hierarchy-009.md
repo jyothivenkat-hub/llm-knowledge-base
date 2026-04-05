@@ -1,20 +1,20 @@
 ---
 id: "temporal-language-llm-hierarchy-009"
-type: "hypothesis"
+type: "finding"
 source: "papers/temporal-language-llm-hierarchy.pdf"
 source_title: "Temporal Language Llm Hierarchy"
-cluster: "temporal-hierarchy-language"
-tags: ["expertise-effects", "neural-plasticity", "proficiency-modulation", "learning"]
+cluster: "temporal-dynamics-language-processing"
+tags: ["region-specificity", "linguistic-specialization", "broca-area", "neural-selectivity"]
 ---
 
-# The alignment between LLM layers and brain temporal dynamics is not uniform across language proficiency levels, suggesting that language expertise may reorganize or strengthen the neural computations that correspond to specific transformer layers.
+# The alignment between LLM layers and brain activity is strongest in language-specialized regions (Broca's area), suggesting the correspondence reflects genuine linguistic processing rather than general neural computation.
 
-**Type:** hypothesis
+**Type:** finding
 **Source:** Temporal Language Llm Hierarchy
-**Evidence:** Proficiency Effects section: differential prediction accuracy across L2 proficiency groups implies proficiency-dependent changes in the layer-brain correspondence
+**Evidence:** Core Finding emphasizes 'particularly strong' alignment in Broca's area and language-related regions, implying selectivity across brain regions
 
 ## Tags
-- [[expertise-effects]]
-- [[neural-plasticity]]
-- [[proficiency-modulation]]
-- [[learning]]
+- [[region-specificity]]
+- [[linguistic-specialization]]
+- [[broca-area]]
+- [[neural-selectivity]]

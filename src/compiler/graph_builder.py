@@ -175,6 +175,11 @@ def build_graph(
         if node["cluster"]:
             _save_claim_page(claims_dir, node)
 
+    # ── Stage 3.5: Detect domains ──────────────────────────
+    progress("Graph 3.5/7: Detecting research domains...")
+    domains = _detect_domains(llm, all_nodes, clusters, progress)
+    progress(f"  {len(domains.get('domains', []))} domains detected")
+
     # ── Stage 4: Generate/update entity pages ────────────────
     progress("Graph 4/7: Updating entity pages...")
     entities_dir = ensure_dir(config.wiki_path / "entities")
@@ -199,6 +204,8 @@ def build_graph(
         "nodes": all_nodes,
         "edges": all_edges,
         "clusters": clusters,
+        "domains": domains.get("domains", []),
+        "bridge_facts": domains.get("bridge_facts", []),
         "product_ideas": product_ideas,
         "metadata": {
             "total_nodes": len(all_nodes),
@@ -429,6 +436,110 @@ Return JSON:
         return _full_cluster(llm, all_nodes, all_edges, progress)
 
 
+# ─── Stage 3.5: Detect Domains ─────────────────────────
+
+def _detect_domains(
+    llm: LLM,
+    all_nodes: List[Dict],
+    clusters: List[Dict],
+    progress: Callable,
+) -> Dict:
+    """Group clusters into high-level research domains."""
+    if len(clusters) < 2:
+        # Not enough clusters to group
+        return {"domains": [], "bridge_facts": []}
+
+    # Get top findings for "did you know" generation — include all types, prioritize findings
+    findings = sorted(
+        [n for n in all_nodes if n.get("type") in ("finding", "concept", "method")],
+        key=lambda n: 0 if n.get("type") == "finding" else 1,
+    )[:50]
+
+    try:
+        response = llm.call(
+            prompt="",
+            template="detect_domains.md",
+            template_vars={"clusters": clusters, "top_findings": findings},
+            max_tokens=4096,
+        )
+
+        result = parse_llm_json(response)
+        domains = result.get("domains", [])
+        bridge_facts = result.get("bridge_facts", [])
+
+        # Clean up LLM output: strip dashes, quotes, and jargon
+        def _clean_fact(text: str) -> str:
+            text = text.replace("—", ", ").replace("–", ", ").replace(" - ", ", ")
+            text = text.replace('"', '').replace('"', '').replace('"', '')
+            return text.strip()
+
+        bridge_facts = [_clean_fact(f) for f in bridge_facts]
+        for domain in domains:
+            domain["did_you_know"] = [_clean_fact(f) for f in domain.get("did_you_know", [])]
+            domain["icon"] = ""  # Never store emojis
+
+        # Build lookup: cluster label/id -> cluster id (LLM may return labels instead of IDs)
+        cluster_id_lookup = {}
+        for c in clusters:
+            cluster_id_lookup[c["id"]] = c["id"]
+            cluster_id_lookup[c.get("label", "").lower()] = c["id"]
+            cluster_id_lookup[c.get("label", "")] = c["id"]
+
+        # Validate and fix cluster_ids: resolve labels to IDs
+        assigned_clusters = set()
+        for domain in domains:
+            domain.setdefault("id", slugify(domain.get("label", "unknown")))
+            domain.setdefault("icon", "📚")
+            domain.setdefault("did_you_know", [])
+            domain.setdefault("featured_finding", "")
+
+            # Resolve cluster references (may be IDs or labels)
+            resolved_ids = []
+            for ref in domain.get("cluster_ids", []):
+                resolved = cluster_id_lookup.get(ref) or cluster_id_lookup.get(ref.lower())
+                if resolved:
+                    resolved_ids.append(resolved)
+                    assigned_clusters.add(resolved)
+                else:
+                    # Fuzzy match: find best matching cluster by substring
+                    for c in clusters:
+                        if ref.lower() in c.get("label", "").lower() or c.get("label", "").lower() in ref.lower():
+                            resolved_ids.append(c["id"])
+                            assigned_clusters.add(c["id"])
+                            break
+            domain["cluster_ids"] = resolved_ids
+
+        # Catch unassigned clusters
+        all_cluster_ids = {c["id"] for c in clusters}
+        unassigned = all_cluster_ids - assigned_clusters
+        if unassigned and domains:
+            # Distribute unassigned to best-matching domain by keyword overlap
+            for uid in unassigned:
+                cluster = next((c for c in clusters if c["id"] == uid), None)
+                if not cluster:
+                    continue
+                cluster_words = set(cluster.get("label", "").lower().split())
+                best_domain = domains[0]
+                best_score = 0
+                for d in domains:
+                    domain_words = set(d.get("label", "").lower().split())
+                    score = len(cluster_words & domain_words)
+                    # Also check cluster descriptions
+                    desc_words = set(cluster.get("description", "").lower().split()[:20])
+                    label_words = set(d.get("description", "").lower().split()[:20])
+                    score += len(desc_words & label_words)
+                    if score > best_score:
+                        best_score = score
+                        best_domain = d
+                best_domain["cluster_ids"].append(uid)
+
+        return {"domains": domains, "bridge_facts": bridge_facts}
+
+    except Exception as e:
+        logger.warning("Domain detection failed: %s", e)
+        return {"domains": [], "bridge_facts": []}
+
+
 def _full_cluster(llm: LLM, nodes: List[Dict], edges: List[Dict], progress: Callable) -> List[Dict]:
     """Full rebuild clustering (fallback)."""
     try:
@@ -451,10 +562,34 @@ def _full_cluster(llm: LLM, nodes: List[Dict], edges: List[Dict], progress: Call
         for c in clusters:
             for nid in c.get("node_ids", []):
                 assigned.add(nid)
-        unassigned = [n["id"] for n in nodes if n["id"] not in assigned]
-        if unassigned:
-            clusters.append({"id": "other", "label": "Other", "description": "Uncategorized",
-                            "node_ids": unassigned, "color": "#6a6a82"})
+        unassigned = [n for n in nodes if n["id"] not in assigned]
+
+        # Assign remaining nodes to best-matching cluster by tag overlap
+        if unassigned and clusters:
+            # Build cluster tag profiles
+            node_map = {n["id"]: n for n in nodes}
+            cluster_tags: Dict[str, set] = {}
+            for c in clusters:
+                tags: set = set()
+                for nid in c.get("node_ids", []):
+                    n = node_map.get(nid, {})
+                    tags.update(t.lower() for t in n.get("tags", []))
+                # Also add words from cluster label/description
+                tags.update(c.get("label", "").lower().split())
+                cluster_tags[c["id"]] = tags
+
+            for node in unassigned:
+                node_tags = set(t.lower() for t in node.get("tags", []))
+                node_words = set(node.get("text", "").lower().split()[:15])
+                best_cluster = clusters[0]
+                best_score = -1
+                for c in clusters:
+                    score = len(node_tags & cluster_tags[c["id"]]) * 3 + len(node_words & cluster_tags[c["id"]])
+                    if score > best_score:
+                        best_score = score
+                        best_cluster = c
+                best_cluster.setdefault("node_ids", []).append(node["id"])
+
         return clusters
 
     except Exception as e:

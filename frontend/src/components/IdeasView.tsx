@@ -4,7 +4,7 @@ import { cn } from '../lib/utils';
 
 export default function IdeasView({ state }: { state: AppState }) {
   return (
-    <div className="max-w-6xl mx-auto py-12 px-8 bg-white">
+    <div className="max-w-6xl mx-auto py-8 md:py-12 px-4 md:px-8 bg-white">
       <div className="mb-12 border-b border-[#a2a9b1] pb-4">
         <h1 className="text-3xl font-serif font-bold text-[#202122] mb-2 tracking-tight">Product Ideas</h1>
         <p className="text-[#54595d]">Actionable opportunities synthesized from your research corpus.</p>

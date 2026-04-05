@@ -1,20 +1,20 @@
 ---
 id: "transformers-neurons-astrocytes-006"
-type: "finding"
+type: "concept"
 source: "papers/transformers-neurons-astrocytes.pdf"
 source_title: "Transformers Neurons Astrocytes"
-cluster: "biological-attention-implementation"
-tags: ["gating", "attention", "synaptic-transmission", "astrocytes"]
+cluster: "transformer-neuroscience-mapping"
+tags: ["attention-mechanism", "biological-substrate", "neural-computation", "architectural-principles"]
 ---
 
-# Astrocytes act as a biological attention mechanism by selectively modulating which synaptic signals are transmitted to post-synaptic neurons, implementing a form of gating functionally similar to softmax attention in transformers.
+# The structural and functional homology between tripartite synapses and transformer attention suggests that attention is not a uniquely artificial construct but rather a fundamental operation in biological information processing.
 
-**Type:** finding
+**Type:** concept
 **Source:** Transformers Neurons Astrocytes
-**Evidence:** Biological Attention Mechanism section; astrocytic role in modulating synaptic transmission explicitly compared to attention gating
+**Evidence:** Abstract and Core Thesis establish that astrocyte-neuron interactions perform attention-like operations central to transformers.
 
 ## Tags
-- [[gating]]
-- [[attention]]
-- [[synaptic-transmission]]
-- [[astrocytes]]
+- [[attention-mechanism]]
+- [[biological-substrate]]
+- [[neural-computation]]
+- [[architectural-principles]]

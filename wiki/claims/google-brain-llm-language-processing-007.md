@@ -3,18 +3,19 @@ id: "google-brain-llm-language-processing-007"
 type: "method"
 source: "papers/google-brain-llm-language-processing.pdf"
 source_title: "Google Brain Llm Language Processing"
-cluster: "llm-brain-alignment-empirical"
-tags: ["whisper-model", "embeddings", "neural-prediction", "methodology"]
+cluster: "temporal-dynamics-language-processing"
+tags: ["neuroscience-methods", "intracranial-recording", "naturalistic-stimuli", "ecological-validity", "brain-imaging"]
 ---
 
-# Whisper encoder speech embeddings and Whisper decoder language embeddings can be used to predict and explain human neural activity patterns during natural conversation, establishing a practical bridge between specific LLM components and brain function.
+# Intracranial electrode recordings during natural conversations (rather than controlled stimuli) reveal brain-LLM alignment, suggesting findings generalize to ecologically valid language processing rather than laboratory conditions.
 
 **Type:** method
 **Source:** Google Brain Llm Language Processing
-**Evidence:** Abstract and methodology: extracted speech embeddings from Whisper encoder and language embeddings from Whisper decoder; used to predict neural activity in intracranial electrode recordings.
+**Evidence:** Abstract specifies 'intracranial electrode recordings during natural conversations' as the experimental approach
 
 ## Tags
-- [[whisper-model]]
-- [[embeddings]]
-- [[neural-prediction]]
-- [[methodology]]
+- [[neuroscience-methods]]
+- [[intracranial-recording]]
+- [[naturalistic-stimuli]]
+- [[ecological-validity]]
+- [[brain-imaging]]

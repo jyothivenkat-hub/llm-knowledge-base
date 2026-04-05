@@ -3,18 +3,17 @@ id: "llm-brain-fmri-alignment-004"
 type: "finding"
 source: "papers/llm-brain-fmri-alignment.pdf"
 source_title: "Llm Brain Fmri Alignment"
-cluster: "llm-brain-alignment-empirical"
-tags: ["model-scaling", "hierarchical-representations", "brain-alignment", "neural-plausibility"]
+cluster: "llm-brain-alignment-neuroscience"
+tags: ["hemispheric-lateralization", "cognitive-networks", "brain-alignment"]
 ---
 
-# Enhanced model performance (likely from scaling or better architectures) correlates with representational structures that increasingly resemble brain-like hierarchies, establishing a link between model capability and neural plausibility.
+# LLM processing engages both left-hemispheric language systems and right-hemispheric networks supporting higher-order cognitive demands, mirroring distributed human language processing.
 
 **Type:** finding
 **Source:** Llm Brain Fmri Alignment
-**Evidence:** Key Findings: 'Enhanced model performance correlates with representational structures that increasingly resemble brain-like hierarchies.'
+**Evidence:** Key finding: 'LLM processing engages both left-hemispheric language systems and right-hemispheric networks supporting higher-order cognitive demands'
 
 ## Tags
-- [[model-scaling]]
-- [[hierarchical-representations]]
+- [[hemispheric-lateralization]]
+- [[cognitive-networks]]
 - [[brain-alignment]]
-- [[neural-plausibility]]

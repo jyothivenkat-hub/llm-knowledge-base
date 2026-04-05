@@ -27,7 +27,7 @@ wiki/
   _index.md          # Full catalog of everything in the wiki
   _summary.md        # High-level wiki overview
   _backlinks.yaml    # Reverse link index
-  graph.json         # Knowledge graph (nodes, edges, clusters, ideas)
+  graph.json         # Knowledge graph (nodes, edges, clusters, domains, ideas)
   graph_insights.json # Contradictions, gaps, synthesis
   log.md             # Chronological record of all actions
 
@@ -69,6 +69,33 @@ output/
 - Format: `## [YYYY-MM-DD HH:MM] action | description`
 - Actions: compile, ingest, query, lint
 
+### Domains (`graph.json > domains`)
+- 3-6 high-level groupings of clusters (like Wikipedia portals)
+- Auto-detected by LLM during compile (Stage 3.5)
+- Each domain: `id`, `label`, `description`, `icon` (always ""), `cluster_ids`, `featured_finding`, `did_you_know`
+- `graph.json > bridge_facts` — cross-domain connections
+
+### "Did You Know" and bridge_facts rules
+These appear on the main page. They must follow strict rules:
+
+**Accuracy (most important):**
+- Every fact MUST come from a specific finding in the graph. No invented connections.
+- Keep real numbers from the findings (2-4x, 55%, 1 hour, etc.)
+- Do not say two things work "the same way" unless the research says that.
+- Do not draw analogies between domains unless a finding explicitly connects them.
+- A boring true fact beats a fascinating made-up one.
+
+**Language:**
+- Max 15 words. One simple sentence.
+- Write for an 8 year old. Simple words only.
+- Never use em dashes, dashes, or quotes.
+- Never use jargon: computational, hierarchical, representations, convergence, optimization, alignment, architecture, mechanisms, modulation, correspondence.
+- Include a specific number when possible.
+
+**Post-processing:**
+- `graph_builder.py` strips dashes, quotes, and emojis after LLM generation.
+- On incremental compile, domains are always regenerated from current clusters.
+
 ## Workflows
 
 ### Ingest a new source
@@ -78,7 +105,10 @@ output/
    - Chunks new source into claims
    - Finds connections to ALL existing claims
    - Updates clusters
+   - Detects domains (groups clusters, generates "Did You Know" facts)
    - Updates entity pages
+   - Enriches graph (contradictions, gaps)
+   - Generates product ideas
    - Updates index.md
    - Appends to log.md
 

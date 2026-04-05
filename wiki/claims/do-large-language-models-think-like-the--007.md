@@ -1,20 +1,20 @@
 ---
 id: "do-large-language-models-think-like-the--007"
-type: "method"
+type: "concept"
 source: "articles/llm-brain-fmri-alignment.md"
 source_title: "Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI"
-cluster: "llm-brain-alignment-empirical"
-tags: ["comparative-analysis", "fmri", "methodology", "brain-alignment"]
+cluster: "llm-brain-alignment-neuroscience"
+tags: ["layer-wise-analysis", "linguistic-information", "brain-alignment", "sentence-processing"]
 ---
 
-# Comparison of 14 publicly available LLMs of varying sizes and architectures against fMRI data from naturalistic narrative comprehension reveals that brain alignment is not architecture-specific but emerges across diverse model designs.
+# Intermediate layer representations in LLMs carry rich linguistic information that most closely mirrors human sentence-level processing, making them more predictive of brain activity than either early or final layers.
 
-**Type:** method
+**Type:** concept
 **Source:** Do Large Language Models Think Like the Brain? Layer-Wise Embeddings and fMRI
-**Evidence:** Methodology: 'Compared 14 LLMs (various sizes and architectures)' and 'Used fMRI data from participants exposed to naturalistic narrative'
+**Evidence:** Key Findings section: 'These intermediate representations carry rich linguistic information that most closely mirrors human sentence-level processing.'
 
 ## Tags
-- [[comparative-analysis]]
-- [[fmri]]
-- [[methodology]]
+- [[layer-wise-analysis]]
+- [[linguistic-information]]
 - [[brain-alignment]]
+- [[sentence-processing]]

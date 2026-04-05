@@ -1,20 +1,20 @@
 ---
 id: "llm-explanations-brain-representations-006"
-type: "finding"
+type: "method"
 source: "papers/llm-explanations-brain-representations.pdf"
 source_title: "Llm Explanations Brain Representations"
-cluster: "llm-interpretability-neuroscience"
-tags: ["interpretability", "neural-mechanisms", "language-models", "cognitive-alignment"]
+cluster: "llm-interpretability-explanations"
+tags: ["attribution-methods", "fmri", "narrative-comprehension", "neural-mapping"]
 ---
 
-# Attribution-based explanations of LLM predictions reflect principles underlying human brain language processing, establishing that computational explanations and neural mechanisms operate on similar organizational principles.
+# The methodology uses attribution methods to quantify how preceding words influence next-word predictions, then maps these explanations to fMRI data from narrative listening tasks to establish neural-computational correspondence.
 
-**Type:** finding
+**Type:** method
 **Source:** Llm Explanations Brain Representations
-**Evidence:** Abstract: 'This bridges computational linguistics and neuroscience by showing LLM explanations reflect principles underlying human brain language processing.'
+**Evidence:** Abstract: 'We applied attribution methods to quantify how preceding words influence next-word predictions, then used these explanations to predict brain activity (fMRI data) from people listening to narratives.'
 
 ## Tags
-- [[interpretability]]
-- [[neural-mechanisms]]
-- [[language-models]]
-- [[cognitive-alignment]]
+- [[attribution-methods]]
+- [[fmri]]
+- [[narrative-comprehension]]
+- [[neural-mapping]]

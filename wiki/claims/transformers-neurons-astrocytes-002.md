@@ -3,18 +3,18 @@ id: "transformers-neurons-astrocytes-002"
 type: "finding"
 source: "papers/transformers-neurons-astrocytes.pdf"
 source_title: "Transformers Neurons Astrocytes"
-cluster: "biological-attention-implementation"
-tags: ["attention", "astrocytes", "signal-integration", "biological-plausibility"]
+cluster: "transformer-neuroscience-mapping"
+tags: ["attention-mechanism", "astrocytes", "signal-integration", "biological-plausibility"]
 ---
 
-# Astrocytes integrate signals from thousands of synapses simultaneously, performing a form of information aggregation functionally equivalent to how attention mechanisms aggregate across sequence positions in transformers.
+# Astrocytes integrate signals from thousands of synapses simultaneously, enabling a form of multi-head attention-like aggregation across distributed synaptic inputs without requiring explicit weight matrices.
 
 **Type:** finding
 **Source:** Transformers Neurons Astrocytes
-**Evidence:** Stated in Biological Attention Mechanism section; astrocytic integration capacity compared directly to attention aggregation
+**Evidence:** Biological Attention Mechanism section states astrocytes integrate signals from thousands of synapses, analogous to attention aggregation across sequence positions.
 
 ## Tags
-- [[attention]]
+- [[attention-mechanism]]
 - [[astrocytes]]
 - [[signal-integration]]
 - [[biological-plausibility]]

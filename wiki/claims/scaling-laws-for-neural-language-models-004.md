@@ -1,20 +1,20 @@
 ---
 id: "scaling-laws-for-neural-language-models-004"
-type: "finding"
+type: "concept"
 source: "articles/scaling-laws.md"
 source_title: "Scaling Laws for Neural Language Models"
-cluster: "scaling-laws-training"
-tags: ["architecture", "scale", "transformers", "hyperparameters"]
+cluster: "scaling-laws-language-models"
+tags: ["scaling laws", "prediction", "experimental design", "compute planning"]
 ---
 
-# Transformer performance is determined primarily by scale (model width and depth), not by architectural hyperparameters like attention head count or feed-forward dimensions when total parameters are held constant.
+# Scaling laws enable predictive planning: small-scale experiments can reliably forecast the performance of large models, reducing the need for expensive large-scale experiments and making compute budget allocation more predictable.
 
-**Type:** finding
+**Type:** concept
 **Source:** Scaling Laws for Neural Language Models
-**Evidence:** Increasing attention heads or feed-forward dimensions while keeping total parameters fixed has little effect on performance
+**Evidence:** Implications for Practice section: 'Small model experiments can predict large model performance' and 'Predictable scaling enables planning compute budgets'
 
 ## Tags
-- [[architecture]]
-- [[scale]]
-- [[transformers]]
-- [[hyperparameters]]
+- [[scaling laws]]
+- [[prediction]]
+- [[experimental design]]
+- [[compute planning]]

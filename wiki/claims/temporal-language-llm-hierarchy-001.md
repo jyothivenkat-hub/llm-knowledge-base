@@ -3,11 +3,11 @@ id: "temporal-language-llm-hierarchy-001"
 type: "finding"
 source: "papers/temporal-language-llm-hierarchy.pdf"
 source_title: "Temporal Language Llm Hierarchy"
-cluster: "temporal-hierarchy-language"
-tags: ["llm-neuroscience", "temporal-structure", "layer-hierarchy", "brain-alignment"]
+cluster: "temporal-dynamics-language-processing"
+tags: ["llm-neuroscience", "temporal-alignment", "layer-hierarchy", "brain-mapping"]
 ---
 
-# LLM layer depth maps isomorphically to temporal dynamics of brain language processing: early layers (1-4) align with early neural responses (50-150ms), middle layers (5-8) with mid-latency responses (150-350ms), and deep layers (9-12+) with late responses (350-600ms).
+# LLM layer depth maps directly onto temporal dynamics of human brain language processing, with early layers (1-4) corresponding to early neural responses (50-150ms), middle layers (5-8) to mid-latency responses (150-350ms), and deep layers (9-12+) to late responses (350-600ms).
 
 **Type:** finding
 **Source:** Temporal Language Llm Hierarchy
@@ -15,6 +15,6 @@ tags: ["llm-neuroscience", "temporal-structure", "layer-hierarchy", "brain-align
 
 ## Tags
 - [[llm-neuroscience]]
-- [[temporal-structure]]
+- [[temporal-alignment]]
 - [[layer-hierarchy]]
-- [[brain-alignment]]
+- [[brain-mapping]]

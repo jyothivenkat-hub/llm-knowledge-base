@@ -6,10 +6,11 @@ import {
   MessageSquare,
   RefreshCw,
   ShieldCheck,
-  Presentation,
   Clipboard,
+  Menu,
+  X,
 } from 'lucide-react';
-import { AppState, ResearchSource } from './types';
+import { AppState, Domain, ResearchSource } from './types';
 import { mockData } from './mockData';
 import { cn } from './lib/utils';
 import WikiView from './components/WikiView';
@@ -17,6 +18,7 @@ import GraphView from './components/GraphView';
 import ResearchView from './components/ResearchView';
 import IdeasView from './components/IdeasView';
 import ChatView from './components/ChatView';
+import WebClipperModal from './components/WebClipperModal';
 import { loadState, runCompile, runLint } from './services/api';
 
 type View = 'wiki' | 'graph' | 'ideas' | 'research' | 'chat';
@@ -28,6 +30,9 @@ export default function App() {
   const [refreshKey, setRefreshKey] = useState(0);
   const [globalSearch, setGlobalSearch] = useState('');
   const [preferredMode, setPreferredMode] = useState<'demo' | 'full'>('demo');
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [clipperOpen, setClipperOpen] = useState(false);
+  const [domains, setDomains] = useState<Domain[]>([]);
   const isLocalHost = typeof window !== 'undefined' && ['localhost', '127.0.0.1'].includes(window.location.hostname);
   const backendSupportsFull = state.authoringEnabled;
   const effectiveMode = isLocalHost ? preferredMode : (backendSupportsFull ? preferredMode : 'demo');
@@ -39,6 +44,10 @@ export default function App() {
     loadState()
       .then(data => setState(data))
       .catch(() => console.log('Using empty state — backend not available'));
+    // Load domains for sidebar
+    fetch('/api/wiki-page').then(r => r.json()).then(data => {
+      if (data.domains) setDomains(data.domains);
+    }).catch(() => {});
   }, []);
 
   useEffect(() => {
@@ -111,28 +120,41 @@ export default function App() {
     if (isDemo) { setCompileLog(['Health checks require Full mode.']); return; }
     setCompileLog(['Running health checks...']);
     try {
-      const report = await runLint((msg) => setCompileLog(prev => [...prev, msg]));
+      await runLint((msg) => setCompileLog(prev => [...prev, msg]));
       setCompileLog(prev => [...prev, 'Done! Report generated.']);
     } catch (e: any) {
       setCompileLog(prev => [...prev, `Error: ${e.message}`]);
     }
   };
 
+  const navigateTo = (view: View) => {
+    setActiveView(view);
+    setSidebarOpen(false);
+  };
+
   return (
     <div className="flex flex-col h-screen bg-white font-sans text-[#202122] overflow-hidden">
       {/* Header */}
-      <header className="h-[72px] flex items-center px-4 border-b border-[#a2a9b1] bg-white shrink-0">
-        <div className="flex items-center gap-3 w-64">
-          <div className="w-10 h-10 bg-[#3366cc] rounded-full flex items-center justify-center text-white font-serif text-2xl font-bold">
+      <header className="h-[56px] md:h-[72px] flex items-center px-3 md:px-4 border-b border-[#a2a9b1] bg-white shrink-0">
+        {/* Hamburger for mobile */}
+        <button
+          onClick={() => setSidebarOpen(!sidebarOpen)}
+          className="md:hidden p-2 mr-2 text-[#54595d] hover:text-[#202122]"
+        >
+          {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        </button>
+
+        <div className="flex items-center gap-2 md:gap-3 md:w-64">
+          <div className="w-8 h-8 md:w-10 md:h-10 bg-[#3366cc] rounded-full flex items-center justify-center text-white font-serif text-xl md:text-2xl font-bold">
             K
           </div>
           <div>
-            <h1 className="text-[1.4em] font-serif leading-none">Jyothipedia</h1>
-            <p className="text-[10px] uppercase tracking-widest text-[#54595d] font-bold mt-1">A LLM Research Knowledge Base</p>
+            <h1 className="text-[1.1em] md:text-[1.4em] font-serif leading-none">Jyothipedia</h1>
+            <p className="text-[9px] md:text-[10px] uppercase tracking-widest text-[#54595d] font-bold mt-0.5 md:mt-1 hidden sm:block">A LLM Research Knowledge Base</p>
           </div>
         </div>
 
-        <div className="flex-1 flex justify-center px-8">
+        <div className="flex-1 hidden md:flex justify-center px-8">
           <div className="flex w-full max-w-2xl">
             <input
               type="text"
@@ -148,53 +170,84 @@ export default function App() {
           </div>
         </div>
 
-        <div className="flex items-center gap-6 text-[13px]">
+        <div className="flex items-center gap-4 md:gap-6 text-[13px] ml-auto">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-[#eaecf0] rounded-full flex items-center justify-center overflow-hidden border border-[#a2a9b1]">
+            <div className="w-7 h-7 md:w-8 md:h-8 bg-[#eaecf0] rounded-full flex items-center justify-center overflow-hidden border border-[#a2a9b1]">
               <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=jyothi" alt="User" className="w-full h-full object-cover" />
             </div>
-            <span className="text-[12px] font-medium">Jyothi</span>
+            <span className="text-[12px] font-medium hidden sm:inline">Jyothi</span>
           </div>
         </div>
       </header>
 
       {/* Tabs */}
-      <div className="h-10 flex items-end px-4 border-b border-[#a2a9b1] bg-white shrink-0">
-        <div className="w-44 shrink-0" />
+      <div className="h-10 flex items-end px-2 md:px-4 border-b border-[#a2a9b1] bg-white shrink-0 overflow-x-auto">
+        <div className="hidden md:block w-44 shrink-0" />
         <div className="flex gap-1">
-          <Tab label="Main Page" active={activeView === 'wiki'} onClick={() => setActiveView('wiki')} />
-          <Tab label="Knowledge Graph" active={activeView === 'graph'} onClick={() => setActiveView('graph')} />
-          <Tab label="Search" active={activeView === 'chat'} onClick={() => setActiveView('chat')} />
-          <Tab label="Research Ideas" active={activeView === 'ideas'} onClick={() => setActiveView('ideas')} />
-          <Tab label="Sources" active={activeView === 'research'} onClick={() => setActiveView('research')} />
+          <Tab label="Main Page" active={activeView === 'wiki'} onClick={() => navigateTo('wiki')} />
+          <Tab label="Knowledge Graph" active={activeView === 'graph'} onClick={() => navigateTo('graph')} />
+          <Tab label="Search" active={activeView === 'chat'} onClick={() => navigateTo('chat')} />
+          <Tab label="Research Ideas" active={activeView === 'ideas'} onClick={() => navigateTo('ideas')} />
+          <Tab label="Sources" active={activeView === 'research'} onClick={() => navigateTo('research')} />
         </div>
       </div>
 
-      <div className="flex-1 flex overflow-hidden">
+      <div className="flex-1 flex overflow-hidden relative">
+        {/* Mobile sidebar backdrop */}
+        {sidebarOpen && (
+          <div className="fixed inset-0 bg-black/30 z-30 md:hidden" onClick={() => setSidebarOpen(false)} />
+        )}
+
         {/* Sidebar */}
-        <aside className="w-44 border-r border-[#a2a9b1] bg-[#f6f6f6] overflow-y-auto shrink-0 p-4">
+        <aside className={cn(
+          "w-44 border-r border-[#a2a9b1] bg-[#f6f6f6] overflow-y-auto shrink-0 p-4 z-40",
+          "fixed top-0 bottom-0 left-0 transition-transform duration-200 md:relative md:translate-x-0",
+          sidebarOpen ? "translate-x-0" : "-translate-x-full"
+        )}>
+          {/* Close button visible on mobile at top of sidebar */}
+          <button onClick={() => setSidebarOpen(false)} className="md:hidden mb-4 text-[#54595d] hover:text-[#202122]">
+            <X className="w-5 h-5" />
+          </button>
+
           <SidebarSection title="Navigation">
-            <SidebarLink label="Main page" active={activeView === 'wiki'} onClick={() => setActiveView('wiki')} />
-            <SidebarLink label="Sources" active={activeView === 'research'} onClick={() => setActiveView('research')} />
-            <SidebarLink label="All claims" onClick={() => setActiveView('graph')} />
-            <SidebarLink label="Search" active={activeView === 'chat'} onClick={() => setActiveView('chat')} />
+            <SidebarLink label="Main page" active={activeView === 'wiki'} onClick={() => navigateTo('wiki')} />
+            <SidebarLink label="Sources" active={activeView === 'research'} onClick={() => navigateTo('research')} />
+            <SidebarLink label="All claims" onClick={() => navigateTo('graph')} />
+            <SidebarLink label="Search" active={activeView === 'chat'} onClick={() => navigateTo('chat')} />
           </SidebarSection>
+
+          {domains.length > 0 && (
+            <SidebarSection title="Domains">
+              {domains.map(d => (
+                <SidebarLink
+                  key={d.id}
+                  label={d.label}
+                  onClick={() => navigateTo('wiki')}
+                />
+              ))}
+            </SidebarSection>
+          )}
 
           <SidebarSection title="Tools">
             <SidebarLink
               label="Compile"
               icon={<Cpu className="w-3 h-3" />}
-              onClick={handleCompile}
+              onClick={() => { handleCompile(); setSidebarOpen(false); }}
               disabled={state.isProcessing}
             />
             <SidebarLink
               label="Add sources"
               icon={<Plus className="w-3 h-3" />}
-              onClick={() => setActiveView('research')}
+              onClick={() => navigateTo('research')}
             />
-            <SidebarLink label="Ask question" icon={<MessageSquare className="w-3 h-3" />} onClick={() => setActiveView('chat')} />
-            <SidebarLink label="Health check" icon={<ShieldCheck className="w-3 h-3" />} onClick={handleLint} />
-            <SidebarLink label="Refresh data" icon={<RefreshCw className="w-3 h-3" />} onClick={refreshState} />
+            <SidebarLink label="Ask question" icon={<MessageSquare className="w-3 h-3" />} onClick={() => navigateTo('chat')} />
+            <SidebarLink
+              label="Web clipper"
+              icon={<Clipboard className="w-3 h-3" />}
+              onClick={() => { setClipperOpen(true); setSidebarOpen(false); }}
+            />
+            <SidebarLink label="Health check" icon={<ShieldCheck className="w-3 h-3" />} onClick={() => { handleLint(); setSidebarOpen(false); }} />
+            <SidebarLink label="Refresh data" icon={<RefreshCw className="w-3 h-3" />} onClick={() => { refreshState(); setSidebarOpen(false); }} />
           </SidebarSection>
 
           <div className="mt-8 pt-4 border-t border-[#a2a9b1]">
@@ -220,9 +273,9 @@ export default function App() {
         {/* Main */}
         <main className="flex-1 bg-white overflow-y-auto relative">
           {isDemo && (
-            <div className="border-b border-[#d6c37a] bg-[#fff8dc] px-6 py-3 text-[13px] text-[#6b5600]">
+            <div className="border-b border-[#d6c37a] bg-[#fff8dc] px-4 md:px-6 py-2 md:py-3 text-[12px] md:text-[13px] text-[#6b5600]">
               <span className="font-bold">Public demo:</span> compiled data only. Browse the wiki, graph, ideas, and cached answers here.
-              Authoring actions like compile, upload, and ingest stay local.
+              <span className="hidden sm:inline"> Authoring actions like compile, upload, and ingest stay local.</span>
             </div>
           )}
           <AnimatePresence mode="wait">
@@ -243,7 +296,7 @@ export default function App() {
           </AnimatePresence>
 
           {(state.isProcessing || compileLog.length > 0) && (
-            <div className="absolute top-4 right-4 w-96 bg-white/95 backdrop-blur border border-[#3366cc] rounded shadow-xl z-50">
+            <div className="absolute top-4 right-4 w-80 md:w-96 bg-white/95 backdrop-blur border border-[#3366cc] rounded shadow-xl z-50">
               <div className="flex items-center justify-between px-4 py-2 border-b border-[#3366cc]/20">
                 <div className="flex items-center gap-2">
                   {state.isProcessing && <Cpu className="w-4 h-4 text-[#3366cc] animate-spin" />}
@@ -264,6 +317,9 @@ export default function App() {
           )}
         </main>
       </div>
+
+      {/* Web Clipper Modal */}
+      {clipperOpen && <WebClipperModal onClose={() => setClipperOpen(false)} />}
     </div>
   );
 }
@@ -273,7 +329,7 @@ function Tab({ label, active, onClick }: { label: string, active?: boolean, onCl
     <button
       onClick={onClick}
       className={cn(
-        "px-4 py-1.5 text-[13px] font-medium cursor-pointer border border-b-0 transition-colors",
+        "px-3 md:px-4 py-1.5 text-[12px] md:text-[13px] font-medium cursor-pointer border border-b-0 transition-colors whitespace-nowrap",
         active
           ? "bg-white border-[#a2a9b1] text-[#202122] relative z-10"
           : "bg-[#f6f6f6] border-transparent text-[#0645ad] hover:bg-white hover:border-[#a2a9b1]"

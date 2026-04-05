@@ -3,18 +3,18 @@ id: "scaling-laws-for-neural-language-models-001"
 type: "finding"
 source: "articles/scaling-laws.md"
 source_title: "Scaling Laws for Neural Language Models"
-cluster: "scaling-laws-training"
-tags: ["scaling laws", "power laws", "language models", "empirical"]
+cluster: "scaling-laws-language-models"
+tags: ["scaling laws", "power laws", "loss", "model size"]
 ---
 
-# Language model loss follows power law scaling with model size (N^-0.076), dataset size (D^-0.095), and compute budget (C^-0.050), enabling predictable performance forecasting across orders of magnitude.
+# Language model loss follows power law scaling with three independent factors: L(N) ~ N^(-0.076) for model size, L(D) ~ D^(-0.095) for dataset size, and L(C) ~ C^(-0.050) for compute budget. These relationships are empirically consistent across multiple orders of magnitude.
 
 **Type:** finding
 **Source:** Scaling Laws for Neural Language Models
-**Evidence:** L(N) ~ N^(-0.076), L(D) ~ D^(-0.095), L(C) ~ C^(-0.050) relationships established empirically
+**Evidence:** Power law relationships stated with specific exponents for N, D, and C in Key Findings section
 
 ## Tags
 - [[scaling laws]]
 - [[power laws]]
-- [[language models]]
-- [[empirical]]
+- [[loss]]
+- [[model size]]

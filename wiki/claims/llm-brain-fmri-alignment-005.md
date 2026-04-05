@@ -3,18 +3,17 @@ id: "llm-brain-fmri-alignment-005"
 type: "finding"
 source: "papers/llm-brain-fmri-alignment.pdf"
 source_title: "Llm Brain Fmri Alignment"
-cluster: "llm-brain-alignment-empirical"
-tags: ["hemispheric-specialization", "cognitive-networks", "brain-alignment", "language-processing"]
+cluster: "llm-brain-alignment-neuroscience"
+tags: ["semantic-abstraction", "representation-hierarchy", "brain-alignment"]
 ---
 
-# LLM language processing engages both left-hemispheric language-dominant systems and right-hemispheric networks supporting higher-order cognitive demands, mirroring the bilateral neural organization observed in human sentence comprehension.
+# Strongest correspondence between LLM representations and brain activity occurs at higher levels of semantic abstraction rather than at surface-level linguistic features.
 
 **Type:** finding
 **Source:** Llm Brain Fmri Alignment
-**Evidence:** Key Findings: 'LLM processing engages both left-hemispheric language systems and right-hemispheric networks supporting higher-order cognitive demands.'
+**Evidence:** Key finding: 'The strongest correspondence between models and brain activity occurs at higher levels of semantic abstraction'
 
 ## Tags
-- [[hemispheric-specialization]]
-- [[cognitive-networks]]
+- [[semantic-abstraction]]
+- [[representation-hierarchy]]
 - [[brain-alignment]]
-- [[language-processing]]

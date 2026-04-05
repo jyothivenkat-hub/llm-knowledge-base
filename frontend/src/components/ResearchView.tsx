@@ -1,8 +1,10 @@
-import { useState } from 'react';
-import { AppState, ResearchSource } from '../types';
-import { Upload, Link as LinkIcon, FileText, Clock, CheckCircle, AlertCircle, Plus, Cpu } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { AppState, Domain, ResearchSource } from '../types';
+import { Upload, FileText, Clock, CheckCircle, AlertCircle, Plus, Cpu } from 'lucide-react';
 import { uploadFiles, runIngest, createSource } from '../services/api';
 import { cn } from '../lib/utils';
+
+type SourceGroup = { label: string; sources: ResearchSource[] };
 
 export default function ResearchView({ state, onAdd, onRefresh, onCompile, compileLog, isCompiling }: {
   state: AppState;
@@ -15,7 +17,39 @@ export default function ResearchView({ state, onAdd, onRefresh, onCompile, compi
   const [isAdding, setIsAdding] = useState(false);
   const [newSource, setNewSource] = useState({ title: '', content: '', type: 'article' as const });
   const [uploadMsg, setUploadMsg] = useState('');
+  const [domains, setDomains] = useState<Domain[]>([]);
+  const [sourceToDomain, setSourceToDomain] = useState<Record<string, string>>({});
   const isDemo = state.mode === 'demo';
+
+  // Load domains + build source-to-domain mapping from graph
+  useEffect(() => {
+    Promise.all([
+      fetch('/api/wiki-page').then(r => r.json()),
+      fetch('/api/graph').then(r => r.json()),
+    ]).then(([pageData, graphData]) => {
+      const doms: Domain[] = pageData.domains || [];
+      setDomains(doms);
+
+      // Build cluster→domain map
+      const clusterToDomain: Record<string, string> = {};
+      for (const d of doms) {
+        for (const cid of d.cluster_ids || []) {
+          clusterToDomain[cid] = d.label;
+        }
+      }
+
+      // Build source_paper→domain map from nodes
+      const mapping: Record<string, string> = {};
+      for (const node of graphData.nodes || []) {
+        const sp = node.source_paper || '';
+        const cluster = node.cluster || '';
+        if (sp && clusterToDomain[cluster]) {
+          mapping[sp] = clusterToDomain[cluster];
+        }
+      }
+      setSourceToDomain(mapping);
+    }).catch(() => {});
+  }, []);
 
   const handleAdd = async () => {
     if (!newSource.title || !newSource.content) return;
@@ -48,8 +82,32 @@ export default function ResearchView({ state, onAdd, onRefresh, onCompile, compi
     setUploadMsg(`Ingest: ${stats.new} new, ${stats.modified} modified, ${stats.unchanged} unchanged`);
   };
 
+  // Group sources by domain
+  const groups: SourceGroup[] = [];
+  if (domains.length > 0) {
+    const domainGroups: Record<string, ResearchSource[]> = {};
+    const ungrouped: ResearchSource[] = [];
+    for (const source of state.sources) {
+      const domainLabel = sourceToDomain[source.id] || '';
+      if (domainLabel) {
+        if (!domainGroups[domainLabel]) domainGroups[domainLabel] = [];
+        domainGroups[domainLabel].push(source);
+      } else {
+        ungrouped.push(source);
+      }
+    }
+    for (const [label, sources] of Object.entries(domainGroups)) {
+      groups.push({ label, sources });
+    }
+    if (ungrouped.length > 0) {
+      groups.push({ label: 'Other', sources: ungrouped });
+    }
+  } else {
+    groups.push({ label: '', sources: state.sources });
+  }
+
   return (
-    <div className="max-w-5xl mx-auto py-12 px-8 bg-white">
+    <div className="max-w-5xl mx-auto py-8 md:py-12 px-4 md:px-8 bg-white">
       <div className="flex items-center justify-between mb-12 border-b border-[#a2a9b1] pb-4">
         <div>
           <h1 className="text-3xl font-serif font-bold text-[#202122] mb-2 tracking-tight">Research Library</h1>
@@ -173,61 +231,72 @@ export default function ResearchView({ state, onAdd, onRefresh, onCompile, compi
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {state.sources.map(source => {
-          const rawLink = `/raw/${source.id}`;
-          const wikiLink = source.wiki_slug ? `/wiki/sources/${source.wiki_slug}.md` : null;
-          const externalLink = source.source_url || null;
-
-          return (
-          <div key={source.id} className="group p-6 bg-[#f8f9fa] border border-[#a2a9b1] rounded hover:border-[#3366cc] transition-all hover:shadow-md">
-            <div className="flex items-start justify-between mb-4">
-              <a href={rawLink} target="_blank" rel="noopener noreferrer" className="p-3 bg-[#eaecf0] rounded group-hover:bg-[#3366cc]/10 group-hover:text-[#3366cc] transition-colors">
-                <FileText className="w-6 h-6" />
-              </a>
-              <span className={cn(
-                "flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest",
-                source.status === 'completed' ? "bg-emerald-50 text-emerald-700 border border-emerald-200" :
-                source.status === 'processing' ? "bg-blue-50 text-blue-700 border border-blue-200 animate-pulse" :
-                "bg-amber-50 text-amber-700 border border-amber-200"
-              )}>
-                {source.status === 'completed' ? <CheckCircle className="w-3 h-3" /> :
-                 source.status === 'processing' ? <Clock className="w-3 h-3" /> :
-                 <AlertCircle className="w-3 h-3" />}
-                {source.claimCount ? `${source.claimCount} claims` : source.status}
-              </span>
+      {/* Sources grouped by domain */}
+      {groups.map(group => (
+        <div key={group.label} className="mb-8">
+          {group.label && domains.length > 0 && (
+            <div className="border-b border-[#a2a9b1] mb-4 pb-2">
+              <h2 className="text-lg font-serif font-bold text-[#202122]">{group.label}</h2>
+              <p className="text-[12px] text-[#72777d]">{group.sources.length} source{group.sources.length !== 1 ? 's' : ''}</p>
             </div>
-            <h3 className="text-lg font-serif font-bold mb-2 line-clamp-2">
-              <a href={rawLink} target="_blank" rel="noopener noreferrer" className="text-[#0645ad] hover:underline">{source.title}</a>
-            </h3>
-            <p className="text-sm text-[#54595d] mb-4">{source.type} &middot; {source.dateAdded || 'Recently added'}</p>
-            <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-[#a2a9b1]/50">
-              <a href={rawLink} target="_blank" rel="noopener noreferrer" className="px-3 py-1.5 bg-[#3366cc] hover:bg-[#2a4b8d] text-white rounded text-[10px] font-bold uppercase tracking-widest transition-all no-underline">
-                View Source
-              </a>
-              {wikiLink && (
-                <a href={wikiLink} className="px-3 py-1.5 bg-[#eaecf0] hover:bg-[#d1d4d9] text-[#202122] rounded text-[10px] font-bold uppercase tracking-widest transition-all no-underline">
-                  Wiki Article
-                </a>
-              )}
-              {externalLink && (
-                <a href={externalLink} target="_blank" rel="noopener noreferrer" className="px-3 py-1.5 bg-[#eaecf0] hover:bg-[#d1d4d9] text-[#202122] rounded text-[10px] font-bold uppercase tracking-widest transition-all no-underline">
-                  Original URL
-                </a>
-              )}
-            </div>
-          </div>
-          );
-        })}
+          )}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {group.sources.map(source => {
+              const rawLink = `/raw/${source.id}`;
+              const wikiLink = source.wiki_slug ? `/wiki/sources/${source.wiki_slug}.md` : null;
+              const externalLink = source.source_url || null;
 
-        {state.sources.length === 0 && (
-          <div className="col-span-full py-24 flex flex-col items-center justify-center text-[#a2a9b1] border-2 border-dashed border-[#eaecf0] rounded">
-            <Upload className="w-12 h-12 mb-4 opacity-20" />
-            <p className="font-medium">No research sources added yet.</p>
-            <p className="text-sm opacity-60">Upload a PDF or paste an article to get started.</p>
+              return (
+              <div key={source.id} className="group p-6 bg-[#f8f9fa] border border-[#a2a9b1] rounded hover:border-[#3366cc] transition-all hover:shadow-md">
+                <div className="flex items-start justify-between mb-4">
+                  <a href={rawLink} target="_blank" rel="noopener noreferrer" className="p-3 bg-[#eaecf0] rounded group-hover:bg-[#3366cc]/10 group-hover:text-[#3366cc] transition-colors">
+                    <FileText className="w-6 h-6" />
+                  </a>
+                  <span className={cn(
+                    "flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest",
+                    source.status === 'completed' ? "bg-emerald-50 text-emerald-700 border border-emerald-200" :
+                    source.status === 'processing' ? "bg-blue-50 text-blue-700 border border-blue-200 animate-pulse" :
+                    "bg-amber-50 text-amber-700 border border-amber-200"
+                  )}>
+                    {source.status === 'completed' ? <CheckCircle className="w-3 h-3" /> :
+                     source.status === 'processing' ? <Clock className="w-3 h-3" /> :
+                     <AlertCircle className="w-3 h-3" />}
+                    {source.claimCount ? `${source.claimCount} claims` : source.status}
+                  </span>
+                </div>
+                <h3 className="text-lg font-serif font-bold mb-2 line-clamp-2">
+                  <a href={rawLink} target="_blank" rel="noopener noreferrer" className="text-[#0645ad] hover:underline">{source.title}</a>
+                </h3>
+                <p className="text-sm text-[#54595d] mb-4">{source.type} &middot; {source.dateAdded || 'Recently added'}</p>
+                <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-[#a2a9b1]/50">
+                  <a href={rawLink} target="_blank" rel="noopener noreferrer" className="px-3 py-1.5 bg-[#3366cc] hover:bg-[#2a4b8d] text-white rounded text-[10px] font-bold uppercase tracking-widest transition-all no-underline">
+                    View Source
+                  </a>
+                  {wikiLink && (
+                    <a href={wikiLink} className="px-3 py-1.5 bg-[#eaecf0] hover:bg-[#d1d4d9] text-[#202122] rounded text-[10px] font-bold uppercase tracking-widest transition-all no-underline">
+                      Wiki Article
+                    </a>
+                  )}
+                  {externalLink && (
+                    <a href={externalLink} target="_blank" rel="noopener noreferrer" className="px-3 py-1.5 bg-[#eaecf0] hover:bg-[#d1d4d9] text-[#202122] rounded text-[10px] font-bold uppercase tracking-widest transition-all no-underline">
+                      Original URL
+                    </a>
+                  )}
+                </div>
+              </div>
+              );
+            })}
           </div>
-        )}
-      </div>
+        </div>
+      ))}
+
+      {state.sources.length === 0 && (
+        <div className="py-24 flex flex-col items-center justify-center text-[#a2a9b1] border-2 border-dashed border-[#eaecf0] rounded">
+          <Upload className="w-12 h-12 mb-4 opacity-20" />
+          <p className="font-medium">No research sources added yet.</p>
+          <p className="text-sm opacity-60">Upload a PDF or paste an article to get started.</p>
+        </div>
+      )}
     </div>
   );
 }

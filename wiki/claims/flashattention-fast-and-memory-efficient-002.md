@@ -3,17 +3,17 @@ id: "flashattention-fast-and-memory-efficient-002"
 type: "concept"
 source: "articles/flash-attention.md"
 source_title: "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness"
-cluster: "attention-optimization"
-tags: ["gpu-optimization", "memory-hierarchy", "io-awareness"]
+cluster: "attention-optimization-efficiency"
+tags: ["gpu-optimization", "memory-hierarchy", "io-efficiency"]
 ---
 
-# IO-aware algorithm design exploits GPU memory hierarchy: SRAM is fast but tiny (~20MB on A100), while HBM is large but slow (40-80GB). Minimizing HBM transfers is the bottleneck, not FLOPs.
+# IO-awareness—designing algorithms around GPU memory hierarchy constraints—is critical for performance. Modern GPUs have small fast SRAM (~20MB on A100) and large slow HBM (40-80GB), creating a bottleneck that standard attention ignores.
 
 **Type:** concept
 **Source:** FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness
-**Evidence:** Paper defines memory hierarchy with specific capacities and identifies HBM reads/writes as the optimization target
+**Evidence:** IO-Awareness section: detailed breakdown of SRAM vs HBM characteristics and how standard attention does many HBM reads/writes
 
 ## Tags
 - [[gpu-optimization]]
 - [[memory-hierarchy]]
-- [[io-awareness]]
+- [[io-efficiency]]

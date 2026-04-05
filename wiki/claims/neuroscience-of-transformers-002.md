@@ -1,20 +1,20 @@
 ---
 id: "neuroscience-of-transformers-002"
-type: "concept"
+type: "hypothesis"
 source: "papers/neuroscience-of-transformers.pdf"
 source_title: "Neuroscience Of Transformers"
-cluster: "transformer-neuroscience-analogy"
-tags: ["transformers", "neuroscience", "dendritic-computation", "microcircuits"]
+cluster: "transformer-neuroscience-mapping"
+tags: ["transformers", "dendrites", "neural-computation", "cortical-circuits"]
 ---
 
-# Feed-forward layers in transformers correspond to dendritic integration processes in cortical microcircuits, suggesting a computational homology between artificial and biological neural processing.
+# Feed-forward layers in transformers correspond functionally to dendritic integration processes in cortical microcircuits, suggesting a shared computational principle between artificial and biological neural systems.
 
-**Type:** concept
+**Type:** hypothesis
 **Source:** Neuroscience Of Transformers
-**Evidence:** Mapping section explicitly states feed-forward layers correspond to dendritic integration processes
+**Evidence:** Mapping section identifies feed-forward layers as corresponding to dendritic integration processes
 
 ## Tags
 - [[transformers]]
-- [[neuroscience]]
-- [[dendritic-computation]]
-- [[microcircuits]]
+- [[dendrites]]
+- [[neural-computation]]
+- [[cortical-circuits]]

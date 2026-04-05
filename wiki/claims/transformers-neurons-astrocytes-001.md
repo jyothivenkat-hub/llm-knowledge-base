@@ -3,18 +3,18 @@ id: "transformers-neurons-astrocytes-001"
 type: "finding"
 source: "papers/transformers-neurons-astrocytes.pdf"
 source_title: "Transformers Neurons Astrocytes"
-cluster: "biological-attention-implementation"
-tags: ["attention", "biological-computation", "synaptic-plasticity", "astrocytes"]
+cluster: "transformer-neuroscience-mapping"
+tags: ["attention", "biological-computation", "synaptic-plasticity", "neuron-astrocyte"]
 ---
 
-# Tripartite synapses—composed of a pre-synaptic neuron, post-synaptic neuron, and astrocyte—implement a biological analog of query-key-value attention, where astrocytes modulate synaptic transmission based on integrated signals from multiple sources.
+# Tripartite synapses—consisting of a pre-synaptic neuron, post-synaptic neuron, and astrocyte—implement a biological analog of query-key-value attention mechanisms, where astrocytes modulate information flow across synapses in a way structurally homologous to transformer attention.
 
 **Type:** finding
 **Source:** Transformers Neurons Astrocytes
-**Evidence:** Core mechanism described in Biological Attention Mechanism section; tripartite synapse structure explicitly mapped to QKV attention architecture
+**Evidence:** Core thesis and Biological Attention Mechanism section describe tripartite synapses as implementing query-key-value attention through astrocytic modulation.
 
 ## Tags
 - [[attention]]
 - [[biological-computation]]
 - [[synaptic-plasticity]]
-- [[astrocytes]]
+- [[neuron-astrocyte]]

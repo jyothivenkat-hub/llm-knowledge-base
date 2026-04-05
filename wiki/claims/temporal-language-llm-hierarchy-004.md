@@ -3,18 +3,18 @@ id: "temporal-language-llm-hierarchy-004"
 type: "finding"
 source: "papers/temporal-language-llm-hierarchy.pdf"
 source_title: "Temporal Language Llm Hierarchy"
-cluster: "temporal-hierarchy-language"
-tags: ["syntax", "morphology", "middle-layers", "temporal-stages"]
+cluster: "temporal-dynamics-language-processing"
+tags: ["syntactic-parsing", "morphology", "middle-layers", "processing-hierarchy"]
 ---
 
-# Middle LLM layers (5-8) implement syntactic parsing and morphological analysis, corresponding to the 150-350ms mid-latency neural response window.
+# Middle LLM layers (5-8) encode syntactic and morphological structure corresponding to 150-350ms brain activity, indicating syntax parsing emerges as an intermediate processing stage between acoustic and semantic layers.
 
 **Type:** finding
 **Source:** Temporal Language Llm Hierarchy
-**Evidence:** Temporal Mapping section: middle layer range mapped to syntactic and morphological processing
+**Evidence:** Temporal Mapping: Middle LLM layers (5-8) correspond to mid-latency responses (150-350ms) for syntactic parsing and morphological analysis
 
 ## Tags
-- [[syntax]]
+- [[syntactic-parsing]]
 - [[morphology]]
 - [[middle-layers]]
-- [[temporal-stages]]
+- [[processing-hierarchy]]

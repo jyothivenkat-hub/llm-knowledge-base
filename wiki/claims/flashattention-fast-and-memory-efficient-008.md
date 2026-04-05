@@ -1,19 +1,19 @@
 ---
 id: "flashattention-fast-and-memory-efficient-008"
-type: "concept"
+type: "finding"
 source: "articles/flash-attention.md"
 source_title: "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness"
-cluster: "attention-optimization"
-tags: ["gpu-optimization", "bottleneck-analysis", "memory-bandwidth"]
+cluster: "attention-optimization-efficiency"
+tags: ["optimization", "parallelization", "flops-efficiency"]
 ---
 
-# The key bottleneck in modern GPU attention is not arithmetic operations but memory bandwidth—moving data between HBM and SRAM dominates wall-clock time, making IO-aware algorithm design critical.
+# FlashAttention-2 improves upon FlashAttention by better parallelizing across the sequence length dimension and reducing non-matmul FLOPs, achieving up to 2x additional speedup and reaching 50-73% of theoretical peak FLOPS on A100.
 
-**Type:** concept
+**Type:** finding
 **Source:** FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness
-**Evidence:** Paper's entire premise: standard attention does 'many HBM reads/writes' and FlashAttention 'minimizes these' to achieve speedup, implying memory is the constraint
+**Evidence:** FlashAttention-2 section: 'up to 2x speedup over FlashAttention' and 'Reaches 50-73% of theoretical peak FLOPS on A100'
 
 ## Tags
-- [[gpu-optimization]]
-- [[bottleneck-analysis]]
-- [[memory-bandwidth]]
+- [[optimization]]
+- [[parallelization]]
+- [[flops-efficiency]]

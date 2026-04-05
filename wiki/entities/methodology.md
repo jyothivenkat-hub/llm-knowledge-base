@@ -1,54 +1,70 @@
 ---
 title: "Methodology"
-related_claims: ["do-large-language-models-think-like-the-brain-007", "google-brain-llm-language-processing-007", "google-brain-llm-language-processing-009", "llm-brain-fmri-alignment-006", "llm-explanations-brain-representations-007", "neuroscience-of-transformers-006"]
-last_updated: "2026-04-04"
-source_count: 5
+related_claims: ["do-large-language-models-think-like-the-brain-007", "google-brain-llm-language-processing-007", "google-brain-llm-language-processing-009", "llm-brain-fmri-alignment-006", "llm-explanations-brain-representations-007", "neuroscience-of-transformers-006", "dose-and-timing-effects-of-caffeine-on-s-010", "the-impact-of-stress-on-sleep-quality-a--008", "the-impact-of-stress-on-sleep-quality-a--010"]
+last_updated: "2026-04-05"
+source_count: 7
 ---
 
 ## Overview
 
-Methodology in brain-LLM alignment research encompasses a suite of complementary neuroimaging and computational techniques designed to map the relationship between artificial language models and human neural processing. These approaches range from non-invasive functional neuroimaging to direct intracranial recordings, combined with layer-wise computational analysis and explainability methods. The field's strength lies in its multi-method triangulation: no single technique fully captures brain-model alignment, but their convergence provides robust evidence.
+Methodology encompasses the diverse technical and analytical approaches used to investigate relationships between artificial systems and biological phenomena. In neuroscience-AI research, this involves multi-modal neuroimaging combined with computational layer-wise analysis and explainability techniques. In behavioral neuroscience, it includes longitudinal designs, polysomnography, and biochemical measurement. Across domains, methodology reflects a commitment to triangulation—using complementary techniques to validate findings and overcome limitations inherent to any single approach.
 
 ## Key Findings
 
-### Multi-Modal Neuroimaging Approaches
+### Multi-Modal Neuroimaging and Direct Neural Recording
 
-Research employs both indirect and direct neural measurement techniques. **fMRI studies** establish that [[brain alignment]] emerges consistently across diverse [[LLM architectures]] when tested against naturalistic tasks like narrative comprehension—suggesting the phenomenon is robust rather than artifact-dependent. **Intracranial electrode recordings** provide higher temporal and spatial resolution than fMRI, offering direct evidence of brain-LLM alignment during natural conversation. This methodological progression from non-invasive to invasive measurement strengthens confidence in findings while revealing fine-grained temporal dynamics unavailable through hemodynamic imaging alone.
+Research on [[brain alignment]] employs a methodological hierarchy from non-invasive to invasive measurement. **fMRI studies** establish that brain-LLM alignment emerges consistently across diverse [[LLM architectures]] during naturalistic tasks like narrative comprehension, suggesting the phenomenon is architecture-independent rather than artifact-dependent. **Intracranial electrode recordings** during natural conversation provide higher temporal and spatial resolution than hemodynamic imaging, offering direct evidence of alignment with finer temporal dynamics. This progression strengthens confidence in findings by demonstrating convergence across measurement modalities with different noise profiles and temporal characteristics.
 
 ### Layer-Wise Computational Mapping
 
-A critical methodological innovation is the use of **sentence-level neural prediction models** that correlate specific LLM layers with activations in particular brain regions. This enables fine-grained mapping between computational and neural representations rather than treating models as black boxes. The approach has been applied across model components: [[Whisper encoder]] speech embeddings and [[Whisper decoder]] language embeddings can independently predict human neural activity during natural conversation, establishing that different model components map to distinct aspects of brain function.
+A critical innovation is **sentence-level neural prediction modeling** that correlates specific LLM layers with activations in particular brain regions, enabling fine-grained mapping between computational and neural representations. Rather than treating models as black boxes, this approach identifies which computational layers align with which neural systems. Complementing this, **component-level analysis** of specific model elements—such as Whisper encoder speech embeddings and decoder language embeddings—can predict and explain human neural activity patterns, establishing practical bridges between discrete LLM components and brain function.
 
-### Integration of Explainability Methods
+### Explainability-Neuroscience Integration
 
-Recent work bridges [[explainable AI (XAI)]] and neuroscience by using **attribution methods** to quantify word influence on next-word predictions, then mapping these computational explanations directly to fMRI data from narrative listening tasks. This represents a novel methodology linking interpretability research to neuroscientific validation, moving beyond simple correlation to mechanistic explanation.
+A novel methodological bridge links [[explainable AI]] (XAI) to neuroscience by using **attribution methods** to quantify word influence on next-word predictions, then mapping these computational explanations directly to fMRI data from narrative tasks. This approach treats model interpretability as a window into neural computation rather than as a separate concern, creating a unified framework for understanding both systems.
 
-### Comparative Architecture Testing
+### Longitudinal and Mediation Analysis in Behavioral Research
 
-The field validates findings across **14 publicly available LLMs of varying sizes and architectures**, demonstrating that brain alignment is not an artifact of specific model designs but emerges across diverse computational approaches. This comparative methodology strengthens claims about fundamental principles rather than implementation-specific phenomena.
+Beyond neuroscience-AI work, behavioral studies employ **longitudinal structural equation modeling** across multiple survey waves to decompose direct and indirect effects simultaneously. This methodology reveals that indirect pathways may be as important as direct effects—a finding that would be invisible in cross-sectional designs. Such approaches enable quantification of competing mechanisms and temporal dynamics in complex systems.
+
+### Biochemical and Physiological Measurement
+
+Rigorous behavioral methodology incorporates **objective physiological measurement** (polysomnography, salivary biomarkers) alongside experimental designs like **double-blind, placebo-controlled, randomized crossover studies with washout periods**. Genetic testing for individual differences (e.g., caffeine metabolism variants) enables personalized understanding of treatment effects.
 
 ## Methods
 
-| Technique | Resolution | Key Advantage | Limitation |
-|-----------|-----------|---------------|-----------|
-| **fMRI** | ~2mm spatial, ~2s temporal | Non-invasive, whole-brain coverage | Low temporal resolution, hemodynamic delay |
-| **Intracranial Electrodes** | <1mm spatial, <1ms temporal | Direct neural measurement, high precision | Invasive, limited spatial coverage |
-| **Layer-wise Embedding Analysis** | Computational | Maps specific model components to brain regions | Requires careful statistical controls |
-| **Attribution Methods** | Word-level | Mechanistic explanation of model behavior | Computationally expensive, interpretation-dependent |
+### Neuroimaging Techniques
+- **fMRI**: Non-invasive measurement of hemodynamic response during naturalistic tasks (narrative comprehension, conversation)
+- **Intracranial electrode recording**: Direct neural measurement with superior temporal and spatial resolution
+- **Layer-wise embedding analysis**: Extraction and correlation of computational representations at different model depths
 
-## Conceptual Framing
+### Computational Analysis
+- **Sentence-level neural prediction models**: Regression-based mapping of LLM layer activations to fMRI voxels
+- **Component-level analysis**: Isolation of specific model elements (encoders, decoders) for targeted prediction
+- **Attribution methods**: Quantification of feature importance in model predictions, mapped to neural data
 
-A foundational methodological principle emerging across papers is the importance of **comparing brains and artificial architectures at the level of computational organization rather than implementation details**. This means focusing on functional principles (e.g., hierarchical processing, attention mechanisms) rather than biological substrate differences. This framing allows genuine insight into both neuroscience and machine learning without requiring neural-level isomorphism.
+### Behavioral and Physiological Methods
+- **Polysomnography**: Objective sleep measurement
+- **Salivary biomarker testing**: Measurement of biochemical concentrations (e.g., caffeine)
+- **Genetic testing**: Identification of individual differences in metabolic capacity
+- **Longitudinal survey design**: Multi-wave data collection enabling temporal decomposition of effects
+- **Structural equation modeling**: Simultaneous estimation of direct and indirect pathways
+
+## Limitations and Considerations
+
+### Measurement Validity Issues
+[[Self-report measures]] introduce [[common method variance]] and [[social desirability bias]], particularly for sensitive constructs like smartphone dependence and emotion-focused coping. Participants may systematically underreport problematic behaviors, limiting the validity of findings dependent on self-reported data.
+
+### Methodological Implications
+The choice between non-invasive (fMRI) and invasive (intracranial) neuroimaging involves trade-offs: fMRI offers broader spatial coverage but lower temporal resolution and indirect hemodynamic measurement; intracranial recording offers precision but limited spatial scope and greater participant burden. No single technique fully captures brain-model alignment; convergence across methods strengthens inference.
 
 ## Open Questions
 
-- **Causality vs. Correlation**: Do current methods establish that LLMs implement brain-like computations, or merely that they produce similar outputs? Intracranial recordings offer temporal resolution for causal inference, but this remains incompletely explored.
-
-- **Generalization Across Tasks**: Most studies use naturalistic language comprehension. Do brain-LLM alignments hold for other cognitive domains (reasoning, planning, etc.)?
-
-- **Layer-to-Region Specificity**: How precisely can layer-wise embeddings map to functional brain regions? Current work shows correlations, but mechanistic understanding remains limited.
-
-- **Model Size and Alignment**: Does [[brain alignment]] scale with model size, or do smaller models achieve similar neural correspondence through different computational paths?
+- How do findings from naturalistic tasks (narrative comprehension, conversation) generalize to other language processing contexts?
+- What is the causal relationship between computational and neural alignment—does one drive the other, or do both reflect independent solutions to similar problems?
+- How do individual differences in neural organization affect brain-LLM alignment?
+- Can component-level analysis (e.g., encoder vs. decoder) predict which neural systems are most relevant for different aspects of language processing?
+- How do longitudinal indirect effects in behavioral systems compare in magnitude and importance to direct effects across different domains?
 
 ## Sources
 
@@ -57,3 +73,5 @@ A foundational methodological principle emerging across papers is the importance
 - [[Llm Brain Fmri Alignment]]
 - [[Llm Explanations Brain Representations]]
 - [[Neuroscience Of Transformers]]
+- [[Dose and Timing Effects of Caffeine on Subsequent Sleep: A Randomized Clinical Crossover Trial]]
+- [[The Impact of Stress on Sleep Quality: A Mediation Analysis Based on Longitudinal Data]]

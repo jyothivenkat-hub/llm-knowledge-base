@@ -3,18 +3,18 @@ id: "llm-explanations-brain-representations-005"
 type: "hypothesis"
 source: "papers/llm-explanations-brain-representations.pdf"
 source_title: "Llm Explanations Brain Representations"
-cluster: "llm-interpretability-neuroscience"
-tags: ["xai-evaluation", "neuroscience-benchmark", "human-alignment", "interpretability"]
+cluster: "llm-interpretability-explanations"
+tags: ["computational-neuroscience", "language-processing", "hierarchy", "universal-principles"]
 ---
 
-# Neuroscience data (fMRI) can be used as an empirical benchmark to evaluate which XAI techniques best capture human-like language processing principles, creating a feedback loop between neuroscience and AI interpretability research.
+# Attribution-based explanations of LLM predictions reflect the same hierarchical processing principles that organize human brain language processing, suggesting computational and biological language systems share fundamental organizational structures.
 
 **Type:** hypothesis
 **Source:** Llm Explanations Brain Representations
-**Evidence:** Novel Contribution: 'Opens pathway to use neuroscience data to validate which XAI techniques best capture human-like processing.'
+**Evidence:** Key Findings and Hierarchical Layer Alignment: 'This mirrors the brain's own hierarchical processing pipeline' and 'This bridges computational linguistics and neuroscience by showing LLM explanations reflect principles underlying human brain language processing.'
 
 ## Tags
-- [[xai-evaluation]]
-- [[neuroscience-benchmark]]
-- [[human-alignment]]
-- [[interpretability]]
+- [[computational-neuroscience]]
+- [[language-processing]]
+- [[hierarchy]]
+- [[universal-principles]]

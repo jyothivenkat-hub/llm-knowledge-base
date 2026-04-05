@@ -1,20 +1,20 @@
 ---
 id: "scaling-laws-for-neural-language-models-005"
-type: "concept"
+type: "finding"
 source: "articles/scaling-laws.md"
 source_title: "Scaling Laws for Neural Language Models"
-cluster: "scaling-laws-training"
-tags: ["architecture search", "scaling", "transformers", "research priorities"]
+cluster: "scaling-laws-language-models"
+tags: ["architecture", "bottleneck", "transformer", "scale"]
 ---
 
-# The Transformer architecture itself is not a performance bottleneck; scaling is the dominant factor, making architecture search less critical than previously believed.
+# The Transformer architecture itself is not a performance bottleneck—scale is the dominant factor. This suggests that architectural innovation is less critical than previously thought compared to simply increasing model size.
 
-**Type:** concept
+**Type:** finding
 **Source:** Scaling Laws for Neural Language Models
-**Evidence:** Performance depends strongly on model size, not specific architectural details
+**Evidence:** Impact on Transformer Architecture section: 'The Transformer architecture itself is not the bottleneck — scale is'
 
 ## Tags
-- [[architecture search]]
-- [[scaling]]
-- [[transformers]]
-- [[research priorities]]
+- [[architecture]]
+- [[bottleneck]]
+- [[transformer]]
+- [[scale]]

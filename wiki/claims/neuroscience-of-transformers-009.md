@@ -1,20 +1,20 @@
 ---
 id: "neuroscience-of-transformers-009"
-type: "method"
+type: "finding"
 source: "papers/neuroscience-of-transformers.pdf"
 source_title: "Neuroscience Of Transformers"
-cluster: "transformer-neuroscience-analogy"
-tags: ["neuroscience", "transformers", "predictions", "experimental-design"]
+cluster: "transformer-neuroscience-mapping"
+tags: ["temporal-dynamics", "discrete-vs-continuous", "computational-mismatch", "architecture-differences"]
 ---
 
-# The transformer-to-cortex mapping generates testable predictions about dendritic integration processes, oscillatory coordination, and laminar specialization that can be empirically validated in neuroscience.
+# A fundamental computational challenge exists in reconciling transformers' requirement for discrete causal sequences with the brain's continuous, recurrent dynamics—suggesting either transformers miss key aspects of biological computation or the brain uses mechanisms to discretize continuous dynamics.
 
-**Type:** method
+**Type:** finding
 **Source:** Neuroscience Of Transformers
-**Evidence:** Predictions Generated section lists four specific testable predictions: laminar specialization, contextual modulation, dendritic integration, and oscillatory coordination
+**Evidence:** Temporal Discretization Challenge section identifies this as 'a fundamental challenge' requiring resolution
 
 ## Tags
-- [[neuroscience]]
-- [[transformers]]
-- [[predictions]]
-- [[experimental-design]]
+- [[temporal-dynamics]]
+- [[discrete-vs-continuous]]
+- [[computational-mismatch]]
+- [[architecture-differences]]

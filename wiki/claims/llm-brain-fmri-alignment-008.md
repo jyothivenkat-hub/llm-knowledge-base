@@ -1,20 +1,19 @@
 ---
 id: "llm-brain-fmri-alignment-008"
-type: "concept"
+type: "method"
 source: "papers/llm-brain-fmri-alignment.pdf"
 source_title: "Llm Brain Fmri Alignment"
-cluster: "llm-brain-alignment-empirical"
-tags: ["computational-principles", "language-processing", "brain-alignment", "autoregressive-models"]
+cluster: "llm-brain-alignment-neuroscience"
+tags: ["neural-prediction-models", "fmri-analysis", "layer-wise-analysis"]
 ---
 
-# LLMs implement three fundamental computational principles shared with human language processing: pre-onset prediction (anticipating upcoming words), post-onset surprise (response to unexpected input), and embedding-based contextual representation.
+# Sentence-level neural prediction models using layer-wise LLM embeddings can identify which model layers best predict activity in specific brain regions, enabling fine-grained brain-model correspondence analysis.
 
-**Type:** concept
+**Type:** method
 **Source:** Llm Brain Fmri Alignment
-**Evidence:** Implications: 'Provides evidence for fundamental computational principles shared by autoregressive LLMs and the human brain: pre-onset prediction, post-onset surprise, and embedding-based contextual representation.'
+**Evidence:** Methodology: 'Constructed sentence-level neural prediction models' and 'Identified model layers most correlated with brain region activations'
 
 ## Tags
-- [[computational-principles]]
-- [[language-processing]]
-- [[brain-alignment]]
-- [[autoregressive-models]]
+- [[neural-prediction-models]]
+- [[fmri-analysis]]
+- [[layer-wise-analysis]]
