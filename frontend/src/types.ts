@@ -7,6 +7,7 @@ export type ResearchSource = {
   status: 'pending' | 'processing' | 'completed';
   dateAdded: string;
   claimCount?: number;
+  wiki_slug?: string;
 };
 
 export type AtomicClaim = {

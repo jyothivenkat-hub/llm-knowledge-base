@@ -132,13 +132,18 @@ export default function ResearchView({ state, onAdd, onRefresh }: { state: AppSt
       )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {state.sources.map(source => (
+        {state.sources.map(source => {
+          const rawLink = `/raw/${source.id}`;
+          const wikiLink = source.wiki_slug ? `/wiki/sources/${source.wiki_slug}.md` : null;
+          const externalLink = source.source_url || null;
+
+          return (
           <div key={source.id} className="group p-6 bg-[#f8f9fa] border border-[#a2a9b1] rounded hover:border-[#3366cc] transition-all hover:shadow-md">
             <div className="flex items-start justify-between mb-4">
-              <div className="p-3 bg-[#eaecf0] rounded group-hover:bg-[#3366cc]/10 group-hover:text-[#3366cc] transition-colors">
+              <a href={rawLink} target="_blank" rel="noopener noreferrer" className="p-3 bg-[#eaecf0] rounded group-hover:bg-[#3366cc]/10 group-hover:text-[#3366cc] transition-colors">
                 <FileText className="w-6 h-6" />
-              </div>
-              <div className={cn(
+              </a>
+              <span className={cn(
                 "flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest",
                 source.status === 'completed' ? "bg-emerald-50 text-emerald-700 border border-emerald-200" :
                 source.status === 'processing' ? "bg-blue-50 text-blue-700 border border-blue-200 animate-pulse" :
@@ -147,36 +152,31 @@ export default function ResearchView({ state, onAdd, onRefresh }: { state: AppSt
                 {source.status === 'completed' ? <CheckCircle className="w-3 h-3" /> :
                  source.status === 'processing' ? <Clock className="w-3 h-3" /> :
                  <AlertCircle className="w-3 h-3" />}
-                {source.status}
-              </div>
-            </div>
-            <h3 className="text-lg font-serif font-bold text-[#202122] mb-2 group-hover:text-[#3366cc] transition-colors line-clamp-2">
-              <a href={`/wiki/sources/${source.id.replace('articles/', '').replace('papers/', '').replace('.md', '').replace('.pdf', '')}`} className="hover:underline cursor-pointer">
-                {source.title}
-              </a>
-            </h3>
-            {source.claimCount ? (
-              <p className="text-sm text-[#54595d] mb-6">{source.claimCount} claims extracted &middot; {source.type}</p>
-            ) : (
-              <p className="text-sm text-[#54595d] mb-6">{source.type} &middot; {source.status}</p>
-            )}
-            <div className="flex items-center justify-between pt-4 border-t border-[#a2a9b1]/50">
-              <span className="text-[10px] font-bold text-[#a2a9b1] uppercase tracking-widest">
-                {source.dateAdded ? `Added ${source.dateAdded}` : source.type}
+                {source.claimCount ? `${source.claimCount} claims` : source.status}
               </span>
-              <div className="flex gap-2">
-                {source.source_url && (
-                  <a href={source.source_url} target="_blank" rel="noopener noreferrer" className="px-3 py-1.5 bg-[#eaecf0] hover:bg-[#d1d4d9] text-[#202122] rounded text-[10px] font-bold uppercase tracking-widest transition-all no-underline">
-                    Original
-                  </a>
-                )}
-                <a href={`/wiki/sources/${source.id.replace('articles/', '').replace('papers/', '').replace('.md', '').replace('.pdf', '')}`} className="px-3 py-1.5 bg-[#3366cc] hover:bg-[#2a4b8d] text-white rounded text-[10px] font-bold uppercase tracking-widest transition-all no-underline">
-                  Read Wiki
+            </div>
+            <h3 className="text-lg font-serif font-bold mb-2 line-clamp-2">
+              <a href={rawLink} target="_blank" rel="noopener noreferrer" className="text-[#0645ad] hover:underline">{source.title}</a>
+            </h3>
+            <p className="text-sm text-[#54595d] mb-4">{source.type} &middot; {source.dateAdded || 'Recently added'}</p>
+            <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-[#a2a9b1]/50">
+              <a href={rawLink} target="_blank" rel="noopener noreferrer" className="px-3 py-1.5 bg-[#3366cc] hover:bg-[#2a4b8d] text-white rounded text-[10px] font-bold uppercase tracking-widest transition-all no-underline">
+                View Source
+              </a>
+              {wikiLink && (
+                <a href={wikiLink} className="px-3 py-1.5 bg-[#eaecf0] hover:bg-[#d1d4d9] text-[#202122] rounded text-[10px] font-bold uppercase tracking-widest transition-all no-underline">
+                  Wiki Article
                 </a>
-              </div>
+              )}
+              {externalLink && (
+                <a href={externalLink} target="_blank" rel="noopener noreferrer" className="px-3 py-1.5 bg-[#eaecf0] hover:bg-[#d1d4d9] text-[#202122] rounded text-[10px] font-bold uppercase tracking-widest transition-all no-underline">
+                  Original URL
+                </a>
+              )}
             </div>
           </div>
-        ))}
+          );
+        })}
 
         {state.sources.length === 0 && (
           <div className="col-span-full py-24 flex flex-col items-center justify-center text-[#a2a9b1] border-2 border-dashed border-[#eaecf0] rounded">

@@ -45,6 +45,7 @@ export async function loadState(): Promise<AppState> {
     status: (s.status || 'completed') as ResearchSource['status'],
     dateAdded: s.dateAdded || '',
     claimCount: nodes.filter((n: any) => n.source_paper === s.id).length,
+    wiki_slug: s.wiki_slug || '',
   }));
 
   // Convert clusters to concepts
@@ -213,4 +214,77 @@ export async function fileBack(title: string, content: string): Promise<string> 
 export async function getInsights(): Promise<any> {
   const res = await fetch(`${API_BASE}/api/graph/insights`);
   return res.json();
+}
+
+// ─── Lint / Health Check ────────────────────────────────
+
+export async function runLint(
+  onProgress: (msg: string) => void,
+  checkName?: string
+): Promise<string> {
+  const url = checkName ? `${API_BASE}/api/lint?check=${checkName}` : `${API_BASE}/api/lint`;
+  return new Promise((resolve, reject) => {
+    const source = new EventSource(url);
+    source.onmessage = (e) => {
+      const data = JSON.parse(e.data);
+      if (data.done) {
+        source.close();
+        resolve(data.report_html || '');
+      } else if (data.error) {
+        source.close();
+        reject(new Error(data.error));
+      } else {
+        onProgress(data.message || '');
+      }
+    };
+    source.onerror = () => { source.close(); reject(new Error('Connection lost')); };
+  });
+}
+
+// ─── Render (slides/charts) ─────────────────────────────
+
+export async function renderArticle(file: string, format: 'slides' | 'chart'): Promise<{ output: string; preview?: string; error?: string }> {
+  const res = await fetch(`${API_BASE}/api/render`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ file, format }),
+  });
+  return res.json();
+}
+
+// ─── Wiki Editor ────────────────────────────────────────
+
+export async function getWikiRaw(path: string): Promise<string> {
+  const res = await fetch(`${API_BASE}/api/wiki/raw?path=${encodeURIComponent(path)}`);
+  const data = await res.json();
+  return data.content || '';
+}
+
+export async function saveWiki(path: string, content: string): Promise<boolean> {
+  const res = await fetch(`${API_BASE}/api/wiki/save`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ path, content }),
+  });
+  const data = await res.json();
+  return !!data.saved;
+}
+
+// ─── Wiki Page Data ─────────────────────────────────────
+
+export async function getWikiPage(): Promise<any> {
+  const res = await fetch(`${API_BASE}/api/wiki-page`);
+  return res.json();
+}
+
+// ─── Web Clipper ────────────────────────────────────────
+
+export async function clipContent(title: string, url: string, content: string): Promise<string> {
+  const res = await fetch(`${API_BASE}/api/clip`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ title, url, content }),
+  });
+  const data = await res.json();
+  return data.clipped || '';
 }

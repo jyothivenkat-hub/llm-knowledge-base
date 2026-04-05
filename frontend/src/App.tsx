@@ -5,6 +5,9 @@ import {
   Cpu,
   MessageSquare,
   RefreshCw,
+  ShieldCheck,
+  Presentation,
+  Clipboard,
 } from 'lucide-react';
 import { AppState, ResearchSource } from './types';
 import { mockData } from './mockData';
@@ -14,7 +17,7 @@ import GraphView from './components/GraphView';
 import ResearchView from './components/ResearchView';
 import IdeasView from './components/IdeasView';
 import ChatView from './components/ChatView';
-import { loadState, runCompile } from './services/api';
+import { loadState, runCompile, runLint } from './services/api';
 
 type View = 'wiki' | 'graph' | 'ideas' | 'research' | 'chat';
 
@@ -101,6 +104,17 @@ export default function App() {
     setActiveView('chat');
   };
 
+  const handleLint = async () => {
+    if (isDemo) { setCompileLog(['Health checks require Full mode.']); return; }
+    setCompileLog(['Running health checks...']);
+    try {
+      const report = await runLint((msg) => setCompileLog(prev => [...prev, msg]));
+      setCompileLog(prev => [...prev, 'Done! Report generated.']);
+    } catch (e: any) {
+      setCompileLog(prev => [...prev, `Error: ${e.message}`]);
+    }
+  };
+
   return (
     <div className="flex flex-col h-screen bg-white font-sans text-[#202122] overflow-hidden">
       {/* Header */}
@@ -168,18 +182,16 @@ export default function App() {
               label="Compile"
               icon={<Cpu className="w-3 h-3" />}
               onClick={handleCompile}
-              disabled={state.isProcessing || (!isLocalHost && isDemo)}
-              title={isDemo ? 'Public demo: compile is available only in local full mode.' : undefined}
+              disabled={state.isProcessing}
             />
             <SidebarLink
               label="Add sources"
               icon={<Plus className="w-3 h-3" />}
               onClick={() => setActiveView('research')}
-              disabled={!isLocalHost && isDemo}
-              title={isDemo ? 'Public demo: adding sources is available only in local full mode.' : undefined}
             />
             <SidebarLink label="Ask question" icon={<MessageSquare className="w-3 h-3" />} onClick={() => setActiveView('chat')} />
-            <SidebarLink label="Refresh" icon={<RefreshCw className="w-3 h-3" />} onClick={refreshState} />
+            <SidebarLink label="Health check" icon={<ShieldCheck className="w-3 h-3" />} onClick={handleLint} />
+            <SidebarLink label="Refresh data" icon={<RefreshCw className="w-3 h-3" />} onClick={refreshState} />
           </SidebarSection>
 
           <div className="mt-8 pt-4 border-t border-[#a2a9b1]">
@@ -199,13 +211,6 @@ export default function App() {
               <span className="font-bold">{effectiveMode === 'demo' ? 'Demo Mode' : 'Full Mode'}</span>
               <span className="block mt-0.5 opacity-70">Click to switch</span>
             </button>
-            {compileLog.length > 0 && (
-              <div className="mt-3 bg-white border border-[#c8ccd1] rounded p-2 text-[11px] space-y-1">
-                {compileLog.slice(-4).map((line, idx) => (
-                  <div key={`${line}-${idx}`} className="text-[#54595d]">{line}</div>
-                ))}
-              </div>
-            )}
           </div>
         </aside>
 
@@ -234,10 +239,24 @@ export default function App() {
             </motion.div>
           </AnimatePresence>
 
-          {state.isProcessing && (
-            <div className="absolute top-4 right-4 bg-white/90 backdrop-blur border border-[#3366cc] px-4 py-2 rounded shadow-lg flex items-center gap-3 z-50">
-              <Cpu className="w-4 h-4 text-[#3366cc] animate-spin" />
-              <span className="text-[13px] font-bold text-[#3366cc]">Compiling Research...</span>
+          {(state.isProcessing || compileLog.length > 0) && (
+            <div className="absolute top-4 right-4 w-96 bg-white/95 backdrop-blur border border-[#3366cc] rounded shadow-xl z-50">
+              <div className="flex items-center justify-between px-4 py-2 border-b border-[#3366cc]/20">
+                <div className="flex items-center gap-2">
+                  {state.isProcessing && <Cpu className="w-4 h-4 text-[#3366cc] animate-spin" />}
+                  <span className="text-[13px] font-bold text-[#3366cc]">
+                    {state.isProcessing ? 'Processing...' : 'Complete'}
+                  </span>
+                </div>
+                {!state.isProcessing && (
+                  <button onClick={() => setCompileLog([])} className="text-[11px] text-[#54595d] hover:text-[#202122]">dismiss</button>
+                )}
+              </div>
+              <div className="px-4 py-2 max-h-60 overflow-y-auto text-[12px] font-mono text-[#54595d] space-y-0.5">
+                {compileLog.map((line, i) => (
+                  <div key={i}>{line}</div>
+                ))}
+              </div>
             </div>
           )}
         </main>

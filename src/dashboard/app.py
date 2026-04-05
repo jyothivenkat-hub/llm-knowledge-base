@@ -494,6 +494,14 @@ def create_app(config: Optional[Config] = None) -> Flask:
                 "dateAdded": datetime.now().strftime("%Y-%m-%d"),
             })
 
+        # Build wiki slug lookup
+        wiki_slugs = {}
+        sources_dir = config.wiki_path / "sources"
+        if sources_dir.exists():
+            for f in sources_dir.glob("*.md"):
+                if not f.name.startswith("_"):
+                    wiki_slugs[f.stem.lower()] = f.stem
+
         items = []
         for entry in manifest.all_entries():
             status = "pending"
@@ -504,6 +512,16 @@ def create_app(config: Optional[Config] = None) -> Flask:
 
             suffix = Path(entry.path).suffix.lower()
             source_type = "pdf" if suffix == ".pdf" else "article"
+
+            # Find matching wiki source file
+            wiki_slug = ""
+            raw_stem = Path(entry.path).stem.lower()
+            title_slug = slugify(entry.title).lower()
+            for ws_lower, ws in wiki_slugs.items():
+                if raw_stem in ws_lower or title_slug in ws_lower or ws_lower in title_slug:
+                    wiki_slug = ws
+                    break
+
             items.append({
                 "id": entry.path,
                 "title": entry.title,
@@ -512,9 +530,174 @@ def create_app(config: Optional[Config] = None) -> Flask:
                 "status": status,
                 "dateAdded": entry.date_ingested,
                 "source_url": entry.source_url,
+                "wiki_slug": wiki_slug,
             })
 
         return jsonify({"sources": items})
+
+    @app.route("/api/wiki-page")
+    def api_wiki_page():
+        """Return the full compiled wiki landing page data — same rich structure Flask uses.
+        This is the single source of truth for the React WikiView.
+        """
+        if not config.graph_path.exists():
+            return jsonify({"empty": True})
+
+        graph_data = json.loads(config.graph_path.read_text(encoding="utf-8"))
+        graph_nodes = graph_data.get("nodes", [])
+        graph_edges = graph_data.get("edges", [])
+        graph_clusters = graph_data.get("clusters", [])
+        graph_meta = graph_data.get("metadata", {})
+        product_ideas = graph_data.get("product_ideas", [])
+
+        # Sources from manifest
+        from ..ingest.manifest import Manifest
+        from ..utils import slugify
+        manifest = Manifest(config.raw_path / "_manifest.yaml")
+
+        # Build wiki slug lookup
+        wiki_slugs = {}
+        sources_dir = config.wiki_path / "sources"
+        if sources_dir.exists():
+            for f in sources_dir.glob("*.md"):
+                if not f.name.startswith("_"):
+                    wiki_slugs[f.stem.lower()] = f.stem
+
+        papers = []
+        for entry in manifest.all_entries():
+            claim_count = sum(1 for n in graph_nodes if entry.path in n.get("source_paper", ""))
+            source_type = "PDF" if entry.path.endswith(".pdf") else "Article"
+            raw_stem = Path(entry.path).stem.lower()
+            title_slug = slugify(entry.title).lower()
+            wiki_slug = ""
+            for ws_lower, ws in wiki_slugs.items():
+                if raw_stem in ws_lower or title_slug in ws_lower or ws_lower in title_slug:
+                    wiki_slug = ws
+                    break
+            papers.append({
+                "title": entry.title,
+                "raw_path": entry.path,
+                "wiki_slug": wiki_slug,
+                "claim_count": claim_count,
+                "source_type": source_type,
+                "source_url": entry.source_url,
+                "date_added": entry.date_ingested,
+            })
+
+        # Claims summary
+        type_counts = {}
+        for n in graph_nodes:
+            t = n.get("type", "claim")
+            type_counts[t] = type_counts.get(t, 0) + 1
+
+        # Build rich cluster sections (same logic as Flask wiki route)
+        node_map = {n["id"]: n for n in graph_nodes}
+        cluster_sections = []
+        for cluster in graph_clusters:
+            cid = cluster.get("id", "")
+            if cid == "other":
+                cluster_label = "Additional Research"
+                cluster_desc = "Additional claims and findings from various research papers."
+            else:
+                cluster_label = cluster.get("label", cid)
+                cluster_desc = cluster.get("description", "")
+
+            cluster_node_ids = set(cluster.get("node_ids", []))
+            cluster_nodes = [node_map[nid] for nid in cluster_node_ids if nid in node_map]
+
+            findings = [n for n in cluster_nodes if n.get("type") == "finding"]
+            methods = [n for n in cluster_nodes if n.get("type") == "method"]
+            concepts = [n for n in cluster_nodes if n.get("type") in ("concept",)]
+            hypotheses = [n for n in cluster_nodes if n.get("type") == "hypothesis"]
+            claims = [n for n in cluster_nodes if n.get("type") == "claim"]
+
+            # Cross-cluster connections
+            connections = []
+            for edge in graph_edges:
+                src_id = edge.get("source_id", "")
+                tgt_id = edge.get("target_id", "")
+                if (src_id in cluster_node_ids) != (tgt_id in cluster_node_ids):
+                    src_node = node_map.get(src_id, {})
+                    tgt_node = node_map.get(tgt_id, {})
+                    if src_node and tgt_node:
+                        key = (src_node.get("text", "")[:40], tgt_node.get("text", "")[:40])
+                        connections.append({
+                            "relationship": edge.get("relationship", "related"),
+                            "source_text": src_node.get("text", ""),
+                            "target_text": tgt_node.get("text", ""),
+                            "explanation": edge.get("explanation", ""),
+                        })
+
+            # Deduplicate
+            seen = set()
+            unique_conn = []
+            for c in connections:
+                k = (c["source_text"][:40], c["target_text"][:40])
+                if k not in seen:
+                    seen.add(k)
+                    unique_conn.append(c)
+            connections = unique_conn[:5]
+
+            key_findings = findings + hypotheses + claims
+
+            cluster_sections.append({
+                "id": cid,
+                "label": cluster_label,
+                "description": cluster_desc,
+                "key_findings": [{"text": n["text"], "source_title": n.get("source_title", ""), "type": n.get("type", "")} for n in key_findings[:10]],
+                "methods": [{"text": n["text"], "evidence": n.get("evidence", ""), "type": n.get("type", "")} for n in methods[:8]],
+                "concepts": [{"text": n["text"], "source_title": n.get("source_title", ""), "type": n.get("type", "")} for n in concepts[:8]],
+                "connections": connections,
+                "total_claims": len(cluster_nodes),
+            })
+
+        # Insights
+        insights = {}
+        if config.graph_insights_path.exists():
+            insights = json.loads(config.graph_insights_path.read_text(encoding="utf-8"))
+
+        # Source summaries (actual compiled article content)
+        source_articles = []
+        if sources_dir.exists():
+            for f in sorted(sources_dir.glob("*.md")):
+                if f.name.startswith("_"):
+                    continue
+                content = f.read_text(encoding="utf-8")
+                # Strip frontmatter
+                if content.startswith("---"):
+                    end = content.find("---", 3)
+                    if end != -1:
+                        content = content[end + 3:].strip()
+                source_articles.append({
+                    "slug": f.stem,
+                    "content": content[:2000],
+                })
+
+        built_at = graph_meta.get("built_at", "")
+
+        return jsonify({
+            "papers": papers,
+            "claims_summary": {
+                "total": len(graph_nodes),
+                "findings": type_counts.get("finding", 0),
+                "methods": type_counts.get("method", 0),
+                "concepts": type_counts.get("concept", 0),
+                "hypotheses": type_counts.get("hypothesis", 0),
+                "claims": type_counts.get("claim", 0),
+            },
+            "cluster_sections": cluster_sections,
+            "product_ideas": product_ideas,
+            "insights": insights,
+            "source_articles": source_articles,
+            "total_edges": graph_meta.get("total_edges", 0),
+            "built_at": built_at,
+        })
+
+    @app.route("/raw/<path:filepath>")
+    def serve_raw(filepath):
+        """Serve raw source files (PDFs, markdown) for viewing."""
+        from flask import send_from_directory
+        return send_from_directory(str(config.raw_path), filepath)
 
     @app.route("/api/cached-search")
     def api_cached_search():

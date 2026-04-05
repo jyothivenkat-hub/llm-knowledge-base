@@ -8,6 +8,7 @@ export default defineConfig({
     proxy: {
       '/api': 'http://localhost:8888',
       '/wiki': 'http://localhost:8888',
+      '/raw': 'http://localhost:8888',
     },
   },
 });
