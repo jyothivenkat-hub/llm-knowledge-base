@@ -1,6 +1,6 @@
 vault_path: "."
 anthropic_api_key_env: "ANTHROPIC_API_KEY"
-model: "claude-opus-4-20250514"
+model: "claude-haiku-4-5-20251001"
 max_tokens: 8192
 raw_dir: "raw"
 wiki_dir: "wiki"
