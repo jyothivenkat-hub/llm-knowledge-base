@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Article{% endblock %} - Knowledge Base</title>
+    <title>{% block title %}Article{% endblock %} - Jyothipedia</title>
     <link rel="stylesheet" href="/static/wikipedia.css">
 </head>
 <body class="wiki-page">
@@ -11,15 +11,15 @@
     <div class="wiki-header">
         <div class="wiki-header-inner">
             <a href="/wiki/" class="wiki-logo">
-                <div class="wiki-logo-icon">K</div>
+                <div class="wiki-logo-icon">J</div>
                 <div class="wiki-logo-text">
-                    Knowledge Base
-                    <small>The LLM Research Compendium</small>
+                    Jyothipedia
+                    <small>The Personal Research Compendium</small>
                 </div>
             </a>
 
             <div class="wiki-search-bar">
-                <input type="text" id="wiki-search-input" placeholder="Search Knowledge Base" onkeydown="if(event.key==='Enter')wikiSearch()">
+                <input type="text" id="wiki-search-input" placeholder="Search Jyothipedia" onkeydown="if(event.key==='Enter')wikiSearch()">
                 <button onclick="wikiSearch()">Search</button>
             </div>
 
@@ -81,8 +81,7 @@
 
     <!-- Footer -->
     <div class="wiki-footer">
-        This page was automatically compiled from {{ total_sources or 0 }} research sources using LLM-powered knowledge extraction.
-        Content is derived from academic papers and research articles.
+        Jyothipedia is a personal research compendium compiled from {{ total_sources or 0 }} sources using LLM-powered knowledge extraction.
         <br>
         <a href="/">Return to Dashboard</a>
     </div>

@@ -277,11 +277,14 @@ def create_app(config: Optional[Config] = None) -> Flask:
                 except (ValueError, TypeError):
                     pass
 
+            product_ideas = graph_data.get("product_ideas", [])
+
             return render_template("wiki.html", active="wiki", is_dir=True,
                                    is_library_root=True, papers=papers,
                                    claims_summary=claims_summary,
                                    cluster_sections=cluster_sections,
                                    clusters=clusters_for_sidebar,
+                                   product_ideas=product_ideas,
                                    total_edges=graph_meta.get("total_edges", 0),
                                    total_sources=len(papers),
                                    built_at=built_at)
@@ -447,6 +450,71 @@ def create_app(config: Optional[Config] = None) -> Flask:
         """Returns whether the app is in demo mode (no API key)."""
         has_key = bool(config.anthropic_api_key and config.anthropic_api_key != "your-api-key-here")
         return jsonify({"demo": not has_key, "model": config.model})
+
+    @app.route("/api/sources", methods=["GET", "POST"])
+    def api_sources():
+        """List known sources or create a new markdown source in raw/articles/."""
+        from ..ingest.manifest import Manifest
+        from ..utils import slugify
+
+        manifest = Manifest(config.raw_path / "_manifest.yaml")
+
+        if request.method == "POST":
+            data = request.get_json() or {}
+            title = (data.get("title") or "").strip()
+            content = (data.get("content") or "").strip()
+            source_type = (data.get("type") or "article").strip()
+            source_url = (data.get("source_url") or "").strip()
+
+            if not title or not content:
+                return jsonify({"error": "Missing title or content"}), 400
+
+            timestamp = datetime.now().strftime("%Y%m%d")
+            slug = slugify(title)[:60]
+            filename = f"{timestamp}-{slug}.md"
+            dest = config.raw_path / "articles" / filename
+            dest.parent.mkdir(parents=True, exist_ok=True)
+
+            header = [
+                "---",
+                f'title: "{title}"',
+                f'date: "{datetime.now().strftime("%Y-%m-%d")}"',
+                f'type: "{source_type}"',
+            ]
+            if source_url:
+                header.append(f'url: "{source_url}"')
+            header.extend(["---", "", f"# {title}", "", content, ""])
+            dest.write_text("\n".join(header), encoding="utf-8")
+
+            return jsonify({
+                "created": True,
+                "path": f"articles/{filename}",
+                "title": title,
+                "type": source_type,
+                "dateAdded": datetime.now().strftime("%Y-%m-%d"),
+            })
+
+        items = []
+        for entry in manifest.all_entries():
+            status = "pending"
+            if entry.compiled and entry.sha256 == entry.compiled_hash:
+                status = "completed"
+            elif entry.compiled:
+                status = "processing"
+
+            suffix = Path(entry.path).suffix.lower()
+            source_type = "pdf" if suffix == ".pdf" else "article"
+            items.append({
+                "id": entry.path,
+                "title": entry.title,
+                "type": source_type,
+                "content": "",
+                "status": status,
+                "dateAdded": entry.date_ingested,
+                "source_url": entry.source_url,
+            })
+
+        return jsonify({"sources": items})
 
     @app.route("/api/cached-search")
     def api_cached_search():

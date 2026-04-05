@@ -137,180 +137,224 @@
 
 
 {% elif is_dir and is_library_root %}
-{# ──────────── Main Wikipedia Landing Page ──────────── #}
-<div class="wiki-article-header">
-    <h1 class="wiki-article-title">Large Language Models and Neural Language Processing</h1>
-    <div class="wiki-article-subtitle">From Knowledge Base, the LLM research compendium</div>
+{# ──────────── Jyothipedia Main Page ──────────── #}
+
+<style>
+.jp-welcome {
+    text-align: center;
+    padding: 20px 0 16px;
+    border-bottom: 1px solid #a7d7f9;
+    margin-bottom: 20px;
+}
+.jp-welcome h1 {
+    font-family: 'Linux Libertine', Georgia, 'Times New Roman', serif;
+    font-size: 2em;
+    font-weight: normal;
+    margin: 0 0 4px;
+}
+.jp-welcome p {
+    color: #54595d;
+    font-size: 13px;
+    margin: 0;
+}
+.jp-welcome .jp-stats {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #72777d;
+}
+.jp-welcome .jp-stats a { color: #0645ad; }
+
+/* Main page grid */
+.jp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+@media (max-width: 800px) {
+    .jp-grid { grid-template-columns: 1fr; }
+}
+
+/* Section boxes */
+.jp-box {
+    border: 1px solid #a7d7f9;
+    background: #fff;
+}
+.jp-box-header {
+    background: #d0e5f5;
+    padding: 6px 12px;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: 'Linux Libertine', Georgia, serif;
+    border-bottom: 1px solid #a7d7f9;
+}
+.jp-box-header.green { background: #c8e6c9; border-color: #81c784; }
+.jp-box-header.amber { background: #fff3cd; border-color: #f0c36d; }
+.jp-box-header.purple { background: #e1d5e7; border-color: #b39ddb; }
+.jp-box.green { border-color: #81c784; }
+.jp-box.amber { border-color: #f0c36d; }
+.jp-box.purple { border-color: #b39ddb; }
+
+.jp-box-body {
+    padding: 12px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+.jp-box-body ul {
+    margin: 4px 0 0 16px;
+    padding: 0;
+}
+.jp-box-body li {
+    margin-bottom: 4px;
+}
+.jp-box-body a { color: #0645ad; }
+.jp-box-body .jp-more {
+    display: block;
+    text-align: right;
+    font-size: 11px;
+    margin-top: 8px;
+    color: #0645ad;
+}
+
+/* Full width boxes */
+.jp-full {
+    grid-column: 1 / -1;
+}
+</style>
+
+{# ── Welcome Banner ── #}
+<div class="jp-welcome">
+    <h1>Welcome to <b>Jyothipedia</b>,</h1>
+    <p>the personal research compendium compiled by AI.</p>
+    <div class="jp-stats">
+        <a href="/wiki/sources/">{{ papers | length }} sources</a> &middot;
+        {{ claims_summary.total }} claims &middot;
+        {{ total_edges or 0 }} connections &middot;
+        {{ cluster_sections | length }} research areas
+    </div>
 </div>
 
-<div class="wiki-article-body">
-    <div class="wiki-hatnote">
-        This article is automatically compiled from {{ papers | length }} research sources and {{ claims_summary.total }} extracted claims.
-        It grows as new sources are ingested and compiled. <a href="/ingest">Add more sources</a>.
+<div class="jp-grid">
+
+    {# ── Featured Research ── #}
+    <div class="jp-box">
+        <div class="jp-box-header">Featured research</div>
+        <div class="jp-box-body">
+            {% if cluster_sections | length > 0 %}
+            {% set feat = cluster_sections[0] %}
+            <p><b><a href="#{{ feat.id }}">{{ feat.label }}</a></b> &mdash; {{ feat.description | truncate(200) }}</p>
+            {% if feat.key_findings %}
+            <ul>
+                {% for f in feat.key_findings[:3] %}
+                <li>{{ f.text | truncate(100) }}
+                    {% if f.source_title %}<sup>[<a href="/wiki/find/{{ f.source_paper | replace('articles/', '') | replace('papers/', '') | replace('.md', '') | replace('.pdf', '') }}">{{ f.source_title | truncate(20) }}</a>]</sup>{% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <a class="jp-more" href="/wiki/claims/">Browse all {{ claims_summary.total }} claims &rarr;</a>
+            {% else %}
+            <p>No research compiled yet. <a href="/ingest">Add sources</a> and <a href="/compile">compile</a> to get started.</p>
+            {% endif %}
+        </div>
     </div>
 
-    {# ── Infobox ── #}
-    <div class="wiki-infobox">
-        <div class="wiki-infobox-title">Knowledge Base Overview</div>
-        <table>
-            <tr><th>Sources</th><td>{{ papers | length }} papers</td></tr>
-            <tr><th>Total claims</th><td>{{ claims_summary.total }}</td></tr>
-            <tr><th>Findings</th><td>{{ claims_summary.findings }}</td></tr>
-            <tr><th>Methods</th><td>{{ claims_summary.methods }}</td></tr>
-            <tr><th>Connections</th><td>{{ total_edges or 0 }}</td></tr>
-            <tr><th>Research areas</th><td>{{ cluster_sections | length }}</td></tr>
-        </table>
-        <div class="wiki-infobox-section">Sources</div>
-        <table>
-            {% for p in papers %}
-            <tr>
-                <td colspan="2" style="font-size:12px;">
-                    <a href="/wiki/{{ p.path }}">{{ p.title }}</a>
-                    <span style="color:#72777d;"> ({{ p.claim_count }} claims)</span>
-                </td>
-            </tr>
-            {% endfor %}
-        </table>
-    </div>
-
-    {# ── Lead paragraph ── #}
-    <p>
-        <b>Large language models (LLMs) and neural language processing</b> represent an interdisciplinary
-        research domain spanning deep learning architectures, computational neuroscience, and cognitive science.
-        This knowledge base compiles findings from {{ papers | length }} research papers encompassing
-        {{ claims_summary.total }} distinct claims across {{ cluster_sections | length }} major research areas,
-        including transformer architectures, attention optimization, scaling laws, and the alignment between
-        artificial and biological neural systems.
-    </p>
-
-    <p>
-        The research captured here traces the development from the foundational
-        <a href="/wiki/find/attention-is-all-you-need">Transformer architecture</a> through
-        computational optimizations like <a href="/wiki/find/flashattention-fast-and-memory-efficient">FlashAttention</a>,
-        empirical <a href="/wiki/find/scaling-laws-for-neural-language-models">scaling laws</a>,
-        and emerging connections between how LLMs and the human brain process language.
-    </p>
-
-    {# ── Table of Contents ── #}
-    <div class="wiki-toc">
-        <div class="wiki-toc-title">Contents <span class="wiki-toc-toggle" onclick="var l=this.parentElement.nextElementSibling;l.style.display=l.style.display==='none'?'':'none';this.textContent=l.style.display==='none'?'[show]':'[hide]'">[hide]</span></div>
-        <ol>
-            {% for section in cluster_sections %}
-            <li>
-                <a href="#{{ section.id }}">{{ section.label }}</a>
-                {% if section.subsections %}
-                <ol>
-                    {% for sub in section.subsections %}
-                    <li><a href="#{{ sub.id }}">{{ sub.label }}</a></li>
-                    {% endfor %}
-                </ol>
+    {# ── Research Areas ── #}
+    <div class="jp-box green">
+        <div class="jp-box-header green">Research areas</div>
+        <div class="jp-box-body">
+            <ul>
+                {% for section in cluster_sections %}
+                {% if section.id != 'other' %}
+                <li><a href="#{{ section.id }}">{{ section.label }}</a> <span style="color:#72777d;">({{ section.total_claims }} claims)</span></li>
                 {% endif %}
-            </li>
-            {% endfor %}
-            <li><a href="#sources-table">Sources</a></li>
-            <li><a href="#references">References</a></li>
-            <li><a href="#categories">Categories</a></li>
-        </ol>
+                {% endfor %}
+            </ul>
+            <a class="jp-more" href="/graph">View knowledge graph &rarr;</a>
+        </div>
     </div>
 
-    {# ── Cluster Sections ── #}
-    {% for section in cluster_sections %}
-    <h2 id="{{ section.id }}"><span class="wiki-edit-section"><a href="/wiki/claims/">[ browse claims ]</a></span>{{ section.label }}</h2>
+    {# ── Recent Sources ── #}
+    <div class="jp-box">
+        <div class="jp-box-header">Sources</div>
+        <div class="jp-box-body">
+            <ul>
+                {% for p in papers[:6] %}
+                <li><a href="/wiki/{{ p.path }}">{{ p.title }}</a> <span style="color:#72777d;">({{ p.claim_count }} claims)</span></li>
+                {% endfor %}
+            </ul>
+            {% if papers | length > 6 %}
+            <a class="jp-more" href="/wiki/sources/">See all {{ papers | length }} sources &rarr;</a>
+            {% endif %}
+        </div>
+    </div>
 
-    <p>{{ section.description }}</p>
+    {# ── Did You Know / Insights ── #}
+    <div class="jp-box amber">
+        <div class="jp-box-header amber">Did you know...</div>
+        <div class="jp-box-body">
+            {% if cluster_sections | length > 1 %}
+            <ul>
+                {% for section in cluster_sections[:4] %}
+                {% if section.key_findings %}
+                <li>...that {{ section.key_findings[0].text | truncate(120) | lower }}
+                    <sup>[<a href="#{{ section.id }}">{{ section.label | truncate(20) }}</a>]</sup>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>Add more research to discover surprising connections.</p>
+            {% endif %}
+            <a class="jp-more" href="/search">Ask a question &rarr;</a>
+        </div>
+    </div>
 
-    {% if section.key_findings %}
-    <h3 id="{{ section.id }}-findings">Key findings</h3>
-    <ul>
-        {% for finding in section.key_findings %}
-        <li>{{ finding.text }}
-            {% if finding.source_title %}<sup class="wiki-ref-link">[<a href="/wiki/find/{{ finding.source_paper | replace('articles/', '') | replace('papers/', '') | replace('.md', '') | replace('.pdf', '') }}">{{ finding.source_title | truncate(30) }}</a>]</sup>{% endif %}
-        </li>
-        {% endfor %}
-    </ul>
+    {# ── Product Ideas ── #}
+    {% if product_ideas %}
+    <div class="jp-box purple jp-full">
+        <div class="jp-box-header purple">Product ideas from research</div>
+        <div class="jp-box-body">
+            <ul style="columns: 2; column-gap: 24px;">
+                {% for idea in product_ideas[:6] %}
+                <li><b>{{ idea.name or idea.title }}</b> &mdash; {{ idea.tagline or idea.problem | truncate(80) }}</li>
+                {% endfor %}
+            </ul>
+            <a class="jp-more" href="/ideas">View all {{ product_ideas | length }} ideas &rarr;</a>
+        </div>
+    </div>
     {% endif %}
 
-    {% if section.methods %}
-    <h3 id="{{ section.id }}-methods">Methods and approaches</h3>
-    <ul>
-        {% for method in section.methods %}
-        <li><b>{{ method.text | truncate(80) }}</b>
-            {% if method.evidence %} &mdash; <i>{{ method.evidence }}</i>{% endif %}
-        </li>
-        {% endfor %}
-    </ul>
-    {% endif %}
+</div>
 
-    {% if section.concepts %}
-    <h3 id="{{ section.id }}-concepts">Key concepts</h3>
-    <ul>
-        {% for concept in section.concepts %}
-        <li>{{ concept.text }}
-            {% if concept.source_title %}<sup class="wiki-ref-link">[<a href="/wiki/find/{{ concept.source_paper | replace('articles/', '') | replace('papers/', '') | replace('.md', '') | replace('.pdf', '') }}">src</a>]</sup>{% endif %}
-        </li>
-        {% endfor %}
-    </ul>
-    {% endif %}
+{# ── Research Area Details (below the grid) ── #}
+{% for section in cluster_sections %}
+<h2 id="{{ section.id }}" style="border-bottom:1px solid #a2a9b1; padding-bottom:4px; font-family:'Linux Libertine',Georgia,serif; font-weight:normal;">{{ section.label }}</h2>
 
-    {% if section.connections %}
-    <h3 id="{{ section.id }}-connections">Connections to other areas</h3>
-    <ul>
-        {% for conn in section.connections %}
-        <li>
-            <i>{{ conn.relationship }}</i>:
-            {{ conn.source_text | truncate(60) }} &rarr; {{ conn.target_text | truncate(60) }}
-            {% if conn.rationale %}<br><span style="font-size:12px;color:#54595d;">{{ conn.rationale }}</span>{% endif %}
-        </li>
-        {% endfor %}
-    </ul>
-    {% endif %}
+<p>{{ section.description }}</p>
 
+{% if section.key_findings %}
+<ul>
+    {% for finding in section.key_findings[:5] %}
+    <li>{{ finding.text }}
+        {% if finding.source_title %}<sup>[<a href="/wiki/find/{{ finding.source_paper | replace('articles/', '') | replace('papers/', '') | replace('.md', '') | replace('.pdf', '') }}">{{ finding.source_title | truncate(25) }}</a>]</sup>{% endif %}
+    </li>
     {% endfor %}
+</ul>
+{% endif %}
 
-    {# ── Sources table ── #}
-    <h2 id="sources-table"><span class="wiki-edit-section"><a href="/ingest">[ add source ]</a></span>Sources</h2>
-    <table class="wikitable" style="width:100%;">
-        <tr>
-            <th>Paper</th>
-            <th>Type</th>
-            <th>Claims</th>
-        </tr>
-        {% for p in papers %}
-        <tr>
-            <td><a href="/wiki/{{ p.path }}">{{ p.title }}</a></td>
-            <td>{{ p.source_type }}</td>
-            <td>{{ p.claim_count }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+{% endfor %}
 
-    {# ── References ── #}
-    <h2 id="references">References</h2>
-    <div class="wiki-references">
-        <ol>
-            {% for p in papers %}
-            <li id="ref-{{ loop.index }}">
-                <a href="/wiki/{{ p.path }}">{{ p.title }}</a>.
-                {{ p.source_type }}.
-                {{ p.claim_count }} claims extracted.
-            </li>
-            {% endfor %}
-        </ol>
-    </div>
+<div class="wiki-categories" id="categories" style="margin-top:24px;">
+    <strong>Categories:</strong>
+    {% for section in cluster_sections %}
+    <a href="#{{ section.id }}">{{ section.label }}</a>{% if not loop.last %} | {% endif %}
+    {% endfor %}
+</div>
 
-    {# ── Categories ── #}
-    <div class="wiki-categories" id="categories">
-        <strong>Categories:</strong>
-        {% for section in cluster_sections %}
-        <a href="#{{ section.id }}">{{ section.label }}</a>{% if not loop.last %} | {% endif %}
-        {% endfor %}
-    </div>
-
-    <div class="wiki-lastmod">
-        This page was last compiled on {{ built_at or 'N/A' }} from {{ papers | length }} source documents
-        containing {{ claims_summary.total }} claims across {{ cluster_sections | length }} research areas.
-        <a href="/compile">Recompile now</a>.
-    </div>
+<div class="wiki-lastmod">
+    Last compiled {{ built_at or 'N/A' }} from {{ papers | length }} sources, {{ claims_summary.total }} claims.
+    <a href="/compile">Recompile</a> | <a href="/ingest">Add sources</a>
 </div>
 
 
