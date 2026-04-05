@@ -173,7 +173,7 @@ export default function App() {
         <div className="flex items-center gap-4 md:gap-6 text-[13px] ml-auto">
           <div className="flex items-center gap-2">
             <div className="w-7 h-7 md:w-8 md:h-8 bg-[#eaecf0] rounded-full flex items-center justify-center overflow-hidden border border-[#a2a9b1]">
-              <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=jyothi" alt="User" className="w-full h-full object-cover" />
+              <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=jyothi&topType=shortCurlyHair&hairColor=2c1b18" alt="User" className="w-full h-full object-cover" />
             </div>
             <span className="text-[12px] font-medium hidden sm:inline">Jyothi</span>
           </div>
