@@ -87,6 +87,11 @@ def run_compile(
     build_backlinks(config)
     generate_indexes(config, llm)
 
+    # Rebuild search index so search works immediately
+    progress("Rebuilding search index...")
+    from .._search_rebuild import rebuild_search_index
+    rebuild_search_index(config)
+
     # Save state
     _save_compilation_state(config, manifest)
 

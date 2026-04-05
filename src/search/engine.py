@@ -20,7 +20,7 @@ STOPWORDS = {
     "have", "has", "had", "do", "does", "did", "will", "would", "could",
     "should", "may", "might", "shall", "can", "need", "dare", "ought",
     "used", "to", "of", "in", "for", "on", "with", "at", "by", "from",
-    "as", "into", "through", "during", "before", "after", "above", "below",
+    "as", "into", "through", "during", "before", "after", "above",
     "between", "out", "off", "over", "under", "again", "further", "then",
     "once", "and", "but", "or", "nor", "not", "so", "yet", "both", "either",
     "neither", "each", "every", "all", "any", "few", "more", "most", "other",

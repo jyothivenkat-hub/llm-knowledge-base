@@ -25,6 +25,7 @@ export default function App() {
   const [state, setState] = useState<AppState>(mockData);
   const [activeView, setActiveView] = useState<View>('wiki');
   const [compileLog, setCompileLog] = useState<string[]>([]);
+  const [refreshKey, setRefreshKey] = useState(0);
   const [globalSearch, setGlobalSearch] = useState('');
   const [preferredMode, setPreferredMode] = useState<'demo' | 'full'>('demo');
   const isLocalHost = typeof window !== 'undefined' && ['localhost', '127.0.0.1'].includes(window.location.hostname);
@@ -76,6 +77,7 @@ export default function App() {
       // Reload state after compile
       const newState = await loadState();
       setState(newState);
+      setRefreshKey(prev => prev + 1);
     } catch (error) {
       console.error("Compile failed:", error);
     } finally {
@@ -94,6 +96,7 @@ export default function App() {
     try {
       const data = await loadState();
       setState(prev => ({ ...data, isProcessing: prev.isProcessing }));
+      setRefreshKey(prev => prev + 1);
     } catch {
       console.log('Refresh skipped — backend not available');
     }
@@ -231,7 +234,7 @@ export default function App() {
               transition={{ duration: 0.15 }}
               className="h-full"
             >
-              {activeView === 'wiki' && <WikiView state={viewState} />}
+              {activeView === 'wiki' && <WikiView key={refreshKey} state={viewState} />}
               {activeView === 'graph' && <GraphView state={viewState} />}
               {activeView === 'ideas' && <IdeasView state={viewState} />}
               {activeView === 'research' && <ResearchView state={viewState} onAdd={addSource} onRefresh={refreshState} onCompile={handleCompile} compileLog={compileLog} isCompiling={state.isProcessing} />}
