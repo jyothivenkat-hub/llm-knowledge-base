@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'motion/react';
 import {
   Plus,
   Cpu,
-  LayoutDashboard,
   MessageSquare,
   RefreshCw,
 } from 'lucide-react';
@@ -24,6 +23,12 @@ export default function App() {
   const [activeView, setActiveView] = useState<View>('wiki');
   const [compileLog, setCompileLog] = useState<string[]>([]);
   const [globalSearch, setGlobalSearch] = useState('');
+  const [preferredMode, setPreferredMode] = useState<'demo' | 'full'>('demo');
+  const isLocalHost = typeof window !== 'undefined' && ['localhost', '127.0.0.1'].includes(window.location.hostname);
+  const backendSupportsFull = state.authoringEnabled;
+  const effectiveMode = isLocalHost ? preferredMode : (backendSupportsFull ? preferredMode : 'demo');
+  const isDemo = effectiveMode === 'demo';
+  const viewState: AppState = { ...state, mode: effectiveMode };
 
   // Load real data from Flask backend on mount
   useEffect(() => {
@@ -32,8 +37,32 @@ export default function App() {
       .catch(() => console.log('Using empty state — backend not available'));
   }, []);
 
+  useEffect(() => {
+    const stored = window.localStorage.getItem('jyothipedia-mode');
+    if (stored === 'demo' || stored === 'full') {
+      setPreferredMode(stored);
+    }
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem('jyothipedia-mode', preferredMode);
+  }, [preferredMode]);
+
   const handleCompile = async () => {
-    if (state.mode === 'demo') return;
+    if (effectiveMode === 'demo') {
+      setCompileLog([
+        'Compile is disabled in demo mode.',
+        'Set a real ANTHROPIC_API_KEY in .env, restart the Flask dashboard, then refresh this page.',
+      ]);
+      return;
+    }
+    if (!backendSupportsFull) {
+      setCompileLog([
+        'Full mode UI is enabled locally, but the backend is still in demo mode.',
+        'Add a real ANTHROPIC_API_KEY in .env and restart the Flask dashboard to enable compile.',
+      ]);
+      return;
+    }
     setState(prev => ({ ...prev, isProcessing: true }));
     setCompileLog([]);
 
@@ -103,8 +132,6 @@ export default function App() {
         </div>
 
         <div className="flex items-center gap-6 text-[13px]">
-          <button onClick={() => setActiveView('wiki')} className="wiki-link font-medium">Main Page</button>
-          <button onClick={() => setActiveView('graph')} className="wiki-link font-medium">Graph</button>
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-[#eaecf0] rounded-full flex items-center justify-center overflow-hidden border border-[#a2a9b1]">
               <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=jyothi" alt="User" className="w-full h-full object-cover" />
@@ -118,7 +145,7 @@ export default function App() {
       <div className="h-10 flex items-end px-4 border-b border-[#a2a9b1] bg-white shrink-0">
         <div className="w-44 shrink-0" />
         <div className="flex gap-1">
-          <Tab label="Article" active={activeView === 'wiki'} onClick={() => setActiveView('wiki')} />
+          <Tab label="Main Page" active={activeView === 'wiki'} onClick={() => setActiveView('wiki')} />
           <Tab label="Knowledge Graph" active={activeView === 'graph'} onClick={() => setActiveView('graph')} />
           <Tab label="Search" active={activeView === 'chat'} onClick={() => setActiveView('chat')} />
           <Tab label="Research Ideas" active={activeView === 'ideas'} onClick={() => setActiveView('ideas')} />
@@ -137,21 +164,74 @@ export default function App() {
           </SidebarSection>
 
           <SidebarSection title="Tools">
-            <SidebarLink label="Compile" icon={<Cpu className="w-3 h-3" />} onClick={handleCompile} disabled={state.isProcessing} />
-            <SidebarLink label="Add sources" icon={<Plus className="w-3 h-3" />} onClick={() => setActiveView('research')} />
+            <SidebarLink
+              label="Compile"
+              icon={<Cpu className="w-3 h-3" />}
+              onClick={handleCompile}
+              disabled={state.isProcessing || (!isLocalHost && isDemo)}
+              title={isDemo ? 'Public demo: compile is available only in local full mode.' : undefined}
+            />
+            <SidebarLink
+              label="Add sources"
+              icon={<Plus className="w-3 h-3" />}
+              onClick={() => setActiveView('research')}
+              disabled={!isLocalHost && isDemo}
+              title={isDemo ? 'Public demo: adding sources is available only in local full mode.' : undefined}
+            />
             <SidebarLink label="Ask question" icon={<MessageSquare className="w-3 h-3" />} onClick={() => setActiveView('chat')} />
             <SidebarLink label="Refresh" icon={<RefreshCw className="w-3 h-3" />} onClick={refreshState} />
-            <SidebarLink label="Dashboard" icon={<LayoutDashboard className="w-3 h-3" />} onClick={() => window.open('/','_blank')} />
           </SidebarSection>
 
           <div className="mt-8 pt-4 border-t border-[#a2a9b1]">
             <div className={cn(
               "w-full flex flex-col items-start p-2 rounded text-[11px] transition-colors",
-              state.mode === 'demo' ? "bg-amber-50 text-amber-700 border border-amber-200" : "bg-blue-50 text-blue-700 border border-blue-200"
+              effectiveMode === 'demo' ? "bg-amber-50 text-amber-700 border border-amber-200" : "bg-blue-50 text-blue-700 border border-blue-200"
             )}>
               <span className="font-bold uppercase tracking-widest opacity-70 mb-1">Mode</span>
-              <span className="font-medium">{state.mode === 'demo' ? 'Demo Mode' : 'Full Mode'}</span>
+              <span className="font-medium">{effectiveMode === 'demo' ? 'Demo Mode' : 'Full Mode'}</span>
               <span className="mt-1 opacity-80 break-all">{state.backendConnected ? state.model : 'Backend unavailable'}</span>
+            </div>
+            <div className="mt-3 border border-[#c8ccd1] rounded bg-white p-2">
+              <div className="text-[10px] font-bold uppercase tracking-widest text-[#54595d] mb-2">View Mode</div>
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  onClick={() => setPreferredMode('demo')}
+                  className={cn(
+                    "px-2 py-1.5 text-[11px] border rounded font-bold transition-colors",
+                    effectiveMode === 'demo'
+                      ? "bg-[#fff8dc] border-[#d6c37a] text-[#6b5600]"
+                      : "bg-[#f8f9fa] border-[#c8ccd1] text-[#54595d] hover:bg-white"
+                  )}
+                >
+                  Demo
+                </button>
+                <button
+                  onClick={() => (isLocalHost || backendSupportsFull) && setPreferredMode('full')}
+                  disabled={!isLocalHost && !backendSupportsFull}
+                  title={
+                    backendSupportsFull
+                      ? 'Switch to local full authoring mode.'
+                      : isLocalHost
+                        ? 'Switch UI to full mode. Backend authoring still requires a real local API key.'
+                        : 'Full mode requires a real local API key and backend restart.'
+                  }
+                  className={cn(
+                    "px-2 py-1.5 text-[11px] border rounded font-bold transition-colors disabled:cursor-not-allowed disabled:opacity-50",
+                    effectiveMode === 'full'
+                      ? "bg-[#eaf3ff] border-[#7aa6e8] text-[#1d4f91]"
+                      : "bg-[#f8f9fa] border-[#c8ccd1] text-[#54595d] hover:bg-white"
+                  )}
+                >
+                  Full
+                </button>
+              </div>
+              <div className="mt-2 text-[10px] text-[#54595d]">
+                {backendSupportsFull
+                  ? 'This local backend supports both read-only demo and full authoring.'
+                  : isLocalHost
+                    ? 'You can preview both modes locally. Full authoring actions still require a real local API key.'
+                    : 'This environment only supports demo mode right now.'}
+              </div>
             </div>
             {compileLog.length > 0 && (
               <div className="mt-3 bg-white border border-[#c8ccd1] rounded p-2 text-[11px] space-y-1">
@@ -170,6 +250,12 @@ export default function App() {
 
         {/* Main */}
         <main className="flex-1 bg-white overflow-y-auto relative">
+          {isDemo && (
+            <div className="border-b border-[#d6c37a] bg-[#fff8dc] px-6 py-3 text-[13px] text-[#6b5600]">
+              <span className="font-bold">Public demo:</span> compiled data only. Browse the wiki, graph, ideas, and cached answers here.
+              Authoring actions like compile, upload, and ingest stay local.
+            </div>
+          )}
           <AnimatePresence mode="wait">
             <motion.div
               key={activeView}
@@ -179,11 +265,11 @@ export default function App() {
               transition={{ duration: 0.15 }}
               className="h-full"
             >
-              {activeView === 'wiki' && <WikiView state={state} />}
-              {activeView === 'graph' && <GraphView state={state} />}
-              {activeView === 'ideas' && <IdeasView state={state} />}
-              {activeView === 'research' && <ResearchView state={state} onAdd={addSource} />}
-              {activeView === 'chat' && <ChatView state={state} initialQuery={globalSearch} />}
+              {activeView === 'wiki' && <WikiView state={viewState} />}
+              {activeView === 'graph' && <GraphView state={viewState} />}
+              {activeView === 'ideas' && <IdeasView state={viewState} />}
+              {activeView === 'research' && <ResearchView state={viewState} onAdd={addSource} onRefresh={refreshState} />}
+              {activeView === 'chat' && <ChatView state={viewState} initialQuery={globalSearch} />}
             </motion.div>
           </AnimatePresence>
 
@@ -224,11 +310,12 @@ function SidebarSection({ title, children }: { title: string, children: React.Re
   );
 }
 
-function SidebarLink({ label, active, onClick, icon, disabled }: { label: string, active?: boolean, onClick?: () => void, icon?: React.ReactNode, disabled?: boolean }) {
+function SidebarLink({ label, active, onClick, icon, disabled, title }: { label: string, active?: boolean, onClick?: () => void, icon?: React.ReactNode, disabled?: boolean, title?: string }) {
   return (
     <button
       onClick={onClick}
       disabled={disabled}
+      title={title}
       className={cn(
         "w-full text-left text-[13px] cursor-pointer flex items-center gap-2 py-0.5 transition-colors disabled:opacity-50 disabled:cursor-not-allowed",
         active ? "text-[#202122] font-bold" : "text-[#0645ad] hover:underline"

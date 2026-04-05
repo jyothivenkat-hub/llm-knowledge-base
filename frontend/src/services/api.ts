@@ -10,18 +10,21 @@ const API_BASE = '';  // Same origin, proxied by Vite in dev
 // ─── Load state from backend ────────────────────────────
 
 export async function loadState(): Promise<AppState> {
-  const [modeRes, graphRes] = await Promise.all([
+  const [modeRes, graphRes, sourcesRes] = await Promise.all([
     fetch(`${API_BASE}/api/mode`),
     fetch(`${API_BASE}/api/graph`),
+    fetch(`${API_BASE}/api/sources`),
   ]);
 
   const mode = await modeRes.json();
   const graph = await graphRes.json();
+  const sourcesPayload = await sourcesRes.json();
 
   const nodes = graph.nodes || [];
   const edges = graph.edges || [];
   const clusters = graph.clusters || [];
   const ideas = graph.product_ideas || [];
+  const sources = sourcesPayload.sources || [];
 
   // Convert graph nodes to claims
   const claims: AtomicClaim[] = nodes.map((n: any) => ({
@@ -59,26 +62,8 @@ export async function loadState(): Promise<AppState> {
     type: e.relationship || 'supports',
   }));
 
-  // Get sources from manifest via ingest page data
-  // For now, derive from unique source_paper values in nodes
-  const sourceMap = new Map<string, ResearchSource>();
-  nodes.forEach((n: any) => {
-    const sp = n.source_paper || '';
-    const st = n.source_title || sp;
-    if (sp && !sourceMap.has(sp)) {
-      sourceMap.set(sp, {
-        id: sp,
-        title: st,
-        type: sp.endsWith('.pdf') ? 'pdf' : 'article',
-        content: '',
-        status: 'completed',
-        dateAdded: '',
-      });
-    }
-  });
-
   return {
-    sources: Array.from(sourceMap.values()),
+    sources,
     claims,
     concepts,
     ideas: productIdeas,
@@ -87,6 +72,7 @@ export async function loadState(): Promise<AppState> {
     mode: mode.demo ? 'demo' : 'full',
     model: mode.model || 'Unknown',
     backendConnected: true,
+    authoringEnabled: !mode.demo,
   };
 }
 
@@ -171,6 +157,28 @@ export async function uploadFiles(files: FileList): Promise<number> {
 export async function runIngest(): Promise<{ new: number; modified: number; unchanged: number }> {
   const res = await fetch(`${API_BASE}/api/ingest`, { method: 'POST' });
   return res.json();
+}
+
+export async function createSource(input: {
+  title: string;
+  content: string;
+  type: ResearchSource['type'];
+}): Promise<ResearchSource> {
+  const res = await fetch(`${API_BASE}/api/sources`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(input),
+  });
+  const data = await res.json();
+
+  return {
+    id: data.path || input.title,
+    title: data.title || input.title,
+    type: data.type || input.type,
+    content: input.content,
+    status: 'pending',
+    dateAdded: data.dateAdded || '',
+  };
 }
 
 // ─── File Back ──────────────────────────────────────────

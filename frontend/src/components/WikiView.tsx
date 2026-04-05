@@ -17,15 +17,13 @@ export default function WikiView({ state }: { state: AppState }) {
     <div className="h-full bg-white overflow-y-auto">
       {featuredConcept ? (
         <div className="max-w-[1400px] px-8 py-6">
-          <div className="flex items-end justify-between border-b border-[#a2a9b1]">
-            <div className="flex gap-6 text-[15px]">
-              <button className="border-b-2 border-[#202122] pb-2 font-medium">Main Page</button>
-              <button className="pb-2 wiki-link">Talk</button>
+          <div className="flex items-end justify-between border-b border-[#a2a9b1] pb-3">
+            <div>
+              <h1 className="text-[2rem] font-serif leading-none">Main Page</h1>
+              <p className="mt-2 text-[13px] text-[#54595d]">The front page of Jyothipedia’s compiled research encyclopedia.</p>
             </div>
-            <div className="flex gap-6 text-[14px]">
-              <button className="border-b-2 border-[#202122] pb-2 font-medium">Read</button>
-              <button className="pb-2 wiki-link">View source</button>
-              <button className="pb-2 wiki-link">View history</button>
+            <div className="text-[13px] text-[#54595d]">
+              Read-only overview
             </div>
           </div>
 
@@ -52,7 +50,7 @@ export default function WikiView({ state }: { state: AppState }) {
                     <span className="font-bold italic">{featuredConcept.title}</span> {featuredConcept.summary}
                   </p>
                   <p>
-                    This area currently aggregates <span className="wiki-link">{featuredConcept.claims.length} extracted claims</span> from
+                    This featured article currently aggregates <span className="wiki-link">{featuredConcept.claims.length} extracted claims</span> from
                     {' '}<span className="wiki-link">{state.sources.length} research sources</span>, with cross-links into the knowledge graph and connected research themes.
                   </p>
                   {featuredClaims.length > 0 && (

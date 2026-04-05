@@ -56,4 +56,5 @@ export type AppState = {
   mode: 'demo' | 'full';
   model: string;
   backendConnected: boolean;
+  authoringEnabled: boolean;
 };

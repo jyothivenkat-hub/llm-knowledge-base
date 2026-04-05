@@ -1,38 +1,43 @@
 import { useState } from 'react';
 import { AppState, ResearchSource } from '../types';
 import { Upload, Link as LinkIcon, FileText, Clock, CheckCircle, AlertCircle, Plus } from 'lucide-react';
-import { uploadFiles, runIngest } from '../services/api';
+import { uploadFiles, runIngest, createSource } from '../services/api';
 import { cn } from '../lib/utils';
 
-export default function ResearchView({ state, onAdd }: { state: AppState, onAdd: (s: ResearchSource) => void }) {
+export default function ResearchView({ state, onAdd, onRefresh }: { state: AppState, onAdd: (s: ResearchSource) => void, onRefresh: () => Promise<void> }) {
   const [isAdding, setIsAdding] = useState(false);
   const [newSource, setNewSource] = useState({ title: '', content: '', type: 'article' as const });
   const [uploadMsg, setUploadMsg] = useState('');
+  const isDemo = state.mode === 'demo';
 
-  const handleAdd = () => {
+  const handleAdd = async () => {
     if (!newSource.title || !newSource.content) return;
-    onAdd({
-      id: Math.random().toString(36).substr(2, 9),
-      title: newSource.title,
-      content: newSource.content,
-      type: newSource.type,
-      status: 'pending',
-      dateAdded: new Date().toISOString().split('T')[0]
-    });
+    if (isDemo) {
+      setUploadMsg('Public demo is read-only. Add sources locally in full mode.');
+      return;
+    }
+
+    const created = await createSource(newSource);
+    await runIngest();
+    onAdd(created);
+    await onRefresh();
+    setUploadMsg(`Added "${created.title}" to raw/articles and updated the manifest.`);
     setNewSource({ title: '', content: '', type: 'article' });
     setIsAdding(false);
   };
 
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) return;
-    if (state.mode === 'demo') { setUploadMsg('Demo mode — clone the repo to upload files.'); return; }
+    if (isDemo) { setUploadMsg('Public demo is read-only. File upload is available only locally.'); return; }
     const count = await uploadFiles(e.target.files);
+    await onRefresh();
     setUploadMsg(`Uploaded ${count} file(s). Run Compile to process.`);
   };
 
   const handleIngest = async () => {
-    if (state.mode === 'demo') { setUploadMsg('Demo mode — clone the repo to ingest.'); return; }
+    if (isDemo) { setUploadMsg('Public demo is read-only. Ingest is available only locally.'); return; }
     const stats = await runIngest();
+    await onRefresh();
     setUploadMsg(`Ingest: ${stats.new} new, ${stats.modified} modified, ${stats.unchanged} unchanged`);
   };
 
@@ -41,23 +46,48 @@ export default function ResearchView({ state, onAdd }: { state: AppState, onAdd:
       <div className="flex items-center justify-between mb-12 border-b border-[#a2a9b1] pb-4">
         <div>
           <h1 className="text-3xl font-serif font-bold text-[#202122] mb-2 tracking-tight">Research Library</h1>
-          <p className="text-[#54595d]">Manage your sources and prepare them for synthesis.</p>
+          <p className="text-[#54595d]">
+            {isDemo ? 'Browse the current source archive from the public demo.' : 'Manage your sources and prepare them for synthesis.'}
+          </p>
         </div>
         <div className="flex gap-2">
-          <label className="bg-[#eaecf0] hover:bg-[#d1d4d9] text-[#202122] px-4 py-2.5 rounded font-bold flex items-center gap-2 transition-all cursor-pointer text-sm">
+          <label className={cn(
+            "text-[#202122] px-4 py-2.5 rounded font-bold flex items-center gap-2 transition-all text-sm",
+            isDemo ? "bg-[#f3f4f6] text-[#9ca3af] cursor-not-allowed" : "bg-[#eaecf0] hover:bg-[#d1d4d9] cursor-pointer"
+          )}>
             <Upload className="w-4 h-4" />
             Upload Files
-            <input type="file" multiple accept=".md,.pdf,.txt" className="hidden" onChange={handleFileUpload} />
+            <input type="file" multiple accept=".md,.pdf,.txt" className="hidden" onChange={handleFileUpload} disabled={isDemo} />
           </label>
-          <button onClick={handleIngest} className="bg-[#eaecf0] hover:bg-[#d1d4d9] text-[#202122] px-4 py-2.5 rounded font-bold text-sm transition-all">
+          <button
+            onClick={handleIngest}
+            disabled={isDemo}
+            className={cn(
+              "px-4 py-2.5 rounded font-bold text-sm transition-all",
+              isDemo ? "bg-[#f3f4f6] text-[#9ca3af] cursor-not-allowed" : "bg-[#eaecf0] hover:bg-[#d1d4d9] text-[#202122]"
+            )}
+          >
             Scan raw/
           </button>
-          <button onClick={() => setIsAdding(true)} className="bg-[#3366cc] hover:bg-[#2a4b8d] text-white px-6 py-2.5 rounded font-bold flex items-center gap-2 transition-all shadow-sm">
+          <button
+            onClick={() => !isDemo && setIsAdding(true)}
+            disabled={isDemo}
+            className={cn(
+              "px-6 py-2.5 rounded font-bold flex items-center gap-2 transition-all shadow-sm",
+              isDemo ? "bg-[#dbe4f6] text-[#7b8aa3] cursor-not-allowed" : "bg-[#3366cc] hover:bg-[#2a4b8d] text-white"
+            )}
+          >
             <Plus className="w-5 h-5" />
             Add Research
           </button>
         </div>
       </div>
+
+      {isDemo && (
+        <div className="mb-6 p-3 bg-[#fff8dc] border border-[#d6c37a] rounded text-sm text-[#6b5600]">
+          This public demo is read-only. To add papers, ingest files, or run compile, use localhost full mode with your local API key.
+        </div>
+      )}
 
       {uploadMsg && (
         <div className="mb-6 p-3 bg-blue-50 border border-blue-200 rounded text-sm text-blue-700">{uploadMsg}</div>

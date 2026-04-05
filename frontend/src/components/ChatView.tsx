@@ -64,6 +64,10 @@ export default function ChatView({ state, initialQuery = '' }: { state: AppState
   };
 
   const handleFileBack = async (content: string) => {
+    if (state.mode === 'demo') {
+      alert('Public demo is read-only. File-back is available only in local full mode.');
+      return;
+    }
     try {
       const filed = await fileBack(input || 'Research Answer', content);
       if (filed) alert(`Filed to raw/${filed}`);

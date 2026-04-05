@@ -11,4 +11,5 @@ export const mockData: AppState = {
   mode: 'demo',
   model: 'Unavailable',
   backendConnected: false,
+  authoringEnabled: false,
 };
