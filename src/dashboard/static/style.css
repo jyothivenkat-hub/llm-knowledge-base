@@ -422,6 +422,27 @@ tr:hover td { background: var(--bg-hover); }
 .flash-success { background: rgba(74, 222, 128, 0.1); border: 1px solid rgba(74, 222, 128, 0.3); color: var(--success); }
 .flash-error { background: rgba(248, 113, 113, 0.1); border: 1px solid rgba(248, 113, 113, 0.3); color: var(--error); }
 
+/* === Wiki Edit Button === */
+.wiki-edit-btn {
+    display: inline-block;
+    padding: 2px 10px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent);
+    background: transparent;
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 12px;
+    vertical-align: middle;
+    font-family: var(--font);
+    transition: all 0.15s;
+}
+.wiki-edit-btn:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
 /* === Lint report === */
 .lint-report {
     background: var(--bg-card);

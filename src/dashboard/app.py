@@ -335,12 +335,14 @@ def create_app(config: Optional[Config] = None) -> Flask:
                 bl_data = yaml.safe_load(bl_path.read_text(encoding="utf-8")) or {}
                 backlinks = bl_data.get(target.stem.lower(), [])
 
+            wiki_rel_path = str(target.relative_to(wiki_path))
             return render_template("wiki.html", active="wiki", is_dir=False,
                                    is_article=True, article_title=article_title,
                                    article_source=article_source,
                                    article_claims=article_claims,
                                    content=html, breadcrumb=breadcrumb,
                                    backlinks=backlinks,
+                                   wiki_path_rel=wiki_rel_path,
                                    clusters=clusters_for_sidebar,
                                    total_sources=graph_meta.get("papers_processed", 0))
 
@@ -607,6 +609,61 @@ def create_app(config: Optional[Config] = None) -> Flask:
 
         return Response(generate(), mimetype="text/event-stream",
                         headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
+
+    @app.route("/api/wiki/save", methods=["POST"])
+    def api_wiki_save():
+        """Save edited markdown content back to a wiki file."""
+        data = request.get_json()
+        wiki_file = data.get("path", "")
+        content = data.get("content", "")
+        if not wiki_file or not content:
+            return jsonify({"error": "Missing path or content"})
+
+        target = config.wiki_path / wiki_file
+        if not target.exists():
+            return jsonify({"error": "File not found"}), 404
+
+        # Safety: only allow editing within wiki/
+        try:
+            target.resolve().relative_to(config.wiki_path.resolve())
+        except ValueError:
+            return jsonify({"error": "Invalid path"}), 403
+
+        target.write_text(content, encoding="utf-8")
+        return jsonify({"saved": True, "path": wiki_file})
+
+    @app.route("/api/wiki/raw")
+    def api_wiki_raw():
+        """Get raw markdown content of a wiki file for editing."""
+        wiki_file = request.args.get("path", "")
+        if not wiki_file:
+            return jsonify({"error": "Missing path"})
+        target = config.wiki_path / wiki_file
+        if not target.exists():
+            return jsonify({"error": "File not found"}), 404
+        return jsonify({"path": wiki_file, "content": target.read_text(encoding="utf-8")})
+
+    @app.route("/api/clip", methods=["POST"])
+    def api_clip():
+        """Receive clipped web content from the bookmarklet and save to raw/articles/."""
+        data = request.get_json()
+        title = data.get("title", "Untitled")
+        url = data.get("url", "")
+        content = data.get("content", "")
+        if not content:
+            return jsonify({"error": "No content"})
+
+        from ..utils import slugify
+        slug = slugify(title)[:60]
+        timestamp = datetime.now().strftime("%Y%m%d")
+        filename = f"{timestamp}-{slug}.md"
+        dest = config.raw_path / "articles" / filename
+        dest.parent.mkdir(parents=True, exist_ok=True)
+
+        md = f"---\ntitle: \"{title}\"\nurl: \"{url}\"\ndate: \"{datetime.now().strftime('%Y-%m-%d')}\"\n---\n\n# {title}\n\n{content}\n"
+        dest.write_text(md, encoding="utf-8")
+
+        return jsonify({"clipped": filename, "path": f"articles/{filename}"})
 
     @app.route("/api/file-back", methods=["POST"])
     def api_file_back():

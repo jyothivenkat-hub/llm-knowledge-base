@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Article{% endblock %} - Knowledge Base</title>
+    <link rel="stylesheet" href="/static/wikipedia.css">
+</head>
+<body class="wiki-page">
+    <!-- Wikipedia-style header -->
+    <div class="wiki-header">
+        <div class="wiki-header-inner">
+            <a href="/wiki/" class="wiki-logo">
+                <div class="wiki-logo-icon">K</div>
+                <div class="wiki-logo-text">
+                    Knowledge Base
+                    <small>The LLM Research Compendium</small>
+                </div>
+            </a>
+
+            <div class="wiki-search-bar">
+                <input type="text" id="wiki-search-input" placeholder="Search Knowledge Base" onkeydown="if(event.key==='Enter')wikiSearch()">
+                <button onclick="wikiSearch()">Search</button>
+            </div>
+
+            <a href="/" class="wiki-nav-link">Dashboard</a>
+            <a href="/graph" class="wiki-nav-link">Graph</a>
+        </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="wiki-tabs">
+        <div class="wiki-tabs-inner">
+            <a href="/wiki/" class="wiki-tab {% if tab == 'article' or not tab %}active{% endif %}">Article</a>
+            <a href="/graph" class="wiki-tab {% if tab == 'graph' %}active{% endif %}">Knowledge Graph</a>
+            <a href="/search" class="wiki-tab {% if tab == 'search' %}active{% endif %}">Search</a>
+            <a href="/ideas" class="wiki-tab {% if tab == 'ideas' %}active{% endif %}">Research Ideas</a>
+        </div>
+    </div>
+
+    <!-- Main body -->
+    <div class="wiki-body">
+        <!-- Left sidebar -->
+        <div class="wiki-sidebar-left">
+            <div class="wiki-sidebar-section">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="/wiki/">Main page</a></li>
+                    <li><a href="/wiki/sources/">Sources</a></li>
+                    <li><a href="/wiki/claims/">All claims</a></li>
+                    <li><a href="/search">Search</a></li>
+                </ul>
+            </div>
+            <div class="wiki-sidebar-section">
+                <h3>Research areas</h3>
+                <ul>
+                    {% for cluster in clusters or [] %}
+                    {% if cluster.id != 'other' %}
+                    <li><a href="#{{ cluster.id }}">{{ cluster.label }}</a></li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="wiki-sidebar-section">
+                <h3>Tools</h3>
+                <ul>
+                    <li><a href="/compile">Compile</a></li>
+                    <li><a href="/ingest">Add sources</a></li>
+                    <li><a href="/qa">Ask question</a></li>
+                    <li><a href="/">Dashboard</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Content area -->
+        <div class="wiki-content-area">
+            {% block breadcrumb %}{% endblock %}
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="wiki-footer">
+        This page was automatically compiled from {{ total_sources or 0 }} research sources using LLM-powered knowledge extraction.
+        Content is derived from academic papers and research articles.
+        <br>
+        <a href="/">Return to Dashboard</a>
+    </div>
+
+    <script>
+    function wikiSearch() {
+        var q = document.getElementById('wiki-search-input').value.trim();
+        if (q) window.location = '/search?q=' + encodeURIComponent(q);
+    }
+    </script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

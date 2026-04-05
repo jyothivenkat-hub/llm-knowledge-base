@@ -15,8 +15,27 @@
 
 <div class="btn-group">
     <button id="ingest-btn" class="btn btn-primary" onclick="runIngest()">Scan raw/</button>
+    <button class="btn btn-secondary" onclick="showClipperBookmarklet()">Web Clipper</button>
 </div>
 <div id="ingest-result"></div>
+
+<div id="clipper-info" style="display:none; margin-bottom: 20px;">
+    <div class="card" style="padding: 20px;">
+        <h3 style="margin-bottom: 8px;">Web Clipper Bookmarklet</h3>
+        <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 12px;">
+            Drag this button to your bookmarks bar. When you're on any article or paper, click it to clip the content directly into your knowledge base.
+        </p>
+        <p style="margin-bottom: 12px;">
+            <a class="btn btn-primary btn-sm" href="javascript:void(function(){var t=document.title,u=location.href,c=document.body.innerText.substring(0,8000);fetch('http://localhost:8888/api/clip',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({title:t,url:u,content:c})}).then(function(r){return r.json()}).then(function(d){alert('Clipped: '+d.clipped)}).catch(function(){alert('Clip failed. Is the dashboard running?')})}())" onclick="return false;" style="cursor:grab;">
+                Clip to KB
+            </a>
+            &larr; Drag this to your bookmarks bar
+        </p>
+        <p style="color: var(--text-muted); font-size: 12px;">
+            Note: The bookmarklet sends page content to your local dashboard (localhost:8888). It only works when the dashboard is running.
+        </p>
+    </div>
+</div>
 
 {% if entries %}
 <div class="page-header"><h2>Source Manifest</h2></div>

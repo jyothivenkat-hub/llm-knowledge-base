@@ -1,119 +1,343 @@
-{% extends "base.html" %}
-{% block title %}Library{% endblock %}
+{% extends "wiki_base.html" %}
+
+{% block title %}{% if is_article %}{{ article_title }}{% elif is_library_root %}Large Language Models and Neural Language Processing{% else %}{{ dir_name or 'Browse' }}{% endif %}{% endblock %}
+
+{% block breadcrumb %}
+{% if breadcrumb %}
+<div class="wiki-breadcrumb-wp">
+    <a href="/wiki/">Main page</a>
+    {% for b in breadcrumb %}
+     &rsaquo; <a href="/wiki/{{ b.path }}">{{ b.name }}</a>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}
+
 {% block content %}
 
 {% if is_article %}
-    <!-- Reading a specific article -->
-    <div class="page-header">
-        <h2>{{ article_title }}</h2>
-        {% if article_source %}<p>Source: {{ article_source }}</p>{% endif %}
+{# ──────────── Single Article View ──────────── #}
+<div class="wiki-article-header">
+    <h1 class="wiki-article-title">{{ article_title }}</h1>
+    <div class="wiki-article-subtitle">
+        From Knowledge Base, the LLM research compendium
+        {% if wiki_path_rel %}
+        <button class="wiki-edit-btn" onclick="toggleEditor('{{ wiki_path_rel }}')" id="edit-toggle-btn">Edit</button>
+        {% endif %}
     </div>
+</div>
+
+<!-- Editor (hidden by default) -->
+<div id="wiki-editor" style="display:none; margin-bottom: 16px;">
+    <textarea id="wiki-editor-textarea" style="width:100%;min-height:400px;padding:14px;font-family:var(--font-mono, monospace);font-size:13px;line-height:1.6;background:#0f0f1a;color:#e8e8f0;border:1px solid #2a2a4a;border-radius:8px;resize:vertical;"></textarea>
+    <div style="margin-top:8px;display:flex;gap:8px;">
+        <button class="btn btn-primary btn-sm" onclick="saveWiki('{{ wiki_path_rel }}')">Save</button>
+        <button class="btn btn-secondary btn-sm" onclick="toggleEditor()">Cancel</button>
+        <span id="wiki-save-status" style="font-size:12px;color:#a0a0b8;line-height:30px;"></span>
+    </div>
+</div>
+
+<div class="wiki-article-body" id="wiki-article-body">
+    {% if article_source %}
+    <div class="wiki-hatnote">This article summarizes the paper: <i>{{ article_source }}</i></div>
+    {% endif %}
 
     {% if article_claims %}
-    <div style="margin-bottom: 20px;">
-        <span style="color: var(--text-muted); font-size: 13px;">{{ article_claims | length }} claims extracted from this paper:</span>
-        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:8px;">
-            {% for c in article_claims %}
-            <span class="badge badge-info" style="font-size:11px;cursor:pointer;" title="{{ c.text }}">{{ c.type }}</span>
-            {% endfor %}
-        </div>
-    </div>
-    {% endif %}
-
-    {% if backlinks %}
-    <div style="margin-bottom: 16px;">
-        <span style="color: var(--text-muted); font-size: 13px;">Backlinks:</span>
-        {% for bl in backlinks %}
-        <a href="/wiki/{{ bl }}" class="badge badge-info" style="margin-left: 4px;">{{ bl }}</a>
-        {% endfor %}
-    </div>
-    {% endif %}
-
-    <div class="wiki-content">{{ content | safe }}</div>
-
-{% elif is_dir and is_library_root %}
-    <!-- Library landing page -->
-    <div class="page-header">
-        <h2>Library</h2>
-        <p>All ingested research papers and their extracted claims</p>
-    </div>
-
-    {% if papers %}
-    <div class="table-wrap">
+    <div class="wiki-infobox">
+        <div class="wiki-infobox-title">{{ article_title }}</div>
         <table>
-            <thead>
-                <tr>
-                    <th>Paper</th>
-                    <th>Claims</th>
-                    <th>Source</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for p in papers %}
-                <tr style="cursor:pointer;" onclick="window.location='/wiki/{{ p.path }}'">
-                    <td><a href="/wiki/{{ p.path }}">{{ p.title }}</a></td>
-                    <td><span class="badge badge-info">{{ p.claim_count }}</span></td>
-                    <td style="font-size:12px;color:var(--text-muted);">{{ p.source_type }}</td>
-                </tr>
+            <tr>
+                <th>Claims</th>
+                <td>{{ article_claims | length }}</td>
+            </tr>
+            <tr>
+                <th>Types</th>
+                <td>
+                    {% set ns = namespace(types=[]) %}
+                    {% for c in article_claims %}
+                        {% if c.type not in ns.types %}
+                            {% set ns.types = ns.types + [c.type] %}
+                        {% endif %}
+                    {% endfor %}
+                    {{ ns.types | join(', ') }}
+                </td>
+            </tr>
+            {% if article_claims[0].source_title %}
+            <tr>
+                <th>Source</th>
+                <td>{{ article_claims[0].source_title }}</td>
+            </tr>
+            {% endif %}
+            {% set ns2 = namespace(tags=[]) %}
+            {% for c in article_claims %}
+                {% for t in c.tags or [] %}
+                    {% if t not in ns2.tags and ns2.tags|length < 8 %}
+                        {% set ns2.tags = ns2.tags + [t] %}
+                    {% endif %}
                 {% endfor %}
-            </tbody>
+            {% endfor %}
+            {% if ns2.tags %}
+            <tr>
+                <th>Key topics</th>
+                <td>{{ ns2.tags | join(', ') }}</td>
+            </tr>
+            {% endif %}
         </table>
     </div>
     {% endif %}
 
-    {% if claims_summary %}
-    <div class="cards" style="margin-top: 20px;">
-        <div class="card">
-            <div class="card-label">Papers</div>
-            <div class="card-value">{{ papers | length }}</div>
-        </div>
-        <div class="card">
-            <div class="card-label">Total Claims</div>
-            <div class="card-value accent">{{ claims_summary.total }}</div>
-        </div>
-        <div class="card">
-            <div class="card-label">Findings</div>
-            <div class="card-value">{{ claims_summary.findings }}</div>
-        </div>
-        <div class="card">
-            <div class="card-label">Methods</div>
-            <div class="card-value">{{ claims_summary.methods }}</div>
-        </div>
-    </div>
-    {% endif %}
+    {{ content | safe }}
 
-    <div style="margin-top: 20px;">
-        <a href="/wiki/claims/" class="btn btn-secondary">Browse All Claims</a>
-        <a href="/wiki/sources/" class="btn btn-secondary" style="margin-left:8px;">Browse Source Summaries</a>
-    </div>
-
-{% elif is_dir %}
-    <!-- Regular directory browse -->
-    <div class="page-header">
-        <h2>{{ dir_name }}</h2>
-    </div>
-
-    {% if breadcrumb %}
-    <div class="wiki-breadcrumb">
-        <a href="/wiki/">Library</a>
-        {% for b in breadcrumb %}
-         / <a href="/wiki/{{ b.path }}">{{ b.name }}</a>
-        {% endfor %}
-    </div>
-    {% endif %}
-
-    <ul class="wiki-file-list">
-        {% for item in items %}
-        <li>
-            {% if item.is_dir %}
-                <span class="folder">&#128193;</span> <a href="/wiki/{{ item.path }}/">{{ item.name }}</a>
-            {% else %}
-                &#128196; <a href="/wiki/{{ item.path }}">{{ item.name }}</a>
-                {% if item.brief %}<span style="color: var(--text-muted); font-size: 13px;"> &mdash; {{ item.brief }}</span>{% endif %}
+    {% if article_claims %}
+    <h2 id="extracted-claims">Extracted claims</h2>
+    <p>The following atomic claims were extracted from this source by the knowledge compiler:</p>
+    <ul class="wiki-claim-list">
+        {% for c in article_claims %}
+        <li class="wiki-claim-item">
+            <span class="wiki-claim-type {{ c.type }}">{{ c.type }}</span>
+            {{ c.text }}
+            {% if c.evidence %}
+            <div class="wiki-claim-evidence">"{{ c.evidence }}"</div>
             {% endif %}
         </li>
         {% endfor %}
     </ul>
+    {% endif %}
+
+    {% if backlinks %}
+    <h2 id="see-also">See also</h2>
+    <ul class="wiki-see-also">
+        {% for bl in backlinks %}
+        <li><a href="/wiki/{{ bl }}">{{ bl | replace('-', ' ') | title }}</a></li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if article_claims %}
+    <div class="wiki-categories">
+        <strong>Categories:</strong>
+        {% set ns3 = namespace(cats=[]) %}
+        {% for c in article_claims %}
+            {% for t in c.tags or [] %}
+                {% if t not in ns3.cats and ns3.cats|length < 12 %}
+                    {% set ns3.cats = ns3.cats + [t] %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+        {% for cat in ns3.cats %}
+        <a href="/wiki/claims/">{{ cat | replace('-', ' ') | title }}</a>{% if not loop.last %} | {% endif %}
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="wiki-lastmod">
+        This page was last compiled from source documents by the knowledge extraction pipeline.
+    </div>
+</div>
+
+
+{% elif is_dir and is_library_root %}
+{# ──────────── Main Wikipedia Landing Page ──────────── #}
+<div class="wiki-article-header">
+    <h1 class="wiki-article-title">Large Language Models and Neural Language Processing</h1>
+    <div class="wiki-article-subtitle">From Knowledge Base, the LLM research compendium</div>
+</div>
+
+<div class="wiki-article-body">
+    <div class="wiki-hatnote">
+        This article is automatically compiled from {{ papers | length }} research sources and {{ claims_summary.total }} extracted claims.
+        It grows as new sources are ingested and compiled. <a href="/ingest">Add more sources</a>.
+    </div>
+
+    {# ── Infobox ── #}
+    <div class="wiki-infobox">
+        <div class="wiki-infobox-title">Knowledge Base Overview</div>
+        <table>
+            <tr><th>Sources</th><td>{{ papers | length }} papers</td></tr>
+            <tr><th>Total claims</th><td>{{ claims_summary.total }}</td></tr>
+            <tr><th>Findings</th><td>{{ claims_summary.findings }}</td></tr>
+            <tr><th>Methods</th><td>{{ claims_summary.methods }}</td></tr>
+            <tr><th>Connections</th><td>{{ total_edges or 0 }}</td></tr>
+            <tr><th>Research areas</th><td>{{ cluster_sections | length }}</td></tr>
+        </table>
+        <div class="wiki-infobox-section">Sources</div>
+        <table>
+            {% for p in papers %}
+            <tr>
+                <td colspan="2" style="font-size:12px;">
+                    <a href="/wiki/{{ p.path }}">{{ p.title }}</a>
+                    <span style="color:#72777d;"> ({{ p.claim_count }} claims)</span>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    {# ── Lead paragraph ── #}
+    <p>
+        <b>Large language models (LLMs) and neural language processing</b> represent an interdisciplinary
+        research domain spanning deep learning architectures, computational neuroscience, and cognitive science.
+        This knowledge base compiles findings from {{ papers | length }} research papers encompassing
+        {{ claims_summary.total }} distinct claims across {{ cluster_sections | length }} major research areas,
+        including transformer architectures, attention optimization, scaling laws, and the alignment between
+        artificial and biological neural systems.
+    </p>
+
+    <p>
+        The research captured here traces the development from the foundational
+        <a href="/wiki/find/attention-is-all-you-need">Transformer architecture</a> through
+        computational optimizations like <a href="/wiki/find/flashattention-fast-and-memory-efficient">FlashAttention</a>,
+        empirical <a href="/wiki/find/scaling-laws-for-neural-language-models">scaling laws</a>,
+        and emerging connections between how LLMs and the human brain process language.
+    </p>
+
+    {# ── Table of Contents ── #}
+    <div class="wiki-toc">
+        <div class="wiki-toc-title">Contents <span class="wiki-toc-toggle" onclick="var l=this.parentElement.nextElementSibling;l.style.display=l.style.display==='none'?'':'none';this.textContent=l.style.display==='none'?'[show]':'[hide]'">[hide]</span></div>
+        <ol>
+            {% for section in cluster_sections %}
+            <li>
+                <a href="#{{ section.id }}">{{ section.label }}</a>
+                {% if section.subsections %}
+                <ol>
+                    {% for sub in section.subsections %}
+                    <li><a href="#{{ sub.id }}">{{ sub.label }}</a></li>
+                    {% endfor %}
+                </ol>
+                {% endif %}
+            </li>
+            {% endfor %}
+            <li><a href="#sources-table">Sources</a></li>
+            <li><a href="#references">References</a></li>
+            <li><a href="#categories">Categories</a></li>
+        </ol>
+    </div>
+
+    {# ── Cluster Sections ── #}
+    {% for section in cluster_sections %}
+    <h2 id="{{ section.id }}"><span class="wiki-edit-section"><a href="/wiki/claims/">[ browse claims ]</a></span>{{ section.label }}</h2>
+
+    <p>{{ section.description }}</p>
+
+    {% if section.key_findings %}
+    <h3 id="{{ section.id }}-findings">Key findings</h3>
+    <ul>
+        {% for finding in section.key_findings %}
+        <li>{{ finding.text }}
+            {% if finding.source_title %}<sup class="wiki-ref-link">[<a href="/wiki/find/{{ finding.source_paper | replace('articles/', '') | replace('papers/', '') | replace('.md', '') | replace('.pdf', '') }}">{{ finding.source_title | truncate(30) }}</a>]</sup>{% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if section.methods %}
+    <h3 id="{{ section.id }}-methods">Methods and approaches</h3>
+    <ul>
+        {% for method in section.methods %}
+        <li><b>{{ method.text | truncate(80) }}</b>
+            {% if method.evidence %} &mdash; <i>{{ method.evidence }}</i>{% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if section.concepts %}
+    <h3 id="{{ section.id }}-concepts">Key concepts</h3>
+    <ul>
+        {% for concept in section.concepts %}
+        <li>{{ concept.text }}
+            {% if concept.source_title %}<sup class="wiki-ref-link">[<a href="/wiki/find/{{ concept.source_paper | replace('articles/', '') | replace('papers/', '') | replace('.md', '') | replace('.pdf', '') }}">src</a>]</sup>{% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if section.connections %}
+    <h3 id="{{ section.id }}-connections">Connections to other areas</h3>
+    <ul>
+        {% for conn in section.connections %}
+        <li>
+            <i>{{ conn.relationship }}</i>:
+            {{ conn.source_text | truncate(60) }} &rarr; {{ conn.target_text | truncate(60) }}
+            {% if conn.rationale %}<br><span style="font-size:12px;color:#54595d;">{{ conn.rationale }}</span>{% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% endfor %}
+
+    {# ── Sources table ── #}
+    <h2 id="sources-table"><span class="wiki-edit-section"><a href="/ingest">[ add source ]</a></span>Sources</h2>
+    <table class="wikitable" style="width:100%;">
+        <tr>
+            <th>Paper</th>
+            <th>Type</th>
+            <th>Claims</th>
+        </tr>
+        {% for p in papers %}
+        <tr>
+            <td><a href="/wiki/{{ p.path }}">{{ p.title }}</a></td>
+            <td>{{ p.source_type }}</td>
+            <td>{{ p.claim_count }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    {# ── References ── #}
+    <h2 id="references">References</h2>
+    <div class="wiki-references">
+        <ol>
+            {% for p in papers %}
+            <li id="ref-{{ loop.index }}">
+                <a href="/wiki/{{ p.path }}">{{ p.title }}</a>.
+                {{ p.source_type }}.
+                {{ p.claim_count }} claims extracted.
+            </li>
+            {% endfor %}
+        </ol>
+    </div>
+
+    {# ── Categories ── #}
+    <div class="wiki-categories" id="categories">
+        <strong>Categories:</strong>
+        {% for section in cluster_sections %}
+        <a href="#{{ section.id }}">{{ section.label }}</a>{% if not loop.last %} | {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="wiki-lastmod">
+        This page was last compiled on {{ built_at or 'N/A' }} from {{ papers | length }} source documents
+        containing {{ claims_summary.total }} claims across {{ cluster_sections | length }} research areas.
+        <a href="/compile">Recompile now</a>.
+    </div>
+</div>
+
+
+{% elif is_dir %}
+{# ──────────── Directory Listing ──────────── #}
+<div class="wiki-article-header">
+    <h1 class="wiki-article-title">{{ dir_name }}</h1>
+    <div class="wiki-article-subtitle">From Knowledge Base, the LLM research compendium</div>
+</div>
+
+<div class="wiki-article-body">
+    <div class="wiki-hatnote">This is a listing of {{ items | length }} items in the <b>{{ dir_name }}</b> section.</div>
+
+    <ul class="wiki-file-list-wp">
+        {% for item in items %}
+        <li>
+            {% if item.is_dir %}
+                <a href="/wiki/{{ item.path }}/">{{ item.name }}</a>
+            {% else %}
+                <a href="/wiki/{{ item.path }}">{{ item.name | replace('.md', '') | replace('-', ' ') | title }}</a>
+                {% if item.brief %}<span class="brief">{{ item.brief }}</span>{% endif %}
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
 
 {% endif %}
+
 {% endblock %}

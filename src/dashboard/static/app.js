@@ -253,6 +253,61 @@ function renderArticle() {
         });
 }
 
+/* === Wiki Editor === */
+function toggleEditor(path) {
+    var editor = document.getElementById('wiki-editor');
+    var body = document.getElementById('wiki-article-body');
+    var btn = document.getElementById('edit-toggle-btn');
+
+    if (editor.style.display === 'none') {
+        if (IS_DEMO) { alert('Demo mode — clone the repo to edit.'); return; }
+        // Load raw markdown
+        fetch('/api/wiki/raw?path=' + encodeURIComponent(path))
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.content) {
+                    document.getElementById('wiki-editor-textarea').value = data.content;
+                    editor.style.display = 'block';
+                    body.style.display = 'none';
+                    btn.textContent = 'Cancel';
+                }
+            });
+    } else {
+        editor.style.display = 'none';
+        body.style.display = 'block';
+        btn.textContent = 'Edit';
+    }
+}
+
+function saveWiki(path) {
+    var content = document.getElementById('wiki-editor-textarea').value;
+    var status = document.getElementById('wiki-save-status');
+    status.textContent = 'Saving...';
+
+    fetch('/api/wiki/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ path: path, content: content })
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+        if (data.saved) {
+            status.textContent = 'Saved!';
+            status.style.color = '#4ade80';
+            setTimeout(function() { location.reload(); }, 1000);
+        } else {
+            status.textContent = 'Error: ' + (data.error || 'Unknown');
+            status.style.color = '#f87171';
+        }
+    });
+}
+
+/* === Web Clipper === */
+function showClipperBookmarklet() {
+    var el = document.getElementById('clipper-info');
+    if (el) el.style.display = el.style.display === 'none' ? 'block' : 'none';
+}
+
 /* === File Back === */
 function fileBack(content, title) {
     if (IS_DEMO) { alert('Demo mode — clone the repo to use this feature.'); return; }
