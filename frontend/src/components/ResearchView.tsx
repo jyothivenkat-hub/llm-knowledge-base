@@ -151,9 +151,9 @@ export default function ResearchView({ state, onAdd, onRefresh }: { state: AppSt
               </div>
             </div>
             <h3 className="text-lg font-serif font-bold text-[#202122] mb-2 group-hover:text-[#3366cc] transition-colors line-clamp-2">
-              {source.source_url ? (
-                <a href={source.source_url} target="_blank" rel="noopener noreferrer" className="hover:underline">{source.title}</a>
-              ) : source.title}
+              <a href={`/wiki/sources/${source.id.replace('articles/', '').replace('papers/', '').replace('.md', '').replace('.pdf', '')}`} className="hover:underline cursor-pointer">
+                {source.title}
+              </a>
             </h3>
             {source.claimCount ? (
               <p className="text-sm text-[#54595d] mb-6">{source.claimCount} claims extracted &middot; {source.type}</p>
@@ -166,10 +166,13 @@ export default function ResearchView({ state, onAdd, onRefresh }: { state: AppSt
               </span>
               <div className="flex gap-2">
                 {source.source_url && (
-                  <a href={source.source_url} target="_blank" rel="noopener noreferrer" className="px-3 py-1.5 bg-[#eaecf0] hover:bg-[#d1d4d9] text-[#202122] rounded text-[10px] font-bold uppercase tracking-widest transition-all">
-                    View Source
+                  <a href={source.source_url} target="_blank" rel="noopener noreferrer" className="px-3 py-1.5 bg-[#eaecf0] hover:bg-[#d1d4d9] text-[#202122] rounded text-[10px] font-bold uppercase tracking-widest transition-all no-underline">
+                    Original
                   </a>
                 )}
+                <a href={`/wiki/sources/${source.id.replace('articles/', '').replace('papers/', '').replace('.md', '').replace('.pdf', '')}`} className="px-3 py-1.5 bg-[#3366cc] hover:bg-[#2a4b8d] text-white rounded text-[10px] font-bold uppercase tracking-widest transition-all no-underline">
+                  Read Wiki
+                </a>
               </div>
             </div>
           </div>

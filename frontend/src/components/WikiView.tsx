@@ -135,13 +135,11 @@ export default function WikiView({ state }: { state: AppState }) {
                 <div className="space-y-3 text-[1rem] leading-8">
                   {latestSources.map((source) => {
                     const claimCount = source.claimCount || state.claims.filter((c) => c.sourceId === source.id).length;
+                    const wikiPath = `/wiki/sources/${source.id.replace('articles/', '').replace('papers/', '').replace('.md', '').replace('.pdf', '')}`;
                     return (
                       <p key={source.id}>
-                        {source.source_url ? (
-                          <a href={source.source_url} target="_blank" rel="noopener noreferrer" className="wiki-link font-semibold">{source.title}</a>
-                        ) : (
-                          <span className="font-semibold">{source.title}</span>
-                        )}{' '}
+                        <a href={wikiPath} className="wiki-link font-semibold">{source.title}</a>{' '}
+                        {source.source_url && <a href={source.source_url} target="_blank" rel="noopener noreferrer" className="text-[10px] text-[#54595d]">[source]</a>}{' '}
                         <span className="text-[#54595d]">({source.type})</span> contributes{' '}
                         <span className="font-semibold">{claimCount}</span> claims to the knowledge base.
                       </p>
