@@ -1,10 +1,17 @@
 import { useState } from 'react';
 import { AppState, ResearchSource } from '../types';
-import { Upload, Link as LinkIcon, FileText, Clock, CheckCircle, AlertCircle, Plus } from 'lucide-react';
+import { Upload, Link as LinkIcon, FileText, Clock, CheckCircle, AlertCircle, Plus, Cpu } from 'lucide-react';
 import { uploadFiles, runIngest, createSource } from '../services/api';
 import { cn } from '../lib/utils';
 
-export default function ResearchView({ state, onAdd, onRefresh }: { state: AppState, onAdd: (s: ResearchSource) => void, onRefresh: () => Promise<void> }) {
+export default function ResearchView({ state, onAdd, onRefresh, onCompile, compileLog, isCompiling }: {
+  state: AppState;
+  onAdd: (s: ResearchSource) => void;
+  onRefresh: () => Promise<void>;
+  onCompile: () => void;
+  compileLog: string[];
+  isCompiling: boolean;
+}) {
   const [isAdding, setIsAdding] = useState(false);
   const [newSource, setNewSource] = useState({ title: '', content: '', type: 'article' as const });
   const [uploadMsg, setUploadMsg] = useState('');
@@ -81,6 +88,41 @@ export default function ResearchView({ state, onAdd, onRefresh }: { state: AppSt
             Add Research
           </button>
         </div>
+      </div>
+
+      {/* Compile Section */}
+      <div className="mb-8 p-5 bg-[#f8f9fa] border border-[#a2a9b1] rounded">
+        <div className="flex items-center justify-between mb-3">
+          <div>
+            <h3 className="text-[14px] font-bold text-[#202122]">Compile into Knowledge Base</h3>
+            <p className="text-[12px] text-[#54595d]">Process new and modified sources into the wiki and knowledge graph</p>
+          </div>
+          <button
+            onClick={onCompile}
+            disabled={isCompiling || isDemo}
+            className={cn(
+              "px-6 py-2.5 rounded font-bold flex items-center gap-2 transition-all text-sm",
+              isCompiling ? "bg-[#3366cc]/50 text-white cursor-wait" :
+              isDemo ? "bg-[#f3f4f6] text-[#9ca3af] cursor-not-allowed" :
+              "bg-[#3366cc] hover:bg-[#2a4b8d] text-white"
+            )}
+          >
+            <Cpu className={cn("w-4 h-4", isCompiling && "animate-spin")} />
+            {isCompiling ? 'Compiling...' : 'Compile'}
+          </button>
+        </div>
+        {compileLog.length > 0 && (
+          <div className="bg-white border border-[#a2a9b1] rounded p-3 max-h-48 overflow-y-auto text-[12px] font-mono text-[#54595d] space-y-0.5">
+            {compileLog.map((line, i) => (
+              <div key={i} className={cn(
+                line.includes('Done') || line.includes('complete') ? 'text-emerald-600 font-bold' :
+                line.includes('Error') || line.includes('failed') ? 'text-red-600' :
+                line.includes('Stage') || line.includes('Step') ? 'text-[#3366cc] font-bold' :
+                ''
+              )}>{line}</div>
+            ))}
+          </div>
+        )}
       </div>
 
       {isDemo && (

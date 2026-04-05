@@ -234,7 +234,7 @@ export default function App() {
               {activeView === 'wiki' && <WikiView state={viewState} />}
               {activeView === 'graph' && <GraphView state={viewState} />}
               {activeView === 'ideas' && <IdeasView state={viewState} />}
-              {activeView === 'research' && <ResearchView state={viewState} onAdd={addSource} onRefresh={refreshState} />}
+              {activeView === 'research' && <ResearchView state={viewState} onAdd={addSource} onRefresh={refreshState} onCompile={handleCompile} compileLog={compileLog} isCompiling={state.isProcessing} />}
               {activeView === 'chat' && <ChatView state={viewState} initialQuery={globalSearch} />}
             </motion.div>
           </AnimatePresence>
