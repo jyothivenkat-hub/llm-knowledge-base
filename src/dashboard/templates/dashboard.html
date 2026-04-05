@@ -1,143 +1,177 @@
 {% extends "base.html" %}
-{% block title %}IdeaForge{% endblock %}
+{% block title %}Dashboard{% endblock %}
 {% block content %}
 
-{% if stats.claims > 0 %}
-{# ── Has data: show results ── #}
-<div class="hero">
-    <h1>Your research, connected</h1>
-    <p>{{ stats.raw_sources }} papers processed into {{ stats.claims }} claims across {{ stats.clusters }} research themes</p>
+<div class="page-header">
+    <h2>IdeaForge</h2>
+    <p>From insights to product ideas</p>
 </div>
 
-<div class="cards">
-    <a href="/research" class="card card-link">
-        <div class="card-label">Papers</div>
-        <div class="card-value">{{ stats.raw_sources }}</div>
+<!-- Horizontal pipeline: 1 → 2 → 3 → 4 → 5 -->
+<div class="pipeline">
+    <a href="/ingest" class="pip {% if stats.raw_sources > 0 %}done{% endif %}">
+        <div class="pip-num">1</div>
+        <div class="pip-title">Upload</div>
+        <div class="pip-desc">Drop PDFs, articles, or markdown files</div>
+        {% if stats.raw_sources > 0 %}
+        <div class="pip-stat">{{ stats.raw_sources }} sources</div>
+        {% endif %}
     </a>
-    <a href="/explore" class="card card-link">
+
+    <div class="pip-arrow {% if stats.raw_sources > 0 %}done{% endif %}">&#8594;</div>
+
+    <a href="/compile" class="pip {% if stats.claims > 0 %}done{% elif stats.raw_sources > 0 %}active{% endif %}">
+        <div class="pip-num">2</div>
+        <div class="pip-title">Compile</div>
+        <div class="pip-desc">Chunk, connect, cluster, enrich</div>
+        {% if stats.claims > 0 %}
+        <div class="pip-stat">{{ stats.claims }} claims</div>
+        {% endif %}
+    </a>
+
+    <div class="pip-arrow {% if stats.claims > 0 %}done{% endif %}">&#8594;</div>
+
+    <a href="/graph" class="pip {% if stats.claims > 0 %}done{% endif %}">
+        <div class="pip-num">3</div>
+        <div class="pip-title">Explore</div>
+        <div class="pip-desc">Knowledge graph and wiki</div>
+        {% if stats.clusters > 0 %}
+        <div class="pip-stat">{{ stats.clusters }} clusters</div>
+        {% endif %}
+    </a>
+
+    <div class="pip-arrow {% if stats.claims > 0 %}done{% endif %}">&#8594;</div>
+
+    <a href="/search" class="pip {% if stats.claims > 0 %}done{% endif %}">
+        <div class="pip-num">4</div>
+        <div class="pip-title">Search</div>
+        <div class="pip-desc">Ask questions, get answers</div>
+        {% if stats.claims > 0 %}
+        <div class="pip-stat">Ready</div>
+        {% endif %}
+    </a>
+
+    <div class="pip-arrow {% if stats.ideas > 0 %}done{% elif stats.claims > 0 %}done{% endif %}">&#8594;</div>
+
+    <a href="/ideas" class="pip {% if stats.ideas > 0 %}done{% elif stats.claims > 0 %}active{% endif %}">
+        <div class="pip-num">5</div>
+        <div class="pip-title">Ideas</div>
+        <div class="pip-desc">Product ideas from research</div>
+        {% if stats.ideas > 0 %}
+        <div class="pip-stat">{{ stats.ideas }} ideas</div>
+        {% endif %}
+    </a>
+</div>
+
+{% if stats.claims > 0 %}
+<div class="cards" style="margin-top: 28px;">
+    <div class="card">
+        <div class="card-label">Sources</div>
+        <div class="card-value">{{ stats.raw_sources }}</div>
+    </div>
+    <div class="card">
         <div class="card-label">Claims</div>
         <div class="card-value accent">{{ stats.claims }}</div>
-    </a>
-    <a href="/explore" class="card card-link">
+    </div>
+    <div class="card">
         <div class="card-label">Connections</div>
         <div class="card-value">{{ stats.edges }}</div>
-    </a>
-    <a href="/ideas" class="card card-link">
+    </div>
+    <div class="card">
+        <div class="card-label">Clusters</div>
+        <div class="card-value">{{ stats.clusters }}</div>
+    </div>
+    <div class="card">
         <div class="card-label">Product Ideas</div>
         <div class="card-value" style="color: var(--warning);">{{ stats.ideas }}</div>
-    </a>
+    </div>
 </div>
 
-<div style="display:flex; gap:12px; margin-top:20px;">
-    <a href="/explore" class="btn btn-primary">Explore the Graph</a>
-    <a href="/search" class="btn btn-secondary">Ask a Question</a>
-    <a href="/ideas" class="btn btn-secondary">View Ideas</a>
-    <a href="/research" class="btn btn-secondary">Add More Research</a>
+<div style="margin-top: 16px;">
+    {% if stats.ideas > 0 %}
+    <a href="/ideas" class="btn btn-primary">View Product Ideas</a>
+    {% endif %}
+    <a href="/graph" class="btn btn-secondary" style="margin-left: 8px;">View Graph</a>
+    <a href="/search" class="btn btn-secondary" style="margin-left: 8px;">Search & Ask</a>
 </div>
-
 {% else %}
-{# ── Empty: onboarding ── #}
-<div class="hero">
-    <h1>Turn research papers<br>into product ideas</h1>
-    <p>Upload PDFs and articles. IdeaForge reads them, builds a knowledge graph<br>of how ideas connect, and generates product concepts from the findings.</p>
-</div>
-
-<div class="onboard-steps">
-    <div class="onboard-step">
-        <div class="onboard-num">1</div>
-        <h3>Upload your research</h3>
-        <p>Drop PDFs, articles, or notes. Or clip from any webpage.</p>
-    </div>
-    <div class="onboard-arrow">&#8594;</div>
-    <div class="onboard-step">
-        <div class="onboard-num">2</div>
-        <h3>It reads and connects</h3>
-        <p>The LLM breaks papers into ideas, finds how they relate across sources.</p>
-    </div>
-    <div class="onboard-arrow">&#8594;</div>
-    <div class="onboard-step">
-        <div class="onboard-num">3</div>
-        <h3>Explore and ask</h3>
-        <p>Browse the graph, search your knowledge base, get synthesized answers.</p>
-    </div>
-    <div class="onboard-arrow">&#8594;</div>
-    <div class="onboard-step">
-        <div class="onboard-num">4</div>
-        <h3>Get product ideas</h3>
-        <p>Actionable concepts grounded in your research findings and gaps.</p>
-    </div>
-</div>
-
-<div style="text-align:center; margin-top:28px;">
-    <a href="/research" class="btn btn-primary" style="padding:14px 32px; font-size:16px;">Upload Your First Paper</a>
+<div class="card" style="max-width: 480px; padding: 28px; margin-top: 20px;">
+    <h3 style="margin-bottom: 8px;">Get started</h3>
+    <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 16px;">
+        Upload research papers, then compile to build your knowledge graph and generate product ideas.
+    </p>
+    <a href="/ingest" class="btn btn-primary">Upload Sources</a>
 </div>
 {% endif %}
 
 <style>
-.hero {
-    margin-bottom: 28px;
-}
-.hero h1 {
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    line-height: 1.3;
+.pipeline {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
     margin-bottom: 8px;
 }
-.hero p {
-    font-size: 15px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-}
-.card-link {
-    text-decoration: none;
-    cursor: pointer;
-    transition: border-color 0.15s;
-}
-.card-link:hover {
-    border-color: var(--accent);
-    text-decoration: none;
-}
-.onboard-steps {
-    display: flex;
-    align-items: flex-start;
-    gap: 0;
-    margin-top: 12px;
-}
-.onboard-step {
+.pip {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    padding: 20px 16px;
+    padding: 16px 8px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    text-decoration: none;
+    color: var(--text-muted);
+    transition: all 0.15s;
 }
-.onboard-num {
-    width: 36px;
-    height: 36px;
+.pip:hover {
+    border-color: var(--accent);
+    background: var(--accent-glow);
+    text-decoration: none;
+}
+.pip.done { color: var(--text-primary); border-color: var(--success); }
+.pip.active { border-color: var(--accent); }
+.pip-num {
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
-    background: var(--accent);
-    color: #fff;
+    background: var(--border);
+    color: var(--text-muted);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 700;
-    margin: 0 auto 12px;
+    margin-bottom: 8px;
 }
-.onboard-step h3 {
-    font-size: 15px;
+.pip.done .pip-num { background: var(--success); color: #fff; }
+.pip.active .pip-num { background: var(--accent); color: #fff; }
+.pip-title {
+    font-size: 14px;
     font-weight: 700;
+    margin-bottom: 3px;
+}
+.pip.done .pip-title { color: var(--text-primary); }
+.pip-desc {
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.4;
     margin-bottom: 6px;
 }
-.onboard-step p {
-    font-size: 13px;
-    color: var(--text-secondary);
-    line-height: 1.5;
+.pip-stat {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--success);
 }
-.onboard-arrow {
+.pip-arrow {
     display: flex;
     align-items: center;
-    font-size: 22px;
+    padding: 0 4px;
+    font-size: 18px;
     color: var(--border);
-    padding-top: 30px;
+    flex-shrink: 0;
 }
+.pip-arrow.done { color: var(--success); }
 </style>
 {% endblock %}

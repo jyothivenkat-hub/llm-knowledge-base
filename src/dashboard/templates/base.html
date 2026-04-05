@@ -3,21 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}IdeaForge{% endblock %}</title>
+    <title>{% block title %}KB{% endblock %} - Knowledge Base</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
     <nav class="sidebar">
         <div class="sidebar-brand">
-            <h1>IdeaForge</h1>
-            <span>From insights to ideas</span>
+            <h1>Knowledge Base</h1>
+            <span>LLM-powered research</span>
         </div>
         <ul class="nav-items">
             <li><a href="/" class="{% if active == 'home' %}active{% endif %}"><span class="icon">&#9776;</span> Home</a></li>
-            <li><a href="/research" class="{% if active == 'research' %}active{% endif %}"><span class="icon">&#8615;</span> Research</a></li>
-            <li><a href="/explore" class="{% if active == 'explore' %}active{% endif %}"><span class="icon">&#128280;</span> Explore</a></li>
+            <li><a href="/ingest" class="{% if active == 'ingest' %}active{% endif %}"><span class="icon">&#8615;</span> Sources</a></li>
+            <li><a href="/compile" class="{% if active == 'compile' %}active{% endif %}"><span class="icon">&#9881;</span> Compile</a></li>
+            <li><a href="/graph" class="{% if active == 'graph' %}active{% endif %}"><span class="icon">&#128280;</span> Graph</a></li>
+            <li><a href="/wiki/" class="{% if active == 'wiki' %}active{% endif %}"><span class="icon">&#128214;</span> Wiki</a></li>
             <li><a href="/search" class="{% if active == 'search' %}active{% endif %}"><span class="icon">&#128269;</span> Search</a></li>
             <li><a href="/ideas" class="{% if active == 'ideas' %}active{% endif %}"><span class="icon">&#128161;</span> Ideas</a></li>
+        </ul>
+        <ul class="nav-items" style="border-top: 1px solid var(--border); margin-top: 8px; padding-top: 8px;">
+            <li><a href="/render" class="{% if active == 'render' %}active{% endif %}"><span class="icon">&#127912;</span> Render</a></li>
+            <li><a href="/lint" class="{% if active == 'lint' %}active{% endif %}"><span class="icon">&#9989;</span> Health</a></li>
         </ul>
     </nav>
     <main class="main">
