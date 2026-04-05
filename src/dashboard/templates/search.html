@@ -26,6 +26,10 @@
 </div>
 
 <div id="search-answer" class="qa-answer" style="display:none;"></div>
+<div id="file-back-row" style="display:none;margin-top:8px;">
+    <button class="btn btn-secondary btn-sm" onclick="fileBack(document.getElementById('search-answer').innerText, document.getElementById('search-input').value)">File answer back to wiki</button>
+    <span id="file-back-status" style="margin-left:8px;"></span>
+</div>
 <div id="search-steps" class="qa-steps stream-output" style="display:none;"></div>
 <div id="search-results" style="margin-top: 16px;"></div>
 
@@ -67,6 +71,7 @@ function smartSearch() {
                     (data.matched_question ? ' (matched: "' + data.matched_question + '")' : '') + '</div>';
 
                 answer.style.display = 'block';
+                document.getElementById('file-back-row').style.display = 'block';
                 // Render markdown-ish (basic)
                 answer.innerHTML = renderBasicMd(data.answer);
 
@@ -100,6 +105,7 @@ function doLiveSearch(query, btn, answer, steps, results) {
 
             if (data.answer_html) {
                 answer.style.display = 'block';
+                document.getElementById('file-back-row').style.display = 'block';
                 answer.innerHTML = data.answer_html;
             }
             if (data.evidence) {

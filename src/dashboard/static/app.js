@@ -253,6 +253,23 @@ function renderArticle() {
         });
 }
 
+/* === File Back === */
+function fileBack(content, title) {
+    if (IS_DEMO) { alert('Demo mode — clone the repo to use this feature.'); return; }
+    fetch('/api/file-back', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ content: content, title: title })
+    })
+    .then(r => r.json())
+    .then(data => {
+        if (data.filed) {
+            var el = document.getElementById('file-back-status');
+            if (el) el.innerHTML = '<div class="flash flash-success">Filed to raw/' + data.path + ' — run Compile to integrate into the wiki.</div>';
+        }
+    });
+}
+
 /* === Init === */
 document.addEventListener('DOMContentLoaded', function() {
     setupDropzone();

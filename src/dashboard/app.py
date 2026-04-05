@@ -138,13 +138,21 @@ def create_app(config: Optional[Config] = None) -> Flask:
             for i, p in enumerate(parts):
                 breadcrumb.append({"name": p, "path": "/".join(parts[:i+1])})
 
+        # Load graph data (used by multiple views)
+        graph_data = {"nodes": [], "edges": [], "clusters": [], "metadata": {}}
+        if config.graph_path.exists():
+            graph_data = json.loads(config.graph_path.read_text(encoding="utf-8"))
+        graph_nodes = graph_data.get("nodes", [])
+        graph_edges = graph_data.get("edges", [])
+        graph_clusters = graph_data.get("clusters", [])
+        graph_meta = graph_data.get("metadata", {})
+
+        # Build cluster list for sidebar (all views)
+        clusters_for_sidebar = [c for c in graph_clusters if c.get("id") != "other"]
+
         # Library landing page (wiki root)
         if not path or path == "":
             papers = []
-            graph_nodes = []
-            if config.graph_path.exists():
-                graph = json.loads(config.graph_path.read_text(encoding="utf-8"))
-                graph_nodes = graph.get("nodes", [])
 
             # Build paper list from manifest
             from ..ingest.manifest import Manifest
@@ -152,7 +160,6 @@ def create_app(config: Optional[Config] = None) -> Flask:
             for entry in manifest.all_entries():
                 claim_count = sum(1 for n in graph_nodes if entry.path in n.get("source_paper", ""))
                 source_type = "PDF" if entry.path.endswith(".pdf") else "Article"
-                # Find the wiki source summary if it exists
                 slug_name = entry.path.split("/")[-1].rsplit(".", 1)[0]
                 wiki_source = None
                 for f in (wiki_path / "sources").glob("*.md"):
@@ -178,9 +185,106 @@ def create_app(config: Optional[Config] = None) -> Flask:
                 "methods": type_counts.get("method", 0),
             }
 
+            # Build cluster sections for the Wikipedia article
+            node_map = {n["id"]: n for n in graph_nodes}
+            cluster_sections = []
+            for cluster in graph_clusters:
+                if cluster.get("id") == "other":
+                    # Include "other" but with a friendlier label
+                    cluster_label = "Additional Research"
+                    cluster_desc = "Additional claims and findings from various research papers that span multiple research areas."
+                else:
+                    cluster_label = cluster.get("label", cluster.get("id", ""))
+                    cluster_desc = cluster.get("description", "")
+
+                cluster_node_ids = set(cluster.get("node_ids", []))
+                cluster_nodes = [node_map[nid] for nid in cluster_node_ids if nid in node_map]
+
+                # Separate by type
+                findings = [n for n in cluster_nodes if n.get("type") == "finding"]
+                methods = [n for n in cluster_nodes if n.get("type") == "method"]
+                concepts = [n for n in cluster_nodes if n.get("type") in ("concept",)]
+                hypotheses = [n for n in cluster_nodes if n.get("type") == "hypothesis"]
+                claims = [n for n in cluster_nodes if n.get("type") == "claim"]
+
+                # Find cross-cluster connections
+                connections = []
+                for edge in graph_edges:
+                    src_id = edge.get("source_id", "")
+                    tgt_id = edge.get("target_id", "")
+                    if src_id in cluster_node_ids and tgt_id not in cluster_node_ids:
+                        src_node = node_map.get(src_id, {})
+                        tgt_node = node_map.get(tgt_id, {})
+                        if src_node and tgt_node:
+                            connections.append({
+                                "relationship": edge.get("relationship", "related"),
+                                "source_text": src_node.get("text", ""),
+                                "target_text": tgt_node.get("text", ""),
+                                "rationale": edge.get("rationale", ""),
+                            })
+                    elif tgt_id in cluster_node_ids and src_id not in cluster_node_ids:
+                        src_node = node_map.get(src_id, {})
+                        tgt_node = node_map.get(tgt_id, {})
+                        if src_node and tgt_node:
+                            connections.append({
+                                "relationship": edge.get("relationship", "related"),
+                                "source_text": src_node.get("text", ""),
+                                "target_text": tgt_node.get("text", ""),
+                                "rationale": edge.get("rationale", ""),
+                            })
+
+                # Deduplicate connections and limit
+                seen_conn = set()
+                unique_connections = []
+                for c in connections:
+                    key = (c["source_text"][:40], c["target_text"][:40])
+                    if key not in seen_conn:
+                        seen_conn.add(key)
+                        unique_connections.append(c)
+                connections = unique_connections[:5]
+
+                # Build subsections list for TOC
+                subsections = []
+                if findings:
+                    subsections.append({"id": f"{cluster['id']}-findings", "label": "Key findings"})
+                if methods:
+                    subsections.append({"id": f"{cluster['id']}-methods", "label": "Methods and approaches"})
+                if concepts:
+                    subsections.append({"id": f"{cluster['id']}-concepts", "label": "Key concepts"})
+                if connections:
+                    subsections.append({"id": f"{cluster['id']}-connections", "label": "Connections to other areas"})
+
+                # Combine findings with hypotheses and claims for display
+                key_findings = findings + hypotheses + claims
+
+                cluster_sections.append({
+                    "id": cluster.get("id", ""),
+                    "label": cluster_label,
+                    "description": cluster_desc,
+                    "key_findings": key_findings[:10],
+                    "methods": methods[:8],
+                    "concepts": concepts[:8],
+                    "connections": connections,
+                    "subsections": subsections,
+                    "total_claims": len(cluster_nodes),
+                })
+
+            built_at = graph_meta.get("built_at", "")
+            if built_at:
+                try:
+                    dt = datetime.fromisoformat(built_at)
+                    built_at = dt.strftime("%B %d, %Y at %H:%M")
+                except (ValueError, TypeError):
+                    pass
+
             return render_template("wiki.html", active="wiki", is_dir=True,
                                    is_library_root=True, papers=papers,
-                                   claims_summary=claims_summary)
+                                   claims_summary=claims_summary,
+                                   cluster_sections=cluster_sections,
+                                   clusters=clusters_for_sidebar,
+                                   total_edges=graph_meta.get("total_edges", 0),
+                                   total_sources=len(papers),
+                                   built_at=built_at)
 
         # Regular directory browse
         if target.is_dir():
@@ -200,7 +304,9 @@ def create_app(config: Optional[Config] = None) -> Flask:
                 items.append({"name": item.name, "path": rel, "is_dir": item.is_dir(), "brief": brief})
             return render_template("wiki.html", active="wiki", is_dir=True,
                                    is_library_root=False, dir_name=Path(path).name.title(),
-                                   items=items, breadcrumb=breadcrumb)
+                                   items=items, breadcrumb=breadcrumb,
+                                   clusters=clusters_for_sidebar,
+                                   total_sources=len(graph_nodes))
 
         # Single article view
         if target.exists() and target.suffix == ".md":
@@ -217,13 +323,10 @@ def create_app(config: Optional[Config] = None) -> Flask:
             # Find claims from this paper
             article_claims = []
             article_source = ""
-            if config.graph_path.exists():
-                graph = json.loads(config.graph_path.read_text(encoding="utf-8"))
-                # Match claims by source paper or by filename
-                for n in graph.get("nodes", []):
-                    sp = n.get("source_paper", "")
-                    if target.stem.lower() in sp.lower() or sp.lower() in str(target).lower():
-                        article_claims.append(n)
+            for n in graph_nodes:
+                sp = n.get("source_paper", "")
+                if target.stem.lower() in sp.lower() or sp.lower() in str(target).lower():
+                    article_claims.append(n)
 
             # Load backlinks
             backlinks = []
@@ -237,7 +340,9 @@ def create_app(config: Optional[Config] = None) -> Flask:
                                    article_source=article_source,
                                    article_claims=article_claims,
                                    content=html, breadcrumb=breadcrumb,
-                                   backlinks=backlinks)
+                                   backlinks=backlinks,
+                                   clusters=clusters_for_sidebar,
+                                   total_sources=graph_meta.get("papers_processed", 0))
 
         return "Not found", 404
 
@@ -502,6 +607,27 @@ def create_app(config: Optional[Config] = None) -> Flask:
 
         return Response(generate(), mimetype="text/event-stream",
                         headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
+
+    @app.route("/api/file-back", methods=["POST"])
+    def api_file_back():
+        """File a Q&A answer or output back into raw/ for recompilation into the wiki."""
+        data = request.get_json()
+        content = data.get("content", "")
+        title = data.get("title", "research-note")
+        if not content:
+            return jsonify({"error": "No content"})
+
+        from ..utils import slugify
+        slug = slugify(title)[:60]
+        timestamp = datetime.now().strftime("%Y%m%d")
+        filename = f"{timestamp}-{slug}.md"
+        dest = config.raw_path / "articles" / filename
+        dest.parent.mkdir(parents=True, exist_ok=True)
+
+        md = f"---\ntitle: \"{title}\"\ndate: \"{datetime.now().strftime('%Y-%m-%d')}\"\ntype: research-note\n---\n\n{content}\n"
+        dest.write_text(md, encoding="utf-8")
+
+        return jsonify({"filed": filename, "path": f"articles/{filename}"})
 
     @app.route("/api/ingest", methods=["POST"])
     def api_ingest():

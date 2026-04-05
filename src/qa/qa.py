@@ -36,8 +36,18 @@ def run_qa(
         if progress_callback:
             progress_callback(msg)
 
+    import json as _json
+
     llm = LLM(config)
     engine = SearchEngine(config)
+
+    # Load graph data for richer context
+    graph_nodes = {}
+    graph_edges = []
+    if config.graph_path.exists():
+        graph = _json.loads(config.graph_path.read_text(encoding="utf-8"))
+        graph_nodes = {n["id"]: n for n in graph.get("nodes", [])}
+        graph_edges = graph.get("edges", [])
 
     # Start with wiki summary and master index
     context_parts = []
@@ -56,7 +66,7 @@ def run_qa(
         if idx:
             context_parts.append(f"## {section.title()} Index\n" + idx)
 
-    if not context_parts:
+    if not context_parts and not graph_nodes:
         return "The wiki is empty. Run `kb ingest` and `kb compile` first."
 
     context = "\n\n".join(context_parts)
@@ -102,13 +112,23 @@ def run_qa(
         elif action["action"] == "search":
             query = action.get("query", "")
             progress(f"Searching: {query}")
-            results = engine.search(query, top_k=5)
+            results = engine.search(query, top_k=10)
             if results:
                 search_context = f"\n\n## Search results for '{query}':\n"
                 for r in results:
                     search_context += f"- **{r['title']}** ({r['path']}): {r['snippet']}\n"
+                    # If this is a graph node, include its connections
+                    nid = r.get("node_id", "")
+                    if nid and nid in graph_nodes:
+                        related_edges = [e for e in graph_edges
+                                         if e.get("source_id") == nid or e.get("target_id") == nid]
+                        for edge in related_edges[:3]:
+                            other_id = edge["target_id"] if edge["source_id"] == nid else edge["source_id"]
+                            other = graph_nodes.get(other_id)
+                            if other:
+                                search_context += f"  - [{edge['relationship']}] {other['text']}\n"
                 context += search_context
-                progress(f"  Found {len(results)} results")
+                progress(f"  Found {len(results)} results with graph connections")
             else:
                 context += f"\n\nNo search results for '{query}'."
                 progress(f"  No results")
