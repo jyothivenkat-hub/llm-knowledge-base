@@ -183,66 +183,27 @@ export default function App() {
           </SidebarSection>
 
           <div className="mt-8 pt-4 border-t border-[#a2a9b1]">
-            <div className={cn(
-              "w-full flex flex-col items-start p-2 rounded text-[11px] transition-colors",
-              effectiveMode === 'demo' ? "bg-amber-50 text-amber-700 border border-amber-200" : "bg-blue-50 text-blue-700 border border-blue-200"
-            )}>
-              <span className="font-bold uppercase tracking-widest opacity-70 mb-1">Mode</span>
-              <span className="font-medium">{effectiveMode === 'demo' ? 'Demo Mode' : 'Full Mode'}</span>
-              <span className="mt-1 opacity-80 break-all">{state.backendConnected ? state.model : 'Backend unavailable'}</span>
-            </div>
-            <div className="mt-3 border border-[#c8ccd1] rounded bg-white p-2">
-              <div className="text-[10px] font-bold uppercase tracking-widest text-[#54595d] mb-2">View Mode</div>
-              <div className="grid grid-cols-2 gap-2">
-                <button
-                  onClick={() => setPreferredMode('demo')}
-                  className={cn(
-                    "px-2 py-1.5 text-[11px] border rounded font-bold transition-colors",
-                    effectiveMode === 'demo'
-                      ? "bg-[#fff8dc] border-[#d6c37a] text-[#6b5600]"
-                      : "bg-[#f8f9fa] border-[#c8ccd1] text-[#54595d] hover:bg-white"
-                  )}
-                >
-                  Demo
-                </button>
-                <button
-                  onClick={() => (isLocalHost || backendSupportsFull) && setPreferredMode('full')}
-                  disabled={!isLocalHost && !backendSupportsFull}
-                  title={
-                    backendSupportsFull
-                      ? 'Switch to local full authoring mode.'
-                      : isLocalHost
-                        ? 'Switch UI to full mode. Backend authoring still requires a real local API key.'
-                        : 'Full mode requires a real local API key and backend restart.'
-                  }
-                  className={cn(
-                    "px-2 py-1.5 text-[11px] border rounded font-bold transition-colors disabled:cursor-not-allowed disabled:opacity-50",
-                    effectiveMode === 'full'
-                      ? "bg-[#eaf3ff] border-[#7aa6e8] text-[#1d4f91]"
-                      : "bg-[#f8f9fa] border-[#c8ccd1] text-[#54595d] hover:bg-white"
-                  )}
-                >
-                  Full
-                </button>
-              </div>
-              <div className="mt-2 text-[10px] text-[#54595d]">
-                {backendSupportsFull
-                  ? 'This local backend supports both read-only demo and full authoring.'
-                  : isLocalHost
-                    ? 'You can preview both modes locally. Full authoring actions still require a real local API key.'
-                    : 'This environment only supports demo mode right now.'}
-              </div>
-            </div>
+            <button
+              onClick={() => {
+                const next = effectiveMode === 'demo' ? 'full' : 'demo';
+                if (next === 'full' && !isLocalHost && !backendSupportsFull) return;
+                setPreferredMode(next);
+              }}
+              className={cn(
+                "w-full p-2 rounded text-[11px] transition-colors cursor-pointer text-left",
+                effectiveMode === 'demo'
+                  ? "bg-amber-50 text-amber-700 border border-amber-200 hover:bg-amber-100"
+                  : "bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100"
+              )}
+            >
+              <span className="font-bold">{effectiveMode === 'demo' ? 'Demo Mode' : 'Full Mode'}</span>
+              <span className="block mt-0.5 opacity-70">Click to switch</span>
+            </button>
             {compileLog.length > 0 && (
               <div className="mt-3 bg-white border border-[#c8ccd1] rounded p-2 text-[11px] space-y-1">
                 {compileLog.slice(-4).map((line, idx) => (
                   <div key={`${line}-${idx}`} className="text-[#54595d]">{line}</div>
                 ))}
-              </div>
-            )}
-            {!state.backendConnected && (
-              <div className="mt-3 text-[11px] text-[#8b5e00] bg-[#fff8e1] border border-[#f1d37a] rounded p-2">
-                This shell needs the Flask API to enable compile, ingest, and graph-backed answers.
               </div>
             )}
           </div>

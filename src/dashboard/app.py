@@ -577,19 +577,37 @@ def create_app(config: Optional[Config] = None) -> Flask:
                     results = engine.search(question, top_k=20)
                     queue.put({"message": f"Found {len(results)} relevant claims"})
 
-                    if not results:
-                        queue.put({"done": True, "answer_html": "<p>No matching claims found. Try different keywords.</p>", "evidence": []})
-                        return
-
                     # Step 2: Load graph for connections
                     graph_nodes = {}
                     graph_edges = []
                     insights_list = []
 
                     if config.graph_path.exists():
-                        graph = json.loads(config.graph_path.read_text(encoding="utf-8"))
-                        graph_nodes = {n["id"]: n for n in graph.get("nodes", [])}
-                        graph_edges = graph.get("edges", [])
+                        graph_data = json.loads(config.graph_path.read_text(encoding="utf-8"))
+                        graph_nodes = {n["id"]: n for n in graph_data.get("nodes", [])}
+                        graph_edges = graph_data.get("edges", [])
+
+                    # If BM25 found nothing, use graph nodes directly
+                    if not results and graph_nodes:
+                        queue.put({"message": "BM25 returned no matches, using graph nodes directly..."})
+                        # Sample top nodes from the graph
+                        all_nodes = list(graph_nodes.values())
+                        for n in all_nodes[:15]:
+                            results.append({
+                                "path": f"claims/{n['id']}.md",
+                                "title": n.get("text", "")[:80],
+                                "snippet": n.get("text", "") + " — " + n.get("evidence", ""),
+                                "score": 1.0,
+                                "type": "graph_node",
+                                "node_id": n["id"],
+                                "source_paper": n.get("source_title", ""),
+                                "claim_type": n.get("type", ""),
+                            })
+                        queue.put({"message": f"Using {len(results)} graph nodes as context"})
+
+                    if not results:
+                        queue.put({"done": True, "answer_html": "No claims in the knowledge base yet. Upload sources and compile first.", "evidence": []})
+                        return
 
                     if config.graph_insights_path.exists():
                         insights_data = json.loads(config.graph_insights_path.read_text(encoding="utf-8"))

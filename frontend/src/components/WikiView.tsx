@@ -133,13 +133,20 @@ export default function WikiView({ state }: { state: AppState }) {
               tone="rose"
               content={
                 <div className="space-y-3 text-[1rem] leading-8">
-                  {latestSources.map((source) => (
-                    <p key={source.id}>
-                      <span className="wiki-link font-semibold">{source.title}</span>{' '}
-                      <span className="text-[#54595d]">({source.type})</span> contributes{' '}
-                      <span className="font-semibold">{state.claims.filter((claim) => claim.sourceId === source.id).length}</span> claims to the current knowledge base.
-                    </p>
-                  ))}
+                  {latestSources.map((source) => {
+                    const claimCount = source.claimCount || state.claims.filter((c) => c.sourceId === source.id).length;
+                    return (
+                      <p key={source.id}>
+                        {source.source_url ? (
+                          <a href={source.source_url} target="_blank" rel="noopener noreferrer" className="wiki-link font-semibold">{source.title}</a>
+                        ) : (
+                          <span className="font-semibold">{source.title}</span>
+                        )}{' '}
+                        <span className="text-[#54595d]">({source.type})</span> contributes{' '}
+                        <span className="font-semibold">{claimCount}</span> claims to the knowledge base.
+                      </p>
+                    );
+                  })}
                 </div>
               }
             />

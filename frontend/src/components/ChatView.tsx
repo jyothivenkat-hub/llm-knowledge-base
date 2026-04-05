@@ -95,7 +95,11 @@ export default function ChatView({ state, initialQuery = '' }: { state: AppState
                     ? "bg-[#f8f9fa] border border-[#a2a9b1] text-[#202122]"
                     : "bg-[#3366cc] text-white"
                 )}>
-                  <ReactMarkdown>{msg.content}</ReactMarkdown>
+                  {msg.role === 'assistant' && msg.content.includes('<') ? (
+                    <div dangerouslySetInnerHTML={{ __html: msg.content }} />
+                  ) : (
+                    <ReactMarkdown>{msg.content}</ReactMarkdown>
+                  )}
                 </div>
 
                 {msg.evidence && msg.evidence.length > 0 && (

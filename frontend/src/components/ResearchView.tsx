@@ -150,12 +150,27 @@ export default function ResearchView({ state, onAdd, onRefresh }: { state: AppSt
                 {source.status}
               </div>
             </div>
-            <h3 className="text-lg font-serif font-bold text-[#202122] mb-2 group-hover:text-[#3366cc] transition-colors line-clamp-1">{source.title}</h3>
-            <p className="text-sm text-[#54595d] mb-6 line-clamp-2 leading-relaxed">{source.content || 'No preview available'}</p>
+            <h3 className="text-lg font-serif font-bold text-[#202122] mb-2 group-hover:text-[#3366cc] transition-colors line-clamp-2">
+              {source.source_url ? (
+                <a href={source.source_url} target="_blank" rel="noopener noreferrer" className="hover:underline">{source.title}</a>
+              ) : source.title}
+            </h3>
+            {source.claimCount ? (
+              <p className="text-sm text-[#54595d] mb-6">{source.claimCount} claims extracted &middot; {source.type}</p>
+            ) : (
+              <p className="text-sm text-[#54595d] mb-6">{source.type} &middot; {source.status}</p>
+            )}
             <div className="flex items-center justify-between pt-4 border-t border-[#a2a9b1]/50">
               <span className="text-[10px] font-bold text-[#a2a9b1] uppercase tracking-widest">
                 {source.dateAdded ? `Added ${source.dateAdded}` : source.type}
               </span>
+              <div className="flex gap-2">
+                {source.source_url && (
+                  <a href={source.source_url} target="_blank" rel="noopener noreferrer" className="px-3 py-1.5 bg-[#eaecf0] hover:bg-[#d1d4d9] text-[#202122] rounded text-[10px] font-bold uppercase tracking-widest transition-all">
+                    View Source
+                  </a>
+                )}
+              </div>
             </div>
           </div>
         ))}

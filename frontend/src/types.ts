@@ -3,8 +3,10 @@ export type ResearchSource = {
   title: string;
   type: 'pdf' | 'article' | 'note' | 'web';
   content: string;
+  source_url?: string;
   status: 'pending' | 'processing' | 'completed';
   dateAdded: string;
+  claimCount?: number;
 };
 
 export type AtomicClaim = {
@@ -39,10 +41,13 @@ export type GraphLink = {
 export type ProductIdea = {
   id: string;
   title: string;
+  tagline?: string;
   problem: string;
   solution: string;
   audience: string;
   difficulty: 'easy' | 'medium' | 'hard';
+  novelty?: string;
+  revenue_model?: string;
   backingClaims: string[];
 };
 

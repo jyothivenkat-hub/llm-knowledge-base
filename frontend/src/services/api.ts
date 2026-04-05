@@ -24,7 +24,7 @@ export async function loadState(): Promise<AppState> {
   const edges = graph.edges || [];
   const clusters = graph.clusters || [];
   const ideas = graph.product_ideas || [];
-  const sources = sourcesPayload.sources || [];
+  const rawSources = sourcesPayload.sources || [];
 
   // Convert graph nodes to claims
   const claims: AtomicClaim[] = nodes.map((n: any) => ({
@@ -33,6 +33,18 @@ export async function loadState(): Promise<AppState> {
     text: n.text || '',
     category: n.cluster || n.type || '',
     confidence: 0.9,
+  }));
+
+  // Convert sources with claim counts and URLs
+  const sources: ResearchSource[] = rawSources.map((s: any) => ({
+    id: s.id || '',
+    title: s.title || '',
+    type: (s.type === 'pdf' ? 'pdf' : s.type === 'web' ? 'web' : 'article') as ResearchSource['type'],
+    content: s.content || '',
+    source_url: s.source_url || '',
+    status: (s.status || 'completed') as ResearchSource['status'],
+    dateAdded: s.dateAdded || '',
+    claimCount: nodes.filter((n: any) => n.source_paper === s.id).length,
   }));
 
   // Convert clusters to concepts
@@ -48,10 +60,13 @@ export async function loadState(): Promise<AppState> {
   const productIdeas: ProductIdea[] = ideas.map((i: any) => ({
     id: i.id,
     title: i.name || i.title || '',
+    tagline: i.tagline || '',
     problem: i.problem || '',
     solution: i.solution || '',
     audience: i.target_audience || i.audience || '',
     difficulty: i.difficulty || 'medium',
+    novelty: i.novelty || '',
+    revenue_model: i.revenue_model || '',
     backingClaims: i.evidence || [],
   }));
 
