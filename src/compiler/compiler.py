@@ -76,7 +76,7 @@ def run_compile(
     # This reads the extracted texts, chunks them, saves wiki/claims/*.md,
     # finds connections, clusters, enriches, and saves graph.json
     progress("Step 2/2: Building knowledge graph...")
-    graph_stats = build_graph(config, llm, source_texts, progress_callback=progress_callback)
+    graph_stats = build_graph(config, llm, source_texts, full=full, progress_callback=progress_callback)
     stats["claims"] = graph_stats.get("claims", 0)
     stats["edges"] = graph_stats.get("edges", 0)
     stats["clusters"] = graph_stats.get("clusters", 0)

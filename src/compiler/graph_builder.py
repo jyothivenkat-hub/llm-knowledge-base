@@ -1,14 +1,13 @@
-"""Knowledge graph builder — chunks raw sources into claims, connects, clusters, enriches."""
+"""Knowledge graph builder — incremental: only process new/modified sources."""
 
 from __future__ import annotations
 
 import json
 import logging
-import shutil
 from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Callable, Dict, List, Optional
+from typing import Any, Callable, Dict, List, Optional, Set, Tuple
 
 from ..config import Config
 from ..llm import LLM
@@ -21,19 +20,20 @@ def build_graph(
     config: Config,
     llm: LLM,
     source_texts: Dict[str, Dict],
+    full: bool = False,
     progress_callback: Optional[Callable[[str], None]] = None,
 ) -> Dict[str, Any]:
-    """Build the full knowledge graph from raw source texts.
+    """Build or update the knowledge graph incrementally.
 
-    Pipeline:
-    1. Chunk each source into atomic claims → save as wiki/claims/*.md
-    2. Connect claims across sources
-    3. Cluster into themes
-    4. Enrich with insights
-    5. Save graph.json
+    If graph.json exists and full=False, only processes new/modified sources:
+    - Preserves existing claims from unchanged papers
+    - Chunks only new papers
+    - Finds connections only for new claims
+    - Updates clusters and insights
 
     Args:
-        source_texts: {path: {title, text, source_url}} from compiler
+        source_texts: {path: {title, text, source_url}} — only new/modified sources
+        full: If True, rebuild everything from scratch
     """
     def progress(msg: str):
         logger.info(msg)
@@ -42,24 +42,75 @@ def build_graph(
 
     if not source_texts:
         progress("No sources to process.")
-        return {"claims": 0, "edges": 0, "clusters": 0}
+        # Return existing stats if graph exists
+        if config.graph_path.exists():
+            graph = json.loads(config.graph_path.read_text(encoding="utf-8"))
+            m = graph.get("metadata", {})
+            return {"claims": m.get("total_nodes", 0), "edges": m.get("total_edges", 0),
+                    "clusters": m.get("total_clusters", 0), "ideas": m.get("total_product_ideas", 0)}
+        return {"claims": 0, "edges": 0, "clusters": 0, "ideas": 0}
 
-    # ── Stage 1: Chunk into atomic claims ──────────────────
-    progress("Graph 1/5: Chunking sources into atomic claims...")
     claims_dir = ensure_dir(config.wiki_path / "claims")
-    # Clear old claims for full rebuild
-    for old in claims_dir.glob("*.md"):
-        old.unlink()
 
-    nodes = []
+    # ── Load existing graph ────────────────────────────────
+    existing_nodes = []
+    existing_edges = []
+    existing_clusters = []
+    existing_ideas = []
+
+    if not full and config.graph_path.exists():
+        progress("Loading existing graph...")
+        old_graph = json.loads(config.graph_path.read_text(encoding="utf-8"))
+        existing_nodes = old_graph.get("nodes", [])
+        existing_edges = old_graph.get("edges", [])
+        existing_clusters = old_graph.get("clusters", [])
+        existing_ideas = old_graph.get("product_ideas", [])
+        progress(f"  Existing: {len(existing_nodes)} claims, {len(existing_edges)} edges, {len(existing_clusters)} clusters")
+
+    # ── Identify what's new vs modified ────────────────────
+    new_source_paths = set(source_texts.keys())
+
+    # Find which existing nodes belong to sources being reprocessed
+    stale_node_ids = set()
+    preserved_nodes = []
+    for node in existing_nodes:
+        if node.get("source_paper", "") in new_source_paths:
+            stale_node_ids.add(node["id"])
+        else:
+            preserved_nodes.append(node)
+
+    # Remove stale edges (involve stale nodes)
+    preserved_edges = [
+        e for e in existing_edges
+        if e.get("source_id") not in stale_node_ids and e.get("target_id") not in stale_node_ids
+    ]
+
+    # Delete stale claim wiki pages
+    for nid in stale_node_ids:
+        claim_file = claims_dir / f"{nid}.md"
+        if claim_file.exists():
+            claim_file.unlink()
+
+    if full:
+        # Full rebuild — clear everything
+        for old in claims_dir.glob("*.md"):
+            old.unlink()
+        preserved_nodes = []
+        preserved_edges = []
+        existing_clusters = []
+
+    progress(f"  Preserved: {len(preserved_nodes)} claims, {len(preserved_edges)} edges")
+    progress(f"  Removed: {len(stale_node_ids)} stale claims")
+
+    # ── Stage 1: Chunk ONLY new sources ────────────────────
+    progress("Graph 1/6: Chunking new sources...")
+    new_nodes = []
     for source_path, source_data in source_texts.items():
         paper_slug = slugify(source_data["title"])[:40]
         progress(f"  Chunking: {source_data['title']}")
 
         try:
-            # Send raw text to LLM for chunking (truncate to fit context)
             text_for_llm = source_data["text"][:8000]
-
             response = llm.call(
                 prompt="",
                 template="chunk_claims.md",
@@ -83,86 +134,96 @@ def build_graph(
                 claim.setdefault("tags", [])
                 claim.setdefault("type", "claim")
                 claim.setdefault("evidence", "")
-                nodes.append(claim)
-
-                # Save each claim as a wiki page
+                new_nodes.append(claim)
                 _save_claim_page(claims_dir, claim)
 
-            progress(f"    → {len(claims)} claims extracted")
+            progress(f"    -> {len(claims)} claims extracted")
 
         except Exception as e:
             logger.warning("Failed to chunk %s: %s", source_data["title"], e)
-            progress(f"    Error chunking: {e}")
+            progress(f"    Error: {e}")
 
-    if not nodes:
-        progress("No claims extracted. Check your sources.")
-        return {"claims": 0, "edges": 0, "clusters": 0}
+    if not new_nodes and not preserved_nodes:
+        progress("No claims. Check your sources.")
+        return {"claims": 0, "edges": 0, "clusters": 0, "ideas": 0}
 
-    progress(f"  Total: {len(nodes)} claims from {len(source_texts)} sources")
+    # Merge: all nodes = preserved + new
+    all_nodes = preserved_nodes + new_nodes
+    new_node_ids = {n["id"] for n in new_nodes}
+    progress(f"  Total: {len(all_nodes)} claims ({len(preserved_nodes)} preserved + {len(new_nodes)} new)")
 
-    # ── Stage 2: Find connections ──────────────────────────
-    progress("Graph 2/6: Finding connections across claims...")
-    edges = _connect_claims(llm, nodes, progress)
-    progress(f"  Found {len(edges)} connections")
+    # ── Stage 2: Find connections (only involving new nodes) ──
+    progress("Graph 2/6: Finding connections for new claims...")
+    new_edges = _connect_new_claims(llm, all_nodes, new_node_ids, progress)
+    all_edges = preserved_edges + new_edges
+    progress(f"  Connections: {len(all_edges)} total ({len(preserved_edges)} preserved + {len(new_edges)} new)")
 
-    # ── Stage 3: Cluster into themes ───────────────────────
-    progress("Graph 3/6: Clustering into themes...")
-    clusters = _cluster_claims(llm, nodes, edges, progress)
-    progress(f"  Created {len(clusters)} clusters")
+    # ── Stage 3: Update clusters ───────────────────────────
+    progress("Graph 3/6: Updating clusters...")
+    clusters = _update_clusters(llm, all_nodes, all_edges, existing_clusters, new_node_ids, progress)
+    progress(f"  {len(clusters)} clusters")
 
-    # Assign cluster to nodes
+    # Assign cluster to all nodes
     for cluster in clusters:
         for nid in cluster.get("node_ids", []):
-            for node in nodes:
+            for node in all_nodes:
                 if node["id"] == nid:
                     node["cluster"] = cluster["id"]
 
-    # Update claim wiki pages with cluster info
-    for node in nodes:
+    # Update claim pages with cluster info for new nodes
+    for node in new_nodes:
         if node["cluster"]:
             _save_claim_page(claims_dir, node)
 
     # ── Stage 4: Enrich ────────────────────────────────────
-    progress("Graph 4/6: Finding contradictions, gaps, synthesis...")
-    insights = _enrich_graph(llm, nodes, edges, clusters, progress)
+    progress("Graph 4/6: Analyzing insights...")
+    insights = _enrich_graph(llm, all_nodes, all_edges, clusters, progress)
 
-    # ── Stage 5: Generate product ideas ─────────────────────
-    progress("Graph 5/6: Generating product ideas from insights...")
-    product_ideas = _generate_product_ideas(config, llm, nodes, clusters, insights, progress)
-    progress(f"  Generated {len(product_ideas)} product ideas")
+    # ── Stage 5: Product ideas ─────────────────────────────
+    progress("Graph 5/6: Generating product ideas...")
+    product_ideas = _generate_product_ideas(config, llm, all_nodes, clusters, insights, progress)
+    progress(f"  {len(product_ideas)} product ideas")
 
     # ── Stage 6: Save ──────────────────────────────────────
-    progress("Graph 6/6: Saving knowledge graph...")
+    progress("Graph 6/6: Saving graph...")
+    # Count total papers from all nodes
+    all_papers = set(n.get("source_paper", "") for n in all_nodes)
+
     graph = {
-        "nodes": nodes,
-        "edges": edges,
+        "nodes": all_nodes,
+        "edges": all_edges,
         "clusters": clusters,
         "product_ideas": product_ideas,
         "metadata": {
-            "total_nodes": len(nodes),
-            "total_edges": len(edges),
+            "total_nodes": len(all_nodes),
+            "total_edges": len(all_edges),
             "total_clusters": len(clusters),
             "total_product_ideas": len(product_ideas),
-            "papers_processed": len(source_texts),
+            "papers_processed": len(all_papers),
             "built_at": datetime.now().isoformat(),
+            "last_update": {
+                "new_papers": len(source_texts),
+                "new_claims": len(new_nodes),
+                "new_edges": len(new_edges),
+                "preserved_claims": len(preserved_nodes),
+                "preserved_edges": len(preserved_edges),
+            },
         },
     }
 
-    config.graph_path.write_text(
-        json.dumps(graph, indent=2, ensure_ascii=False), encoding="utf-8"
-    )
-    config.graph_insights_path.write_text(
-        json.dumps(insights, indent=2, ensure_ascii=False), encoding="utf-8"
-    )
+    config.graph_path.write_text(json.dumps(graph, indent=2, ensure_ascii=False), encoding="utf-8")
+    config.graph_insights_path.write_text(json.dumps(insights, indent=2, ensure_ascii=False), encoding="utf-8")
 
-    progress(f"Done: {len(nodes)} claims, {len(edges)} connections, {len(clusters)} clusters, {len(product_ideas)} product ideas")
-    return {"claims": len(nodes), "edges": len(edges), "clusters": len(clusters), "ideas": len(product_ideas)}
+    # ── Append to log ──────────────────────────────────────
+    _append_log(config, source_texts, new_nodes, new_edges, clusters)
+
+    progress(f"Done: {len(all_nodes)} claims ({len(new_nodes)} new), {len(all_edges)} connections, {len(clusters)} clusters")
+    return {"claims": len(all_nodes), "edges": len(all_edges), "clusters": len(clusters), "ideas": len(product_ideas)}
 
 
 # ─── Save claim as wiki page ────────────────────────────
 
 def _save_claim_page(claims_dir: Path, claim: Dict):
-    """Save a claim as an individual wiki markdown page."""
     claim_path = claims_dir / f"{claim['id']}.md"
     cluster_line = f"cluster: \"{claim.get('cluster', '')}\"\n" if claim.get("cluster") else ""
     tags_str = ", ".join(f'"{t}"' for t in claim.get("tags", []))
@@ -187,35 +248,56 @@ source_title: "{claim.get('source_title', '')}"
     claim_path.write_text(md, encoding="utf-8")
 
 
-# ─── Stage 2: Connect ────────────────────────────────────
+# ─── Stage 2: Connect (only new nodes) ──────────────────
 
-def _connect_claims(llm: LLM, nodes: List[Dict], progress: Callable) -> List[Dict]:
-    """Find relationships between claims using tag-overlap batching."""
-    # Build tag index
+def _connect_new_claims(
+    llm: LLM, all_nodes: List[Dict], new_node_ids: Set[str], progress: Callable
+) -> List[Dict]:
+    """Find connections only for new nodes — pair them with ALL existing nodes."""
+    if not new_node_ids:
+        return []
+
+    node_map = {n["id"]: n for n in all_nodes}
+
+    # Build tag index across ALL nodes
     tag_to_nodes = defaultdict(set)
-    for node in nodes:
+    for node in all_nodes:
         for tag in node.get("tags", []):
             tag_to_nodes[tag.lower()].add(node["id"])
 
-    # Find candidate pairs — must share a tag
-    candidate_ids = set()
-    for tag, node_ids in tag_to_nodes.items():
-        ids = list(node_ids)
-        for nid in ids:
-            candidate_ids.add(nid)
+    # Find candidate nodes that share tags with new nodes
+    candidates_for_batching = set(new_node_ids)  # always include new nodes
+    for node in all_nodes:
+        if node["id"] in new_node_ids:
+            for tag in node.get("tags", []):
+                # Include old nodes that share tags with new nodes
+                for related_id in tag_to_nodes.get(tag.lower(), set()):
+                    candidates_for_batching.add(related_id)
 
-    # Build batches of 15-20 claims
-    candidates = sorted(candidate_ids)
+    # Build batches — each batch MUST contain at least 1 new node
+    candidates = sorted(candidates_for_batching)
     batch_size = 18
-    batches = [candidates[i:i + batch_size] for i in range(0, len(candidates), batch_size)]
-    if not batches:
-        batches = [[n["id"] for n in nodes]]
+    batches = []
+    for i in range(0, len(candidates), batch_size):
+        batch = candidates[i:i + batch_size]
+        # Only process if batch has at least 1 new node
+        if any(nid in new_node_ids for nid in batch) and len(batch) >= 2:
+            batches.append(batch)
 
-    progress(f"  Processing {len(batches)} connection batches...")
+    if not batches:
+        # Fallback: batch all new nodes together
+        batches = [sorted(new_node_ids)]
+
+    progress(f"  Processing {len(batches)} batches (only new claims + related)...")
 
     all_edges = []
-    edge_id = 0
-    node_map = {n["id"]: n for n in nodes}
+    edge_id_start = 0
+    # Find max existing edge ID to continue numbering
+    try:
+        if any(True for _ in []):
+            pass
+    except Exception:
+        pass
 
     for batch_idx, batch_ids in enumerate(batches):
         batch_nodes = [node_map[nid] for nid in batch_ids if nid in node_map]
@@ -234,12 +316,11 @@ def _connect_claims(llm: LLM, nodes: List[Dict], progress: Callable) -> List[Dic
                 edges = edges.get("edges", edges.get("relationships", []))
 
             for edge in edges:
-                edge_id += 1
-                edge["id"] = f"edge-{edge_id:04d}"
+                edge_id_start += 1
+                edge["id"] = f"edge-new-{edge_id_start:04d}"
                 edge.setdefault("strength", 0.5)
                 edge.setdefault("relationship", "related-to")
                 edge.setdefault("explanation", "")
-                # Validate IDs exist
                 if edge.get("source_id") in node_map and edge.get("target_id") in node_map:
                     all_edges.append(edge)
 
@@ -249,12 +330,102 @@ def _connect_claims(llm: LLM, nodes: List[Dict], progress: Callable) -> List[Dic
     return all_edges
 
 
-# ─── Stage 3: Cluster ────────────────────────────────────
+# ─── Stage 3: Update Clusters ───────────────────────────
 
-def _cluster_claims(llm: LLM, nodes: List[Dict], edges: List[Dict], progress: Callable) -> List[Dict]:
-    """Group claims into thematic clusters."""
+def _update_clusters(
+    llm: LLM,
+    all_nodes: List[Dict],
+    all_edges: List[Dict],
+    existing_clusters: List[Dict],
+    new_node_ids: Set[str],
+    progress: Callable,
+) -> List[Dict]:
+    """Update clusters incrementally — assign new nodes to existing or new clusters."""
+    if not new_node_ids or not existing_clusters:
+        # No existing clusters or no new nodes — full cluster
+        return _full_cluster(llm, all_nodes, all_edges, progress)
+
+    # Ask LLM to assign new nodes to existing clusters (or create new ones)
+    new_nodes = [n for n in all_nodes if n["id"] in new_node_ids]
+
+    cluster_summary = "\n".join(
+        f"- {c['id']}: {c.get('label', '')} — {c.get('description', '')[:100]}"
+        for c in existing_clusters
+    )
+
+    prompt = f"""You are updating clusters in a knowledge graph. There are existing clusters and new claims to assign.
+
+EXISTING CLUSTERS:
+{cluster_summary}
+
+NEW CLAIMS TO ASSIGN:
+"""
+    for n in new_nodes[:50]:
+        prompt += f"[{n['id']}] ({n.get('type', 'claim')}): \"{n['text']}\"\n  Tags: {', '.join(n.get('tags', []))}\n"
+
+    prompt += """
+For each new claim, assign it to the BEST existing cluster. If a claim doesn't fit any existing cluster, create a new cluster for it.
+
+Return JSON:
+{
+  "assignments": {"claim-id": "cluster-id", ...},
+  "new_clusters": [
+    {"id": "slug", "label": "Name", "description": "...", "color": "#hex"}
+  ]
+}
+"""
+
     try:
-        # For large graphs, only send a summary to fit context
+        response = llm.call(prompt=prompt, max_tokens=4096)
+        result = parse_llm_json(response)
+
+        assignments = result.get("assignments", {})
+        new_cluster_defs = result.get("new_clusters", [])
+
+        # Update existing clusters with new nodes
+        updated_clusters = []
+        for cluster in existing_clusters:
+            c = dict(cluster)
+            node_ids = list(c.get("node_ids", []))
+            for nid, cid in assignments.items():
+                if cid == c["id"]:
+                    node_ids.append(nid)
+            c["node_ids"] = node_ids
+            updated_clusters.append(c)
+
+        # Add new clusters
+        for nc in new_cluster_defs:
+            nc_node_ids = [nid for nid, cid in assignments.items() if cid == nc["id"]]
+            nc["node_ids"] = nc_node_ids
+            updated_clusters.append(nc)
+
+        # Catch unassigned
+        all_assigned = set()
+        for c in updated_clusters:
+            all_assigned.update(c.get("node_ids", []))
+        unassigned = [nid for nid in new_node_ids if nid not in all_assigned]
+        if unassigned:
+            # Add to "other" cluster or create one
+            other = next((c for c in updated_clusters if c["id"] == "other"), None)
+            if other:
+                other["node_ids"].extend(unassigned)
+            else:
+                updated_clusters.append({
+                    "id": "other", "label": "Other",
+                    "description": "Uncategorized claims",
+                    "node_ids": unassigned, "color": "#6a6a82",
+                })
+
+        return updated_clusters
+
+    except Exception as e:
+        logger.warning("Incremental clustering failed: %s. Falling back to full cluster.", e)
+        return _full_cluster(llm, all_nodes, all_edges, progress)
+
+
+def _full_cluster(llm: LLM, nodes: List[Dict], edges: List[Dict], progress: Callable) -> List[Dict]:
+    """Full rebuild clustering (fallback)."""
+    try:
         nodes_for_prompt = nodes if len(nodes) <= 100 else nodes[:100]
         edges_for_prompt = edges if len(edges) <= 200 else edges[:200]
 
@@ -270,79 +441,49 @@ def _cluster_claims(llm: LLM, nodes: List[Dict], edges: List[Dict], progress: Ca
         if not isinstance(clusters, list):
             clusters = [clusters]
 
-        # Make sure all nodes are assigned
         assigned = set()
         for c in clusters:
             for nid in c.get("node_ids", []):
                 assigned.add(nid)
         unassigned = [n["id"] for n in nodes if n["id"] not in assigned]
         if unassigned:
-            clusters.append({
-                "id": "other",
-                "label": "Other",
-                "description": "Uncategorized claims",
-                "node_ids": unassigned,
-                "color": "#6a6a82",
-            })
-
+            clusters.append({"id": "other", "label": "Other", "description": "Uncategorized",
+                            "node_ids": unassigned, "color": "#6a6a82"})
         return clusters
 
     except Exception as e:
-        logger.warning("Clustering failed: %s. Using tag-based fallback.", e)
+        logger.warning("Clustering failed: %s", e)
         return _fallback_cluster(nodes)
 
 
 def _fallback_cluster(nodes: List[Dict]) -> List[Dict]:
-    """Simple tag-based clustering as fallback."""
     tag_groups = defaultdict(list)
     for node in nodes:
         tag = node.get("tags", ["general"])[0] if node.get("tags") else "general"
         tag_groups[tag].append(node["id"])
-
     colors = ["#7c83ff", "#4ade80", "#fbbf24", "#f87171", "#38bdf8",
               "#c084fc", "#fb923c", "#34d399", "#f472b6", "#a78bfa"]
-
-    return [
-        {
-            "id": slugify(tag),
-            "label": tag.replace("-", " ").title(),
-            "description": f"Claims related to {tag}",
-            "node_ids": nids,
-            "color": colors[i % len(colors)],
-        }
-        for i, (tag, nids) in enumerate(tag_groups.items())
-    ]
+    return [{"id": slugify(tag), "label": tag.replace("-", " ").title(),
+             "description": f"Claims about {tag}", "node_ids": nids,
+             "color": colors[i % len(colors)]}
+            for i, (tag, nids) in enumerate(tag_groups.items())]
 
 
 # ─── Stage 4: Enrich ─────────────────────────────────────
 
-def _enrich_graph(
-    llm: LLM, nodes: List[Dict], edges: List[Dict], clusters: List[Dict], progress: Callable
-) -> Dict:
-    """Find contradictions, gaps, synthesis opportunities."""
+def _enrich_graph(llm: LLM, nodes: List[Dict], edges: List[Dict], clusters: List[Dict], progress: Callable) -> Dict:
     try:
-        # Limit context size
         nodes_for_prompt = nodes if len(nodes) <= 80 else nodes[:80]
         edges_for_prompt = edges if len(edges) <= 150 else edges[:150]
-
-        response = llm.call(
-            prompt="",
-            template="enrich_graph.md",
-            template_vars={
-                "nodes": nodes_for_prompt,
-                "edges": edges_for_prompt,
-                "clusters": clusters,
-            },
-            max_tokens=4096,
-        )
-
+        response = llm.call(prompt="", template="enrich_graph.md",
+            template_vars={"nodes": nodes_for_prompt, "edges": edges_for_prompt, "clusters": clusters},
+            max_tokens=4096)
         insights = parse_llm_json(response)
         c = len(insights.get("contradictions", []))
         g = len(insights.get("gaps", []))
         s = len(insights.get("synthesis", []))
         progress(f"  {c} contradictions, {g} gaps, {s} synthesis opportunities")
         return insights
-
     except Exception as e:
         logger.warning("Enrichment failed: %s", e)
         return {"contradictions": [], "gaps": [], "synthesis": [], "bridges": [], "key_questions": []}
@@ -350,49 +491,45 @@ def _enrich_graph(
 
 # ─── Stage 5: Product Ideas ──────────────────────────────
 
-def _generate_product_ideas(
-    config: Config,
-    llm: LLM,
-    nodes: List[Dict],
-    clusters: List[Dict],
-    insights: Dict,
-    progress: Callable,
-) -> List[Dict]:
-    """Generate product ideas from the knowledge graph insights."""
+def _generate_product_ideas(config: Config, llm: LLM, nodes: List[Dict], clusters: List[Dict], insights: Dict, progress: Callable) -> List[Dict]:
     try:
-        # Get top findings (highest-connected nodes or type=finding)
         findings = [n for n in nodes if n.get("type") == "finding"]
         if not findings:
             findings = nodes[:20]
-        top_findings = findings[:25]
-
-        gaps = insights.get("gaps", [])
-        synthesis = insights.get("synthesis", [])
-        contradictions = insights.get("contradictions", [])
-
-        response = llm.call(
-            prompt="",
-            template="generate_product_ideas.md",
-            template_vars={
-                "clusters": clusters,
-                "top_findings": top_findings,
-                "gaps": gaps,
-                "synthesis": synthesis,
-                "contradictions": contradictions,
-            },
-            max_tokens=4096,
-        )
-
+        response = llm.call(prompt="", template="generate_product_ideas.md",
+            template_vars={"clusters": clusters, "top_findings": findings[:25],
+                          "gaps": insights.get("gaps", []), "synthesis": insights.get("synthesis", []),
+                          "contradictions": insights.get("contradictions", [])},
+            max_tokens=4096)
         ideas = parse_llm_json(response)
         if not isinstance(ideas, list):
             ideas = ideas.get("ideas", ideas.get("product_ideas", []))
-
-        # Add IDs
         for i, idea in enumerate(ideas):
             idea["id"] = f"idea-{i+1:02d}"
-
         return ideas
-
     except Exception as e:
-        logger.warning("Product idea generation failed: %s", e)
+        logger.warning("Product ideas failed: %s", e)
         return []
+
+
+# ─── Log ──────────────────────────────────────────────────
+
+def _append_log(config: Config, source_texts: Dict, new_nodes: List[Dict], new_edges: List[Dict], clusters: List[Dict]):
+    """Append an entry to wiki/log.md."""
+    log_path = config.wiki_path / "log.md"
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M")
+    papers = ", ".join(d["title"] for d in source_texts.values())
+
+    entry = f"""## [{timestamp}] compile | {len(source_texts)} source(s)
+- Papers: {papers}
+- New claims: {len(new_nodes)}
+- New connections: {len(new_edges)}
+- Clusters: {len(clusters)}
+
+"""
+    if log_path.exists():
+        existing = log_path.read_text(encoding="utf-8")
+        log_path.write_text(existing + entry, encoding="utf-8")
+    else:
+        header = "# Knowledge Base Log\n\nChronological record of all compile actions.\n\n"
+        log_path.write_text(header + entry, encoding="utf-8")
