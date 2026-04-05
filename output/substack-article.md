@@ -1,224 +1,208 @@
 # I Built a System That Turns Research Papers Into a Living Wikipedia, Knowledge Graph, and Product Ideas
 
-**Upload papers. AI extracts atomic claims. Out comes a beautiful wiki, interactive knowledge graph, evidence-backed search, and actionable product ideas.**
+Researchers have a hoarding problem. Over years of work, we conduct dozens of studies, publish papers, and store them in digital graveyards like Google Drive folders named things like `sleep_papers_v3_FINAL`.
 
-**Here's how to do it in 5 steps.**
+The tragedy? These insights exist in isolation. There is no way to automatically cross connect a finding from 2022 with a contradiction discovered in 2026.
 
----
+We are building a library where the books cannot talk to each other.
 
-## The Problem Nobody Talks About
+Until now.
 
-You've been researching for years.
-
-You've read hundreds of papers. You've highlighted findings. You've saved PDFs into folders called things like `attention_papers_v3_FINAL_REAL`. You've told yourself you'll organize them later.
-
-You never did. Nobody does.
-
-And here's the real cost: that neuroscience paper from last year that directly contradicts the scaling laws paper you read this week? You'll never notice. The thread connecting FlashAttention's memory optimization to how biological neurons actually process language? Buried across six different PDFs on your hard drive.
-
-We don't have a knowledge problem. We have a **connection problem**.
-
-Research lives in silos. Paper A sits in one folder. Paper B sits in another. The insight that emerges when you cross-reference them? It doesn't exist anywhere -- because no tool ever built it for you.
-
-I decided to fix this.
+Inspired by Andrej Karpathy's vision of an LLM driven knowledge base, I built a framework for a Dynamic Research Wikipedia. A system that turns raw research into a living, breathing encyclopedia, complete with an interactive knowledge graph and actionable product ideas.
 
 ---
 
-## The Solution: What If We Built Wikipedia From Your Papers?
+## The Problem: The Repository Silo
 
-The idea is simple but powerful:
+Traditional research storage is linear and static. You have:
 
-**Take all your studies. Chunk them into atomic micro-insights. Find every connection between them. Index everything. Build a Wikipedia you can ask questions to. Visualize it as a knowledge graph. And -- here's the twist -- generate product ideas from the whole thing.**
+**The Search Burden.** You have to remember which paper had that specific claim about caffeine and sleep. Was it the 2024 study or the 2025 one?
 
-Not a folder of PDFs. Not a chatbot that forgets everything between sessions. A **living, compounding knowledge base** that gets smarter with every paper you add and every question you ask.
+**The Synthesis Gap.** Human brains struggle to track 210+ typed connections across hundreds of pages. You read five papers about sleep. Each one has 10 key findings. That is 50 findings with potentially hundreds of connections between them. No one can hold all of that in their head.
 
-```
-Upload papers
-    -> AI extracts atomic claims
-        -> Builds a beautiful wiki
-        -> Interactive knowledge graph
-        -> Evidence-backed search
-        -> Actionable product ideas
-```
-
-I call it **IdeaForge**. It was inspired by Andrej Karpathy's approach to building personal knowledge systems with LLMs. He showed that you could use language models not just to summarize, but to *structure* knowledge. I took that idea and pushed it further: what if we built the full pipeline, from raw PDFs all the way to product concepts?
+**Zero Compounding.** Your knowledge stays the same size unless you manually sit down and write a literature review. Every paper you read is a one time event. Nothing builds on itself.
 
 ---
 
-## The Core Insight
+## The Solution: Compile Once, Compound Forever
 
-Here's what makes this fundamentally different from RAG, ChatGPT with uploaded files, or any "chat with your PDFs" tool:
+Instead of just searching your PDFs (that is standard RAG), this tool compiles them.
 
-**RAG re-discovers knowledge from scratch on every question.**
+It breaks studies into micro bits (atomic claims), indexes them, and maps their relationships. It does not just store information. It generates a Knowledge Graph and Product Ideas based on the gaps in your research.
 
-IdeaForge **compiles once, compounds forever.**
-
-Cross-references are pre-built. Contradictions are pre-flagged. Synthesis is already done. The knowledge graph exists as a persistent artifact. Every new paper you add and every question you ask makes the wiki richer.
-
-You never write the wiki. The LLM writes everything. You just steer -- and every answer compounds.
+Upload papers. AI extracts atomic claims. Out comes a beautiful wiki, interactive knowledge graph, evidence backed search, and actionable ideas.
 
 ---
 
-## The Architecture: Three Clean Layers
+## How It Works: The 5 Step Deep Dive
 
-Before we dive into the steps, here's how the system is organized:
+### Step 1: Ingest. Upload Your Sources.
 
-**Layer 1: Raw** -- Your source documents. PDFs, markdown articles, web clips. Immutable. Never touched after upload. These are your source of truth.
+Drop your research in. That is it.
 
-**Layer 2: Wiki** -- Everything the AI generates. Atomic claims, entity pages, source summaries, the knowledge graph, indexes, backlinks, product ideas. The LLM owns this layer entirely.
+- PDFs of research or papers. Drag and drop into the dashboard.
+- Web articles. Markdown files, text files, notes.
+- Web Clipper. A tool in the sidebar that lets you paste any webpage directly into the knowledge base.
 
-**Layer 3: Schema** -- The rules governing how the wiki is structured. What a claim looks like. How entities evolve. How links resolve.
+Files go into the raw folder. The system scans for new files, tracks them with hashes, and flags what needs processing.
 
-The key design decision: your original papers are never modified. The compiled wiki can be regenerated at any time. And the compile is **incremental** -- only new or modified papers get processed. Old claims from unchanged papers are preserved.
-
----
-
-## The 5 Steps: From Papers to Product Ideas
-
-### Step 1: Upload Your Sources
-
-Drop your research in. That's it.
-
-- **PDFs of papers** -- drag and drop into the dashboard
-- **Web articles** -- markdown files, text files, notes
-- **Web Clipper** -- a browser bookmarklet that clips any webpage directly into the knowledge base
-
-Files go into `raw/articles/` or `raw/papers/`. The system scans for new files, tracks them with SHA256 hashes in a manifest, and flags what needs processing.
-
-You bring the research. IdeaForge does the rest.
-
-### Step 2: Compile -- The 7-Stage LLM Pipeline
-
-This is the engine. When you hit "Compile," the system runs **only new/modified papers** through seven stages:
-
-**Stage 1 -- Extract text.** Reads PDFs and markdown files, pulling out clean text.
-
-**Stage 2 -- Chunk into atomic claims.** This is where the magic starts. The system doesn't summarize your paper. It extracts **atomic claims** -- the individual insights a researcher would underline. The prompt is deliberately opinionated:
-
-> *"Extract 8-15 key insights per paper. Quality over quantity. If you wouldn't tweet it, don't include it."*
-
-Each claim gets a type:
-- **Finding** -- a result backed by evidence (e.g., "FlashAttention achieves 2-4x speedup by reducing HBM reads/writes through tiling on A100 GPUs")
-- **Method** -- a technique introduced (e.g., "Tiling breaks attention computation into SRAM-sized blocks")
-- **Concept** -- a key idea defined (e.g., "IO-awareness means designing algorithms around the GPU memory hierarchy")
-- **Hypothesis** -- a claim not yet proven
-
-Each claim gets tags for cross-referencing and specific evidence from the paper. From 10 papers, IdeaForge extracted ~167 atomic claims. Not restated sentences -- genuine insights with citations.
-
-**Stage 3 -- Connect across papers.** This is the step that makes everything worthwhile. The system takes all claims and asks: *how are these related?*
-
-It finds typed relationships:
-- **Supports** -- Claim A provides evidence for Claim B
-- **Contradicts** -- these claims disagree (shown as dashed red lines in the graph)
-- **Extends** -- Claim A builds on Claim B
-- **Provides mechanism for** -- Claim A explains *how* Claim B works
-- **Causes**, **is-part-of**, **related-to**, **uses-method**
-
-The system prioritizes **cross-paper connections** over same-paper connections. That's the whole point. You already know what's inside a single paper. What you don't know is how Paper A's transformer findings connect to Paper B's neuroscience discoveries.
-
-From 167 claims, the system found ~210 typed connections. Many of them I would never have noticed reading the papers individually.
-
-**Stage 4 -- Cluster into themes.** Connected claims naturally group into research themes -- auto-detected, not imposed top-down. Each cluster gets a label, description, and list of constituent claims.
-
-**Stage 5 -- Entity pages.** The system builds evolving concept pages. An entity page for "Attention" synthesizes insights from *every* paper that mentions attention. It has Overview, Key Findings, Methods, Open Questions, and Sources. As you add new papers, entity pages update automatically. One concept, many papers, one living page.
-
-**Stage 6 -- Enrich.** The system analyzes the full graph for contradictions, knowledge gaps, synthesis opportunities, and bridge claims connecting distant research areas.
-
-**Stage 7 -- Product ideas.** The system looks at findings, gaps, contradictions, and synthesis opportunities, then generates 5-10 product concepts grounded in your specific research. Not generic startup ideas -- ideas that reference specific claims and specific gaps.
-
-### Step 3: Explore -- The Wiki and Knowledge Graph
-
-After compile, you have two ways to explore:
-
-**The Wiki** -- a Wikipedia-style interface. Browse all compiled articles with claim counts. Read source summaries. See evolving entity pages that synthesize across papers. Navigate between articles through wikilinks. Every concept links to every other concept it touches.
-
-**The Knowledge Graph** -- an interactive D3.js force-directed visualization. Nodes are claims, colored by research cluster. Edges show typed relationships. Hover over a node to highlight its neighborhood. Click to see the full text and connections. Contradictions appear as dashed red lines. You can see at a glance where your research clusters, where it bridges, and where the gaps are.
-
-### Step 4: Search and Ask Questions
-
-Type any question. The system:
-
-1. **Searches** -- BM25 finds matching claims across all papers + graph nodes
-2. **Gathers context** -- pulls in graph connections, neighboring claims, relevant edges
-3. **Synthesizes** -- an LLM composes an answer from claims + their connections
-4. **Shows evidence** -- a ranked evidence trail with type badges, source papers, and relevance scores
-
-Ask "How do transformer layers map to brain regions?" and you get a synthesized answer drawing from neuroscience papers *and* architecture papers, with every claim cited.
-
-And here's what makes it compound: the **"File back to wiki"** button saves your answer into `raw/` for recompilation. Your questions become part of the knowledge base. Every exploration makes the wiki richer.
-
-### Step 5: Product Ideas
-
-The final output that surprised even me.
-
-The system analyzes the full knowledge graph -- clusters, gaps, contradictions, synthesis opportunities -- and generates 5-10 product ideas grounded in your research.
-
-Each idea includes:
-- **Name and tagline** -- a clear pitch
-- **Problem** -- what it solves (referencing specific findings/gaps)
-- **Solution** -- how it works
-- **Target audience** -- who would use it
-- **Difficulty** -- low, medium, or high engineering effort
-- **Novelty** -- incremental, significant, or breakthrough
-- **Revenue model** -- how it could make money
-- **Research evidence** -- the specific claims backing it
-
-These aren't generic ideas. They're uniquely enabled by *your* research corpus. From insights to products.
+You bring the research. The tool does the rest.
 
 ---
 
-## What You Get: The Full Output
+### Step 2: Compile. The 7 Stage Pipeline.
 
-After running the pipeline on 10 research papers, here's what IdeaForge produced:
+This is where the magic happens. When you hit Compile, the system runs only new or modified papers through seven stages.
 
-| Output | Count |
-|--------|-------|
-| Atomic claims | ~167 |
-| Typed connections | ~210 |
-| Research clusters | Auto-detected themes |
-| Entity pages | Evolving concept pages |
-| Source summaries | One per paper |
-| Product ideas | 5-10 grounded concepts |
-| Knowledge graph | Interactive D3.js visualization |
+Let me show you what actually happens with a simple example.
 
-Plus: a full-text search engine, an evidence trail for every answer, a wiki editor, a web clipper, health checks for finding broken links and orphan pages, and a log of every compile action.
+Say you are trying to answer one question: **What actually makes people sleep better?**
+
+You have collected five studies over the past year:
+- One about how exercise affects sleep
+- One about how screen time affects sleep
+- One about caffeine and sleep
+- One about stress, anxiety and insomnia
+- One about gut bacteria and sleep
+
+Five PDFs. Five different folders on your laptop. You have read them all but you have never sat down and connected the dots between them.
+
+Here is what happens when you hit Compile:
+
+**Stage 1. Extract.** The system reads your PDFs and pulls out clean text. Nothing fancy. Just getting the words out so the AI can work with them.
+
+**Stage 2. Chunk into atomic claims.** This is the most important step. The system does NOT write you a summary. Instead, it pulls out the individual findings. The specific things you would highlight with a marker.
+
+From the exercise study:
+> "People who exercised 4 times a week for 30 minutes fell asleep faster and slept longer."
+
+From the screen time study:
+> "Two hours of phone time before bed cuts your sleep chemical in half."
+
+From the caffeine study:
+> "A coffee at 2pm can still steal one hour of deep sleep that night."
+
+From the stress study:
+> "Stress starts a chain reaction. It causes worry, which causes phone scrolling, which causes blue light, which kills sleep."
+
+From the gut bacteria study:
+> "Certain gut bacteria help produce the chemicals your brain needs to fall asleep."
+
+Each study produces 5 to 30 of these bite sized findings. Not vague summaries. Specific, usable facts you could actually tell a friend.
+
+**Stage 3. Classify and tag.** Each finding gets a label and keywords:
+
+- **Finding**: a proven result. "A coffee at 2pm still costs you one hour of deep sleep."
+- **Method**: a technique. "Measured sleep chemicals in saliva every 30 minutes."
+- **Concept**: a key idea. "Your body has a 24 hour clock that controls when you feel sleepy."
+- **Hypothesis**: an unproven idea. "Fixing gut bacteria might fix sleep problems too."
+
+**Stage 4. Connect across studies.** Here is where it gets interesting. The system looks at ALL the findings from ALL five studies and asks: how are these related?
+
+It finds things like:
+
+The screen time study says blue light blocks your sleep chemical. The exercise study says exercise helps produce that same chemical. **These are two sides of the same coin.** Screens take it away, exercise builds it back.
+
+The stress study says worry leads to phone scrolling at night. The screen time study says phones block your sleep chemical. **These compound.** Stress makes you grab your phone, and your phone makes the sleep problem worse. A vicious cycle no single study could reveal.
+
+The caffeine study says coffee blocks the molecule that makes you sleepy. The stress study says anxiety also blocks that molecule through a different path. **Same target, different weapons.** Nobody designed that experiment but the system flags it.
+
+That last one? You would almost certainly miss it reading the papers one by one. The system catches it automatically.
+
+**Stage 5. Cluster into themes.** The connected findings naturally group into bigger topics:
+
+- "Light and Your Body Clock" (sunlight plus screens plus sleep chemicals)
+- "Exercise and Sleep" (physical activity plus anxiety reduction)
+- "Stress and the Sleep Spiral" (worry plus phones plus blue light)
+- "What You Put In Your Body" (caffeine plus gut bacteria)
+
+You did not create these categories. They emerged from the connections.
+
+**Stage 6. Entity pages.** The system builds Wikipedia style pages for each concept. The page for "Melatonin" pulls together what the screen study says about blue light blocking it, what the exercise study says about building it up, what the caffeine study hints about coffee interfering with it, and what the gut bacteria study says about producing it.
+
+One concept. Four different studies. One living page. And next month when you add a new study about melatonin supplements, the page updates itself.
+
+**Stage 7. Enrich.** Finally, the system zooms out and flags the big picture insights:
+
+- **Gap found**: "All five studies looked at sleep factors one at a time. No study tested what happens when you combine morning exercise, no screens, and no afternoon coffee."
+- **Synthesis opportunity**: "Exercise, screen limits, and caffeine timing all affect the same sleep chemical through different paths. A combined protocol could be more powerful than any single change."
+- **Surprise connection**: "The caffeine study and the stress study both point to the same molecule through completely different paths. One through coffee, one through anxiety."
+
+These are the kinds of insights that take weeks of careful reading to develop on your own. The system generates them in minutes.
 
 ---
 
-## The Tools That Come With It
+### Step 3: Explore. The Interactive Knowledge Graph.
 
-Beyond the core pipeline, IdeaForge includes:
+Rather than scrolling through a list of files, you navigate a force directed visualization.
 
-- **Wiki Editor** -- in-browser markdown editing on every page. Refine the AI's output, add your own notes, fix inaccuracies. The system is a starting point, not a final product.
-- **Web Clipper** -- clip articles from any browser directly into the knowledge base
-- **Health Checks** -- find orphan pages, broken links, stale content, missing concepts, cross-article inconsistencies
-- **Render** -- generate Marp slideshows or matplotlib charts from wiki articles
-- **Smart Search caching** -- answers are cached so repeated questions are instant
+- Nodes are your claims. Each dot is one finding from one paper.
+- Edges are the relationships. Evidence, contradictions, extensions.
+- Clusters show you which research themes are emerging naturally from your data.
+- Domains group clusters into big topics. Filter by "Sleep Science" or "AI Foundations" with one click.
+
+You can see at a glance where your research clusters, where it bridges across topics, and where the gaps are.
+
+---
+
+### Step 4: Search and Ask. The Evidence Trail.
+
+When you ask a question, the system does not just give you a paragraph of text. It searches across all claims and graph nodes, gathers connections, synthesizes an answer, and shows you the Evidence Trail. You see the specific source paper and the type badge (finding, contradiction, method) that justifies the answer.
+
+Ask "What destroys deep sleep the most?" and you get a synthesized answer pulling from the caffeine study AND the screen time study AND the stress study, with every claim cited.
+
+**The Compound Effect.** You can "File back to wiki", saving your AI generated answers back into the system to be recompiled. The machine gets smarter with every question you ask.
+
+---
+
+### Step 5: Ideas. From Insights to Action.
+
+The final leap is the most powerful. The system analyzes your research gaps and synthesis opportunities to generate 5 to 10 grounded product concepts.
+
+- **Problem plus Solution.** Directly mapped to research findings.
+- **Evidence Backing.** Every idea includes a link to the specific paper that proves the need.
+- **The Details.** It handles the tagline, target audience, difficulty level, and even the revenue model.
+
+These are not generic startup ideas. They come directly from what your research says is missing, broken, or possible.
+
+---
+
+## What You Get
+
+After running the pipeline on 16 research papers, here is what the system produced:
+
+- 161 atomic claims (genuine insights, not restated sentences)
+- 205 typed connections (supports, contradicts, extends)
+- 9 research clusters (auto detected themes)
+- 4 research domains (high level portals like Wikipedia)
+- 33 evolving entity pages (concepts that grow with each paper)
+- 8 product ideas (grounded in specific findings and gaps)
+- "Did You Know" facts surfacing surprising cross domain connections
+
+Plus a full text search engine, an evidence trail for every answer, a wiki editor, a web clipper, and health checks for finding broken links and orphan pages.
 
 ---
 
 ## What Makes This Different
 
-**vs. Notion/Obsidian** -- Those are note-taking tools. *You* do the organizing. Here, the AI organizes. You just upload papers.
+**vs. Notion or Obsidian.** Those are note taking tools. You do the organizing. Here, the AI organizes. You just upload papers.
 
-**vs. ChatGPT/Claude with uploaded files** -- Those give you a conversation that evaporates. This gives you a persistent, navigable, interlinked knowledge base that grows over time.
+**vs. ChatGPT or Claude with uploaded files.** Those give you a conversation that disappears. This gives you a persistent, navigable, interlinked knowledge base that grows over time.
 
-**vs. Semantic Scholar/Connected Papers** -- Those show citation relationships between papers. This goes deeper -- it finds conceptual relationships between specific *claims*. "Paper A's finding about X provides the mechanism for Paper B's hypothesis about Y."
+**vs. Semantic Scholar or Connected Papers.** Those show citation relationships between papers. This goes deeper. It finds conceptual relationships between specific claims. "Paper A says caffeine blocks adenosine. Paper B says stress also blocks adenosine. Same molecule, different paths."
 
-**vs. RAG pipelines** -- RAG re-discovers knowledge on every query. IdeaForge compiles once and compounds. The knowledge graph is a persistent artifact, not a runtime computation.
+**vs. RAG pipelines.** RAG re discovers knowledge on every query. This tool compiles once and compounds. The knowledge graph is a persistent artifact, not a runtime computation.
 
 ---
 
-## The Tech Stack (For Builders)
+## What You Need to Get Started
 
-If you want to build this yourself:
+To build this, you move beyond simple RAG. You need:
 
-- **Backend**: Python + Flask. Handles LLM calls, file management, search indexing, compilation. All data stored as JSON and markdown files -- no database.
-- **Frontend**: React + TypeScript + Vite + Tailwind CSS. Wikipedia-inspired design. D3.js for the knowledge graph.
-- **LLM**: Claude (Anthropic API) for extraction, connection-finding, clustering, entity generation, and search synthesis. The prompt templates are the core -- they're what make output quality high.
-- **Search**: BM25 over wiki content + graph nodes, with LLM synthesis on top.
-- **Compile**: Incremental. SHA256 tracking. Only new/modified papers get processed.
-- **Deployment**: Runs locally (papers never leave your machine). Optional Vercel deployment for a read-only demo.
+- **Markdown first storage.** For your evolving wiki. All content is JSON and markdown files. No database.
+- **A graph visualization.** D3.js force directed graph to see the 210 typed connections.
+- **An incremental pipeline.** So you are not re processing and paying for the same papers every day. SHA256 hash tracking ensures only new papers get compiled.
+- **An LLM with good prompts.** Claude via the Anthropic API. The prompt templates are the core. They are what make output quality high.
 
 ---
 
@@ -226,34 +210,23 @@ If you want to build this yourself:
 
 The project is open source.
 
-**Live demo**: [llm-knowledge-base-nine.vercel.app](https://llm-knowledge-base-nine.vercel.app) -- browse the compiled wiki, explore the knowledge graph, try cached search answers.
+**Live demo**: [llm-knowledge-base-nine.vercel.app](https://llm-knowledge-base-nine.vercel.app)
 
 **GitHub**: [github.com/jyothivenkat-hub/llm-knowledge-base](https://github.com/jyothivenkat-hub/llm-knowledge-base)
 
 To run the full pipeline with your own papers:
 
 1. Clone the repo
-2. Set your Anthropic API key in `.env`
-3. Drop PDFs/markdown into `raw/papers/` or `raw/articles/`
-4. Start the backend: `kb dashboard --port 8888`
-5. Start the frontend: `cd frontend && npm run dev`
-6. Open http://localhost:3000 -> Sources -> Compile
-7. Watch your personal Wikipedia build itself
-
----
-
-## What I Learned Building This
-
-The connections between papers are more valuable than the papers themselves.
-
-Any individual paper is a snapshot. But when you extract the atomic insights and map the relationships, patterns emerge that no single paper could reveal. Contradictions surface. Gaps become visible. And product ideas -- real, grounded, specific ones -- fall out naturally from the structure.
-
-The future of research isn't reading more papers. It's building better structures to hold what we've already read.
+2. Set your Anthropic API key
+3. Drop PDFs into the raw folder
+4. Start the backend and frontend
+5. Go to Sources. Scan. Compile.
+6. Watch your personal Wikipedia build itself.
 
 **Compile once. Compound forever.**
 
 ---
 
-*Inspired by Andrej Karpathy's LLM Knowledge Base. Deep dive into his original approach [here].*
+*Inspired by Andrej Karpathy's LLM Knowledge Base concept.*
 
-*If this was useful, subscribe for more deep dives on building AI-powered knowledge systems.*
+*If this was useful, subscribe for more deep dives on building AI powered knowledge systems.*

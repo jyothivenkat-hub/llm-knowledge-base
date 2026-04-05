@@ -4355,6 +4355,57 @@
   ],
   "product_ideas": [
     {
+      "id": "sleep-score-app",
+      "name": "SleepScore",
+      "tagline": "A daily score that tells you exactly why you slept badly last night.",
+      "problem": "People know they slept poorly but not why. Was it the 3pm coffee? The phone scrolling? The work stress? Our research shows caffeine at 2pm still steals 1 hour of deep sleep, 2 hours of screen time cuts melatonin by 55%, and stress triggers a chain through rumination to phone use to blue light. But nobody tracks all three together.",
+      "solution": "A simple app that asks 4 questions each morning (caffeine time, screen time, stress level, exercise) and gives you a score predicting tonight sleep quality. Uses the dose response curves from the caffeine study and the melatonin suppression data from the blue light study to make specific, personalized recommendations.",
+      "target_audience": "College students, remote workers, anyone who says I just cant sleep",
+      "difficulty": "low",
+      "novelty": "incremental",
+      "revenue_model": "Freemium app with premium coaching tier",
+      "evidence": [
+        "400mg caffeine consumed 4 hours before bedtime reduces total sleep time by 50.6 minutes",
+        "Two hours of phone time before bed cuts melatonin by 55%",
+        "Stress affects sleep through at least five distinct mediation pathways",
+        "Exercise 4 times per week is the most effective frequency for improving sleep quality"
+      ]
+    },
+    {
+      "id": "combined-sleep-protocol-study",
+      "name": "The Combined Protocol Study",
+      "tagline": "The research paper nobody has written yet: what happens when you fix caffeine, screens, exercise, and stress at the same time?",
+      "problem": "Every sleep study tests one factor in isolation. The caffeine study tested caffeine alone. The screen study tested screens alone. The exercise study tested exercise alone. No study has ever tested the combined effect of morning exercise plus afternoon caffeine cutoff plus evening screen limit plus stress management. Our system flagged this as the biggest gap across all 6 sleep papers.",
+      "solution": "Design and publish an RCT with 4 arms: (1) control, (2) single intervention, (3) two interventions, (4) all four interventions combined. Measure with polysomnography. Hypothesis: the combined protocol will show multiplicative, not additive, effects because all four factors converge on the same melatonin and adenosine pathways.",
+      "target_audience": "Sleep researchers, university labs, public health departments",
+      "difficulty": "high",
+      "novelty": "significant",
+      "revenue_model": "Research grant funding, followed by clinical protocol licensing",
+      "evidence": [
+        "All five studies looked at sleep factors one at a time. No study tested combinations.",
+        "Caffeine and stress both target adenosine through different pathways",
+        "Exercise improves sleep through multiple pathways: endorphins, adenosine, and body temperature",
+        "Blue light and caffeine both suppress melatonin through independent mechanisms"
+      ]
+    },
+    {
+      "id": "sleep-cost-calculator",
+      "name": "The Sleep Tax Calculator",
+      "tagline": "Show companies exactly how much bad employee sleep is costing them in dollars.",
+      "problem": "Companies spend millions on productivity tools but ignore that their employees are sleeping badly. Our research shows sleep restriction cuts critical thinking by 17%, working memory by 13%, and learning ability by nearly 50%. Each additional hour of sleep improves GPA by 0.07 points. Translate that to workplace performance and the numbers are staggering.",
+      "solution": "A marketing tool and landing page where companies input their team size and average sleep hours. The calculator uses the exact numbers from the cognitive performance research to output: hours of productivity lost per week, equivalent salary wasted, and comparison to what a corporate sleep program would cost. Lead generation for sleep consulting or wellness programs.",
+      "target_audience": "HR directors, corporate wellness buyers, sleep product companies",
+      "difficulty": "low",
+      "novelty": "incremental",
+      "revenue_model": "Lead generation tool for B2B sleep wellness sales",
+      "evidence": [
+        "Sleep restriction cuts critical thinking by 17% and working memory by 13%",
+        "Learning and memory consolidation show a nearly 50% decrement with disrupted sleep",
+        "Each additional hour of sleep correlates with GPA improvements of nearly 0.07 points",
+        "Over 40% of adults report sleeping fewer than 7 hours nightly"
+      ]
+    },
+    {
       "name": "NeuroAlign Studio",
       "tagline": "Debug and optimize LLM behavior by visualizing alignment with human brain processing patterns.",
       "problem": "Current LLM interpretability methods lack grounding in neuroscience. The research shows that intermediate LLM layers correlate with specific brain regions and processing stages, but practitioners have no tools to leverage this insight. This creates a gap between neuroscience findings and practical model development.",
