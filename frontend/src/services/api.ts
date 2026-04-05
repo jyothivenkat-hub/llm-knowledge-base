@@ -85,6 +85,8 @@ export async function loadState(): Promise<AppState> {
     links,
     isProcessing: false,
     mode: mode.demo ? 'demo' : 'full',
+    model: mode.model || 'Unknown',
+    backendConnected: true,
   };
 }
 

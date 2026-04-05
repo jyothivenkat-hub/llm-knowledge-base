@@ -8,5 +8,7 @@ export const mockData: AppState = {
   ideas: [],
   links: [],
   isProcessing: false,
-  mode: 'demo'
+  mode: 'demo',
+  model: 'Unavailable',
+  backendConnected: false,
 };

@@ -5,7 +5,7 @@ import {
   Cpu,
   LayoutDashboard,
   MessageSquare,
-  Clock3,
+  RefreshCw,
 } from 'lucide-react';
 import { AppState, ResearchSource } from './types';
 import { mockData } from './mockData';
@@ -23,6 +23,7 @@ export default function App() {
   const [state, setState] = useState<AppState>(mockData);
   const [activeView, setActiveView] = useState<View>('wiki');
   const [compileLog, setCompileLog] = useState<string[]>([]);
+  const [globalSearch, setGlobalSearch] = useState('');
 
   // Load real data from Flask backend on mount
   useEffect(() => {
@@ -57,6 +58,20 @@ export default function App() {
     }));
   };
 
+  const refreshState = async () => {
+    try {
+      const data = await loadState();
+      setState(prev => ({ ...data, isProcessing: prev.isProcessing }));
+    } catch {
+      console.log('Refresh skipped — backend not available');
+    }
+  };
+
+  const runGlobalSearch = () => {
+    if (!globalSearch.trim()) return;
+    setActiveView('chat');
+  };
+
   return (
     <div className="flex flex-col h-screen bg-white font-sans text-[#202122] overflow-hidden">
       {/* Header */}
@@ -75,10 +90,13 @@ export default function App() {
           <div className="flex w-full max-w-2xl">
             <input
               type="text"
+              value={globalSearch}
+              onChange={(e) => setGlobalSearch(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && runGlobalSearch()}
               placeholder="Search Jyothipedia"
               className="flex-1 border border-[#a2a9b1] px-3 py-1.5 text-sm focus:outline-none focus:border-[#3366cc] focus:ring-1 focus:ring-[#3366cc]"
             />
-            <button className="bg-[#f8f9fa] border border-[#a2a9b1] border-l-0 px-4 py-1.5 text-sm font-bold hover:bg-white transition-colors">
+            <button onClick={runGlobalSearch} className="bg-[#f8f9fa] border border-[#a2a9b1] border-l-0 px-4 py-1.5 text-sm font-bold hover:bg-white transition-colors">
               Search
             </button>
           </div>
@@ -114,16 +132,15 @@ export default function App() {
           <SidebarSection title="Navigation">
             <SidebarLink label="Main page" active={activeView === 'wiki'} onClick={() => setActiveView('wiki')} />
             <SidebarLink label="Sources" active={activeView === 'research'} onClick={() => setActiveView('research')} />
-            <SidebarLink label="All claims" onClick={() => setActiveView('wiki')} />
+            <SidebarLink label="All claims" onClick={() => setActiveView('graph')} />
             <SidebarLink label="Search" active={activeView === 'chat'} onClick={() => setActiveView('chat')} />
-            <SidebarLink label="Checkpoints" icon={<Clock3 className="w-3 h-3" />} />
           </SidebarSection>
 
           <SidebarSection title="Tools">
             <SidebarLink label="Compile" icon={<Cpu className="w-3 h-3" />} onClick={handleCompile} disabled={state.isProcessing} />
             <SidebarLink label="Add sources" icon={<Plus className="w-3 h-3" />} onClick={() => setActiveView('research')} />
-            <SidebarLink label="Save Checkpoint" icon={<Plus className="w-3 h-3" />} />
             <SidebarLink label="Ask question" icon={<MessageSquare className="w-3 h-3" />} onClick={() => setActiveView('chat')} />
+            <SidebarLink label="Refresh" icon={<RefreshCw className="w-3 h-3" />} onClick={refreshState} />
             <SidebarLink label="Dashboard" icon={<LayoutDashboard className="w-3 h-3" />} onClick={() => window.open('/','_blank')} />
           </SidebarSection>
 
@@ -134,7 +151,20 @@ export default function App() {
             )}>
               <span className="font-bold uppercase tracking-widest opacity-70 mb-1">Mode</span>
               <span className="font-medium">{state.mode === 'demo' ? 'Demo Mode' : 'Full Mode'}</span>
+              <span className="mt-1 opacity-80 break-all">{state.backendConnected ? state.model : 'Backend unavailable'}</span>
             </div>
+            {compileLog.length > 0 && (
+              <div className="mt-3 bg-white border border-[#c8ccd1] rounded p-2 text-[11px] space-y-1">
+                {compileLog.slice(-4).map((line, idx) => (
+                  <div key={`${line}-${idx}`} className="text-[#54595d]">{line}</div>
+                ))}
+              </div>
+            )}
+            {!state.backendConnected && (
+              <div className="mt-3 text-[11px] text-[#8b5e00] bg-[#fff8e1] border border-[#f1d37a] rounded p-2">
+                This shell needs the Flask API to enable compile, ingest, and graph-backed answers.
+              </div>
+            )}
           </div>
         </aside>
 
@@ -153,7 +183,7 @@ export default function App() {
               {activeView === 'graph' && <GraphView state={state} />}
               {activeView === 'ideas' && <IdeasView state={state} />}
               {activeView === 'research' && <ResearchView state={state} onAdd={addSource} />}
-              {activeView === 'chat' && <ChatView state={state} />}
+              {activeView === 'chat' && <ChatView state={state} initialQuery={globalSearch} />}
             </motion.div>
           </AnimatePresence>
 

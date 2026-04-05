@@ -54,4 +54,6 @@ export type AppState = {
   links: GraphLink[];
   isProcessing: boolean;
   mode: 'demo' | 'full';
+  model: string;
+  backendConnected: boolean;
 };

@@ -11,7 +11,7 @@ type Message = {
   evidence?: any[];
 };
 
-export default function ChatView({ state }: { state: AppState }) {
+export default function ChatView({ state, initialQuery = '' }: { state: AppState, initialQuery?: string }) {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
@@ -27,6 +27,12 @@ export default function ChatView({ state }: { state: AppState }) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [messages]);
+
+  useEffect(() => {
+    if (initialQuery) {
+      setInput(initialQuery);
+    }
+  }, [initialQuery]);
 
   const handleSend = async () => {
     if (!input.trim() || isLoading) return;

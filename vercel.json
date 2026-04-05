@@ -6,18 +6,24 @@
       "use": "@vercel/python"
     },
     {
-      "src": "src/dashboard/static/**",
-      "use": "@vercel/static"
+      "src": "frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
     }
   ],
   "routes": [
     {
-      "src": "/static/(.*)",
-      "dest": "src/dashboard/static/$1"
+      "src": "/api/(.*)",
+      "dest": "api/index.py"
+    },
+    {
+      "handle": "filesystem"
     },
     {
       "src": "/(.*)",
-      "dest": "api/index.py"
+      "dest": "/frontend/index.html"
     }
   ]
 }
