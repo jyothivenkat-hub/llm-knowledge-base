@@ -121,6 +121,39 @@ def create_app(config: Optional[Config] = None) -> Flask:
                                 "path": str(f.relative_to(config.vault_path))})
         return render_template("qa.html", active="qa", history=history)
 
+    @app.route("/research")
+    def research_page():
+        from ..ingest.manifest import Manifest
+        manifest = Manifest(config.raw_path / "_manifest.yaml")
+        entries = manifest.all_entries()
+        return render_template("research.html", active="research", entries=entries)
+
+    @app.route("/explore")
+    def explore_page():
+        has_graph = config.graph_path.exists()
+        papers = []
+        if has_graph:
+            graph = json.loads(config.graph_path.read_text(encoding="utf-8"))
+            graph_nodes = graph.get("nodes", [])
+            from ..ingest.manifest import Manifest
+            manifest = Manifest(config.raw_path / "_manifest.yaml")
+            for entry in manifest.all_entries():
+                claim_count = sum(1 for n in graph_nodes if entry.path in n.get("source_paper", ""))
+                source_type = "PDF" if entry.path.endswith(".pdf") else "Article"
+                slug_name = entry.path.split("/")[-1].rsplit(".", 1)[0]
+                wiki_source = None
+                for f in (config.wiki_path / "sources").glob("*.md"):
+                    if slug_name.lower() in f.stem.lower():
+                        wiki_source = str(f.relative_to(config.wiki_path))
+                        break
+                papers.append({
+                    "title": entry.title,
+                    "path": wiki_source or f"sources/{slug_name}.md",
+                    "claim_count": claim_count,
+                    "source_type": source_type,
+                })
+        return render_template("explore.html", active="explore", has_graph=has_graph, papers=papers)
+
     @app.route("/search")
     def search_page():
         return render_template("search.html", active="search")
