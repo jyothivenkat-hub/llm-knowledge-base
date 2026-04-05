@@ -693,6 +693,45 @@ def create_app(config: Optional[Config] = None) -> Flask:
             "built_at": built_at,
         })
 
+    @app.route("/api/wiki-articles")
+    def api_wiki_articles():
+        """List all wiki source articles with their content."""
+        import frontmatter as fm
+
+        sources_dir = config.wiki_path / "sources"
+        articles = []
+        if sources_dir.exists():
+            for f in sorted(sources_dir.glob("*.md")):
+                if f.name.startswith("_"):
+                    continue
+                raw = f.read_text(encoding="utf-8")
+                try:
+                    post = fm.loads(raw)
+                    meta = post.metadata
+                    body = post.content
+                except Exception:
+                    meta = {}
+                    body = raw
+
+                # Convert [[wikilinks]] to data attributes for React
+                import re
+                body = re.sub(
+                    r"\[\[([^\]|]+?)(?:\|([^\]]+?))?\]\]",
+                    lambda m: f'<a data-wikilink="{m.group(1)}">{m.group(2) or m.group(1)}</a>',
+                    body,
+                )
+
+                articles.append({
+                    "slug": f.stem,
+                    "title": meta.get("title", f.stem.replace("-", " ").title()),
+                    "source_url": meta.get("source_url", ""),
+                    "concepts": meta.get("concepts", []),
+                    "content_md": body,
+                    "content_html": render_md(body) if render_md else body,
+                })
+
+        return jsonify({"articles": articles})
+
     @app.route("/raw/<path:filepath>")
     def serve_raw(filepath):
         """Serve raw source files (PDFs, markdown) for viewing."""
