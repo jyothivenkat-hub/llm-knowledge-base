@@ -2,11 +2,6 @@
   "version": 2,
   "buildCommand": "cd frontend && npm install && npm run build",
   "outputDirectory": "frontend/dist",
-  "functions": {
-    "api/index.py": {
-      "runtime": "@vercel/python@4.6.2"
-    }
-  },
   "routes": [
     {
       "src": "/api/(.*)",
