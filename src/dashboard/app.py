@@ -796,7 +796,19 @@ def create_app(config: Optional[Config] = None) -> Flask:
 
                     # Step 1: BM25 search for relevant claims
                     engine = SearchEngine(config)
-                    results = engine.search(question, top_k=20)
+                    raw_results = engine.search(question, top_k=30)
+
+                    # Filter out metadata files — only keep graph nodes and actual content
+                    results = [r for r in raw_results if r.get("type") == "graph_node" or (
+                        not r.get("path", "").startswith("_") and
+                        "/_index" not in r.get("path", "") and
+                        "/log" not in r.get("path", "") and
+                        r.get("path", "") != "_index.md" and
+                        r.get("path", "") != "_summary.md"
+                    )]
+                    # Boost graph nodes to the top
+                    results.sort(key=lambda r: (0 if r.get("type") == "graph_node" else 1, -r.get("score", 0)))
+                    results = results[:20]
                     queue.put({"message": f"Found {len(results)} relevant claims"})
 
                     # Step 2: Load graph for connections

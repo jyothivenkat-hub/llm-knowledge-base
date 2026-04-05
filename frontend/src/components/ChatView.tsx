@@ -15,7 +15,7 @@ export default function ChatView({ state, initialQuery = '' }: { state: AppState
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
-      content: "Hello! I'm your research assistant. Ask me anything about your wiki and knowledge graph, and I'll synthesize an answer with evidence trails."
+      content: "Ask me anything about your research. I'll search across all papers, find relevant claims, and synthesize an answer.\n\nTry: **How do transformer layers map to brain regions?** or **What does FlashAttention do differently?**"
     }
   ]);
   const [input, setInput] = useState('');
