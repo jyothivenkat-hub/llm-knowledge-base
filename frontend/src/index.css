@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Georgia", "Times New Roman", serif;
+}
+
+@layer base {
+  body {
+    @apply bg-[#f6f6f6] text-[#202122];
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-[#f6f6f6];
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-[#c8ccd1] rounded-full hover:bg-[#a2a9b1] transition-colors;
+  }
+
+  a, .wiki-link {
+    @apply text-[#0645ad] hover:underline cursor-pointer;
+  }
+
+  .prose-wiki {
+    @apply text-[#202122] leading-[1.6] font-sans;
+  }
+  .prose-wiki h1 {
+    @apply text-[1.8em] font-serif border-b border-[#a2a9b1] pb-1 mb-4 mt-0;
+  }
+  .prose-wiki h2 {
+    @apply text-[1.5em] font-serif border-b border-[#a2a9b1] pb-1 mb-3 mt-6;
+  }
+  .prose-wiki h3 {
+    @apply text-[1.2em] font-bold mb-2 mt-4;
+  }
+  .prose-wiki p {
+    @apply mb-4;
+  }
+}
