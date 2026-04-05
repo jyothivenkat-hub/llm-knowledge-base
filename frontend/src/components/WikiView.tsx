@@ -123,26 +123,41 @@ export default function WikiView({ state }: { state: AppState }) {
           </p>
         </div>
 
-        {/* Featured article */}
-        {articles.length > 0 && (
-          <Section title="Featured article" tone="green">
-            <div className="flex gap-6">
-              <div className="flex-1">
-                <h3 className="text-[18px] font-serif font-bold mb-2">
-                  <button onClick={() => setSelectedArticle(articles[0])} className="text-[#0645ad] hover:underline text-left">
-                    {articles[0].title}
-                  </button>
-                </h3>
-                <div className="text-[14px] leading-7 text-[#202122]" dangerouslySetInnerHTML={{
-                  __html: articles[0].content_html.split('</p>').slice(0, 2).join('</p>') + '</p>'
-                }} />
-                <button onClick={() => setSelectedArticle(articles[0])} className="text-[13px] text-[#0645ad] hover:underline mt-2 inline-block">
-                  Read full article →
+        {/* Featured research area */}
+        {pageData && pageData.cluster_sections.length > 0 && (() => {
+          // Pick the biggest cluster as featured
+          const featured = [...pageData.cluster_sections].filter(c => c.id !== 'other').sort((a, b) => b.total_claims - a.total_claims)[0];
+          // Featured article — prefer the brain/LLM paper
+          const featuredArticle = articles.find(a => a.title.toLowerCase().includes('brain') || a.title.toLowerCase().includes('fmri')) || articles[0];
+          return (
+          <Section title={`Featured: ${featured.label}`} tone="green">
+            <div className="flex-1 space-y-3">
+              <p className="text-[14px] leading-7 text-[#202122] italic">{featured.description}</p>
+              <p className="text-[12px] text-[#54595d]">{featured.total_claims} claims across multiple papers</p>
+
+              {featured.key_findings.length > 0 && (
+                <div>
+                  <h4 className="text-[12px] font-bold text-[#54595d] uppercase tracking-wider mb-2">Key findings</h4>
+                  <ul className="list-disc pl-5 space-y-1.5 text-[14px] leading-7">
+                    {featured.key_findings.slice(0, 3).map((f: any, i: number) => (
+                      <li key={i}>
+                        {f.text}
+                        {f.source_title && <sup className="text-[#0645ad] ml-1">[{f.source_title.substring(0, 20)}]</sup>}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {featuredArticle && (
+                <button onClick={() => setSelectedArticle(featuredArticle)} className="text-[13px] text-[#0645ad] hover:underline mt-2 inline-block">
+                  Read related article: {featuredArticle.title} →
                 </button>
-              </div>
+              )}
             </div>
           </Section>
-        )}
+          );
+        })()}
 
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-3 mt-3">
 
