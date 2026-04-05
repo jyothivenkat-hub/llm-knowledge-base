@@ -187,7 +187,7 @@ export default function App() {
           <Tab label="Main Page" active={activeView === 'wiki'} onClick={() => navigateTo('wiki')} />
           <Tab label="Knowledge Graph" active={activeView === 'graph'} onClick={() => navigateTo('graph')} />
           <Tab label="Search" active={activeView === 'chat'} onClick={() => navigateTo('chat')} />
-          <Tab label="Research Ideas" active={activeView === 'ideas'} onClick={() => navigateTo('ideas')} />
+          <Tab label="Ideas" active={activeView === 'ideas'} onClick={() => navigateTo('ideas')} />
           <Tab label="Sources" active={activeView === 'research'} onClick={() => navigateTo('research')} />
         </div>
       </div>
